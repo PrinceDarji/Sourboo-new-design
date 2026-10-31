@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 3400" width="1440" height="3400">
+  <title>Artboard - Desktop Shop Collection (1440px)</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Desktop_Shop_1440x3400">
+    <rect width="1440" height="3400" fill="#E9ECD9" />
+
+    <g id="Shop_Header" transform="translate(64, 100)">
+      <text x="656" y="60" text-anchor="middle" fill="#171717" font-size="64" class="text-coolvetica">ALL SOUR, ZERO CHILL</text>
+      <text x="656" y="100" text-anchor="middle" fill="#4C8B1D" font-size="24" class="text-schoolbell">crunchy snackable pickled gherkins made for loud cravings</text>
+    </g>
+
+    <!-- 6 Product Cards Grid -->
+    <g id="Shop_Product_Grid" transform="translate(64, 260)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ side-eye.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">SIDE EYE SOUR</text>
+        <text x="24" y="350" fill="#4C8B1D" font-size="15" class="text-schoolbell">Lemon & Chaat Masala • ₹399</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+      <!-- Card 2 -->
+      <g transform="translate(450, 0)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ tamarin-tease.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">TAMARIN’ TEASE</text>
+        <text x="24" y="350" fill="#C96A00" font-size="15" class="text-schoolbell">Tamarind & Chilli • ₹399</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+      <!-- Card 3 -->
+      <g transform="translate(900, 0)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ tamarind-twins.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">TAMARIND TWINS</text>
+        <text x="24" y="350" fill="#C96A00" font-size="15" class="text-schoolbell">2 × Tamarin' Tease • ₹719</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+      <!-- Row 2 -->
+      <g transform="translate(0, 460)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ lemon-lovers.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">LEMON LOVERS</text>
+        <text x="24" y="350" fill="#4C8B1D" font-size="15" class="text-schoolbell">2 × Side Eye Sour • ₹729</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+      <g transform="translate(450, 460)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ sour-sampler.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">SOUR SAMPLER</text>
+        <text x="24" y="350" fill="#E61E6E" font-size="15" class="text-schoolbell">1 Side Eye + 1 Tamarin • ₹729</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+      <g transform="translate(900, 460)">
+        <rect width="410" height="420" rx="20" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="205" y="180" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ sourboo-stash.webp ]</text>
+        <text x="24" y="320" fill="#171717" font-size="24" class="text-coolvetica">SOURBOO STASH</text>
+        <text x="24" y="350" fill="#E61E6E" font-size="15" class="text-schoolbell">4-Jar Ultimate Pack • ₹1299</text>
+        <rect x="24" y="370" width="362" height="36" rx="18" fill="#E61E6E" />
+        <text x="205" y="393" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">CLAIM STASH +</text>
+      </g>
+    </g>
+
+    <!-- Flavour Matcher Interactive Frame -->
+    <g id="Shop_Flavor_Matcher" transform="translate(0, 1260)">
+      <rect width="1440" height="600" fill="#FFFF88" class="stroke-charcoal-thick" />
+      <text x="720" y="60" text-anchor="middle" fill="#E61E6E" font-size="44" class="text-coolvetica">CAN'T DECIDE?</text>
+      <text x="720" y="95" text-anchor="middle" fill="#171717" font-size="24" class="text-schoolbell">let's match you with your flavour ;)</text>
+      <g transform="translate(220, 140)">
+        <rect width="460" height="380" rx="24" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="230" y="140" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ player1.svg • Khatta Champion ]</text>
+        <text x="230" y="240" text-anchor="middle" fill="#4C8B1D" font-size="22" class="text-coolvetica">LOCKED: SIDE EYE SOUR</text>
+        <text x="230" y="270" text-anchor="middle" fill="#555555" font-size="15" class="text-schoolbell">Spice 82% • Sour 100% • Crunch 68%</text>
+      </g>
+      <g transform="translate(760, 140)">
+        <rect width="460" height="380" rx="24" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="230" y="140" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">[ player2.svg • Imli Teaser ]</text>
+        <text x="230" y="240" text-anchor="middle" fill="#C96A00" font-size="22" class="text-coolvetica">LOCKED: TAMARIN’ TEASE</text>
+        <text x="230" y="270" text-anchor="middle" fill="#555555" font-size="15" class="text-schoolbell">Spice 84% • Tang 100% • Hit 84%</text>
+      </g>
+    </g>
+  </g>
+</svg>

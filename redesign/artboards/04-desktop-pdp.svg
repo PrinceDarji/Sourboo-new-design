@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 3600" width="1440" height="3600">
+  <title>Artboard - Desktop PDP (1440px)</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Desktop_PDP_1440x3600">
+    <rect width="1440" height="3600" fill="#E9ECD9" />
+
+    <!-- PDP Split Layout -->
+    <g id="PDP_Split_Main" transform="translate(64, 120)">
+      <!-- Left Gallery -->
+      <g id="PDP_Gallery">
+        <rect width="620" height="580" rx="24" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard" />
+        <text x="310" y="290" text-anchor="middle" fill="#171717" font-size="24" class="text-coolvetica">[ side-eye.webp • Crinkle Cut Jar ]</text>
+        <g transform="translate(0, 600)">
+          <rect x="0" y="0" width="80" height="80" rx="10" fill="#FFFFFF" class="stroke-charcoal" />
+          <rect x="100" y="0" width="80" height="80" rx="10" fill="#FFFFFF" class="stroke-charcoal" />
+          <rect x="200" y="0" width="80" height="80" rx="10" fill="#FFFFFF" class="stroke-charcoal" />
+        </g>
+      </g>
+      <!-- Right Info & Folder Tabs -->
+      <g id="PDP_Info" transform="translate(680, 0)">
+        <text x="0" y="40" fill="#4C8B1D" font-size="14" class="text-coolvetica" letter-spacing="1">SNACKABLE PICKLED GHERKINS</text>
+        <text x="0" y="90" fill="#171717" font-size="54" class="text-coolvetica">SIDE EYE SOUR</text>
+        <text x="0" y="140" fill="#E61E6E" font-size="36" class="text-coolvetica">₹399</text>
+        <text x="0" y="180" fill="#555555" font-size="16" class="text-schoolbell">Lemon & Chaat Masala • Net wt. 350g</text>
+
+        <!-- Pre-order SLA notice -->
+        <g transform="translate(0, 220)">
+          <rect width="600" height="50" rx="8" fill="#FFF9C4" stroke="#4C8B1D" stroke-width="2" />
+          <text x="20" y="32" fill="#171717" font-size="14" class="text-coolvetica">
+            ★ Pre-orders only. Dispatched within 2-4 working days. Delivery timelines vary by location.
+          </text>
+        </g>
+
+        <!-- Add to cart row -->
+        <g transform="translate(0, 300)">
+          <rect width="120" height="54" rx="27" fill="#FFFFFF" class="stroke-charcoal" />
+          <text x="60" y="34" text-anchor="middle" fill="#171717" font-size="18" class="text-coolvetica">-  1  +</text>
+          <rect x="140" y="0" width="460" height="54" rx="27" fill="#E61E6E" class="stroke-charcoal shadow-hard" />
+          <text x="370" y="34" text-anchor="middle" fill="#FFFFFF" font-size="20" class="text-schoolbell">Add to Cart →</text>
+        </g>
+
+        <!-- 3 Handwritten Physical Folder Tabs -->
+        <g id="PDP_Folder_Tabs" transform="translate(0, 400)">
+          <!-- Tabs Header -->
+          <rect x="0" y="0" width="160" height="42" rx="12 12 0 0" fill="#FFFF88" class="stroke-charcoal" />
+          <text x="80" y="27" text-anchor="middle" fill="#171717" font-size="16" class="text-schoolbell">In the jar</text>
+          <rect x="170" y="0" width="160" height="42" rx="12 12 0 0" fill="#E9ECD9" class="stroke-charcoal" />
+          <text x="250" y="27" text-anchor="middle" fill="#171717" font-size="16" class="text-schoolbell">On the tongue</text>
+          <rect x="340" y="0" width="160" height="42" rx="12 12 0 0" fill="#E9ECD9" class="stroke-charcoal" />
+          <text x="420" y="27" text-anchor="middle" fill="#171717" font-size="16" class="text-schoolbell">After opening</text>
+
+          <!-- Tab Content Panel -->
+          <rect x="0" y="40" width="600" height="260" rx="0 16 16 16" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+          <text x="24" y="80" fill="#4C8B1D" font-size="20" class="text-coolvetica">Net Wt. 350g (Drained: 180g)</text>
+          <text x="24" y="120" fill="#171717" font-size="15" class="text-schoolbell">Ingredients: Gherkins, Lemon slices, Rock salt, Chaat masala,</text>
+          <text x="24" y="145" fill="#171717" font-size="15" class="text-schoolbell">Whole red chilli, Mustard seeds, Vinegar, Mineral salt.</text>
+          <text x="24" y="190" fill="#555555" font-size="14" class="text-schoolbell">100% vegetarian. Zero added artificial colors or preservatives.</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

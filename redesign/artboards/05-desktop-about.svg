@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 3200" width="1440" height="3200">
+  <title>Artboard - Sakshi's Diary (1440px)</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Desktop_About_1440x3200">
+    <rect width="1440" height="3200" fill="#E9ECD9" />
+
+    <g id="About_Cover_Feature" transform="translate(64, 120)">
+      <g id="Founder_Portrait">
+        <rect width="520" height="640" rx="20" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" transform="rotate(-1.5, 260, 320)" />
+        <rect x="14" y="14" width="492" height="612" rx="12" fill="#E8DEC8" transform="rotate(-1.5, 260, 320)" />
+        <text x="260" y="320" text-anchor="middle" fill="#171717" font-size="22" class="text-coolvetica" transform="rotate(-1.5, 260, 320)">[ about-cover.JPG • Sakshi ]</text>
+        <rect x="420" y="-10" width="90" height="30" fill="#FFFF88" opacity="0.8" transform="rotate(15)" />
+      </g>
+      <g id="Founder_Letter" transform="translate(580, 40)">
+        <text x="0" y="30" fill="#4C8B1D" font-size="14" class="text-coolvetica" letter-spacing="1">FOUNDER NOTEBOOK // OCTOBER 2026</text>
+        <text x="0" y="90" fill="#E61E6E" font-size="64" class="text-coolvetica">HI I AM SAKSHI,</text>
+        <text x="0" y="140" fill="#4C8B1D" font-size="34" class="text-schoolbell">and i am really glad you are here</text>
+        <text x="0" y="210" fill="#171717" font-size="20" class="text-schoolbell">if u are here, i am assuming you like sour or curious enough to try it.</text>
+        <text x="0" y="245" fill="#171717" font-size="20" class="text-schoolbell">I spent 5 years around food and drinks from london bar shifts to a 9-5 desk job,</text>
+        <text x="0" y="280" fill="#171717" font-size="20" class="text-schoolbell">always obsessing over why sour was treated like a side.</text>
+        <g transform="translate(0, 340)">
+          <rect width="200" height="48" rx="8" fill="#FFFF88" class="stroke-charcoal" />
+          <text x="100" y="32" text-anchor="middle" fill="#E61E6E" font-size="24" class="text-schoolbell">xx - Sakshi</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Tongue Flavor Map -->
+    <g id="Tongue_Flavor_Map" transform="translate(64, 880)">
+      <text x="656" y="40" text-anchor="middle" fill="#4C8B1D" font-size="44" class="text-coolvetica">DIFFERENT LIVES, SAME CRAVINGS</text>
+      <rect x="220" y="80" width="872" height="420" rx="24" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+      <text x="656" y="280" text-anchor="middle" fill="#171717" font-size="22" class="text-coolvetica">[ section-three-tongue.svg • India Loves Chaat ]</text>
+    </g>
+  </g>
+</svg>

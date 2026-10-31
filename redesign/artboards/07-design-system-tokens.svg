@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 2200" width="1440" height="2200">
+  <title>Artboard - Design System & Tokens</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Design_System_Tokens">
+    <rect width="1440" height="2200" fill="#E9ECD9" />
+
+    <text x="64" y="80" fill="#171717" font-size="48" class="text-coolvetica">SOURBOO DESIGN SYSTEM &amp; TOKENS</text>
+    <text x="64" y="115" fill="#4C8B1D" font-size="20" class="text-schoolbell">Concept A: Editorial Chaos / Snack Diary • Specification</text>
+
+    <!-- 8 Color Tokens -->
+    <g id="Tokens_Colors" transform="translate(64, 160)">
+      <text x="0" y="30" fill="#171717" font-size="24" class="text-coolvetica">1. THE 8 CORE COLOR TOKENS</text>
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="140" height="140" rx="16" fill="#E9ECD9" class="stroke-charcoal" />
+        <text x="70" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Sage Cream</text>
+        <text x="70" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#E9ECD9</text>
+
+        <rect x="160" y="0" width="140" height="140" rx="16" fill="#E61E6E" class="stroke-charcoal" />
+        <text x="230" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Sourboo Pink</text>
+        <text x="230" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#E61E6E</text>
+
+        <rect x="320" y="0" width="140" height="140" rx="16" fill="#4C8B1D" class="stroke-charcoal" />
+        <text x="390" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Pickle Green</text>
+        <text x="390" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#4C8B1D</text>
+
+        <rect x="480" y="0" width="140" height="140" rx="16" fill="#BFEA5A" class="stroke-charcoal" />
+        <text x="550" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Electric Lime</text>
+        <text x="550" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#BFEA5A</text>
+
+        <rect x="640" y="0" width="140" height="140" rx="16" fill="#FFFF88" class="stroke-charcoal" />
+        <text x="710" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Acid Yellow</text>
+        <text x="710" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#FFFF88</text>
+
+        <rect x="800" y="0" width="140" height="140" rx="16" fill="#C96A00" class="stroke-charcoal" />
+        <text x="870" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Tamarind Amber</text>
+        <text x="870" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#C96A00</text>
+
+        <rect x="960" y="0" width="140" height="140" rx="16" fill="#171717" class="stroke-charcoal" />
+        <text x="1030" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Charcoal</text>
+        <text x="1030" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#171717</text>
+
+        <rect x="1120" y="0" width="140" height="140" rx="16" fill="#EEDDEB" class="stroke-charcoal" />
+        <text x="1190" y="170" text-anchor="middle" fill="#171717" font-size="14" class="text-coolvetica">Popup Lilac</text>
+        <text x="1190" y="190" text-anchor="middle" fill="#555555" font-size="12" class="text-coolvetica">#EEDDEB</text>
+      </g>
+    </g>
+
+    <!-- Typography Scales -->
+    <g id="Tokens_Typography" transform="translate(64, 460)">
+      <text x="0" y="30" fill="#171717" font-size="24" class="text-coolvetica">2. TYPOGRAPHY SYSTEM (LOCAL TTF FONTS)</text>
+      <text x="0" y="80" fill="#171717" font-size="44" class="text-coolvetica">Coolvetica: DISPLAY &amp; HEADINGS • CRAVINGS COME FIRST</text>
+      <text x="0" y="130" fill="#E61E6E" font-size="40" class="text-rascal">Rascal: Quirky Expressive Titles • sweet but psycho</text>
+      <text x="0" y="180" fill="#4C8B1D" font-size="28" class="text-schoolbell">Schoolbell: Hand-drawn Marginalia &amp; Tasting Prose • mouth wants to misbehave ¬‿¬</text>
+    </g>
+  </g>
+</svg>

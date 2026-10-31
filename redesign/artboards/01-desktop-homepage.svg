@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 6200" width="1440" height="6200">
+  <title>Artboard - Desktop Homepage (1440px)</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Desktop_Homepage_1440x6200">
+    <rect width="1440" height="6200" fill="#E9ECD9" />
+
+    <!-- Top Dateline Ticker -->
+    <rect x="0" y="0" width="1440" height="40" fill="#171717" />
+    <text x="720" y="26" text-anchor="middle" fill="#BFEA5A" font-size="14" class="text-coolvetica" letter-spacing="1">
+      SOURBOO SNACK DIARY • VOL. 02 • OCTOBER 2026 • FOR MISBEHAVING MOUTHS EVERYWHERE
+    </text>
+
+    <!-- Floating Nav Bar -->
+    <g id="Navbar_Desktop" transform="translate(40, 60)">
+      <rect width="1360" height="76" rx="24" fill="#E9ECD9" class="stroke-charcoal shadow-hard" />
+      <text x="36" y="48" fill="#171717" font-size="28" font-weight="bold" class="text-coolvetica">SOURBOO</text>
+      <text x="170" y="46" fill="#E61E6E" font-size="14" class="text-schoolbell">daily edition ¬‿¬</text>
+      <text x="560" y="46" fill="#171717" font-size="18" class="text-schoolbell">shop</text>
+      <text x="640" y="46" fill="#171717" font-size="18" class="text-schoolbell">diary</text>
+      <text x="720" y="46" fill="#171717" font-size="18" class="text-schoolbell">moments</text>
+      <text x="820" y="46" fill="#171717" font-size="18" class="text-schoolbell">club</text>
+      <rect x="940" y="18" width="220" height="40" rx="20" fill="#FFFF88" class="stroke-charcoal shadow-hard" />
+      <text x="1050" y="43" text-anchor="middle" fill="#171717" font-size="15" class="text-schoolbell">take quiz (get 5% off)</text>
+      <rect x="1180" y="18" width="140" height="40" rx="20" fill="#E61E6E" class="stroke-charcoal shadow-hard" />
+      <text x="1250" y="44" text-anchor="middle" fill="#FFFFFF" font-size="16" class="text-coolvetica">BAG [ 0 ]</text>
+    </g>
+
+    <!-- Hero Broadsheet (7:5 Split) -->
+    <g id="Section_Hero_The_Sourbroadsheet" transform="translate(64, 180)">
+      <g id="Hero_Editorial_Left">
+        <text x="0" y="40" fill="#4C8B1D" font-size="15" class="text-coolvetica" letter-spacing="2">FIELD REPORT // HARVEST ARCHIVE</text>
+        <text x="0" y="120" fill="#171717" font-size="76" font-weight="bold" class="text-coolvetica" letter-spacing="-1">THE SOURBOO WAY,</text>
+        <text x="0" y="200" fill="#E61E6E" font-size="72" class="text-rascal">cravings come first.</text>
+        <g transform="rotate(-2, 20, 240)">
+          <rect x="0" y="230" width="340" height="40" rx="8" fill="#FFFF88" class="stroke-charcoal" />
+          <text x="170" y="256" text-anchor="middle" fill="#171717" font-size="20" class="text-schoolbell">mouth wants to misbehave ¬‿¬</text>
+        </g>
+        <text x="0" y="320" fill="#171717" font-size="20" class="text-schoolbell">
+          We make loud, khatta pickled gherkins for people who don't eat quietly. Whole Indian spices,
+        </text>
+        <text x="0" y="350" fill="#171717" font-size="20" class="text-schoolbell">
+          relentless crunch that stops you for a second, and makes you squint a little.
+        </text>
+        <g transform="translate(0, 400)">
+          <rect x="0" y="0" width="240" height="56" rx="28" fill="#E61E6E" class="stroke-charcoal-thick shadow-hard" />
+          <text x="120" y="35" text-anchor="middle" fill="#FFFFFF" font-size="20" class="text-schoolbell">shop the crunch →</text>
+          <rect x="270" y="0" width="240" height="56" rx="28" fill="#FFFF88" class="stroke-charcoal-thick shadow-hard" />
+          <text x="390" y="35" text-anchor="middle" fill="#171717" font-size="18" class="text-schoolbell">take quiz (get 5% off)</text>
+        </g>
+      </g>
+      <g id="Hero_Photo_Right" transform="translate(740, 20)">
+        <rect width="570" height="460" rx="16" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" transform="rotate(1.5, 285, 230)" />
+        <rect x="14" y="14" width="542" height="432" rx="10" fill="#E4E8D4" transform="rotate(1.5, 285, 230)" />
+        <text x="285" y="240" text-anchor="middle" fill="#171717" font-size="22" class="text-coolvetica" transform="rotate(1.5, 285, 230)">[ hero-placeholder.webp • Hands & Pickles ]</text>
+        <rect x="10" y="-10" width="100" height="30" fill="#FFFF88" opacity="0.85" transform="rotate(-15)" />
+        <rect x="460" y="420" width="100" height="30" fill="#FFFF88" opacity="0.85" transform="rotate(10)" />
+        <circle cx="510" cy="50" r="50" fill="#E61E6E" class="stroke-charcoal shadow-hard" />
+        <text x="510" y="48" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold" class="text-coolvetica">100% REAL</text>
+        <text x="510" y="65" text-anchor="middle" fill="#BFEA5A" font-size="12" class="text-coolvetica">KHATTA</text>
+      </g>
+    </g>
+
+    <!-- The Sour Dossier (3 Staggered Cards) -->
+    <g id="Section_The_Sour_Dossier" transform="translate(64, 760)">
+      <text x="656" y="40" text-anchor="middle" fill="#171717" font-size="52" class="text-coolvetica">THE SOUR DOSSIER</text>
+      <text x="656" y="80" text-anchor="middle" fill="#4C8B1D" font-size="24" class="text-schoolbell">no boring bands — staggered field reports for real cravings</text>
+
+      <!-- Card 1: Side Eye Sour -->
+      <g id="Card_SideEyeSour" transform="translate(0, 130)">
+        <rect width="410" height="560" rx="24" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard" />
+        <rect x="24" y="24" width="100" height="28" rx="6" fill="#FFFF88" class="stroke-charcoal" />
+        <text x="74" y="44" text-anchor="middle" fill="#171717" font-size="13" class="text-coolvetica">CASE #001</text>
+        <text x="205" y="220" text-anchor="middle" fill="#171717" font-size="20" class="text-coolvetica">[ side-eye.webp ]</text>
+        <text x="24" y="380" fill="#171717" font-size="28" class="text-coolvetica">SIDE EYE SOUR</text>
+        <text x="24" y="410" fill="#4C8B1D" font-size="16" class="text-schoolbell">Lemon & Chaat Masala • ₹399</text>
+        <text x="24" y="450" fill="#171717" font-size="14" class="text-coolvetica">Sourness: ★★★★★</text>
+        <text x="24" y="475" fill="#171717" font-size="14" class="text-coolvetica">Crunch: ★★★★★ • Spice: ★★★☆☆</text>
+        <rect x="24" y="500" width="362" height="42" rx="21" fill="#171717" />
+        <text x="205" y="526" text-anchor="middle" fill="#BFEA5A" font-size="15" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+
+      <!-- Card 2: Tamarin' Tease (Staggered offset) -->
+      <g id="Card_TamarinTease" transform="translate(450, 178)">
+        <rect width="410" height="560" rx="24" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard" />
+        <rect x="24" y="24" width="100" height="28" rx="6" fill="#C96A00" class="stroke-charcoal" />
+        <text x="74" y="44" text-anchor="middle" fill="#FFFFFF" font-size="13" class="text-coolvetica">CASE #002</text>
+        <text x="205" y="220" text-anchor="middle" fill="#171717" font-size="20" class="text-coolvetica">[ tamarin-tease.webp ]</text>
+        <text x="24" y="380" fill="#171717" font-size="28" class="text-coolvetica">TAMARIN’ TEASE</text>
+        <text x="24" y="410" fill="#C96A00" font-size="16" class="text-schoolbell">Tamarind & Chilli • ₹399</text>
+        <text x="24" y="450" fill="#171717" font-size="14" class="text-coolvetica">Sourness: ★★★★☆</text>
+        <text x="24" y="475" fill="#171717" font-size="14" class="text-coolvetica">Crunch: ★★★★★ • Spice: ★★★★☆</text>
+        <rect x="24" y="500" width="362" height="42" rx="21" fill="#171717" />
+        <text x="205" y="526" text-anchor="middle" fill="#BFEA5A" font-size="15" class="text-coolvetica">QUICK ADD +</text>
+      </g>
+
+      <!-- Card 3: Sourboo Stash -->
+      <g id="Card_SourbooStash" transform="translate(900, 140)">
+        <rect width="410" height="560" rx="24" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard" />
+        <rect x="24" y="24" width="130" height="28" rx="6" fill="#BFEA5A" class="stroke-charcoal" />
+        <text x="89" y="44" text-anchor="middle" fill="#171717" font-size="13" class="text-coolvetica">BEST VALUE</text>
+        <text x="205" y="220" text-anchor="middle" fill="#171717" font-size="20" class="text-coolvetica">[ sourboo-stash.webp ]</text>
+        <text x="24" y="380" fill="#171717" font-size="28" class="text-coolvetica">SOURBOO STASH</text>
+        <text x="24" y="410" fill="#E61E6E" font-size="16" class="text-schoolbell">4-Jar Variety Pack • ₹1299</text>
+        <text x="24" y="450" fill="#171717" font-size="14" class="text-coolvetica">Free Shipping • Save ₹297</text>
+        <text x="24" y="475" fill="#171717" font-size="14" class="text-coolvetica">Midnight Fridge Essential</text>
+        <rect x="24" y="500" width="362" height="42" rx="21" fill="#E61E6E" class="stroke-charcoal" />
+        <text x="205" y="526" text-anchor="middle" fill="#FFFFFF" font-size="15" class="text-coolvetica">CLAIM STASH +</text>
+      </g>
+    </g>
+
+    <!-- Brand Manifesto Spread -->
+    <g id="Section_Manifesto" transform="translate(0, 1600)">
+      <rect width="1440" height="480" fill="#FFFF88" class="stroke-charcoal-thick" />
+      <text x="720" y="60" text-anchor="middle" fill="#171717" font-size="44" class="text-coolvetica">WHY PICKLES? BECAUSE BLAND SNACKS ARE AN INSULT TO CRAVINGS.</text>
+      <text x="720" y="100" text-anchor="middle" fill="#E61E6E" font-size="24" class="text-schoolbell">for people who like flavour loud and immediate — food that fits into real moments</text>
+      <g transform="translate(64, 150)">
+        <rect x="0" y="0" width="300" height="260" rx="16" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="24" y="50" fill="#E61E6E" font-size="32" class="text-coolvetica">01</text>
+        <text x="24" y="90" fill="#171717" font-size="20" class="text-coolvetica">EAT WITH INTENT</text>
+        <text x="24" y="130" fill="#555555" font-size="16" class="text-schoolbell">We don’t do quiet snacks. Crafted to demand attention.</text>
+
+        <rect x="330" y="0" width="300" height="260" rx="16" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="354" y="50" fill="#E61E6E" font-size="32" class="text-coolvetica">02</text>
+        <text x="354" y="90" fill="#171717" font-size="20" class="text-coolvetica">RELENTLESS CRUNCH</text>
+        <text x="354" y="130" fill="#555555" font-size="16" class="text-schoolbell">Straight from the fridge to your teeth. Never soggy.</text>
+
+        <rect x="660" y="0" width="300" height="260" rx="16" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="684" y="50" fill="#E61E6E" font-size="32" class="text-coolvetica">03</text>
+        <text x="684" y="90" fill="#171717" font-size="20" class="text-coolvetica">REAL KHATTA</text>
+        <text x="684" y="130" fill="#555555" font-size="16" class="text-schoolbell">Hand-pressed lemon, imli pulp, rock salt. Zero fake powders.</text>
+
+        <rect x="990" y="0" width="300" height="260" rx="16" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+        <text x="1014" y="50" fill="#E61E6E" font-size="32" class="text-coolvetica">04</text>
+        <text x="1014" y="90" fill="#171717" font-size="20" class="text-coolvetica">ZERO CHILL</text>
+        <text x="1014" y="130" fill="#555555" font-size="16" class="text-schoolbell">100% vegetarian, FSSAI certified. Real desk & late night fuel.</text>
+      </g>
+    </g>
+
+    <!-- The Moments Archive (Poster Wall) -->
+    <g id="Section_The_Moments_Archive" transform="translate(64, 2180)">
+      <text x="656" y="40" text-anchor="middle" fill="#171717" font-size="48" class="text-coolvetica">THE MOMENTS ARCHIVE</text>
+      <text x="656" y="76" text-anchor="middle" fill="#4C8B1D" font-size="22" class="text-schoolbell">wheatpaste zine pinboard for real uncurated moments</text>
+      <g transform="translate(0, 110)">
+        <g transform="rotate(-2, 150, 210)">
+          <rect x="0" y="0" width="300" height="420" rx="12" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+          <circle cx="150" cy="10" r="10" fill="#E61E6E" class="stroke-charcoal" />
+          <text x="150" y="210" text-anchor="middle" fill="#171717" font-size="16" class="text-coolvetica">[ postcrysnack.webp ]</text>
+          <text x="150" y="380" text-anchor="middle" fill="#171717" font-size="14" class="text-schoolbell">for when you need to feel feelings</text>
+        </g>
+        <g transform="rotate(2, 480, 210)">
+          <rect x="330" y="0" width="300" height="420" rx="12" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+          <circle cx="480" cy="10" r="10" fill="#E61E6E" class="stroke-charcoal" />
+          <text x="480" y="210" text-anchor="middle" fill="#171717" font-size="16" class="text-coolvetica">[ latenightmunchies.webp ]</text>
+          <text x="480" y="380" text-anchor="middle" fill="#171717" font-size="14" class="text-schoolbell">2:14 AM fridge raid essentials</text>
+        </g>
+        <g transform="rotate(-1.5, 810, 210)">
+          <rect x="660" y="0" width="300" height="420" rx="12" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+          <circle cx="810" cy="10" r="10" fill="#E61E6E" class="stroke-charcoal" />
+          <text x="810" y="210" text-anchor="middle" fill="#171717" font-size="16" class="text-coolvetica">[ girldinner.webp ]</text>
+          <text x="810" y="380" text-anchor="middle" fill="#171717" font-size="14" class="text-schoolbell">girl dinner: 4 pickles, 0 regrets</text>
+        </g>
+        <g transform="rotate(2.5, 1140, 210)">
+          <rect x="990" y="0" width="300" height="420" rx="12" fill="#FFFFFF" class="stroke-charcoal shadow-hard" />
+          <circle cx="1140" cy="10" r="10" fill="#E61E6E" class="stroke-charcoal" />
+          <text x="1140" y="210" text-anchor="middle" fill="#171717" font-size="16" class="text-coolvetica">[ deskcravings.webp ]</text>
+          <text x="1140" y="380" text-anchor="middle" fill="#171717" font-size="14" class="text-schoolbell">3 PM zoom call survival fuel</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Colophon & Footer -->
+    <g id="Section_Colophon_Footer" transform="translate(0, 5750)">
+      <rect width="1440" height="450" fill="#171717" />
+      <text x="64" y="80" fill="#BFEA5A" font-size="36" class="text-coolvetica">SOURBOO SNACKS LLP</text>
+      <text x="64" y="120" fill="#E9ECD9" font-size="16" class="text-schoolbell">Crafted in Bengaluru, India • FSSAI Certified • 100% Vegetarian</text>
+      <text x="64" y="160" fill="#E61E6E" font-size="20" class="text-coolvetica">STAY SOUR. NEVER QUIET.</text>
+      <text x="1376" y="80" text-anchor="end" fill="#E9ECD9" font-size="16" class="text-coolvetica">cravings@sourboo.com • +91 8120202060</text>
+      <text x="1376" y="120" text-anchor="end" fill="#FFFF88" font-size="16" class="text-coolvetica">@eatsourboo on Instagram</text>
+    </g>
+  </g>
+</svg>

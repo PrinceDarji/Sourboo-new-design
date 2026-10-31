@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 800" width="2600" height="800">
+  <title>Artboard - 4-Step Personality Popup Flow</title>
+  <defs>
+    <style>
+      @font-face { font-family: 'Coolvetica'; src: local('Coolvetica'), url('/coolvetica.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Rascal'; src: local('Rascal'), url('/rascal.ttf'); font-weight: normal; }
+      @font-face { font-family: 'Schoolbell'; src: local('Schoolbell'), url('/Schoolbell-Regular.ttf'); font-weight: normal; }
+      .text-coolvetica { font-family: 'Coolvetica', system-ui, sans-serif; }
+      .text-rascal { font-family: 'Rascal', cursive, sans-serif; }
+      .text-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+      .stroke-charcoal { stroke: #171717; stroke-width: 2px; }
+      .stroke-charcoal-thick { stroke: #171717; stroke-width: 3px; }
+      .stroke-charcoal-heavy { stroke: #171717; stroke-width: 4px; }
+      .shadow-hard { filter: drop-shadow(4px 4px 0px #171717); }
+      .shadow-hard-lg { filter: drop-shadow(6px 6px 0px #171717); }
+    </style>
+  </defs>
+  <g id="Artboard_Personality_Popup_Flow">
+    <rect width="2600" height="800" fill="#EEDDEB" />
+
+    <!-- Screen 1: Quiz Choices -->
+    <g id="Popup_Screen_1" transform="translate(60, 80)">
+      <rect width="560" height="640" rx="28" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" />
+      <text x="280" y="60" text-anchor="middle" fill="#E61E6E" font-size="32" class="text-coolvetica">what kind of sour are you?</text>
+      <text x="280" y="90" text-anchor="middle" fill="#555555" font-size="18" class="text-schoolbell">be honest</text>
+      <rect x="40" y="130" width="480" height="50" rx="25" fill="#FFF36A" class="stroke-charcoal" />
+      <text x="60" y="162" fill="#171717" font-size="18" class="text-schoolbell">Sour &amp; Savage →</text>
+      <rect x="40" y="200" width="480" height="50" rx="25" fill="#F6E9DE" class="stroke-charcoal" />
+      <text x="60" y="232" fill="#171717" font-size="18" class="text-schoolbell">Sweet but Psycho →</text>
+      <rect x="40" y="270" width="480" height="50" rx="25" fill="#F5EAFB" class="stroke-charcoal" />
+      <text x="60" y="302" fill="#171717" font-size="18" class="text-schoolbell">Spicy Drama →</text>
+      <rect x="40" y="340" width="480" height="50" rx="25" fill="#F0EC84" class="stroke-charcoal" />
+      <text x="60" y="372" fill="#171717" font-size="18" class="text-schoolbell">Lowkey Tangy →</text>
+      <text x="280" y="580" text-anchor="middle" fill="#555555" font-size="14" class="text-schoolbell">no thanks take me to website</text>
+    </g>
+
+    <!-- Screen 2: Lead Capture -->
+    <g id="Popup_Screen_2" transform="translate(680, 80)">
+      <rect width="560" height="640" rx="28" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" />
+      <text x="280" y="60" text-anchor="middle" fill="#E61E6E" font-size="32" class="text-coolvetica">You're Sour &amp; Savage</text>
+      <text x="280" y="95" text-anchor="middle" fill="#E61E6E" font-size="20" class="text-schoolbell">take 5% off. you've earned it</text>
+      <rect x="40" y="160" width="480" height="50" rx="25" fill="#E9ECD9" class="stroke-charcoal" />
+      <text x="60" y="192" fill="#555555" font-size="16" class="text-schoolbell">your email</text>
+      <rect x="40" y="230" width="480" height="50" rx="25" fill="#E9ECD9" class="stroke-charcoal" />
+      <text x="60" y="262" fill="#555555" font-size="16" class="text-schoolbell">your phone number</text>
+      <rect x="40" y="320" width="480" height="54" rx="27" fill="#E61E6E" class="stroke-charcoal shadow-hard" />
+      <text x="280" y="355" text-anchor="middle" fill="#FFFFFF" font-size="20" class="text-schoolbell">unlock my 5%</text>
+      <text x="280" y="420" text-anchor="middle" fill="#555555" font-size="14" class="text-schoolbell">no spam, just sour things :)</text>
+    </g>
+
+    <!-- Screen 4: Validation Errors -->
+    <g id="Popup_Screen_4" transform="translate(1300, 80)">
+      <rect width="560" height="640" rx="28" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" />
+      <text x="280" y="60" text-anchor="middle" fill="#E61E6E" font-size="32" class="text-coolvetica">Validation Feedback</text>
+      <rect x="40" y="160" width="480" height="50" rx="25" fill="#FFF0F4" stroke="#E61E6E" stroke-width="2" />
+      <text x="60" y="192" fill="#171717" font-size="16" class="text-schoolbell">invalid@</text>
+      <text x="60" y="230" fill="#E61E6E" font-size="14" class="text-schoolbell">need a real email babe</text>
+      <rect x="40" y="260" width="480" height="50" rx="25" fill="#FFF0F4" stroke="#E61E6E" stroke-width="2" />
+      <text x="60" y="292" fill="#171717" font-size="16" class="text-schoolbell">123</text>
+      <text x="60" y="330" fill="#E61E6E" font-size="14" class="text-schoolbell">need a valid phone for secret drops</text>
+    </g>
+
+    <!-- Screen 3: SOURBABE05 Coupon Code -->
+    <g id="Popup_Screen_3" transform="translate(1920, 80)">
+      <rect width="560" height="640" rx="28" fill="#FFFFFF" class="stroke-charcoal-thick shadow-hard-lg" />
+      <text x="280" y="80" text-anchor="middle" fill="#E61E6E" font-size="36" class="text-coolvetica">you are in!</text>
+      <text x="280" y="120" text-anchor="middle" fill="#E61E6E" font-size="18" class="text-schoolbell">copy the code and use at checkout</text>
+      <g transform="translate(120, 200)">
+        <rect width="320" height="60" rx="30" fill="#FFFF88" class="stroke-charcoal shadow-hard" stroke-dasharray="6,4" />
+        <text x="130" y="38" text-anchor="middle" fill="#171717" font-size="22" font-weight="bold" class="text-coolvetica">SOURBABE05</text>
+        <rect x="220" y="10" width="80" height="40" rx="20" fill="#E61E6E" />
+        <text x="260" y="35" text-anchor="middle" fill="#FFFFFF" font-size="14" class="text-coolvetica">COPY</text>
+      </g>
+      <rect x="40" y="320" width="480" height="54" rx="27" fill="#E61E6E" class="stroke-charcoal shadow-hard" />
+      <text x="280" y="355" text-anchor="middle" fill="#FFFFFF" font-size="20" class="text-schoolbell">start shopping with 5% off →</text>
+    </g>
+  </g>
+</svg>

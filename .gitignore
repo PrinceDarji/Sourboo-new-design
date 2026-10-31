@@ -9,6 +9,7 @@ Thumbs.db
 ehthumbs.db
 desktop.ini
 *.log
+.agents/
 
 # Node & dependencies
 node_modules/
