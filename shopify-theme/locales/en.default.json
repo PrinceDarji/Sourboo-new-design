@@ -1,0 +1,26 @@
+{
+  "general": {
+    "accessibility": {
+      "close": "Close",
+      "skip_to_content": "Skip to content"
+    },
+    "cart": {
+      "title": "Cart",
+      "empty": "Your cart is empty.",
+      "checkout": "Checkout →",
+      "subtotal": "Subtotal",
+      "discount": "Discount code",
+      "shipping_note": "Taxes and shipping calculated at checkout*"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart →",
+      "quick_add": "Quick Add +",
+      "pre_order": "Pre-orders only",
+      "in_the_jar": "In the jar",
+      "on_the_tongue": "On the tongue",
+      "after_opening": "After opening"
+    }
+  }
+}

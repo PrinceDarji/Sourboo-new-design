@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "about_story": {
+      "type": "about-story",
+      "settings": {}
+    }
+  },
+  "order": [
+    "about_story"
+  ]
+}

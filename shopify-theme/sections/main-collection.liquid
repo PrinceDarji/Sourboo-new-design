@@ -1,0 +1,96 @@
+{% comment %}
+  Sourboo Collection Grid Section
+  Renders all 6 products with real photography, dynamic prices and Quick Add
+{% endcomment %}
+
+<section class="sb-shop-hero" aria-label="Shop Catalog">
+  <h1 class="sb-shop-title">
+    {% render 'cool-rascal-text', text: section.settings.title | default: 'all sour, zero chill' %}
+  </h1>
+  <p class="font-schoolbell" style="font-size: clamp(1.4rem, 2.2vw, 2.2rem); max-width: 720px; margin: 0 auto; color: var(--sb-text-muted);">
+    {{ section.settings.subtitle | default: 'crunchy snackable pickled gherkins made for loud cravings' }}
+  </p>
+</section>
+
+<div class="sb-product-grid">
+  {% if collection.products.size > 0 %}
+    {% for product in collection.products %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  {% else %}
+    <!-- Authoritative Fallback Catalog of 6 Products -->
+    {% render 'product-card',
+      title: 'SIDE EYE SOUR',
+      price: '399',
+      slug: 'sideeyesour',
+      image: 'side-eye.webp',
+      lifestyle_image: 'side-eye-lifestyle.webp',
+      hover_label: 'Lemon & Chaat Masala • Snackable gherkins'
+    %}
+
+    {% render 'product-card',
+      title: 'TAMARIN’ TEASE',
+      price: '399',
+      slug: 'tamarintease',
+      image: 'tamarin-tease.webp',
+      lifestyle_image: 'tamarin-lifestyle.webp',
+      hover_label: 'Tamarind & Chilli • Snackable gherkins'
+    %}
+
+    {% render 'product-card',
+      title: 'Tamarind Twins',
+      price: '719',
+      slug: 'tamarind-twins',
+      image: 'tamarind-twins.webp',
+      lifestyle_image: 'tamarin-lifestyle.webp',
+      hover_label: '2 × TAMARIN’ TEASE • Double crunch'
+    %}
+
+    {% render 'product-card',
+      title: 'Lemon Lovers',
+      price: '729',
+      slug: 'lemon-lovers',
+      image: 'lemon-lovers.webp',
+      lifestyle_image: 'side-eye-lifestyle.webp',
+      hover_label: '2 × SIDE EYE SOUR • Extra khatta'
+    %}
+
+    {% render 'product-card',
+      title: 'Sour Sampler',
+      price: '729',
+      slug: 'sour-sampler',
+      image: 'sour-sampler.webp',
+      lifestyle_image: 'fridge.webp',
+      hover_label: '1 × SIDE EYE + 1 × TAMARIN’ TEASE'
+    %}
+
+    {% render 'product-card',
+      title: 'Sourboo Stash',
+      price: '1299',
+      slug: 'sourboo-stash',
+      image: 'sourboo-stash.webp',
+      lifestyle_image: 'fridge.webp',
+      hover_label: 'Four-jar ultimate pickle stash'
+    %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading Title",
+      "default": "all sour, zero chill"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "crunchy snackable pickled gherkins made for loud cravings"
+    }
+  ]
+}
+{% endschema %}

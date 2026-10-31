@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "headline_line1": "the sourboo way,",
+        "headline_line2": "cravings comes first",
+        "hero_image_alt": "Hands holding fresh crunchy Sourboo pickle slices"
+      }
+    },
+    "product_bands": {
+      "type": "product-band",
+      "blocks": {
+        "band_side_eye": {
+          "type": "band",
+          "settings": {
+            "variant": "primary",
+            "cta_text": "side eye sour →",
+            "cta_link": "/products/sideeyesour",
+            "price": "₹399"
+          }
+        },
+        "band_tamarin": {
+          "type": "band",
+          "settings": {
+            "variant": "secondary",
+            "cta_text": "tamarind tease →",
+            "cta_link": "/products/tamarintease",
+            "price": "₹399"
+          }
+        }
+      },
+      "block_order": [
+        "band_side_eye",
+        "band_tamarin"
+      ]
+    },
+    "brand_intro": {
+      "type": "brand-intro",
+      "settings": {
+        "headline": "sourboo made for people who eat with intent",
+        "body_line1": "who like flavour loud and immediate",
+        "body_line2": "food that fits into real moments",
+        "cta_label": "read my rant →",
+        "cta_link": "/pages/about"
+      }
+    },
+    "poster_pinboard": {
+      "type": "poster-pinboard",
+      "settings": {
+        "poster_1_alt": "Post Cry Snack poster",
+        "poster_2_alt": "Late Night Munchies poster",
+        "poster_3_alt": "Girl Dinner But Sour poster",
+        "poster_4_alt": "Desk Cravings poster"
+      }
+    },
+    "fresh_ingredients": {
+      "type": "fresh-ingredients",
+      "settings": {}
+    },
+    "horizontal_gallery": {
+      "type": "horizontal-gallery",
+      "settings": {}
+    },
+    "review_phone": {
+      "type": "review-phone",
+      "settings": {
+        "bubble_1_text": "addictive",
+        "bubble_2_text": "super punchy\n& sour",
+        "bubble_3_text": "perfect spicy",
+        "bubble_4_text": "instant fav"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "product_bands",
+    "brand_intro",
+    "poster_pinboard",
+    "fresh_ingredients",
+    "horizontal_gallery",
+    "review_phone"
+  ]
+}

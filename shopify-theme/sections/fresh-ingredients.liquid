@@ -1,0 +1,34 @@
+{% comment %}
+  Sourboo Fresh Ingredients Transition Graphic
+{% endcomment %}
+
+<section class="sb-fresh-section" aria-label="Fresh Ingredients">
+  <div class="sb-fresh-container">
+    <img
+      src="{{ section.settings.image | default: 'freshingredients.svg' | asset_url }}"
+      alt="Fresh crunchy pickle slices and ingredients"
+      class="sb-fresh-img"
+      loading="lazy"
+      width="1260"
+      height="340"
+    />
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fresh Ingredients Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Ingredients Visual"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fresh Ingredients Banner"
+    }
+  ]
+}
+{% endschema %}

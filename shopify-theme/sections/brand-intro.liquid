@@ -1,0 +1,88 @@
+{% comment %}
+  Sourboo Brand Statement & Introduction Section
+  "Read My Rant" visual experience
+{% endcomment %}
+
+<section class="sb-intro-section" aria-label="Brand Introduction">
+  <div class="sb-intro-headline">
+    <h2 style="margin: 0;">
+      {% render 'cool-rascal-text', text: section.settings.headline | default: 'sourboo made for people who eat with intent' %}
+    </h2>
+  </div>
+
+  <div class="sb-intro-split">
+    <!-- Visual Sticker -->
+    <div class="sb-intro-visual">
+      <img
+        src="{{ section.settings.visual_image | default: 'readmyrant.webp' | asset_url }}"
+        alt="Sourboo Crybaby Visual"
+        loading="lazy"
+        width="440"
+        height="440"
+      />
+    </div>
+
+    <!-- Editorial Copy & CTA -->
+    <div class="sb-intro-copy-wrap">
+      <p class="sb-intro-p">
+        {{ section.settings.body_line1 | default: 'who like flavour loud and immediate' }}<br>
+        {{ section.settings.body_line2 | default: 'food that fits into real moments' }}
+      </p>
+
+      <a
+        href="{{ section.settings.cta_link | default: '/pages/about' }}"
+        class="sb-rant-cta"
+        aria-label="{{ section.settings.cta_label | default: 'read my rant →' }}"
+      >
+        <span>{{ section.settings.cta_label | default: 'read my rant →' }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Introduction",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "sourboo made for people who eat with intent"
+    },
+    {
+      "type": "text",
+      "id": "body_line1",
+      "label": "Body Line 1",
+      "default": "who like flavour loud and immediate"
+    },
+    {
+      "type": "text",
+      "id": "body_line2",
+      "label": "Body Line 2",
+      "default": "food that fits into real moments"
+    },
+    {
+      "type": "image_picker",
+      "id": "visual_image",
+      "label": "Illustration Graphic"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Label",
+      "default": "read my rant →"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Introduction"
+    }
+  ]
+}
+{% endschema %}

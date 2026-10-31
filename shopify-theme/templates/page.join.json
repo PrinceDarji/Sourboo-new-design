@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "reach_us": {
+      "type": "reach-us",
+      "settings": {
+        "title": "Join Us",
+        "intro": "For collabs, stockists, events, and all things Sourboo.",
+        "email": "cravings@sourboo.com",
+        "phone": "+91 8120202060"
+      }
+    }
+  },
+  "order": [
+    "reach_us"
+  ]
+}

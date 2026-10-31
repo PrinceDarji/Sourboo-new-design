@@ -1,0 +1,48 @@
+{% comment %}
+  Sourboo Horizontal Food Image Collage Section
+  Asymmetrical food photography gallery with smooth touch swipe
+{% endcomment %}
+
+<section class="sb-gallery-section" aria-label="Food Collage Gallery">
+  <div class="sb-gallery-scroll-container">
+    <div class="sb-gallery-card sb-gal-1">
+      <img src="{{ 'recipe-1.jpg' | asset_url }}" alt="Sourboo snack moment" loading="lazy" width="280" height="340" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-2">
+      <img src="{{ 'postcrysnack.webp' | asset_url }}" alt="Post cry snack moment" loading="lazy" width="240" height="380" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-3">
+      <img src="{{ 'girldinner.webp' | asset_url }}" alt="Girl dinner snack moment" loading="lazy" width="290" height="290" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-4">
+      <img src="{{ 'hangoverdetox.webp' | asset_url }}" alt="Hangover detox moment" loading="lazy" width="320" height="360" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-5">
+      <img src="{{ 'deskcravings.webp' | asset_url }}" alt="Desk cravings snack moment" loading="lazy" width="420" height="320" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-6">
+      <img src="{{ 'recipe-2.webp' | asset_url }}" alt="Pickle recipe moment" loading="lazy" width="280" height="300" />
+    </div>
+
+    <div class="sb-gallery-card sb-gal-7">
+      <img src="{{ 'latenightmunchies.webp' | asset_url }}" alt="Late night munchies moment" loading="lazy" width="280" height="330" />
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Horizontal Food Gallery",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Horizontal Food Gallery"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,121 @@
+{% comment %}
+  Sourboo Scrolling Poster Pinboard Section
+  Scroll-triggered animated campaign posters pinned onto a wall
+{% endcomment %}
+
+<section class="sb-pinboard-section" aria-label="Campaign Poster Pinboard">
+  <div id="HomePosterPinboard" class="sb-pinboard-canvas">
+    <!-- Poster 1: Post Cry Snack -->
+    <article class="sb-poster-1" style="position: absolute;">
+      <span class="home-poster-pin" aria-hidden="true"></span>
+      <div class="home-poster-card">
+        <img
+          src="{{ section.settings.poster_1_img | default: 'postcrysnack.webp' | asset_url }}"
+          alt="{{ section.settings.poster_1_alt | default: 'Post Cry Snack poster' }}"
+          loading="lazy"
+          width="700"
+          height="980"
+        />
+      </div>
+    </article>
+
+    <!-- Poster 2: Late Night Munchies -->
+    <article class="sb-poster-2" style="position: absolute;">
+      <span class="home-poster-pin" aria-hidden="true"></span>
+      <div class="home-poster-card">
+        <img
+          src="{{ section.settings.poster_2_img | default: 'latenightmunchies.webp' | asset_url }}"
+          alt="{{ section.settings.poster_2_alt | default: 'Late Night Munchies poster' }}"
+          loading="lazy"
+          width="700"
+          height="980"
+        />
+      </div>
+    </article>
+
+    <!-- Poster 3: Girl Dinner But Sour -->
+    <article class="sb-poster-3" style="position: absolute;">
+      <span class="home-poster-pin" aria-hidden="true"></span>
+      <div class="home-poster-card">
+        <img
+          src="{{ section.settings.poster_3_img | default: 'girldinner.webp' | asset_url }}"
+          alt="{{ section.settings.poster_3_alt | default: 'Girl Dinner But Sour poster' }}"
+          loading="lazy"
+          width="700"
+          height="980"
+        />
+      </div>
+    </article>
+
+    <!-- Poster 4: Desk Cravings -->
+    <article class="sb-poster-4" style="position: absolute;">
+      <span class="home-poster-pin" aria-hidden="true"></span>
+      <div class="home-poster-card">
+        <img
+          src="{{ section.settings.poster_4_img | default: 'deskcravings.webp' | asset_url }}"
+          alt="{{ section.settings.poster_4_alt | default: 'Desk Cravings poster' }}"
+          loading="lazy"
+          width="700"
+          height="980"
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Poster Pinboard",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "poster_1_img",
+      "label": "Poster 1 Image (Post Cry Snack)"
+    },
+    {
+      "type": "text",
+      "id": "poster_1_alt",
+      "label": "Poster 1 Alt Text",
+      "default": "Post Cry Snack poster"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_2_img",
+      "label": "Poster 2 Image (Late Night Munchies)"
+    },
+    {
+      "type": "text",
+      "id": "poster_2_alt",
+      "label": "Poster 2 Alt Text",
+      "default": "Late Night Munchies poster"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_3_img",
+      "label": "Poster 3 Image (Girl Dinner But Sour)"
+    },
+    {
+      "type": "text",
+      "id": "poster_3_alt",
+      "label": "Poster 3 Alt Text",
+      "default": "Girl Dinner But Sour poster"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_4_img",
+      "label": "Poster 4 Image (Desk Cravings)"
+    },
+    {
+      "type": "text",
+      "id": "poster_4_alt",
+      "label": "Poster 4 Alt Text",
+      "default": "Desk Cravings poster"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Poster Pinboard"
+    }
+  ]
+}
+{% endschema %}

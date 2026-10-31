@@ -1,0 +1,30 @@
+{% comment %}
+  Reusable Wave Dividers for Sourboo Sections
+  Usage: {% render 'wave-dividers', type: 'top' %} or 'bottom'
+{% endcomment %}
+
+{% if type == 'top' %}
+  <svg
+    viewBox="0 0 1440 140"
+    preserveAspectRatio="none"
+    class="sb-band-wave-top"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 0H1440V74C1310 96 1220 40 1096 62C908 95 730 120 538 74C348 30 184 100 0 74V0Z"
+      fill="#E9ECD9"
+    />
+  </svg>
+{% elsif type == 'bottom' %}
+  <svg
+    viewBox="0 0 1440 160"
+    preserveAspectRatio="none"
+    class="sb-band-wave-bottom"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 44C118 10 252 78 424 52C622 22 760 92 980 50C1154 16 1308 70 1440 44V160H0V44Z"
+      fill="#E9ECD9"
+    />
+  </svg>
+{% endif %}

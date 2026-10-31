@@ -1,0 +1,106 @@
+{% comment %}
+  Sourboo Organic Navigation Bar Section
+{% endcomment %}
+
+<nav class="sb-nav-fixed" role="navigation" aria-label="Main Navigation">
+  <!-- Desktop Navigation Bar -->
+  <div class="sb-nav-desktop">
+    <img
+      src="{{ 'navbar.webp' | asset_url }}"
+      alt="Sourboo Navigation Shape"
+      class="sb-nav-desktop-bg"
+      width="1260"
+      height="228"
+      fetchpriority="high"
+    />
+    
+    <a href="/" class="sb-nav-desktop-logo" aria-label="Sourboo Home"></a>
+
+    <div class="sb-nav-desktop-content">
+      <div class="sb-nav-link-group">
+        <a href="/" class="sb-nav-pill {% if request.path == '/' or request.path == '/home' %}active{% endif %}">
+          home
+        </a>
+        <a href="/pages/about" class="sb-nav-pill {% if request.path contains 'about' %}active{% endif %}">
+          about
+        </a>
+        <a href="/collections/all" class="sb-nav-pill {% if request.path contains 'product' or request.path contains 'collection' %}active{% endif %}">
+          product
+        </a>
+      </div>
+
+      <div class="sb-nav-link-group">
+        <a href="/pages/join-us" class="sb-nav-pill {% if request.path contains 'join' %}active{% endif %}">
+          join us
+        </a>
+        <button type="button" class="sb-nav-pill sb-open-cart-trigger" aria-label="Open Cart">
+          cart <span class="sb-nav-cart-badge sb-cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Bar -->
+  <div class="sb-nav-mobile">
+    <img
+      src="{{ 'navbody.webp' | asset_url }}"
+      alt="Sourboo Navigation Background"
+      class="sb-nav-mobile-bg"
+      width="640"
+      height="98"
+      fetchpriority="high"
+    />
+
+    <div class="sb-nav-mobile-logo-wrap">
+      <a href="/" aria-label="Sourboo Home">
+        <img
+          src="{{ 'navlogo.webp' | asset_url }}"
+          alt="Sourboo"
+          width="160"
+          height="42"
+        />
+      </a>
+    </div>
+
+    <div class="sb-nav-mobile-links">
+      <div style="display: flex; gap: 8px;">
+        <a href="/" class="sb-nav-pill {% if request.path == '/' %}active{% endif %}" style="font-size: 15px; padding: 4px 8px;">
+          home
+        </a>
+        <a href="/pages/about" class="sb-nav-pill {% if request.path contains 'about' %}active{% endif %}" style="font-size: 15px; padding: 4px 8px;">
+          about
+        </a>
+        <a href="/collections/all" class="sb-nav-pill {% if request.path contains 'product' or request.path contains 'collection' %}active{% endif %}" style="font-size: 15px; padding: 4px 8px;">
+          product
+        </a>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <a href="/pages/join-us" class="sb-nav-pill" style="font-size: 15px; padding: 4px 8px;">
+          join us
+        </a>
+        <button type="button" class="sb-nav-pill sb-open-cart-trigger" style="font-size: 15px; padding: 4px 8px;" aria-label="Open Cart">
+          cart <span class="sb-nav-cart-badge sb-cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_nav_bg",
+      "label": "Desktop Navigation Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_nav_bg",
+      "label": "Mobile Navigation Background"
+    }
+  ]
+}
+{% endschema %}

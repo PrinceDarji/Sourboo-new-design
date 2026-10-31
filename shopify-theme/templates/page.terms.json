@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "legal_content": {
+      "type": "legal-content",
+      "settings": {
+        "title": "Terms & Conditions"
+      }
+    }
+  },
+  "order": [
+    "legal_content"
+  ]
+}

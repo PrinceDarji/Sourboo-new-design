@@ -1,0 +1,16 @@
+{% comment %}
+  Alternates Coolvetica and Rascal fonts with Green and Pink colors
+  Usage: {% render 'cool-rascal-text', text: 'the sourboo way' %}
+{% endcomment %}
+
+{% assign words = text | split: ' ' %}
+<span class="cool-rascal-heading {{ class }}">
+  {% for word in words %}
+    {% assign mod = forloop.index | modulo: 2 %}
+    {% if mod == 1 %}
+      <span class="font-coolvetica text-pickle">{{ word }} </span>
+    {% else %}
+      <span class="font-rascal text-pink">{{ word }} </span>
+    {% endif %}
+  {% endfor %}
+</span>

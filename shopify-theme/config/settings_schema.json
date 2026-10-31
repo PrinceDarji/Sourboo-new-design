@@ -1,0 +1,77 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Sourboo Storefront 2.0",
+    "theme_version": "2.0.0",
+    "theme_author": "Sourboo Design Team",
+    "theme_documentation_url": "https://www.sourboo.com",
+    "theme_support_url": "mailto:cravings@sourboo.com"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_bg_sage",
+        "label": "Canvas Sage Background",
+        "default": "#E9ECD9"
+      },
+      {
+        "type": "color",
+        "id": "color_pink",
+        "label": "Sourboo Signature Pink",
+        "default": "#E61E6E"
+      },
+      {
+        "type": "color",
+        "id": "color_pickle_green",
+        "label": "Pickle Lime Green",
+        "default": "#4C8B1D"
+      },
+      {
+        "type": "color",
+        "id": "color_yellow",
+        "label": "Accent Sunny Yellow",
+        "default": "#FFFF88"
+      }
+    ]
+  },
+  {
+    "name": "Marketing & Discounts",
+    "settings": [
+      {
+        "type": "text",
+        "id": "popup_discount_code",
+        "label": "5% Popup Discount Code",
+        "default": "SOURBABE05"
+      },
+      {
+        "type": "number",
+        "id": "shipping_fee_inr",
+        "label": "Flat Shipping Fee (INR)",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name": "Social Media Links",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram Profile Link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_handle",
+        "label": "Instagram Handle",
+        "default": "@eatsourboo"
+      },
+      {
+        "type": "url",
+        "id": "social_whatsapp_link",
+        "label": "WhatsApp Community Link"
+      }
+    ]
+  }
+]

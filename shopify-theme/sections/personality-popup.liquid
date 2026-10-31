@@ -1,0 +1,158 @@
+{% comment %}
+  Sourboo Signature Personality Popup & 5% Coupon Lead Flow
+{% endcomment %}
+
+<div id="LandingPersonalityPopup" class="sb-modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-label="Personality Quiz">
+  <!-- Close Button -->
+  <button type="button" class="sb-modal-close-btn sb-close-popup-trigger" aria-label="Close popup">×</button>
+
+  <!-- Decorative Stickers -->
+  <img src="{{ 'image1.svg' | asset_url }}" alt="" class="sb-popup-sticker sb-sticker-top-left" aria-hidden="true" />
+  <img src="{{ 'image2.svg' | asset_url }}" alt="" class="sb-popup-sticker sb-sticker-center" aria-hidden="true" />
+  <img src="{{ 'image3.svg' | asset_url }}" alt="" class="sb-popup-sticker sb-sticker-top-right" aria-hidden="true" />
+  <img src="{{ 'image4.svg' | asset_url }}" alt="" class="sb-popup-sticker sb-sticker-bottom-left" aria-hidden="true" />
+
+  <!-- SCREEN 1: Personality Quiz -->
+  <div id="PopupScreen1" class="sb-popup-inner">
+    <h2 class="sb-popup-h1">
+      <span class="font-coolvetica text-pink">what </span>
+      <span class="font-schoolbell text-pink">kind of sour are you?</span>
+    </h2>
+    <p class="sb-popup-subheading">be honest</p>
+
+    <div class="sb-popup-options-grid">
+      <a
+        href="#coupon"
+        class="sb-popup-option-btn"
+        data-personality="Sour & Savage"
+        style="background-image: url('{{ 'button-bg-1.svg' | asset_url }}'); color: #FFF36A;"
+      >
+        <span>Sour & Savage →</span>
+      </a>
+
+      <a
+        href="#coupon"
+        class="sb-popup-option-btn"
+        data-personality="Sweet but Psycho"
+        style="background-image: url('{{ 'button-bg-2.svg' | asset_url }}'); color: #F6E9DE;"
+      >
+        <span>Sweet but Psycho →</span>
+      </a>
+
+      <a
+        href="#coupon"
+        class="sb-popup-option-btn"
+        data-personality="Spicy Drama"
+        style="background-image: url('{{ 'button-bg-3.svg' | asset_url }}'); color: #F5EAFB;"
+      >
+        <span>Spicy Drama →</span>
+      </a>
+
+      <a
+        href="#coupon"
+        class="sb-popup-option-btn"
+        data-personality="Lowkey Tangy"
+        style="background-image: url('{{ 'button-bg-4.svg' | asset_url }}'); color: #F0EC84;"
+      >
+        <span>Lowkey Tangy →</span>
+      </a>
+    </div>
+
+    <button type="button" class="sb-popup-text-exit sb-close-popup-trigger">
+      no thanks take me to the website
+    </button>
+  </div>
+
+  <!-- SCREEN 2: 5% Coupon Lead Capture -->
+  <div id="PopupScreen2" class="sb-popup-inner" style="display: none;">
+    <h2 id="PopupChosenHeading" class="sb-popup-h1 font-coolvetica text-pink">
+      You're Sour & Savage
+    </h2>
+    <p class="font-schoolbell text-pink" style="font-size: clamp(24px, 4vw, 48px); margin: 6px 0;">
+      take 5% off. you've earned it
+    </p>
+    <p class="font-schoolbell" style="font-size: 1.25rem; color: #202020; margin-bottom: 20px;">
+      where should we send it?
+    </p>
+
+    <form id="PopupLeadForm" class="sb-coupon-form" novalidate>
+      <div class="sb-input-row">
+        <input
+          type="email"
+          id="PopupEmailInput"
+          placeholder="your email"
+          required
+          class="sb-pill-input"
+          autocomplete="email"
+        />
+        <input
+          type="tel"
+          id="PopupPhoneInput"
+          placeholder="your phone number"
+          required
+          class="sb-pill-input"
+          autocomplete="tel"
+        />
+      </div>
+
+      <p id="PopupFormError" style="color: #B4232B; font-family: 'Schoolbell', cursive; margin: 4px 0 0; min-height: 22px;"></p>
+
+      <button type="submit" class="sb-unlock-cta">
+        <span>unlock my 5%</span>
+      </button>
+
+      <p class="font-schoolbell" style="font-size: 1.05rem; color: #2A2A2A; margin: 6px 0 0;">
+        no spam, just sour things :)
+      </p>
+    </form>
+
+    <button type="button" class="sb-popup-text-exit sb-close-popup-trigger">
+      no thanks take me to the website
+    </button>
+  </div>
+
+  <!-- SCREEN 3: Success Code Reveal -->
+  <div id="PopupScreen3" class="sb-popup-inner" style="display: none;">
+    <h2 class="sb-popup-h1 font-coolvetica text-pink">
+      you are in!
+    </h2>
+    <p class="font-schoolbell text-pink" style="font-size: clamp(22px, 3.5vw, 38px); margin: 12px 0 24px;">
+      copy the code and use it at checkout to get 5% off your cart total.
+    </p>
+
+    <div style="display: flex; justify-content: center; margin: 24px 0;">
+      <button type="button" id="PopupCopyBtn" class="sb-code-copy-pill" aria-label="Copy coupon code">
+        <span id="PopupCodeDisplay">SOURBABE05</span>
+        <span id="PopupCopyText" style="font-size: 16px; background: var(--sb-pink); color: #fff; padding: 4px 12px; border-radius: 9999px;">COPY</span>
+      </button>
+    </div>
+
+    <button type="button" class="sb-unlock-cta sb-close-popup-trigger" style="max-width: 380px; margin: 20px auto 0;">
+      <span>start shopping with 5% off →</span>
+    </button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Personality Popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_popup",
+      "label": "Enable Personality Popup",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "s",
+      "label": "Delay Before Popup Shows",
+      "default": 5
+    }
+  ]
+}
+{% endschema %}

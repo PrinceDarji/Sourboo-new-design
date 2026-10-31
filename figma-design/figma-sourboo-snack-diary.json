@@ -1,0 +1,284 @@
+{
+  "name": "SOURBOO - SNACK DIARY (UI/UX Redesign)",
+  "version": "2.0.0",
+  "concept": "Sourboo Snack Diary: Unconventional Food Culture Magazine & D2C Experience",
+  "created_at": "2026-10-31T21:26:00Z",
+  "author": "Senior Creative Director & UI/UX Designer",
+  "document": {
+    "tokens": {
+      "colors": {
+        "sage-cream": { "hex": "#E9ECD9", "rgb": [233, 236, 217], "role": "Primary surface / editorial broadsheet paper" },
+        "sourboo-pink": { "hex": "#E61E6E", "rgb": [230, 30, 110], "role": "Signature brand pop / high-impact CTAs & badges" },
+        "pickle-green": { "hex": "#4C8B1D", "rgb": [76, 139, 29], "role": "Core pickle accent / secondary containers & stamps" },
+        "electric-lime": { "hex": "#BFEA5A", "rgb": [191, 234, 90], "role": "High-voltage neon highlight / crunch callouts" },
+        "acid-yellow": { "hex": "#FFFF88", "rgb": [255, 255, 136], "role": "Zest highlight / flavor tags / sticky notes" },
+        "tamarind-amber": { "hex": "#C96A00", "rgb": [201, 106, 0], "role": "Deep tang / warm spices / tamarind theme" },
+        "charcoal-black": { "hex": "#171717", "rgb": [23, 23, 23], "role": "Primary editorial typography & irregular borders" },
+        "popup-lilac": { "hex": "#EEDDEB", "rgb": [238, 221, 235], "role": "Personality quiz backdrop / soft contrast surface" }
+      },
+      "typography": {
+        "display": { "fontFamily": "Rascal", "weights": [700], "usage": "Distinctive hero banners, quirky titles, editorial dropcaps" },
+        "heading": { "fontFamily": "Coolvetica", "weights": [400, 700], "usage": "Bold magazine headlines, product titles, section mastheads" },
+        "handwritten": { "fontFamily": "Schoolbell", "weights": [400], "usage": "Editorial annotations, handwritten buttons, tasting notes" }
+      },
+      "grid": {
+        "desktop": { "columns": 12, "gutter": 24, "margin": 64, "maxWidth": 1440 },
+        "mobile": { "columns": 4, "gutter": 16, "margin": 20, "maxWidth": 390 }
+      }
+    },
+    "pages": [
+      {
+        "id": "page-1",
+        "name": "Page 1: Brand Foundation",
+        "sections": [
+          {
+            "id": "p1-moodboard",
+            "title": "Art Direction: Snack Diary Concept",
+            "description": "Cross between an independent youth food zine, Tokyo bodega snack rack, and experimental graphic studio. Playful, cheeky, tactile, irreverent."
+          },
+          {
+            "id": "p1-color-palette",
+            "title": "Color Tokens & Swatches",
+            "swatches": [
+              { "name": "Sage Cream", "hex": "#E9ECD9", "contrast": "Dark text AAA" },
+              { "name": "Sourboo Pink", "hex": "#E61E6E", "contrast": "White text AA" },
+              { "name": "Pickle Green", "hex": "#4C8B1D", "contrast": "White text AA" },
+              { "name": "Electric Lime", "hex": "#BFEA5A", "contrast": "Black text AAA" },
+              { "name": "Acid Yellow", "hex": "#FFFF88", "contrast": "Black text AAA" },
+              { "name": "Tamarind Amber", "hex": "#C96A00", "contrast": "White text AA" },
+              { "name": "Charcoal Black", "hex": "#171717", "contrast": "Cream text AAA" },
+              { "name": "Popup Lilac", "hex": "#EEDDEB", "contrast": "Dark text AAA" }
+            ]
+          },
+          {
+            "id": "p1-type-hierarchy",
+            "title": "Typography Scale & Pairings",
+            "styles": [
+              { "token": "Display XXL", "font": "Coolvetica", "size": 96, "lineHeight": 0.9, "tracking": -2, "sample": "FOR MISBEHAVING MOUTHS" },
+              { "token": "Display XL", "font": "Rascal", "size": 72, "lineHeight": 0.95, "tracking": -1, "sample": "the sourboo snack diary" },
+              { "token": "Heading 1", "font": "Coolvetica", "size": 48, "lineHeight": 1.1, "tracking": -0.5, "sample": "THE SOUR DOSSIER" },
+              { "token": "Heading 2", "font": "Coolvetica", "size": 32, "lineHeight": 1.2, "sample": "PROPERLY KHATTA, ZERO CHILL" },
+              { "token": "Handwritten Callout", "font": "Schoolbell", "size": 24, "lineHeight": 1.3, "sample": "food that fits into real moments ¬‿¬" },
+              { "token": "Editorial Body", "font": "system-ui", "size": 16, "lineHeight": 1.6, "sample": "It’s properly khatta, with a sour punch that stops you for a second, and makes you squint a little." },
+              { "token": "Micro Detail", "font": "Schoolbell", "size": 14, "lineHeight": 1.2, "sample": "CRUNCH RATED 10/10 • KEEP REFRIGERATED" }
+            ]
+          },
+          {
+            "id": "p1-graphic-elements",
+            "title": "Graphic Identity Assets",
+            "assets": [
+              "Original Eyes 1, 2, 3 SVG doodles",
+              "Tongue & Star burst graphic stamps",
+              "Hand-drawn rough button vectors",
+              "Tape strips and rough paper tear borders",
+              "Original product packaging labels (Side Eye, Tamarin' Tease)",
+              "Campaign poster artwork"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "page-2",
+        "name": "Page 2: Design System",
+        "components": [
+          {
+            "name": "Nav_Bar_Desktop",
+            "type": "Component",
+            "layout": "AutoLayout Horizontal",
+            "specs": "1360px x 76px, bg-sage-cream, border 2px solid charcoal, shadow 4px 4px 0px charcoal, border-radius 24px",
+            "elements": ["Logo_Sourboo", "Editorial_Volume_Tag", "Nav_Links (shop, story, stash, diary)", "Quiz_Pill_Trigger", "Cart_Pill_Button"]
+          },
+          {
+            "name": "Button_HandDrawn_Primary",
+            "type": "Component with Variants",
+            "variants": ["Default", "Hover", "Active", "Disabled"],
+            "specs": "bg-sourboo-pink, text-white, font-schoolbell 20px, organic SVG outline, transform rotate(-1deg)"
+          },
+          {
+            "name": "Button_QuickAdd",
+            "type": "Component with Variants",
+            "variants": ["Idle", "Adding", "Added"],
+            "specs": "bg-charcoal, text-electric-lime, border 2px solid charcoal, hover: bg-electric-lime text-charcoal"
+          },
+          {
+            "name": "Product_Card_Editorial",
+            "type": "Component",
+            "variants": ["Side Eye Sour", "Tamarin' Tease", "Bundle Card"],
+            "specs": "Asymmetric card, 420px x 560px, rotated tape tag, floating cutout jar, taste meter (sour/crunch/spice), quick-add button, price pill"
+          },
+          {
+            "name": "Tab_Dossier_Switcher",
+            "type": "Component",
+            "states": ["Tab 1: In the jar", "Tab 2: On the tongue", "Tab 3: After opening"],
+            "specs": "Folder tab design with handwritten font, active state highlighted in Acid Yellow with pickle green border"
+          },
+          {
+            "name": "Badge_Sticker_Collection",
+            "type": "Component Set",
+            "items": ["100% Real Khatta Stamp", "Girl Dinner Certified", "Zero Chill", "Post Cry Comfort", "Fridge Door Essential"]
+          }
+        ]
+      },
+      {
+        "id": "page-3",
+        "name": "Page 3: Desktop Website",
+        "frames": [
+          {
+            "name": "Desktop_Homepage",
+            "dimensions": "1440 x 6200",
+            "sections": [
+              {
+                "section": "Masthead & Nav",
+                "content": "Sourboo Snack Diary • Vol. 02 • For misbehaving mouths everywhere"
+              },
+              {
+                "section": "Hero: The Sourbroadsheet",
+                "layout": "Asymmetric Split 7:5 Grid",
+                "left": "Oversized Coolvetica typography: 'CRAVINGS COME FIRST. EVERYTHING ELSE CAN WAIT.' + Schoolbell note 'mouth wants to misbehave' + Shop Now & Quiz CTAs",
+                "right": "Framed authentic photograph of hands holding crinkle-cut pickle slices (hero-placeholder.webp) with hand-drawn eyes sticker and tape strips"
+              },
+              {
+                "section": "Section C: The Sour Dossier (Product Discovery)",
+                "layout": "3-Column Staggered Editorial Cards (No boring full-width bands)",
+                "items": [
+                  "Card 1: Side Eye Sour (₹399) - Lemon & Chaat Masala crinkle cut, yellow/pink dossier",
+                  "Card 2: Tamarin' Tease (₹399) - Tamarind & Chilli whole gherkin, amber/lime dossier",
+                  "Card 3: Sourboo Stash (₹1299) - 4-jar party survival kit, badge: 'Best Value'"
+                ]
+              },
+              {
+                "section": "Section D: Brand Manifesto Spread",
+                "layout": "Editorial 2-Page Magazine Spread",
+                "content": "Why pickles? Because bland snacks are an insult to cravings. We handcraft real khatta gherkins with whole Indian spices, zero preservatives, and maximum misbehaviour."
+              },
+              {
+                "section": "Section E: The Moments Archive",
+                "layout": "Interactive Asymmetric Poster Wall",
+                "posters": ["Post Cry Snack", "Late Night Munchies", "Girl Dinner But Sour", "Desk Cravings"]
+              },
+              {
+                "section": "Section F: Fresh Ingredients Deconstructed",
+                "layout": "Annotated Specimen Table",
+                "content": "Fresh gherkins, rock salt, whole cumin, mustard seeds, authentic tamarind pulp, sliced lemons"
+              },
+              {
+                "section": "Section G: Real Moments Editorial Reviews",
+                "layout": "Customer Quote Cards with Crunch Ratings"
+              },
+              {
+                "section": "Section H: Colophon & Snack Club Footer",
+                "layout": "Bold Sage Cream & Charcoal footer with newsletter lead capture and social ticker"
+              }
+            ]
+          },
+          {
+            "name": "Desktop_Shop_Collection",
+            "dimensions": "1440 x 3400",
+            "features": "Flavor matcher quick-quiz, 6 product editorial cards, dietary badges, bundle builder"
+          },
+          {
+            "name": "Desktop_Product_Detail",
+            "dimensions": "1440 x 3600",
+            "features": "Split jar showcase with zoom, 3 handwritten tabs (In the jar / On the tongue / After opening), crunch meter, sticky ATC bar"
+          },
+          {
+            "name": "Desktop_About_Sakshi_Diary",
+            "dimensions": "1440 x 3200",
+            "features": "Magazine feature story with real founder photo (about-cover.JPG), childhood memories, kitchen testing notes"
+          },
+          {
+            "name": "Desktop_Join_Us",
+            "dimensions": "1440 x 2200",
+            "features": "Sourboo Club perks, retail stockist form, creative submissions"
+          },
+          {
+            "name": "Desktop_Contact",
+            "dimensions": "1440 x 2000",
+            "features": "Direct line to HQ, WhatsApp support, FAQ accordion"
+          }
+        ]
+      },
+      {
+        "id": "page-4",
+        "name": "Page 4: Mobile Website",
+        "frames": [
+          {
+            "name": "Mobile_Homepage",
+            "dimensions": "390 x 6800",
+            "features": "Sticky tactile header, pickle hands hero with vertical stacking, horizontal swipeable product dossiers, poster tap-deck, bottom sticky quick-shop bar"
+          },
+          {
+            "name": "Mobile_Shop",
+            "dimensions": "390 x 3800",
+            "features": "Touch-friendly filter chips, 1-column high-impact cards with direct Add to Cart"
+          },
+          {
+            "name": "Mobile_Product_Detail",
+            "dimensions": "390 x 4200",
+            "features": "Full-bleed image gallery, accordion tabs, floating bottom purchase drawer with quantity stepper"
+          },
+          {
+            "name": "Mobile_About",
+            "dimensions": "390 x 3600",
+            "features": "Story scroll with interactive sticker reveals and tap-to-expand recipe sketches"
+          },
+          {
+            "name": "Mobile_Navigation_Overlay",
+            "dimensions": "390 x 844",
+            "features": "Fullscreen popover with giant Coolvetica links, sticker decorations, and instant cart shortcut"
+          }
+        ]
+      },
+      {
+        "id": "page-5",
+        "name": "Page 5: Popup Experiences",
+        "frames": [
+          {
+            "name": "Popup_Screen1_Quiz",
+            "dimensions": "640 x 780",
+            "header": "what kind of sour are you?",
+            "sub": "be honest",
+            "options": [
+              { "id": 1, "label": "Sour & Savage →", "flavorMatch": "Side Eye Sour" },
+              { "id": 2, "label": "Sweet but Psycho →", "flavorMatch": "Tamarin' Tease" },
+              { "id": 3, "label": "Spicy Drama →", "flavorMatch": "Tamarind Twins" },
+              { "id": 4, "label": "Lowkey Tangy →", "flavorMatch": "Lemon Lovers" }
+            ]
+          },
+          {
+            "name": "Popup_Screen2_LeadCapture",
+            "dimensions": "640 x 780",
+            "header": "Selected: [Personality Name]",
+            "sub": "Drop your deets to claim your discount",
+            "inputs": ["Email Address", "Phone Number (WhatsApp)"],
+            "cta": "Unlock My 5%",
+            "disclaimer": "We don’t spam. Only sweet-sour news and secret drops."
+          },
+          {
+            "name": "Popup_Screen3_CouponSuccess",
+            "dimensions": "640 x 780",
+            "header": "YOU'RE ONE OF US NOW ¬‿¬",
+            "code": "SOURBABE05",
+            "perk": "5% OFF YOUR ENTIRE ORDER",
+            "cta": "COPY CODE & SHOP NOW"
+          }
+        ]
+      },
+      {
+        "id": "page-6",
+        "name": "Page 6: Interactive Prototype",
+        "connections": [
+          { "from": "Nav: Shop Link", "to": "Desktop_Shop_Collection", "trigger": "On Click", "animation": "Instant" },
+          { "from": "Nav: Quiz Pill", "to": "Popup_Screen1_Quiz", "trigger": "On Click", "animation": "Smart Animate Overlay Fade" },
+          { "from": "Hero: Shop Now Button", "to": "Desktop_Shop_Collection", "trigger": "On Click", "animation": "Scroll To #products" },
+          { "from": "Product Card: Image/Title", "to": "Desktop_Product_Detail", "trigger": "On Click", "animation": "Push Right" },
+          { "from": "Product Card: Quick Add", "to": "Cart_Drawer_Slideout", "trigger": "On Click", "animation": "Slide In Right (300ms ease-out)" },
+          { "from": "Quiz: Choice 1-4", "to": "Popup_Screen2_LeadCapture", "trigger": "On Click", "animation": "Smart Animate Push" },
+          { "from": "Popup: Unlock Button", "to": "Popup_Screen3_CouponSuccess", "trigger": "On Submit", "animation": "Smart Animate Dissolve + Confetti" },
+          { "from": "PDP: Tab Switcher", "to": "PDP_Tab_Active_State", "trigger": "On Click", "animation": "Smart Animate Content Fade" },
+          { "from": "FAQ: Question Card", "to": "FAQ_Open_State", "trigger": "On Click", "animation": "Smart Animate Height Expand" }
+        ]
+      }
+    ]
+  }
+}

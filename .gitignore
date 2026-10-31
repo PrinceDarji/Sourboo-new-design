@@ -1,0 +1,29 @@
+# Large archives
+sourboo_repo.zip
+*.zip
+*.tar.gz
+
+# System and OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.log
+
+# Node & dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Temporary files
+test.png
+*.tmp

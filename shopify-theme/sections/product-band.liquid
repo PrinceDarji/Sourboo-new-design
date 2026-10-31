@@ -1,0 +1,134 @@
+{% comment %}
+  Sourboo Signature Product Presentation Band Section
+  Retains large packaging artwork, wavy transitions and brush CTAs
+{% endcomment %}
+
+<div id="ProductShowcase" class="sb-product-bands-wrap">
+  {% for block in section.blocks %}
+    {% assign variant = block.settings.variant | default: 'primary' %}
+    
+    {% if variant == 'primary' %}
+      {% assign def_bg = 'packagingbg.webp' %}
+      {% assign def_pkg = 'sideeyepackage.png' %}
+      {% assign def_cta_bg = 'ctabg.svg' %}
+      {% assign def_cta_text = 'side eye sour →' %}
+      {% assign def_cta_link = '/products/sideeyesour' %}
+      {% assign def_price = '₹399' %}
+      {% assign cta_color = '#2F4918' %}
+    {% else %}
+      {% assign def_bg = 'packagingbg.webp' %}
+      {% assign def_pkg = 'tamarinpackage.png' %}
+      {% assign def_cta_bg = 'ctabg2.svg' %}
+      {% assign def_cta_text = 'tamarind tease →' %}
+      {% assign def_cta_link = '/products/tamarintease' %}
+      {% assign def_price = '₹399' %}
+      {% assign cta_color = '#26140A' %}
+    {% endif %}
+
+    <article class="sb-product-band" {{ block.shopify_attributes }}>
+      <!-- Background Texture -->
+      <img
+        src="{{ block.settings.bg_image | default: def_bg | asset_url }}"
+        alt="Product Background"
+        class="sb-band-bg"
+        loading="lazy"
+        width="1600"
+        height="820"
+      />
+
+      <!-- Top Wave Divider -->
+      {% render 'wave-dividers', type: 'top' %}
+
+      <!-- Center Packaging Strip & Call to Action -->
+      <div class="sb-band-content">
+        <a href="{{ block.settings.cta_link | default: def_cta_link }}" aria-label="{{ block.settings.cta_text | default: def_cta_text }}">
+          <img
+            src="{{ block.settings.pkg_image | default: def_pkg | asset_url }}"
+            alt="Packaging Strip"
+            class="sb-band-pkg-strip"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="sb-band-cta-wrap">
+          <a
+            href="{{ block.settings.cta_link | default: def_cta_link }}"
+            class="sb-brush-cta"
+            style="background-image: url('{{ block.settings.cta_bg | default: def_cta_bg | asset_url }}'); color: {{ cta_color }};"
+          >
+            <span>{{ block.settings.cta_text | default: def_cta_text }}</span>
+            <span class="sb-brush-cta-price">{{ block.settings.price | default: def_price }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Wave Divider -->
+      {% render 'wave-dividers', type: 'bottom' %}
+    </article>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Showcase Bands",
+  "blocks": [
+    {
+      "type": "band",
+      "name": "Product Band",
+      "settings": [
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Style Variant",
+          "options": [
+            { "value": "primary", "label": "Side Eye Sour (Primary Green)" },
+            { "value": "secondary", "label": "Tamarin' Tease (Secondary Tamarind)" }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Section Background Texture"
+        },
+        {
+          "type": "image_picker",
+          "id": "pkg_image",
+          "label": "Packaging Strip Artwork"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Button Text",
+          "default": "side eye sour →"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Button Link"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price Display",
+          "default": "₹399"
+        },
+        {
+          "type": "image_picker",
+          "id": "cta_bg",
+          "label": "Brushstroke CTA Background Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase Bands",
+      "blocks": [
+        { "type": "band", "settings": { "variant": "primary", "cta_text": "side eye sour →", "cta_link": "/products/sideeyesour" } },
+        { "type": "band", "settings": { "variant": "secondary", "cta_text": "tamarind tease →", "cta_link": "/products/tamarintease" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

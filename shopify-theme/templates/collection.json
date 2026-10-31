@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "collection_grid": {
+      "type": "main-collection",
+      "settings": {
+        "title": "all sour, zero chill",
+        "subtitle": "crunchy snackable pickled gherkins made for loud cravings"
+      }
+    },
+    "flavor_matcher": {
+      "type": "flavor-matcher",
+      "settings": {}
+    },
+    "faqs": {
+      "type": "faq-section",
+      "settings": {}
+    },
+    "review_phone": {
+      "type": "review-phone",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection_grid",
+    "flavor_matcher",
+    "faqs",
+    "review_phone"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "reach_us": {
+      "type": "reach-us",
+      "settings": {
+        "title": "Contact",
+        "intro": "For orders, wholesale, support, and inquiries.",
+        "email": "cravings@sourboo.com",
+        "phone": "+91 8120202060"
+      }
+    }
+  },
+  "order": [
+    "reach_us"
+  ]
+}

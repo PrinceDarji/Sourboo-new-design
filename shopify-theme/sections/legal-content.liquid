@@ -1,0 +1,35 @@
+{% comment %}
+  Sourboo Legal Content Template Section
+  High-contrast Pink background, Sunny Yellow Coolvetica typography
+{% endcomment %}
+
+<main class="sb-legal-main" style="min-height: 80vh; background: var(--sb-pink); color: var(--sb-bg-yellow); padding: 120px 24px 80px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h1 class="font-coolvetica" style="font-size: clamp(3rem, 7vw, 6rem); line-height: 0.94; margin: 0 0 36px;">
+      {{ page.title | default: section.settings.title | default: 'Store Policy' }}
+    </h1>
+
+    <div class="sb-legal-content font-coolvetica" style="font-size: clamp(1.35rem, 2.2vw, 2.4rem); line-height: 1.25;">
+      {{ page.content | default: section.settings.default_content }}
+    </div>
+  </div>
+</main>
+
+{% schema %}
+{
+  "name": "Legal Policy Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Policy Title",
+      "default": "Shipping Policy"
+    },
+    {
+      "type": "richtext",
+      "id": "default_content",
+      "label": "Policy Body Content"
+    }
+  ]
+}
+{% endschema %}

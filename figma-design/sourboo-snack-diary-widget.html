@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .shadow-brutal-xs { box-shadow: 2px 2px 0px #171717; }
+  </style>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-2">
+  <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-4 shadow-md max-w-xl mx-auto">
+    
+    <!-- Header -->
+    <div class="flex items-center justify-between pb-3 border-b border-[var(--border)] mb-3">
+      <div class="flex items-center space-x-2">
+        <span class="w-6 h-6 rounded bg-[#E61E6E] text-white flex items-center justify-center font-bold text-xs">S</span>
+        <div>
+          <h2 class="text-sm font-bold text-[var(--foreground)] flex items-center gap-1.5">
+            SOURBOO SNACK DIARY
+            <span class="bg-[#BFEA5A] text-black text-[10px] font-mono px-1.5 py-0.5 rounded font-bold">FIGMA SUITE</span>
+          </h2>
+          <p class="text-[11px] text-[var(--muted-foreground)]">Same Brand. Completely New Layout & Experience.</p>
+        </div>
+      </div>
+      <span class="text-[10px] bg-neutral-200 dark:bg-neutral-800 text-[var(--foreground)] px-2 py-1 rounded font-mono">
+        3 Directions Explored
+      </span>
+    </div>
+
+    <!-- Direction Selector Tabs -->
+    <div class="grid grid-cols-3 gap-1.5 bg-neutral-100 dark:bg-neutral-900 p-1 rounded-xl mb-3 text-xs">
+      <button onclick="switchDirection(1)" id="dir-btn-1" class="py-1.5 px-2 rounded-lg font-bold bg-[#E61E6E] text-white transition text-center truncate">
+        ★ 1. The Zine (Winner)
+      </button>
+      <button onclick="switchDirection(2)" id="dir-btn-2" class="py-1.5 px-2 rounded-lg font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition text-center truncate">
+        2. Flavor Lab
+      </button>
+      <button onclick="switchDirection(3)" id="dir-btn-3" class="py-1.5 px-2 rounded-lg font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition text-center truncate">
+        3. Neon Bodega
+      </button>
+    </div>
+
+    <!-- Direction Card 1: The Zine (Selected) -->
+    <div id="dir-content-1" class="bg-[#E9ECD9] text-[#171717] p-3.5 rounded-xl border-2 border-[#171717] shadow-brutal-xs space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="bg-[#E61E6E] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Winning Concept</span>
+        <span class="text-[11px] font-mono text-neutral-600">Editorial Broadsheet</span>
+      </div>
+      <p class="text-xs font-semibold leading-snug">
+        Asymmetric editorial magazine. Large hands-holding-pickles photo framed with tape, 3-column staggered product dossiers (no full-width bands), and tactile handwritten margin notes.
+      </p>
+      <div class="grid grid-cols-3 gap-2 pt-1 text-[11px] font-mono">
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Hero:</strong> Pickle Hands</div>
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Shop:</strong> 3-Col Dossier</div>
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Mood:</strong> Cult Zine</div>
+      </div>
+    </div>
+
+    <!-- Direction Card 2: Flavor Lab -->
+    <div id="dir-content-2" class="hidden bg-[#F6F8EF] text-[#171717] p-3.5 rounded-xl border-2 border-neutral-400 space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="bg-[#FFFF88] text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase border border-black/20">Direction 02</span>
+        <span class="text-[11px] font-mono text-neutral-600">Specimen Archive</span>
+      </div>
+      <p class="text-xs font-semibold leading-snug">
+        Clinical dossier meets wild graffiti. Color-coded index cards, annotated sourness & crunch metric gauges, callout specimen lines, and lab notes.
+      </p>
+      <div class="grid grid-cols-3 gap-2 pt-1 text-[11px] font-mono">
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Hero:</strong> Test Matrix</div>
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Shop:</strong> File Folders</div>
+        <div class="bg-white/80 p-1.5 rounded border border-black/10"><strong>Mood:</strong> Flavor Lab</div>
+      </div>
+    </div>
+
+    <!-- Direction Card 3: Neon Bodega -->
+    <div id="dir-content-3" class="hidden bg-[#171717] text-white p-3.5 rounded-xl border-2 border-[#BFEA5A] space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="bg-[#BFEA5A] text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase">Direction 03</span>
+        <span class="text-[11px] font-mono text-neutral-400">Street Kiosk</span>
+      </div>
+      <p class="text-xs font-semibold leading-snug">
+        Tokyo/Berlin youth kiosk aesthetic. High-contrast neon lime & pink stickers, marquee tickers, wheatpaste poster walls, and heavy card stacks.
+      </p>
+      <div class="grid grid-cols-3 gap-2 pt-1 text-[11px] font-mono">
+        <div class="bg-neutral-800 p-1.5 rounded border border-neutral-700"><strong>Hero:</strong> 3D Floating</div>
+        <div class="bg-neutral-800 p-1.5 rounded border border-neutral-700"><strong>Shop:</strong> Snack Rack</div>
+        <div class="bg-neutral-800 p-1.5 rounded border border-neutral-700"><strong>Mood:</strong> Hyper-Pop</div>
+      </div>
+    </div>
+
+    <!-- Mini Interactive Personality Quiz Preview -->
+    <div class="mt-3 pt-3 border-t border-[var(--border)]">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-bold text-[var(--foreground)]">Interactive Quiz Preview (Step 1)</span>
+        <span class="text-[11px] text-[#E61E6E] font-bold">Try 4 Choices:</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <button onclick="testQuiz('Sour & Savage', 'Side Eye Sour')" class="p-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-[#FFFF88] hover:text-black rounded-lg border border-[var(--border)] text-left font-medium transition truncate">
+          1. Sour & Savage →
+        </button>
+        <button onclick="testQuiz('Sweet but Psycho', 'Tamarin\' Tease')" class="p-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-[#FFFF88] hover:text-black rounded-lg border border-[var(--border)] text-left font-medium transition truncate">
+          2. Sweet but Psycho →
+        </button>
+        <button onclick="testQuiz('Spicy Drama', 'Tamarind Twins')" class="p-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-[#FFFF88] hover:text-black rounded-lg border border-[var(--border)] text-left font-medium transition truncate">
+          3. Spicy Drama →
+        </button>
+        <button onclick="testQuiz('Lowkey Tangy', 'Lemon Lovers')" class="p-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-[#FFFF88] hover:text-black rounded-lg border border-[var(--border)] text-left font-medium transition truncate">
+          4. Lowkey Tangy →
+        </button>
+      </div>
+      <div id="quiz-result" class="hidden mt-2 p-2 bg-[#BFEA5A] text-black rounded-lg text-xs font-mono flex items-center justify-between">
+        <span id="quiz-result-text">Matched: Side Eye Sour</span>
+        <strong class="bg-black text-[#BFEA5A] px-1.5 py-0.5 rounded text-[10px]">SOURBABE05</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchDirection(num) {
+      [1, 2, 3].forEach(n => {
+        document.getElementById('dir-content-' + n).classList.add('hidden');
+        const btn = document.getElementById('dir-btn-' + n);
+        btn.className = 'py-1.5 px-2 rounded-lg font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition text-center truncate';
+      });
+      document.getElementById('dir-content-' + num).classList.remove('hidden');
+      const activeBtn = document.getElementById('dir-btn-' + num);
+      if (num === 1) {
+        activeBtn.className = 'py-1.5 px-2 rounded-lg font-bold bg-[#E61E6E] text-white transition text-center truncate';
+      } else if (num === 2) {
+        activeBtn.className = 'py-1.5 px-2 rounded-lg font-bold bg-[#FFFF88] text-black transition text-center truncate';
+      } else {
+        activeBtn.className = 'py-1.5 px-2 rounded-lg font-bold bg-[#BFEA5A] text-black transition text-center truncate';
+      }
+    }
+
+    function testQuiz(name, match) {
+      const el = document.getElementById('quiz-result');
+      el.classList.remove('hidden');
+      document.getElementById('quiz-result-text').innerText = '✓ ' + name + ' matched to: ' + match;
+    }
+  </script>
+</body>
+</html>

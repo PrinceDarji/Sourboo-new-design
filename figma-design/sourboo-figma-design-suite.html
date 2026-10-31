@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sourboo — Snack Diary UI/UX Figma Design Suite</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Rascal';
+      src: url('http://localhost:3456/rascal.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Coolvetica';
+      src: url('http://localhost:3456/coolvetica.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Schoolbell';
+      src: url('http://localhost:3456/Schoolbell-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .font-rascal { font-family: 'Rascal', cursive, sans-serif; }
+    .font-coolvetica { font-family: 'Coolvetica', 'Impact', sans-serif; letter-spacing: -0.02em; }
+    .font-schoolbell { font-family: 'Schoolbell', cursive, sans-serif; }
+    
+    /* Custom scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+    /* Tape and paper effects */
+    .washi-tape {
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      border-left: 2px dashed rgba(0,0,0,0.1);
+      border-right: 2px dashed rgba(0,0,0,0.1);
+    }
+    .shadow-brutal {
+      box-shadow: 4px 4px 0px #171717;
+    }
+    .shadow-brutal-sm {
+      box-shadow: 2px 2px 0px #171717;
+    }
+    .shadow-brutal-lg {
+      box-shadow: 6px 6px 0px #171717;
+    }
+  </style>
+</head>
+<body class="bg-[#1e1e1e] text-[#f5f5f5] antialiased h-screen flex flex-col overflow-hidden font-sans select-none">
+
+  <!-- TOP FIGMA TOOLBAR -->
+  <header class="h-12 bg-[#2c2c2c] border-b border-[#3e3e3e] flex items-center justify-between px-4 z-50 shrink-0">
+    <!-- Left: File Info & Breadcrumbs -->
+    <div class="flex items-center space-x-3">
+      <div class="w-6 h-6 bg-[#E61E6E] rounded-md flex items-center justify-center font-bold text-white text-xs shadow-sm">
+        S
+      </div>
+      <div class="flex items-center space-x-2 text-xs">
+        <span class="text-neutral-400 font-medium">Sourboo Design System</span>
+        <span class="text-neutral-600">/</span>
+        <span class="text-white font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#BFEA5A] inline-block animate-pulse"></span>
+          SOURBOO SNACK DIARY (v2.0 Redesign)
+        </span>
+      </div>
+      <span class="bg-[#383838] text-neutral-300 text-[11px] px-2 py-0.5 rounded border border-[#4a4a4a]">Figma Design File</span>
+    </div>
+
+    <!-- Center: Page / Mode Switcher -->
+    <div class="flex items-center bg-[#1e1e1e] p-1 rounded-lg border border-[#3e3e3e] space-x-1">
+      <button onclick="switchPage('page-1')" id="tab-page-1" class="page-tab px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition-colors">
+        01 Foundation
+      </button>
+      <button onclick="switchPage('page-2')" id="tab-page-2" class="page-tab px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition-colors">
+        02 Design System
+      </button>
+      <button onclick="switchPage('page-3')" id="tab-page-3" class="page-tab px-3 py-1 rounded text-xs font-medium bg-[#E61E6E] text-white shadow-sm transition-colors">
+        03 Desktop Frames
+      </button>
+      <button onclick="switchPage('page-4')" id="tab-page-4" class="page-tab px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition-colors">
+        04 Mobile Frames
+      </button>
+      <button onclick="switchPage('page-5')" id="tab-page-5" class="page-tab px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition-colors">
+        05 Popups (Quiz)
+      </button>
+      <button onclick="switchPage('page-6')" id="tab-page-6" class="page-tab px-3 py-1 rounded text-xs font-medium bg-[#BFEA5A] text-black font-bold flex items-center gap-1 shadow-sm transition-colors">
+        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        06 Play Prototype
+      </button>
+    </div>
+
+    <!-- Right: Viewport & Export -->
+    <div class="flex items-center space-x-3 text-xs">
+      <div class="flex items-center bg-[#1e1e1e] rounded border border-[#3e3e3e] px-2 py-1 text-neutral-400">
+        <span id="zoom-label" class="mr-2">Zoom: 100%</span>
+        <button onclick="adjustZoom(-0.1)" class="hover:text-white px-1">－</button>
+        <button onclick="resetZoom()" class="hover:text-white px-1 font-mono">1:1</button>
+        <button onclick="adjustZoom(0.1)" class="hover:text-white px-1">＋</button>
+      </div>
+      <button onclick="exportFigmaJson()" class="bg-[#383838] hover:bg-[#484848] text-white px-3 py-1 rounded font-medium border border-[#4a4a4a] flex items-center gap-1.5 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Export Figma JSON
+      </button>
+    </div>
+  </header>
+
+  <!-- WORKSPACE BODY (Left Layers | Canvas | Right Inspector) -->
+  <div class="flex-1 flex overflow-hidden">
+    
+    <!-- LEFT SIDEBAR: LAYERS & ASSETS -->
+    <aside class="w-64 bg-[#252525] border-r border-[#383838] flex flex-col shrink-0 text-xs text-neutral-300">
+      <div class="p-3 border-b border-[#383838] flex items-center justify-between">
+        <span class="font-bold text-neutral-200 tracking-wider uppercase text-[10px]">Layers & Structure</span>
+        <span class="text-[10px] text-neutral-500 font-mono" id="layer-count">14 Layers</span>
+      </div>
+      <div class="flex-1 overflow-y-auto p-2 space-y-1 font-mono text-[11px]" id="layers-tree">
+        <!-- Dynamically populated per active page -->
+      </div>
+      <div class="p-3 border-t border-[#383838] bg-[#1f1f1f]">
+        <div class="text-[10px] uppercase font-bold text-neutral-400 mb-1.5">Brand Concept Rationale</div>
+        <p class="text-[11px] text-neutral-400 leading-relaxed font-sans">
+          <strong class="text-[#BFEA5A]">Snack Diary:</strong> An unconventional food culture magazine. Asymmetric editorial spreads, oversized typography, cutouts & real pickle photography.
+        </p>
+      </div>
+    </aside>
+
+    <!-- CENTER CANVAS (Infinite Canvas Viewport) -->
+    <main class="flex-1 bg-[#181818] relative overflow-auto p-8 flex items-start justify-center" id="canvas-container">
+      <div id="canvas-stage" class="transition-transform duration-150 origin-top">
+        
+        <!-- ============================================================ -->
+        <!-- PAGE 1: BRAND FOUNDATION -->
+        <!-- ============================================================ -->
+        <div id="view-page-1" class="page-view hidden space-y-8 w-[1400px]">
+          <!-- Section 1: Three Layout Explorations (Step 2 of Brief) -->
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-4 border-b border-[#3a3a3a] pb-3">
+              <div>
+                <span class="text-[10px] tracking-wider uppercase text-[#BFEA5A] font-bold">Step 2: Visual Exploration</span>
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                  Three Genuinely Different Layout Directions
+                </h2>
+              </div>
+              <span class="text-xs bg-[#E61E6E]/20 text-[#E61E6E] px-3 py-1 rounded-full border border-[#E61E6E]/40 font-medium">
+                Concept: SOURBOO SNACK DIARY
+              </span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6">
+              <!-- Direction 1: The Zine / Indie Food Culture Gazette (Selected) -->
+              <div class="bg-[#E9ECD9] text-[#171717] rounded-xl p-5 border-2 border-[#171717] shadow-brutal relative flex flex-col justify-between">
+                <div class="absolute -top-3 -right-3 bg-[#E61E6E] text-white font-bold text-[10px] uppercase px-2.5 py-1 rounded-full border border-black shadow-sm">
+                  ★ SELECTED WINNER
+                </div>
+                <div>
+                  <div class="washi-tape px-3 py-1 inline-block -rotate-1 text-[11px] font-bold uppercase tracking-wider mb-3">
+                    Direction 01 • The Indie Gazette
+                  </div>
+                  <h3 class="font-coolvetica text-2xl uppercase tracking-tight leading-none mb-2">
+                    The Food Culture Zine
+                  </h3>
+                  <p class="text-xs text-neutral-700 leading-relaxed font-sans mb-4">
+                    High-contrast editorial broadsheet with asymmetric columns, torn paper tape, rotated badges, hand-scrawled marginalia, and cutout pickle jars overlapping bold typography.
+                  </p>
+                  <div class="bg-white/80 p-3 rounded-lg border border-black/20 text-[11px] space-y-1.5 font-sans mb-4">
+                    <div class="flex justify-between"><strong>Hero:</strong> <span class="text-neutral-600">Asymmetric pickle hands + giant headline</span></div>
+                    <div class="flex justify-between"><strong>Products:</strong> <span class="text-neutral-600">Staggered 3-column dossier cards</span></div>
+                    <div class="flex justify-between"><strong>Vibe:</strong> <span class="text-neutral-600">Cheeky, tactile, collectible magazine</span></div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-black/10 flex items-center justify-between text-xs">
+                  <span class="text-[#4C8B1D] font-bold">Usability: 9.8/10</span>
+                  <span class="text-[#E61E6E] font-bold">Brand Fit: 10/10</span>
+                </div>
+              </div>
+
+              <!-- Direction 2: The Flavour Laboratory / Dossier -->
+              <div class="bg-[#F6F8EF] text-[#171717] rounded-xl p-5 border-2 border-neutral-400 shadow-sm flex flex-col justify-between opacity-80 hover:opacity-100 transition">
+                <div>
+                  <div class="bg-[#FFFF88] px-3 py-1 inline-block text-[11px] font-bold uppercase tracking-wider mb-3 border border-black/20">
+                    Direction 02 • Flavor Lab
+                  </div>
+                  <h3 class="font-coolvetica text-2xl uppercase tracking-tight leading-none mb-2">
+                    The Specimen Archive
+                  </h3>
+                  <p class="text-xs text-neutral-700 leading-relaxed font-sans mb-4">
+                    Clinical-meets-chaotic dossier layout. Color-coded index cards, sourness & crunch metric gauges, annotated callout lines, and stamped confidential field notes.
+                  </p>
+                  <div class="bg-white/80 p-3 rounded-lg border border-black/20 text-[11px] space-y-1.5 font-sans mb-4">
+                    <div class="flex justify-between"><strong>Hero:</strong> <span class="text-neutral-600">Ingredient matrix + test report</span></div>
+                    <div class="flex justify-between"><strong>Products:</strong> <span class="text-neutral-600">Specimen index folders</span></div>
+                    <div class="flex justify-between"><strong>Vibe:</strong> <span class="text-neutral-600">Scientific flavor obsession</span></div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-black/10 flex items-center justify-between text-xs text-neutral-500">
+                  <span>Usability: 8.5/10</span>
+                  <span>Brand Fit: 8.9/10</span>
+                </div>
+              </div>
+
+              <!-- Direction 3: The Neon Bodega / Hyper-Pop Stand -->
+              <div class="bg-[#171717] text-white rounded-xl p-5 border-2 border-[#BFEA5A] shadow-sm flex flex-col justify-between opacity-80 hover:opacity-100 transition">
+                <div>
+                  <div class="bg-[#BFEA5A] text-black px-3 py-1 inline-block text-[11px] font-bold uppercase tracking-wider mb-3">
+                    Direction 03 • Neon Bodega
+                  </div>
+                  <h3 class="font-coolvetica text-2xl uppercase tracking-tight leading-none mb-2 text-[#BFEA5A]">
+                    Hyper-Pop Snack Bar
+                  </h3>
+                  <p class="text-xs text-neutral-300 leading-relaxed font-sans mb-4">
+                    Tokyo/Berlin street-kiosk aesthetic. High-voltage lime and pink sticker clusters, marquee tickers, wheatpaste campaign poster walls, and heavy card stacks.
+                  </p>
+                  <div class="bg-neutral-800 p-3 rounded-lg border border-neutral-700 text-[11px] space-y-1.5 font-sans mb-4">
+                    <div class="flex justify-between"><strong>Hero:</strong> <span class="text-neutral-400">3D floating jars + marquee banner</span></div>
+                    <div class="flex justify-between"><strong>Products:</strong> <span class="text-neutral-400">Vending rack isometric grid</span></div>
+                    <div class="flex justify-between"><strong>Vibe:</strong> <span class="text-neutral-400">Electric youth street style</span></div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-neutral-700 flex items-center justify-between text-xs text-neutral-400">
+                  <span>Usability: 8.8/10</span>
+                  <span>Brand Fit: 9.1/10</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Color Palette & Swatches -->
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl">
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#E61E6E]"></span> Brand Color Tokens & Accessibility
+            </h3>
+            <div class="grid grid-cols-4 gap-4">
+              <!-- Sage Cream -->
+              <div class="bg-[#E9ECD9] text-[#171717] p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Sage Cream</div>
+                <div class="text-xs font-mono mt-1">#E9ECD9</div>
+                <div class="text-[10px] text-neutral-600 mt-2">Primary Broadsheet Background</div>
+                <div class="mt-2 text-[10px] bg-black/10 px-2 py-0.5 rounded inline-block font-mono">AAA with Black</div>
+              </div>
+              <!-- Sourboo Pink -->
+              <div class="bg-[#E61E6E] text-white p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Sourboo Pink</div>
+                <div class="text-xs font-mono mt-1">#E61E6E</div>
+                <div class="text-[10px] text-pink-100 mt-2">High-Impact Brand Punch & CTAs</div>
+                <div class="mt-2 text-[10px] bg-white/20 px-2 py-0.5 rounded inline-block font-mono">AA with White</div>
+              </div>
+              <!-- Pickle Green -->
+              <div class="bg-[#4C8B1D] text-white p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Pickle Green</div>
+                <div class="text-xs font-mono mt-1">#4C8B1D</div>
+                <div class="text-[10px] text-green-100 mt-2">Organic Shapes & Natural Badges</div>
+                <div class="mt-2 text-[10px] bg-white/20 px-2 py-0.5 rounded inline-block font-mono">AA with White</div>
+              </div>
+              <!-- Electric Lime -->
+              <div class="bg-[#BFEA5A] text-[#171717] p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Electric Lime</div>
+                <div class="text-xs font-mono mt-1">#BFEA5A</div>
+                <div class="text-[10px] text-neutral-700 mt-2">Neon Crunch Highlights & Tickers</div>
+                <div class="mt-2 text-[10px] bg-black/10 px-2 py-0.5 rounded inline-block font-mono">AAA with Black</div>
+              </div>
+              <!-- Acid Yellow -->
+              <div class="bg-[#FFFF88] text-[#171717] p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Acid Yellow</div>
+                <div class="text-xs font-mono mt-1">#FFFF88</div>
+                <div class="text-[10px] text-neutral-700 mt-2">Zesty Callouts & Sticky Notes</div>
+                <div class="mt-2 text-[10px] bg-black/10 px-2 py-0.5 rounded inline-block font-mono">AAA with Black</div>
+              </div>
+              <!-- Tamarind Amber -->
+              <div class="bg-[#C96A00] text-white p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Tamarind Amber</div>
+                <div class="text-xs font-mono mt-1">#C96A00</div>
+                <div class="text-[10px] text-amber-100 mt-2">Warm Spice & Tamarin' Flavour Tone</div>
+                <div class="mt-2 text-[10px] bg-white/20 px-2 py-0.5 rounded inline-block font-mono">AA with White</div>
+              </div>
+              <!-- Charcoal Black -->
+              <div class="bg-[#171717] text-[#E9ECD9] p-4 rounded-lg border border-white/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Charcoal Black</div>
+                <div class="text-xs font-mono mt-1">#171717</div>
+                <div class="text-[10px] text-neutral-400 mt-2">Editorial Broadsheet Typography</div>
+                <div class="mt-2 text-[10px] bg-white/10 px-2 py-0.5 rounded inline-block font-mono">AAA with Cream</div>
+              </div>
+              <!-- Popup Lilac -->
+              <div class="bg-[#EEDDEB] text-[#171717] p-4 rounded-lg border border-black/20 shadow-brutal-sm">
+                <div class="h-12 flex items-end font-bold text-sm">Popup Lilac</div>
+                <div class="text-xs font-mono mt-1">#EEDDEB</div>
+                <div class="text-[10px] text-neutral-700 mt-2">Quiz Backdrop & Gentle Contrast</div>
+                <div class="mt-2 text-[10px] bg-black/10 px-2 py-0.5 rounded inline-block font-mono">AAA with Black</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Typography System -->
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl">
+            <h3 class="text-lg font-bold text-white mb-4">Typography Engine: 3 Distinct Brand Voices</h3>
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-[#1c1c1c] p-5 rounded-lg border border-[#333]">
+                <span class="text-[10px] text-[#BFEA5A] uppercase tracking-wider font-mono">Display & Hero Punch</span>
+                <h4 class="font-coolvetica text-3xl text-white mt-1 uppercase">Coolvetica</h4>
+                <p class="text-xs text-neutral-400 mt-2">Weight: Bold 700 • Tight Letter-spacing -0.02em</p>
+                <div class="mt-4 p-4 bg-[#E9ECD9] text-[#171717] rounded font-coolvetica text-2xl uppercase leading-none shadow-brutal-sm">
+                  CRAVINGS COME FIRST.
+                </div>
+              </div>
+              <div class="bg-[#1c1c1c] p-5 rounded-lg border border-[#333]">
+                <span class="text-[10px] text-[#E61E6E] uppercase tracking-wider font-mono">Distinctive Accent</span>
+                <h4 class="font-rascal text-3xl text-white mt-1">Rascal</h4>
+                <p class="text-xs text-neutral-400 mt-2">Quirky display treatments and expressive headings</p>
+                <div class="mt-4 p-4 bg-[#E61E6E] text-white rounded font-rascal text-2xl leading-none shadow-brutal-sm">
+                  the sourboo way ¬‿¬
+                </div>
+              </div>
+              <div class="bg-[#1c1c1c] p-5 rounded-lg border border-[#333]">
+                <span class="text-[10px] text-[#FFFF88] uppercase tracking-wider font-mono">Handwritten & Notes</span>
+                <h4 class="font-schoolbell text-3xl text-white mt-1">Schoolbell</h4>
+                <p class="text-xs text-neutral-400 mt-2">Handwritten sticky notes, tasting notes & buttons</p>
+                <div class="mt-4 p-4 bg-[#FFFF88] text-[#171717] rounded font-schoolbell text-xl leading-snug shadow-brutal-sm">
+                  mouth wants to misbehave!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PAGE 2: DESIGN SYSTEM (COMPONENTS & TOKENS) -->
+        <!-- ============================================================ -->
+        <div id="view-page-2" class="page-view hidden space-y-8 w-[1400px]">
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl">
+            <h2 class="text-xl font-bold text-white mb-2">Design System Components & Variants</h2>
+            <p class="text-xs text-neutral-400 mb-6 font-sans">
+              Tactile, hand-drawn components built with strict Auto Layout, responsive constraints, and clear state variants.
+            </p>
+
+            <div class="grid grid-cols-2 gap-8">
+              <!-- Component: Navigation Bar Desktop -->
+              <div class="bg-[#1c1c1c] p-5 rounded-xl border border-[#333] space-y-3">
+                <span class="text-[10px] font-mono text-[#BFEA5A] uppercase">Component: Nav_Bar_Desktop</span>
+                <div class="bg-[#E9ECD9] text-[#171717] p-3 rounded-2xl border-2 border-[#171717] shadow-brutal flex items-center justify-between">
+                  <div class="flex items-center space-x-4">
+                    <span class="font-coolvetica text-xl uppercase tracking-wider text-[#E61E6E]">SOURBOO</span>
+                    <span class="text-[10px] font-schoolbell bg-[#FFFF88] px-2 py-0.5 rounded border border-black/20">snack diary vol. 02</span>
+                  </div>
+                  <div class="flex items-center space-x-4 text-xs font-bold uppercase tracking-tight">
+                    <span class="text-[#E61E6E]">shop</span>
+                    <span>about</span>
+                    <span>posters</span>
+                    <span>quiz</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <button class="bg-[#E61E6E] text-white px-3 py-1 rounded-full text-xs font-bold font-schoolbell shadow-sm">
+                      bag (2)
+                    </button>
+                  </div>
+                </div>
+                <div class="text-[11px] text-neutral-400 font-mono">Auto Layout • Hug Contents • 2px solid border • 4px brutal shadow</div>
+              </div>
+
+              <!-- Component: Button Matrix -->
+              <div class="bg-[#1c1c1c] p-5 rounded-xl border border-[#333] space-y-3">
+                <span class="text-[10px] font-mono text-[#E61E6E] uppercase">Component: Button_Matrix</span>
+                <div class="flex flex-wrap gap-3 items-center">
+                  <button class="bg-[#E61E6E] hover:bg-[#d01560] text-white px-5 py-2.5 rounded-full font-schoolbell text-base shadow-brutal-sm -rotate-1 transition">
+                    Unlock My 5% →
+                  </button>
+                  <button class="bg-[#BFEA5A] hover:bg-[#aedd44] text-[#171717] px-5 py-2.5 rounded-full font-coolvetica text-sm uppercase tracking-wide shadow-brutal-sm rotate-1 transition">
+                    Quick Add +
+                  </button>
+                  <button class="bg-[#171717] hover:bg-neutral-800 text-[#E9ECD9] px-4 py-2 rounded-lg font-mono text-xs border border-white/20 transition">
+                    COPY CODE: SOURBABE05
+                  </button>
+                </div>
+                <div class="text-[11px] text-neutral-400 font-mono">Variants: Primary Pink / Quick-Add Lime / Ghost Brutal</div>
+              </div>
+
+              <!-- Component: Dossier Tabs Switcher -->
+              <div class="bg-[#1c1c1c] p-5 rounded-xl border border-[#333] space-y-3">
+                <span class="text-[10px] font-mono text-[#FFFF88] uppercase">Component: Dossier_Tabs (PDP Handwritten Tabs)</span>
+                <div class="flex space-x-2 border-b-2 border-[#171717] bg-[#E9ECD9] p-3 rounded-t-xl text-[#171717]">
+                  <button class="bg-[#FFFF88] border-2 border-b-0 border-[#171717] px-4 py-1.5 font-schoolbell text-sm font-bold rounded-t-lg -mb-[14px]">
+                    1. in the jar
+                  </button>
+                  <button class="border-2 border-transparent px-4 py-1.5 font-schoolbell text-sm text-neutral-600">
+                    2. on the tongue
+                  </button>
+                  <button class="border-2 border-transparent px-4 py-1.5 font-schoolbell text-sm text-neutral-600">
+                    3. after opening
+                  </button>
+                </div>
+                <div class="text-[11px] text-neutral-400 font-mono">Preserves authentic 3-tab architecture with physical file folder tabs</div>
+              </div>
+
+              <!-- Component: Sticker & Badge System -->
+              <div class="bg-[#1c1c1c] p-5 rounded-xl border border-[#333] space-y-3">
+                <span class="text-[10px] font-mono text-[#BFEA5A] uppercase">Component: Badge_Stickers</span>
+                <div class="flex flex-wrap gap-2 items-center">
+                  <span class="bg-[#E61E6E] text-white px-2.5 py-1 rounded-full text-xs font-coolvetica uppercase tracking-tight -rotate-3 border border-black">
+                    100% REAL KHATTA
+                  </span>
+                  <span class="bg-[#BFEA5A] text-black px-2.5 py-1 rounded-full text-xs font-schoolbell rotate-2 border border-black">
+                    crunch level: 10/10
+                  </span>
+                  <span class="bg-[#FFFF88] text-black px-2.5 py-1 rounded text-xs font-mono -rotate-1 border border-black">
+                    GIRL DINNER CERTIFIED
+                  </span>
+                  <span class="bg-[#C96A00] text-white px-2.5 py-1 rounded-full text-xs font-coolvetica uppercase rotate-3 border border-black">
+                    TEASINGLY TANGY
+                  </span>
+                </div>
+                <div class="text-[11px] text-neutral-400 font-mono">Vector sticker decals with organic rotation angles</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PAGE 3: DESKTOP WEBSITE (HIGH-FIDELITY REDESIGN) -->
+        <!-- ============================================================ -->
+        <div id="view-page-3" class="page-view space-y-6 w-[1400px]">
+          <!-- Desktop Artboard Subtabs (Homepage, Shop, PDP, About, Join, Contact) -->
+          <div class="flex items-center justify-between bg-[#242424] p-3 rounded-lg border border-[#3e3e3e]">
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-bold text-neutral-400 uppercase tracking-wider">Desktop Artboard:</span>
+              <button onclick="switchDesktopArtboard('artboard-home')" id="btn-artboard-home" class="px-3 py-1 rounded text-xs font-bold bg-[#E61E6E] text-white transition">
+                Homepage (1440x6200)
+              </button>
+              <button onclick="switchDesktopArtboard('artboard-shop')" id="btn-artboard-shop" class="px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition">
+                Shop Collection (1440x3400)
+              </button>
+              <button onclick="switchDesktopArtboard('artboard-pdp')" id="btn-artboard-pdp" class="px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition">
+                Product Detail (1440x3600)
+              </button>
+              <button onclick="switchDesktopArtboard('artboard-about')" id="btn-artboard-about" class="px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition">
+                About / Sakshi's Diary (1440x3200)
+              </button>
+            </div>
+            <span class="text-xs text-[#BFEA5A] font-mono">Frame: 1440px Grid • Editorial Broadsheet</span>
+          </div>
+
+          <!-- ARTBOARD: HOMEPAGE -->
+          <div id="artboard-home" class="desktop-subview bg-[#E9ECD9] text-[#171717] rounded-xl border-4 border-[#171717] shadow-brutal-lg overflow-hidden">
+            
+            <!-- 1. EDITORIAL MASTHEAD & NAV -->
+            <div class="border-b-2 border-[#171717] bg-[#e1e5cd] px-8 py-2 flex items-center justify-between text-xs font-mono uppercase tracking-wider">
+              <span>Sourboo Snack Diary • Vol. 02</span>
+              <span class="text-[#E61E6E] font-bold">"Food that fits into real moments"</span>
+              <span>Daily Edition • All Sour Zero Chill</span>
+            </div>
+            <nav class="p-6 border-b-2 border-[#171717] flex items-center justify-between bg-[#E9ECD9]">
+              <div class="flex items-center space-x-8">
+                <a href="#hero" class="font-coolvetica text-3xl tracking-tight uppercase text-[#E61E6E] hover:scale-105 transition-transform">
+                  SOURBOO
+                </a>
+                <div class="flex items-center space-x-6 text-sm font-bold uppercase tracking-tight font-coolvetica">
+                  <a href="#dossier" class="hover:text-[#E61E6E] transition">Shop The Dossier</a>
+                  <a href="#manifesto" class="hover:text-[#E61E6E] transition">Why Misbehave</a>
+                  <a href="#posters" class="hover:text-[#E61E6E] transition">Moments Archive</a>
+                  <a href="#ingredients" class="hover:text-[#E61E6E] transition">Fresh Ingredients</a>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <button onclick="openQuizModal()" class="bg-[#FFFF88] text-[#171717] px-4 py-2 rounded-full font-schoolbell text-sm font-bold border-2 border-[#171717] shadow-brutal-sm hover:-translate-y-0.5 transition">
+                  take the sour quiz ¬‿¬
+                </button>
+                <button onclick="toggleCartDrawer()" class="bg-[#E61E6E] text-white px-5 py-2 rounded-full font-coolvetica text-sm font-bold uppercase tracking-wider border-2 border-[#171717] shadow-brutal-sm hover:-translate-y-0.5 transition flex items-center gap-2">
+                  <span>Bag</span>
+                  <span class="bg-white text-[#E61E6E] w-5 h-5 rounded-full text-xs flex items-center justify-center font-bold">2</span>
+                </button>
+              </div>
+            </nav>
+
+            <!-- 2. SECTION B: ASYMMETRIC HERO EXPERIENCE (Pickle Hands Photo) -->
+            <section id="hero" class="p-12 border-b-2 border-[#171717] relative bg-gradient-to-b from-[#E9ECD9] to-[#E3E8CF]">
+              <div class="grid grid-cols-12 gap-8 items-center">
+                
+                <!-- Left 7 cols: Bold Editorial Headline & CTAs -->
+                <div class="col-span-7 space-y-6">
+                  <div class="inline-block washi-tape px-4 py-1 text-xs font-bold uppercase tracking-wider -rotate-1 text-[#4C8B1D]">
+                    Issue 02 • For Misbehaving Mouths
+                  </div>
+                  <h1 class="font-coolvetica text-6xl uppercase tracking-tight leading-[0.95] text-[#171717]">
+                    CRAVINGS COME FIRST.<br/>
+                    <span class="text-[#E61E6E] underline decoration-[#BFEA5A] decoration-wavy decoration-4">EVERYTHING ELSE</span><br/>
+                    CAN WAIT.
+                  </h1>
+                  <p class="font-schoolbell text-2xl text-neutral-800 leading-snug">
+                    it’s properly khatta, with a sour punch that stops you for a second, and makes you squint a little.
+                  </p>
+                  
+                  <div class="flex items-center space-x-4 pt-2">
+                    <a href="#dossier" class="bg-[#E61E6E] hover:bg-[#d01560] text-white px-8 py-3.5 rounded-full font-coolvetica text-lg uppercase tracking-wider border-2 border-[#171717] shadow-brutal transition-all hover:translate-x-0.5 hover:translate-y-0.5">
+                      Shop The Jars (₹399) →
+                    </a>
+                    <button onclick="openQuizModal()" class="bg-[#BFEA5A] text-[#171717] px-6 py-3.5 rounded-full font-schoolbell text-base font-bold border-2 border-[#171717] shadow-brutal transition hover:bg-[#b0df45]">
+                      what kind of sour are you?
+                    </button>
+                  </div>
+
+                  <div class="pt-4 flex items-center space-x-6 text-xs font-mono text-neutral-600">
+                    <span>✓ 100% Real Gherkins</span>
+                    <span>✓ No Preservatives</span>
+                    <span>✓ Max Fridge Crunch</span>
+                  </div>
+                </div>
+
+                <!-- Right 5 cols: Authentic Pickle Hands Photo (hero-placeholder.webp) -->
+                <div class="col-span-5 relative">
+                  <div class="bg-white p-3 rounded-2xl border-2 border-[#171717] shadow-brutal rotate-1 relative">
+                    <!-- Washi tape at top -->
+                    <div class="washi-tape w-24 h-6 absolute -top-3 left-1/2 -translate-x-1/2 z-10 -rotate-2"></div>
+                    
+                    <!-- Real Authentic Pickle Hands Photo -->
+                    <div class="w-full h-[380px] rounded-xl overflow-hidden bg-neutral-200 border border-black/10 relative">
+                      <img src="http://localhost:3456/hero-placeholder.webp" alt="Real hands holding crinkle-cut Sourboo pickles" class="w-full h-full object-cover" onerror="this.src='http://localhost:3456/side-eye-lifestyle.webp'" />
+                      <div class="absolute bottom-3 left-3 bg-[#171717]/80 backdrop-blur-sm text-[#E9ECD9] px-3 py-1 rounded text-xs font-mono">
+                        Hand-crinkle cut • Chaat masala dusted
+                      </div>
+                    </div>
+
+                    <!-- Floating Sticker Decal -->
+                    <div class="absolute -bottom-5 -left-5 bg-[#FFFF88] border-2 border-[#171717] rounded-full w-24 h-24 flex flex-col items-center justify-center -rotate-6 shadow-brutal-sm p-1 text-center">
+                      <span class="font-coolvetica text-xs uppercase leading-tight font-bold">100% REAL</span>
+                      <span class="font-schoolbell text-[11px] text-[#E61E6E]">khatta punch</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- 3. SECTION C: PRODUCT DISCOVERY — "THE SOUR DOSSIER" (No boring bands!) -->
+            <section id="dossier" class="p-12 border-b-2 border-[#171717] bg-[#F4F6E8]">
+              <div class="flex items-end justify-between mb-8">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#E61E6E] font-mono">Section C • Product Dossier</span>
+                  <h2 class="font-coolvetica text-4xl uppercase tracking-tight text-[#171717]">
+                    THE SOUR DOSSIER: PICK YOUR MISBEHAVIOUR
+                  </h2>
+                </div>
+                <div class="text-xs font-schoolbell text-neutral-600 text-right">
+                  crinkle cut vs whole imli crunch • both made to squint
+                </div>
+              </div>
+
+              <!-- 3 Staggered Editorial Cards -->
+              <div class="grid grid-cols-3 gap-8">
+                
+                <!-- Card 1: Side Eye Sour -->
+                <div class="bg-white rounded-2xl border-2 border-[#171717] shadow-brutal p-6 flex flex-col justify-between relative hover:-translate-y-1 transition-all">
+                  <div class="absolute -top-3 right-6 bg-[#FFFF88] border border-black text-xs font-mono px-3 py-0.5 rounded-full -rotate-2">
+                    Lemon & Chaat Masala
+                  </div>
+                  <div>
+                    <div class="w-full h-64 flex items-center justify-center p-4 bg-[#F8F9F0] rounded-xl border border-black/10 mb-4 overflow-hidden relative">
+                      <img src="http://localhost:3456/side-eye.webp" alt="Side Eye Sour Jar" class="max-h-56 object-contain hover:scale-105 transition-transform" />
+                      <span class="absolute bottom-2 left-2 bg-[#E61E6E] text-white text-[10px] font-bold px-2 py-0.5 rounded font-mono">CRINKLE CUT</span>
+                    </div>
+                    <div class="flex items-baseline justify-between mb-1">
+                      <h3 class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717]">SIDE EYE SOUR</h3>
+                      <span class="font-coolvetica text-xl text-[#E61E6E]">₹399</span>
+                    </div>
+                    <p class="font-schoolbell text-sm text-neutral-600 mb-4">
+                      Proper khatta with a sour punch that stops you for a second. Crinkle-cut slices dusted with roasted cumin and lemon slices.
+                    </p>
+                    <div class="space-y-1.5 text-xs font-mono bg-[#E9ECD9]/60 p-3 rounded-lg border border-black/10 mb-4">
+                      <div class="flex justify-between"><span>Sourness:</span> <strong class="text-[#E61E6E]">★★★★★ (5/5)</strong></div>
+                      <div class="flex justify-between"><span>Crunch:</span> <strong class="text-[#4C8B1D]">★★★★★ (5/5)</strong></div>
+                      <div class="flex justify-between"><span>Spice Heat:</span> <strong>★★★☆☆ (3/5)</strong></div>
+                    </div>
+                  </div>
+                  <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="w-full bg-[#E61E6E] hover:bg-[#d01560] text-white py-3 rounded-xl font-coolvetica uppercase tracking-wider text-sm font-bold border-2 border-[#171717] shadow-brutal-sm transition">
+                    Quick Add • ₹399
+                  </button>
+                </div>
+
+                <!-- Card 2: Tamarin' Tease -->
+                <div class="bg-white rounded-2xl border-2 border-[#171717] shadow-brutal p-6 flex flex-col justify-between relative hover:-translate-y-1 transition-all">
+                  <div class="absolute -top-3 right-6 bg-[#BFEA5A] border border-black text-xs font-mono px-3 py-0.5 rounded-full rotate-2">
+                    Tamarind & Whole Chilli
+                  </div>
+                  <div>
+                    <div class="w-full h-64 flex items-center justify-center p-4 bg-[#F8F9F0] rounded-xl border border-black/10 mb-4 overflow-hidden relative">
+                      <img src="http://localhost:3456/tamarin-tease.webp" alt="Tamarin' Tease Jar" class="max-h-56 object-contain hover:scale-105 transition-transform" />
+                      <span class="absolute bottom-2 left-2 bg-[#C96A00] text-white text-[10px] font-bold px-2 py-0.5 rounded font-mono">WHOLE GHERKIN</span>
+                    </div>
+                    <div class="flex items-baseline justify-between mb-1">
+                      <h3 class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717]">TAMARIN’ TEASE</h3>
+                      <span class="font-coolvetica text-xl text-[#C96A00]">₹399</span>
+                    </div>
+                    <p class="font-schoolbell text-sm text-neutral-600 mb-4">
+                      Sweet-sour imli punch that makes your mouth water instantly. Whole gherkin crunch with spices slowly teasing your tongue.
+                    </p>
+                    <div class="space-y-1.5 text-xs font-mono bg-[#E9ECD9]/60 p-3 rounded-lg border border-black/10 mb-4">
+                      <div class="flex justify-between"><span>Sourness:</span> <strong class="text-[#C96A00]">★★★★☆ (4/5)</strong></div>
+                      <div class="flex justify-between"><span>Crunch:</span> <strong class="text-[#4C8B1D]">★★★★★ (5/5)</strong></div>
+                      <div class="flex justify-between"><span>Tanginess:</span> <strong class="text-[#E61E6E]">★★★★★ (5/5)</strong></div>
+                    </div>
+                  </div>
+                  <button onclick="addToCart('tamarintease', 'TAMARIN’ TEASE', 399)" class="w-full bg-[#C96A00] hover:bg-[#b05d00] text-white py-3 rounded-xl font-coolvetica uppercase tracking-wider text-sm font-bold border-2 border-[#171717] shadow-brutal-sm transition">
+                    Quick Add • ₹399
+                  </button>
+                </div>
+
+                <!-- Card 3: Sourboo Stash (Bundle) -->
+                <div class="bg-[#FFFF88] rounded-2xl border-2 border-[#171717] shadow-brutal p-6 flex flex-col justify-between relative hover:-translate-y-1 transition-all">
+                  <div class="absolute -top-3 right-6 bg-[#E61E6E] text-white border border-black text-xs font-mono px-3 py-0.5 rounded-full -rotate-1 font-bold">
+                    BEST VALUE STASH
+                  </div>
+                  <div>
+                    <div class="w-full h-64 flex items-center justify-center p-4 bg-white rounded-xl border border-black/10 mb-4 overflow-hidden relative">
+                      <img src="http://localhost:3456/sourboo-stash.webp" alt="Sourboo Stash 4 Jars" class="max-h-56 object-contain hover:scale-105 transition-transform" />
+                      <span class="absolute bottom-2 left-2 bg-[#171717] text-[#BFEA5A] text-[10px] font-bold px-2 py-0.5 rounded font-mono">4-JAR PARTY PACK</span>
+                    </div>
+                    <div class="flex items-baseline justify-between mb-1">
+                      <h3 class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717]">SOURBOO STASH</h3>
+                      <div>
+                        <span class="text-xs line-through text-neutral-500 mr-1">₹1596</span>
+                        <span class="font-coolvetica text-xl text-[#E61E6E]">₹1299</span>
+                      </div>
+                    </div>
+                    <p class="font-schoolbell text-sm text-neutral-800 mb-4">
+                      Never run out of sour cravings. 2 jars of Side Eye Sour + 2 jars of Tamarin’ Tease. Free delivery + maximum crunch safety.
+                    </p>
+                    <div class="space-y-1.5 text-xs font-mono bg-white/80 p-3 rounded-lg border border-black/10 mb-4">
+                      <div class="flex justify-between"><span>Includes:</span> <strong>2 Side Eye + 2 Tamarin'</strong></div>
+                      <div class="flex justify-between"><span>Savings:</span> <strong class="text-[#E61E6E]">Save ₹297 instantly</strong></div>
+                      <div class="flex justify-between"><span>Shipping:</span> <strong class="text-[#4C8B1D]">FREE Express Delivery</strong></div>
+                    </div>
+                  </div>
+                  <button onclick="addToCart('sourboo-stash', 'SOURBOO STASH', 1299)" class="w-full bg-[#171717] hover:bg-neutral-800 text-[#BFEA5A] py-3 rounded-xl font-coolvetica uppercase tracking-wider text-sm font-bold border-2 border-[#171717] shadow-brutal-sm transition">
+                    Claim The Stash • ₹1299
+                  </button>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- 4. SECTION D: BRAND MANIFESTO SPREAD -->
+            <section id="manifesto" class="p-12 border-b-2 border-[#171717] bg-[#E9ECD9]">
+              <div class="grid grid-cols-12 gap-8 items-center">
+                <div class="col-span-5">
+                  <div class="washi-tape px-3 py-1 inline-block -rotate-2 text-xs font-bold uppercase mb-4 text-[#E61E6E]">
+                    Our Philosophy
+                  </div>
+                  <h2 class="font-coolvetica text-4xl uppercase tracking-tight leading-none text-[#171717] mb-4">
+                    BLAND SNACKS ARE AN INSULT TO CRAVINGS.
+                  </h2>
+                  <p class="font-schoolbell text-xl text-neutral-800 leading-relaxed mb-6">
+                    we didn't start sourboo to make nice, polite pickles for tea parties. we made them for late nights, desk breakdowns, post-cry snacking, and when your mouth wants to genuinely misbehave.
+                  </p>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-black">
+                      <img src="http://localhost:3456/about-cover.JPG" alt="Sakshi Founder" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div class="font-coolvetica uppercase text-sm font-bold">Sakshi & The Sour Squad</div>
+                      <div class="font-schoolbell text-xs text-neutral-600">founder, head sour lover & pickle maker</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-span-7 grid grid-cols-2 gap-4">
+                  <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                    <span class="text-3xl mb-2 block">¬‿¬</span>
+                    <h4 class="font-coolvetica text-lg uppercase tracking-tight mb-1">EAT WITH INTENT</h4>
+                    <p class="text-xs text-neutral-600 leading-relaxed font-sans">
+                      No mindless chips or sugary snacks. A single crunchy gherkin wakes up your brain and resets your mood.
+                    </p>
+                  </div>
+                  <div class="bg-[#BFEA5A] p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                    <span class="text-3xl mb-2 block">⚡</span>
+                    <h4 class="font-coolvetica text-lg uppercase tracking-tight mb-1">RELENTLESS CRUNCH</h4>
+                    <p class="text-xs text-neutral-800 leading-relaxed font-sans">
+                      Our secret pickling brine locks in maximum cell crispness. Stored in the fridge for thunderous acoustic crunches.
+                    </p>
+                  </div>
+                  <div class="bg-[#FFFF88] p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                    <span class="text-3xl mb-2 block">🍋</span>
+                    <h4 class="font-coolvetica text-lg uppercase tracking-tight mb-1">AUTHENTIC INDIAN KHATTA</h4>
+                    <p class="text-xs text-neutral-800 leading-relaxed font-sans">
+                      We use real rock salt, dry mango, whole imli pulp, and chaat masala. It's sour the way India loves sour.
+                    </p>
+                  </div>
+                  <div class="bg-[#E61E6E] text-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                    <span class="text-3xl mb-2 block">★</span>
+                    <h4 class="font-coolvetica text-lg uppercase tracking-tight mb-1">ZERO JUNK</h4>
+                    <p class="text-xs text-pink-100 leading-relaxed font-sans">
+                      Only water, vinegar, rock salt, spices, and fresh farm-grown cucumbers. Nothing synthetic. Ever.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5. SECTION E: THE MOMENTS ARCHIVE (CAMPAIGN POSTERS) -->
+            <section id="posters" class="p-12 border-b-2 border-[#171717] bg-[#E3E8CE]">
+              <div class="flex items-end justify-between mb-8">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#4C8B1D] font-mono">Section E • Campaign Artwork</span>
+                  <h2 class="font-coolvetica text-4xl uppercase tracking-tight text-[#171717]">
+                    THE MOMENTS ARCHIVE: WHEN DO YOU SOUR?
+                  </h2>
+                </div>
+                <div class="text-xs font-mono text-neutral-600">
+                  real campaign posters • authentic sourboo moments
+                </div>
+              </div>
+
+              <!-- Asymmetric Layered Poster Spread -->
+              <div class="grid grid-cols-4 gap-6">
+                <!-- Poster 1: Post Cry Snack -->
+                <div class="bg-white p-3 rounded-xl border-2 border-[#171717] shadow-brutal -rotate-1 hover:rotate-0 transition-transform">
+                  <div class="w-full h-80 rounded-lg overflow-hidden bg-neutral-200 border border-black/10 mb-3">
+                    <img src="http://localhost:3456/postcrysnack.webp" alt="Post Cry Snack Poster" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="font-coolvetica text-lg uppercase tracking-tight">Post Cry Snack</div>
+                  <div class="font-schoolbell text-xs text-neutral-600">tears wash away sadness; pickles restore sanity</div>
+                </div>
+
+                <!-- Poster 2: Late Night Munchies -->
+                <div class="bg-white p-3 rounded-xl border-2 border-[#171717] shadow-brutal rotate-1 hover:rotate-0 transition-transform">
+                  <div class="w-full h-80 rounded-lg overflow-hidden bg-neutral-200 border border-black/10 mb-3">
+                    <img src="http://localhost:3456/latenightmunchies.webp" alt="Late Night Munchies Poster" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="font-coolvetica text-lg uppercase tracking-tight">Late Night Munchies</div>
+                  <div class="font-schoolbell text-xs text-neutral-600">when the fridge door is your only friend at 2AM</div>
+                </div>
+
+                <!-- Poster 3: Girl Dinner But Sour -->
+                <div class="bg-white p-3 rounded-xl border-2 border-[#171717] shadow-brutal -rotate-2 hover:rotate-0 transition-transform">
+                  <div class="w-full h-80 rounded-lg overflow-hidden bg-neutral-200 border border-black/10 mb-3">
+                    <img src="http://localhost:3456/girldinner.webp" alt="Girl Dinner But Sour Poster" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="font-coolvetica text-lg uppercase tracking-tight">Girl Dinner But Sour</div>
+                  <div class="font-schoolbell text-xs text-neutral-600">cheese cubes, gherkin slices, no apologies</div>
+                </div>
+
+                <!-- Poster 4: Desk Cravings -->
+                <div class="bg-white p-3 rounded-xl border-2 border-[#171717] shadow-brutal rotate-2 hover:rotate-0 transition-transform">
+                  <div class="w-full h-80 rounded-lg overflow-hidden bg-neutral-200 border border-black/10 mb-3">
+                    <img src="http://localhost:3456/deskcravings.webp" alt="Desk Cravings Poster" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="font-coolvetica text-lg uppercase tracking-tight">Desk Cravings</div>
+                  <div class="font-schoolbell text-xs text-neutral-600">zoom fatigue cure: crinkle-cut electric khatta</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 6. SECTION F: FRESH INGREDIENTS BREAKDOWN -->
+            <section id="ingredients" class="p-12 border-b-2 border-[#171717] bg-[#E9ECD9]">
+              <div class="grid grid-cols-12 gap-8 items-center">
+                <div class="col-span-6">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#E61E6E] font-mono">Section F • Quality & Sourcing</span>
+                  <h2 class="font-coolvetica text-4xl uppercase tracking-tight text-[#171717] mb-4">
+                    WHAT'S ACTUALLY INSIDE THE JAR?
+                  </h2>
+                  <p class="font-schoolbell text-lg text-neutral-800 leading-relaxed mb-6">
+                    we don't hide our recipe behind mysterious chemical numbers. every single jar is packed with crunchy baby cucumbers and artisanal spices you have in your own dadi's kitchen.
+                  </p>
+                  
+                  <div class="space-y-3 font-mono text-xs">
+                    <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-black/20 shadow-brutal-sm">
+                      <span class="text-lg">🥒</span>
+                      <div><strong>Fresh Crisp Gherkins:</strong> Hand-harvested and washed in chilled mountain water.</div>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-black/20 shadow-brutal-sm">
+                      <span class="text-lg">🍋</span>
+                      <div><strong>Fresh Sun-Drenched Lemons:</strong> Real citrus slices that release aromatic oils into the brine.</div>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-black/20 shadow-brutal-sm">
+                      <span class="text-lg">🤎</span>
+                      <div><strong>Pure Tamarind Pulp:</strong> Tart, deep imli pulp giving sweet-sour velvet undertones.</div>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-black/20 shadow-brutal-sm">
+                      <span class="text-lg">🌶️</span>
+                      <div><strong>Whole Chaat Spices:</strong> Roasted jeera, rock salt (kala namak), mustard seeds, and chilli.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-span-6 flex justify-center">
+                  <div class="bg-white p-6 rounded-2xl border-2 border-[#171717] shadow-brutal max-w-md text-center">
+                    <img src="http://localhost:3456/freshingredients.webp" alt="Fresh Ingredients Artwork" class="w-full object-contain mb-4" onerror="this.src='http://localhost:3456/side-eye-lifestyle.webp'" />
+                    <div class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717]">ZERO ARTIFICIAL NASTIES</div>
+                    <p class="font-schoolbell text-sm text-neutral-600 mt-1">
+                      no sodium benzoate • no artificial colors • pure khatta goodness
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 7. SECTION G: REAL REVIEWS & SOCIAL PROOF -->
+            <section class="p-12 border-b-2 border-[#171717] bg-[#F4F6E8]">
+              <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#E61E6E] font-mono">Social Proof</span>
+                <h2 class="font-coolvetica text-4xl uppercase tracking-tight text-[#171717]">
+                  UNFILTERED WORDS FROM SOUR LOVERS
+                </h2>
+                <p class="font-schoolbell text-neutral-600">real people, real squints, real crunches</p>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border-2 border-[#171717] shadow-brutal space-y-3">
+                  <div class="text-[#E61E6E] text-sm">★★★★★</div>
+                  <p class="font-schoolbell text-lg text-neutral-800">
+                    "literally finished the whole jar of side eye sour in one sitting during my netflix binge. my tongue is numb and i am happy."
+                  </p>
+                  <div class="flex justify-between items-center text-xs font-mono pt-3 border-t border-black/10">
+                    <strong>Ananya R., Mumbai</strong>
+                    <span class="bg-[#BFEA5A] px-2 py-0.5 rounded text-[10px]">Verified Eater</span>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-2 border-[#171717] shadow-brutal space-y-3">
+                  <div class="text-[#E61E6E] text-sm">★★★★★</div>
+                  <p class="font-schoolbell text-lg text-neutral-800">
+                    "the crunch on tamarin' tease is insane! that sweet-sour imli kick reminds me of school time imli goli but ten times better."
+                  </p>
+                  <div class="flex justify-between items-center text-xs font-mono pt-3 border-t border-black/10">
+                    <strong>Kabir S., Bengaluru</strong>
+                    <span class="bg-[#BFEA5A] px-2 py-0.5 rounded text-[10px]">Verified Eater</span>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-2 border-[#171717] shadow-brutal space-y-3">
+                  <div class="text-[#E61E6E] text-sm">★★★★★</div>
+                  <p class="font-schoolbell text-lg text-neutral-800">
+                    "bought the sourboo stash for my hostel room and had to hide it under my mattress so my roommates wouldn't steal it lol."
+                  </p>
+                  <div class="flex justify-between items-center text-xs font-mono pt-3 border-t border-black/10">
+                    <strong>Tanya M., Delhi</strong>
+                    <span class="bg-[#BFEA5A] px-2 py-0.5 rounded text-[10px]">Verified Eater</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 8. FOOTER & COLOPHON -->
+            <footer class="bg-[#171717] text-[#E9ECD9] p-12">
+              <div class="grid grid-cols-12 gap-8 mb-12">
+                <div class="col-span-5 space-y-4">
+                  <span class="font-coolvetica text-4xl uppercase text-[#E61E6E]">SOURBOO</span>
+                  <p class="font-schoolbell text-neutral-400 text-base max-w-sm">
+                    handcrafted pickled gherkins for cravings, late nights, desk comfort, and misbehaving mouths.
+                  </p>
+                  <div class="text-xs font-mono text-neutral-500">
+                    Made with love & sour in India • FSSAI Certified
+                  </div>
+                </div>
+
+                <div class="col-span-3 space-y-2 text-xs font-mono">
+                  <div class="font-coolvetica uppercase text-sm text-[#BFEA5A] mb-2">QUICK LINKS</div>
+                  <div><a href="#dossier" class="hover:text-white">Shop Side Eye Sour (₹399)</a></div>
+                  <div><a href="#dossier" class="hover:text-white">Shop Tamarin' Tease (₹399)</a></div>
+                  <div><a href="#dossier" class="hover:text-white">The Sourboo Stash (₹1299)</a></div>
+                  <div><a href="#manifesto" class="hover:text-white">About Sakshi's Story</a></div>
+                  <div><a href="#posters" class="hover:text-white">Campaign Posters Archive</a></div>
+                </div>
+
+                <div class="col-span-4 space-y-3">
+                  <div class="font-coolvetica uppercase text-sm text-[#FFFF88]">GET 5% OFF YOUR FIRST ORDER</div>
+                  <p class="text-xs text-neutral-400 font-sans">
+                    Join the Sour Club. Secret flash drops, sour playlists, and fresh batches.
+                  </p>
+                  <div class="flex space-x-2">
+                    <input type="email" placeholder="enter your email..." class="bg-neutral-800 border border-neutral-700 text-xs px-3 py-2 rounded-lg flex-1 text-white focus:outline-none focus:border-[#E61E6E]" />
+                    <button class="bg-[#E61E6E] text-white px-4 py-2 rounded-lg text-xs font-bold font-coolvetica uppercase">
+                      JOIN
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-6 border-t border-neutral-800 flex items-center justify-between text-xs font-mono text-neutral-500">
+                <span>© 2026 SOURBOO FOODS LLP. ALL RIGHTS RESERVED.</span>
+                <span>DESIGN SYSTEM: SOURBOO SNACK DIARY V2.0</span>
+              </div>
+            </footer>
+
+          </div>
+
+          <!-- ARTBOARD: SHOP COLLECTION -->
+          <div id="artboard-shop" class="desktop-subview hidden bg-[#E9ECD9] text-[#171717] rounded-xl border-4 border-[#171717] shadow-brutal-lg p-12">
+            <div class="border-b-2 border-[#171717] pb-6 mb-8 flex justify-between items-end">
+              <div>
+                <span class="text-xs font-mono text-[#E61E6E] uppercase font-bold">Catalogue • Issue 02</span>
+                <h1 class="font-coolvetica text-5xl uppercase tracking-tight text-[#171717]">
+                  ALL SOUR, ZERO CHILL: THE FULL COLLECTION
+                </h1>
+              </div>
+              <div class="flex space-x-2 text-xs font-mono">
+                <button class="bg-[#171717] text-white px-3 py-1.5 rounded-full">All Cravings (6)</button>
+                <button class="bg-white border border-black px-3 py-1.5 rounded-full hover:bg-neutral-100">Singles (₹399)</button>
+                <button class="bg-white border border-black px-3 py-1.5 rounded-full hover:bg-neutral-100">Bundles & Stashes</button>
+              </div>
+            </div>
+
+            <!-- Flavour Matcher Interactive Widget in Shop -->
+            <div class="bg-[#FFFF88] p-6 rounded-2xl border-2 border-[#171717] shadow-brutal mb-10 flex items-center justify-between">
+              <div>
+                <div class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717]">CAN'T DECIDE WHICH KHATTA YOU ARE?</div>
+                <div class="font-schoolbell text-neutral-700 text-sm">Take our 10-second flavour matcher quiz to get your personalised jar recommendation.</div>
+              </div>
+              <button onclick="openQuizModal()" class="bg-[#E61E6E] text-white px-6 py-2.5 rounded-full font-coolvetica uppercase tracking-wider text-sm font-bold border border-black shadow-sm hover:scale-105 transition">
+                Start Flavour Matcher →
+              </button>
+            </div>
+
+            <!-- 6 Products Grid -->
+            <div class="grid grid-cols-3 gap-8">
+              <!-- Product 1 -->
+              <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-[#F8F9F0] rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/side-eye.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">SIDE EYE SOUR</h3>
+                  <span class="font-coolvetica text-lg text-[#E61E6E]">₹399</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-600 mb-3">Lemon & Chaat Masala • Crinkle-cut slices</p>
+                <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="w-full bg-[#E61E6E] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹399
+                </button>
+              </div>
+              <!-- Product 2 -->
+              <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-[#F8F9F0] rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/tamarin-tease.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">TAMARIN’ TEASE</h3>
+                  <span class="font-coolvetica text-lg text-[#C96A00]">₹399</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-600 mb-3">Tamarind & Whole Chilli • Whole gherkin crunch</p>
+                <button onclick="addToCart('tamarintease', 'TAMARIN’ TEASE', 399)" class="w-full bg-[#C96A00] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹399
+                </button>
+              </div>
+              <!-- Product 3 -->
+              <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-[#F8F9F0] rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/tamarind-twins.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">TAMARIND TWINS</h3>
+                  <span class="font-coolvetica text-lg text-[#171717]">₹719</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-600 mb-3">2 × Tamarin' Tease • Double imli hit</p>
+                <button onclick="addToCart('tamarind-twins', 'TAMARIND TWINS', 719)" class="w-full bg-[#171717] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹719
+                </button>
+              </div>
+              <!-- Product 4 -->
+              <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-[#F8F9F0] rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/lemon-lovers.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">LEMON LOVERS</h3>
+                  <span class="font-coolvetica text-lg text-[#171717]">₹729</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-600 mb-3">2 × Side Eye Sour • Maximum citrus squint</p>
+                <button onclick="addToCart('lemon-lovers', 'LEMON LOVERS', 729)" class="w-full bg-[#171717] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹729
+                </button>
+              </div>
+              <!-- Product 5 -->
+              <div class="bg-white p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-[#F8F9F0] rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/sour-sampler.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">SOUR SAMPLER</h3>
+                  <span class="font-coolvetica text-lg text-[#171717]">₹729</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-600 mb-3">1 Side Eye + 1 Tamarin' • Best of both worlds</p>
+                <button onclick="addToCart('sour-sampler', 'SOUR SAMPLER', 729)" class="w-full bg-[#171717] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹729
+                </button>
+              </div>
+              <!-- Product 6 -->
+              <div class="bg-[#FFFF88] p-5 rounded-xl border-2 border-[#171717] shadow-brutal">
+                <div class="h-56 bg-white rounded-lg border border-black/10 flex items-center justify-center mb-3">
+                  <img src="http://localhost:3456/sourboo-stash.webp" class="h-44 object-contain" />
+                </div>
+                <div class="flex justify-between items-baseline mb-1">
+                  <h3 class="font-coolvetica text-xl uppercase">SOURBOO STASH</h3>
+                  <span class="font-coolvetica text-lg text-[#E61E6E]">₹1299</span>
+                </div>
+                <p class="text-xs font-schoolbell text-neutral-800 mb-3">4-Jar Ultimate Variety Pack • Free Shipping</p>
+                <button onclick="addToCart('sourboo-stash', 'SOURBOO STASH', 1299)" class="w-full bg-[#E61E6E] text-white py-2 rounded-lg font-coolvetica text-xs uppercase font-bold border border-black">
+                  Add To Bag • ₹1299
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ARTBOARD: PRODUCT DETAIL PAGE (PDP) -->
+          <div id="artboard-pdp" class="desktop-subview hidden bg-[#E9ECD9] text-[#171717] rounded-xl border-4 border-[#171717] shadow-brutal-lg p-12">
+            <div class="grid grid-cols-12 gap-12">
+              <!-- Left Gallery (5 cols) -->
+              <div class="col-span-5 space-y-4">
+                <div class="bg-white p-6 rounded-2xl border-2 border-[#171717] shadow-brutal flex items-center justify-center h-96">
+                  <img id="pdp-main-image" src="http://localhost:3456/side-eye.webp" class="max-h-80 object-contain hover:scale-105 transition-transform" />
+                </div>
+                <div class="flex space-x-3">
+                  <button onclick="document.getElementById('pdp-main-image').src='http://localhost:3456/side-eye.webp'" class="w-20 h-20 bg-white p-2 rounded-lg border-2 border-black flex items-center justify-center">
+                    <img src="http://localhost:3456/side-eye.webp" class="h-16 object-contain" />
+                  </button>
+                  <button onclick="document.getElementById('pdp-main-image').src='http://localhost:3456/side-eye-lifestyle.webp'" class="w-20 h-20 bg-white p-2 rounded-lg border-2 border-black flex items-center justify-center">
+                    <img src="http://localhost:3456/side-eye-lifestyle.webp" class="h-16 object-contain" />
+                  </button>
+                  <button onclick="document.getElementById('pdp-main-image').src='http://localhost:3456/hero-placeholder.webp'" class="w-20 h-20 bg-white p-2 rounded-lg border-2 border-black flex items-center justify-center overflow-hidden">
+                    <img src="http://localhost:3456/hero-placeholder.webp" class="w-full h-full object-cover" />
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Purchasing & Handwritten Tabs (7 cols) -->
+              <div class="col-span-7 space-y-6">
+                <div>
+                  <div class="washi-tape px-3 py-0.5 inline-block text-xs font-bold uppercase mb-2 text-[#E61E6E]">
+                    Snackable Pickled Gherkins
+                  </div>
+                  <h1 class="font-coolvetica text-5xl uppercase tracking-tight text-[#171717]">
+                    SIDE EYE SOUR
+                  </h1>
+                  <div class="flex items-center space-x-4 mt-2">
+                    <span class="font-coolvetica text-3xl text-[#E61E6E]">₹399</span>
+                    <span class="text-xs font-mono text-neutral-600">Net Wt: 350g (Drained: 180g) • Taxes Included</span>
+                  </div>
+                </div>
+
+                <p class="font-schoolbell text-xl text-neutral-800 leading-relaxed">
+                  properly khatta with a sour punch that stops you for a second, and makes you squint a little. juicy, spicy, sour crinkle-cut slices. ¬‿¬
+                </p>
+
+                <!-- Quantity & ATC -->
+                <div class="flex items-center space-x-4 pt-2">
+                  <div class="flex items-center border-2 border-[#171717] rounded-xl bg-white shadow-brutal-sm font-coolvetica text-lg">
+                    <button class="px-4 py-2 hover:bg-neutral-100" onclick="alert('Quantity changed')">－</button>
+                    <span class="px-4 py-2">1</span>
+                    <button class="px-4 py-2 hover:bg-neutral-100" onclick="alert('Quantity changed')">＋</button>
+                  </div>
+                  <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="flex-1 bg-[#E61E6E] hover:bg-[#d01560] text-white py-3.5 rounded-xl font-coolvetica text-lg uppercase tracking-wider border-2 border-[#171717] shadow-brutal transition">
+                    Add To Bag • ₹399
+                  </button>
+                </div>
+
+                <!-- THE THREE SIGNATURE HANDWRITTEN TABS (Interactive) -->
+                <div class="pt-6 border-t-2 border-[#171717]">
+                  <div class="flex space-x-2 border-b-2 border-[#171717]">
+                    <button onclick="switchPdpTab('tab-jar')" id="btn-tab-jar" class="px-4 py-2 font-schoolbell text-sm font-bold bg-[#FFFF88] border-2 border-b-0 border-[#171717] rounded-t-lg -mb-[2px]">
+                      1. in the jar
+                    </button>
+                    <button onclick="switchPdpTab('tab-tongue')" id="btn-tab-tongue" class="px-4 py-2 font-schoolbell text-sm font-medium text-neutral-600 hover:text-black">
+                      2. on the tongue
+                    </button>
+                    <button onclick="switchPdpTab('tab-storage')" id="btn-tab-storage" class="px-4 py-2 font-schoolbell text-sm font-medium text-neutral-600 hover:text-black">
+                      3. after opening
+                    </button>
+                  </div>
+
+                  <!-- Tab 1 Content -->
+                  <div id="content-tab-jar" class="p-4 bg-white border-2 border-t-0 border-[#171717] rounded-b-xl text-xs space-y-2 font-mono">
+                    <p><strong>Ingredients:</strong> Gherkins, Water, Vinegar, Lemon slices, Rock salt (kala namak), Chaat masala powder, Whole red chilli, Cumin powder, Dehydrated chopped garlic, Yellow mustard seeds, Sugar, Ginger powder, Calcium chloride.</p>
+                    <p class="text-neutral-500">No artificial preservatives, colors or fake vinegar substitutes.</p>
+                  </div>
+
+                  <!-- Tab 2 Content -->
+                  <div id="content-tab-tongue" class="hidden p-4 bg-white border-2 border-t-0 border-[#171717] rounded-b-xl text-sm font-schoolbell space-y-2">
+                    <p class="text-neutral-800 leading-relaxed">
+                      "It’s properly khatta, with a sour punch that stops you for a second, and makes you squint a little. Juicy, spicy, sour, and more waiting to be discovered as you chew the crinkle-cut slices. Perfect for when you want to be extra and a lil hot. ¬‿¬"
+                    </p>
+                  </div>
+
+                  <!-- Tab 3 Content -->
+                  <div id="content-tab-storage" class="hidden p-4 bg-white border-2 border-t-0 border-[#171717] rounded-b-xl text-sm font-schoolbell space-y-2">
+                    <p class="text-neutral-800 leading-relaxed">
+                      "Store it in the fridge for max crunch - keep it where you can see it. Eat it when your mouth wants to misbehave, or with any meal you love."
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ARTBOARD: ABOUT / SAKSHI'S DIARY -->
+          <div id="artboard-about" class="desktop-subview hidden bg-[#E9ECD9] text-[#171717] rounded-xl border-4 border-[#171717] shadow-brutal-lg p-12">
+            <div class="max-w-4xl mx-auto space-y-8">
+              <div class="border-b-2 border-[#171717] pb-6 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-mono text-[#4C8B1D] uppercase font-bold">Sakshi's Diary • Issue 02</span>
+                  <h1 class="font-coolvetica text-5xl uppercase tracking-tight text-[#171717]">
+                    HI, I AM SAKSHI. I MAKE SOURBOO.
+                  </h1>
+                </div>
+                <span class="text-3xl">🥒</span>
+              </div>
+
+              <div class="grid grid-cols-12 gap-8 items-center">
+                <div class="col-span-5">
+                  <div class="bg-white p-3 rounded-2xl border-2 border-[#171717] shadow-brutal rotate-1">
+                    <div class="h-80 rounded-xl overflow-hidden bg-neutral-200">
+                      <img src="http://localhost:3456/about-cover.JPG" alt="Sakshi Founder" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="font-schoolbell text-xs text-neutral-600 mt-2 text-center">
+                      sakshi in the kitchen with fresh cucumbers & spices
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-span-7 space-y-4">
+                  <h3 class="font-coolvetica text-3xl uppercase tracking-tight text-[#E61E6E]">
+                    "I GREW UP OBSESSED WITH KHATTA."
+                  </h3>
+                  <p class="font-schoolbell text-lg text-neutral-800 leading-relaxed">
+                    while other kids were buying chocolate bars after school, i was sneaking raw mango slices, imli rolls, and licking chaat masala off my fingers until my tongue burned.
+                  </p>
+                  <p class="text-xs font-sans text-neutral-700 leading-relaxed">
+                    When I grew up, every pickle jar in the supermarket looked like it belonged in the 1970s — drowning in heavy oil, filled with synthetic vinegar, or just plain boring. I wanted a snackable pickle. Something crunchy you could eat straight from the jar with a fork while staring into the abyss of your laptop screen.
+                  </p>
+                  <div class="p-4 bg-[#FFFF88] rounded-xl border-2 border-black font-schoolbell text-sm">
+                    "So I bought 10 kilos of baby gherkins, locked myself in my kitchen, and made 40 different batches until I heard that thunderous CRUNCH. That was the birth of Sourboo."
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PAGE 4: MOBILE WEBSITE (TOUCH-FIRST FRAMES) -->
+        <!-- ============================================================ -->
+        <div id="view-page-4" class="page-view hidden space-y-8 w-[1400px]">
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl mb-6">
+            <h2 class="text-xl font-bold text-white mb-2">Dedicated Mobile Frames (390px Width)</h2>
+            <p class="text-xs text-neutral-400 font-sans">
+              Touch-optimized responsive layouts with vertical hierarchy, bottom sticky quick-shop bar, and tap-friendly targets.
+            </p>
+          </div>
+
+          <!-- Side-by-Side Mobile Screens -->
+          <div class="flex space-x-8 overflow-x-auto pb-6">
+            
+            <!-- Mobile Screen 1: Homepage -->
+            <div class="w-[390px] shrink-0 bg-[#E9ECD9] text-[#171717] rounded-3xl border-4 border-[#171717] shadow-brutal overflow-hidden flex flex-col">
+              <!-- Mobile Status Bar Mock -->
+              <div class="h-6 bg-[#171717] text-white text-[10px] flex items-center justify-between px-4 font-mono">
+                <span>9:41</span>
+                <span>5G 100%</span>
+              </div>
+              <!-- Mobile Sticky Nav -->
+              <div class="p-3 border-b-2 border-[#171717] flex items-center justify-between bg-[#E9ECD9]">
+                <span class="font-coolvetica text-2xl uppercase text-[#E61E6E]">SOURBOO</span>
+                <div class="flex items-center space-x-2">
+                  <button onclick="openQuizModal()" class="bg-[#FFFF88] text-[10px] px-2.5 py-1 rounded-full font-schoolbell font-bold border border-black">
+                    quiz ¬‿¬
+                  </button>
+                  <button onclick="toggleCartDrawer()" class="bg-[#E61E6E] text-white text-xs px-3 py-1 rounded-full font-bold">
+                    bag (2)
+                  </button>
+                </div>
+              </div>
+              <!-- Mobile Hero -->
+              <div class="p-4 space-y-3 border-b-2 border-[#171717]">
+                <span class="washi-tape px-2 py-0.5 text-[10px] font-bold uppercase inline-block -rotate-1">
+                  Issue 02 • Snack Diary
+                </span>
+                <h1 class="font-coolvetica text-3xl uppercase leading-[0.95]">
+                  CRAVINGS COME FIRST. <span class="text-[#E61E6E]">ZERO CHILL.</span>
+                </h1>
+                <!-- Authentic Pickle Photo in Mobile Frame -->
+                <div class="w-full h-48 rounded-xl overflow-hidden border-2 border-black bg-neutral-200 shadow-brutal-sm relative">
+                  <img src="http://localhost:3456/hero-placeholder.webp" class="w-full h-full object-cover" />
+                  <span class="absolute bottom-2 left-2 bg-[#FFFF88] text-black text-[9px] font-mono px-2 py-0.5 rounded border border-black">
+                    Real Crinkle Crunch
+                  </span>
+                </div>
+                <p class="font-schoolbell text-sm text-neutral-800">
+                  mouth wants to misbehave. crinkle-cut pickled gherkins with authentic chaat spices.
+                </p>
+                <div class="flex space-x-2">
+                  <a href="#artboard-home" class="flex-1 bg-[#E61E6E] text-white text-center py-2.5 rounded-full font-coolvetica text-xs uppercase font-bold border border-black">
+                    Shop Jars (₹399)
+                  </a>
+                  <button onclick="openQuizModal()" class="bg-[#BFEA5A] text-black px-4 py-2.5 rounded-full font-schoolbell text-xs font-bold border border-black">
+                    Quiz →
+                  </button>
+                </div>
+              </div>
+              <!-- Mobile Product Cards Swipe -->
+              <div class="p-4 border-b-2 border-[#171717] bg-[#F4F6E8]">
+                <div class="font-coolvetica text-lg uppercase mb-2">THE SOUR DOSSIER</div>
+                <div class="bg-white p-3 rounded-xl border border-black shadow-sm mb-3">
+                  <div class="h-32 flex items-center justify-center bg-[#F8F9F0] rounded mb-2">
+                    <img src="http://localhost:3456/side-eye.webp" class="h-28 object-contain" />
+                  </div>
+                  <div class="flex justify-between items-baseline">
+                    <span class="font-coolvetica text-base uppercase">Side Eye Sour</span>
+                    <span class="font-coolvetica text-[#E61E6E]">₹399</span>
+                  </div>
+                  <p class="text-[11px] font-schoolbell text-neutral-600 mb-2">Lemon & Chaat Masala • Extra Khatta</p>
+                  <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="w-full bg-[#E61E6E] text-white py-1.5 rounded-lg text-xs font-bold font-coolvetica uppercase">
+                    Quick Add +
+                  </button>
+                </div>
+              </div>
+              <!-- Mobile Bottom Floating Bar -->
+              <div class="mt-auto p-3 bg-white border-t-2 border-[#171717] flex justify-between items-center text-xs">
+                <span class="font-mono text-[10px]">Free shipping on 2+ jars</span>
+                <span class="font-coolvetica text-[#E61E6E] font-bold">SHOP NOW →</span>
+              </div>
+            </div>
+
+            <!-- Mobile Screen 2: Personality Quiz Flow -->
+            <div class="w-[390px] shrink-0 bg-[#EEDDEB] text-[#171717] rounded-3xl border-4 border-[#171717] shadow-brutal overflow-hidden flex flex-col p-5 justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-6">
+                  <span class="text-xs font-mono font-bold uppercase text-[#E61E6E]">Sour Quiz • 1/2</span>
+                  <span class="text-lg">¬‿¬</span>
+                </div>
+                <h2 class="font-coolvetica text-3xl uppercase tracking-tight text-[#171717] mb-1">
+                  WHAT KIND OF SOUR ARE YOU?
+                </h2>
+                <p class="font-schoolbell text-sm text-neutral-600 mb-6">be honest...</p>
+
+                <div class="space-y-3">
+                  <button onclick="selectPersonality('Sour & Savage')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black font-coolvetica uppercase text-sm tracking-tight shadow-brutal-sm flex justify-between items-center transition">
+                    <span>1. Sour & Savage</span>
+                    <span>→</span>
+                  </button>
+                  <button onclick="selectPersonality('Sweet but Psycho')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black font-coolvetica uppercase text-sm tracking-tight shadow-brutal-sm flex justify-between items-center transition">
+                    <span>2. Sweet but Psycho</span>
+                    <span>→</span>
+                  </button>
+                  <button onclick="selectPersonality('Spicy Drama')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black font-coolvetica uppercase text-sm tracking-tight shadow-brutal-sm flex justify-between items-center transition">
+                    <span>3. Spicy Drama</span>
+                    <span>→</span>
+                  </button>
+                  <button onclick="selectPersonality('Lowkey Tangy')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black font-coolvetica uppercase text-sm tracking-tight shadow-brutal-sm flex justify-between items-center transition">
+                    <span>4. Lowkey Tangy</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </div>
+              <div class="text-[11px] font-mono text-center text-neutral-500 pt-4">
+                Unlock your 5% discount coupon immediately after choice.
+              </div>
+            </div>
+
+            <!-- Mobile Screen 3: PDP Mobile -->
+            <div class="w-[390px] shrink-0 bg-[#E9ECD9] text-[#171717] rounded-3xl border-4 border-[#171717] shadow-brutal overflow-hidden flex flex-col p-4">
+              <div class="h-44 bg-white rounded-xl border border-black flex items-center justify-center mb-3">
+                <img src="http://localhost:3456/side-eye.webp" class="h-36 object-contain" />
+              </div>
+              <h2 class="font-coolvetica text-2xl uppercase">SIDE EYE SOUR</h2>
+              <div class="font-coolvetica text-xl text-[#E61E6E] mb-2">₹399</div>
+              <p class="font-schoolbell text-xs text-neutral-700 mb-4">
+                proper khatta with lemon slices and chaat masala. store in fridge for max crunch.
+              </p>
+              <!-- Accordion Tabs -->
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-2.5 rounded-lg border border-black font-bold flex justify-between">
+                  <span>1. In The Jar</span>
+                  <span>▼</span>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-black font-bold flex justify-between text-neutral-600">
+                  <span>2. On The Tongue</span>
+                  <span>▶</span>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-black font-bold flex justify-between text-neutral-600">
+                  <span>3. After Opening</span>
+                  <span>▶</span>
+                </div>
+              </div>
+              <div class="mt-auto pt-4">
+                <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="w-full bg-[#E61E6E] text-white py-3 rounded-xl font-coolvetica uppercase font-bold text-sm border-2 border-black shadow-brutal-sm">
+                  Add To Bag • ₹399
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PAGE 5: POPUP EXPERIENCES (QUIZ & LEAD CAPTURE) -->
+        <!-- ============================================================ -->
+        <div id="view-page-5" class="page-view hidden space-y-8 w-[1400px]">
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl mb-6">
+            <h2 class="text-xl font-bold text-white mb-2">Personality Popup Architecture (4 States)</h2>
+            <p class="text-xs text-neutral-400 font-sans">
+              Exact replica of original personality quiz with enhanced tactile styling, all 4 personality outcomes, lead capture validation, and SOURBABE05 coupon reveal.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-8">
+            
+            <!-- State 1: Step 1 Quiz -->
+            <div class="bg-[#EEDDEB] text-[#171717] rounded-2xl border-4 border-[#171717] shadow-brutal p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-xs font-mono uppercase font-bold text-[#E61E6E]">State 01 • Personality Quiz</span>
+                  <span class="text-xs bg-white px-2 py-0.5 rounded border border-black font-mono">Step 1 of 2</span>
+                </div>
+                <h3 class="font-coolvetica text-3xl uppercase tracking-tight text-[#171717] mb-1">
+                  WHAT KIND OF SOUR ARE YOU?
+                </h3>
+                <p class="font-schoolbell text-sm text-neutral-600 mb-6">be honest...</p>
+
+                <div class="space-y-3 font-coolvetica text-sm uppercase">
+                  <div class="bg-white p-3 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between">
+                    <span>1. Sour & Savage</span>
+                    <span>→</span>
+                  </div>
+                  <div class="bg-white p-3 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between">
+                    <span>2. Sweet but Psycho</span>
+                    <span>→</span>
+                  </div>
+                  <div class="bg-white p-3 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between">
+                    <span>3. Spicy Drama</span>
+                    <span>→</span>
+                  </div>
+                  <div class="bg-white p-3 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between">
+                    <span>4. Lowkey Tangy</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-black/10 text-[11px] font-mono text-neutral-600">
+                Preserves exact copy and all 4 personality paths
+              </div>
+            </div>
+
+            <!-- State 2: Step 2 Lead Capture -->
+            <div class="bg-[#EEDDEB] text-[#171717] rounded-2xl border-4 border-[#171717] shadow-brutal p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-xs font-mono uppercase font-bold text-[#4C8B1D]">State 02 • Personalized Lead Form</span>
+                  <span class="text-xs bg-white px-2 py-0.5 rounded border border-black font-mono">Step 2 of 2</span>
+                </div>
+                <h3 class="font-coolvetica text-2xl uppercase tracking-tight text-[#171717] mb-1">
+                  HELLO <span class="text-[#E61E6E]">SOUR & SAVAGE</span> ¬‿¬
+                </h3>
+                <p class="font-schoolbell text-xs text-neutral-600 mb-6">
+                  drop your details to unlock your 5% discount code
+                </p>
+
+                <div class="space-y-3 text-xs">
+                  <div>
+                    <label class="block font-mono text-[10px] uppercase font-bold mb-1">Email Address</label>
+                    <input type="email" value="cravings@sourboo.com" class="w-full bg-white border-2 border-black p-2.5 rounded-lg font-mono focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block font-mono text-[10px] uppercase font-bold mb-1">Phone Number (WhatsApp)</label>
+                    <input type="tel" value="+91 98765 43210" class="w-full bg-white border-2 border-black p-2.5 rounded-lg font-mono focus:outline-none" />
+                  </div>
+                  <button class="w-full bg-[#E61E6E] text-white py-3 rounded-xl font-coolvetica text-sm uppercase font-bold border-2 border-black shadow-brutal-sm mt-2">
+                    Unlock My 5% →
+                  </button>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-black/10 text-[10px] font-mono text-neutral-600">
+                Original pledge: "We don't spam. Only sweet-sour news."
+              </div>
+            </div>
+
+            <!-- State 3: Step 3 Coupon Reveal -->
+            <div class="bg-[#FFFF88] text-[#171717] rounded-2xl border-4 border-[#171717] shadow-brutal p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-xs font-mono uppercase font-bold text-[#171717]">State 03 • Coupon Success</span>
+                  <span class="text-xs bg-[#BFEA5A] px-2 py-0.5 rounded border border-black font-mono font-bold">UNLOCKED!</span>
+                </div>
+                <h3 class="font-coolvetica text-3xl uppercase tracking-tight text-[#171717] mb-1">
+                  YOU'RE ONE OF US NOW!
+                </h3>
+                <p class="font-schoolbell text-xs text-neutral-700 mb-6">
+                  use this coupon code at checkout for 5% off everything
+                </p>
+
+                <div class="bg-white p-4 rounded-xl border-2 border-black shadow-brutal-sm text-center mb-4">
+                  <div class="text-[10px] font-mono uppercase text-neutral-500 mb-1">Your 5% Coupon Code</div>
+                  <div class="font-coolvetica text-3xl text-[#E61E6E] tracking-wider select-all font-bold">
+                    SOURBABE05
+                  </div>
+                </div>
+
+                <button onclick="copyCouponCode()" class="w-full bg-[#171717] text-[#BFEA5A] py-3 rounded-xl font-coolvetica text-sm uppercase font-bold border-2 border-black shadow-brutal-sm flex items-center justify-center gap-2">
+                  <span>Copy Code & Shop Now</span>
+                </button>
+              </div>
+              <div class="mt-6 pt-4 border-t border-black/10 text-[10px] font-mono text-neutral-700 text-center">
+                Valid on singles, bundles, and stash packs
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PAGE 6: INTERACTIVE PROTOTYPE (CLICKABLE SIMULATOR) -->
+        <!-- ============================================================ -->
+        <div id="view-page-6" class="page-view hidden space-y-6 w-[1400px]">
+          <div class="bg-[#242424] border border-[#3e3e3e] rounded-xl p-6 shadow-xl flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-[#BFEA5A] uppercase font-bold">Interactive Prototype Engine</span>
+              <h2 class="text-xl font-bold text-white">Clickable User Journey Simulator</h2>
+            </div>
+            <div class="flex space-x-3 text-xs font-mono">
+              <span class="bg-[#333] px-3 py-1 rounded text-neutral-300">✓ Page Switching</span>
+              <span class="bg-[#333] px-3 py-1 rounded text-neutral-300">✓ 4-Choice Personality Quiz</span>
+              <span class="bg-[#333] px-3 py-1 rounded text-neutral-300">✓ Quick-Add Cart Drawer</span>
+              <span class="bg-[#333] px-3 py-1 rounded text-neutral-300">✓ Coupon SOURBABE05</span>
+            </div>
+          </div>
+
+          <div class="bg-[#111] p-8 rounded-2xl border-2 border-neutral-700 flex justify-center">
+            <div class="w-[900px] bg-[#E9ECD9] text-[#171717] rounded-2xl border-4 border-[#171717] shadow-brutal-lg overflow-hidden relative min-h-[600px] flex flex-col justify-between">
+              
+              <!-- Prototype Header -->
+              <div class="p-4 bg-[#e1e5cd] border-b-2 border-black flex justify-between items-center">
+                <span class="font-coolvetica text-2xl uppercase text-[#E61E6E]">SOURBOO</span>
+                <div class="flex space-x-4 text-xs font-bold uppercase font-coolvetica">
+                  <button onclick="prototypeNavigate('home')" class="hover:text-[#E61E6E]">Home</button>
+                  <button onclick="prototypeNavigate('shop')" class="hover:text-[#E61E6E]">Shop</button>
+                  <button onclick="openQuizModal()" class="text-[#E61E6E] underline">Take Quiz</button>
+                </div>
+                <button onclick="toggleCartDrawer()" class="bg-[#E61E6E] text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Bag (<span id="proto-cart-count">0</span>)
+                </button>
+              </div>
+
+              <!-- Prototype View Content -->
+              <div id="proto-viewport" class="p-8">
+                <!-- Home View -->
+                <div id="proto-view-home" class="space-y-6">
+                  <div class="washi-tape px-3 py-1 text-xs font-bold uppercase inline-block -rotate-1 text-[#4C8B1D]">
+                    Clickable Prototype Demo
+                  </div>
+                  <h2 class="font-coolvetica text-5xl uppercase leading-[0.95]">
+                    CRAVINGS COME FIRST.<br/>
+                    <span class="text-[#E61E6E]">EVERYTHING ELSE CAN WAIT.</span>
+                  </h2>
+                  <p class="font-schoolbell text-xl text-neutral-800">
+                    test the interactive flows: click the buttons below to open the personality quiz or add products to your cart.
+                  </p>
+                  <div class="flex space-x-4">
+                    <button onclick="openQuizModal()" class="bg-[#E61E6E] text-white px-6 py-3 rounded-full font-coolvetica text-sm uppercase font-bold border-2 border-black shadow-brutal-sm">
+                      Open Personality Quiz (4 Options) →
+                    </button>
+                    <button onclick="addToCart('sideeyesour', 'SIDE EYE SOUR', 399)" class="bg-[#BFEA5A] text-black px-6 py-3 rounded-full font-coolvetica text-sm uppercase font-bold border-2 border-black shadow-brutal-sm">
+                      Quick Add Side Eye Sour (₹399) +
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Prototype Footer Bar -->
+              <div class="p-3 bg-white border-t-2 border-black flex justify-between items-center text-xs font-mono">
+                <span>Active Prototype Mode: Clickable Wire & Interactions Live</span>
+                <button onclick="openQuizModal()" class="text-[#E61E6E] font-bold underline">Launch Quiz Modal</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR: DESIGN INSPECT PANEL -->
+    <aside class="w-72 bg-[#252525] border-l border-[#383838] flex flex-col shrink-0 text-xs text-neutral-300">
+      <div class="p-3 border-b border-[#383838] flex items-center justify-between">
+        <span class="font-bold text-neutral-200 tracking-wider uppercase text-[10px]">Inspect Properties</span>
+        <span class="text-[10px] text-[#BFEA5A] font-mono">Dev Mode</span>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-4 space-y-6">
+        <!-- Layout Specs -->
+        <div class="space-y-2">
+          <div class="text-[10px] uppercase font-bold text-neutral-400">Frame Layout & Auto Layout</div>
+          <div class="bg-[#1c1c1c] p-3 rounded border border-[#383838] font-mono text-[11px] space-y-1.5">
+            <div class="flex justify-between"><span>Display:</span> <strong class="text-white">Flex (Auto Layout)</strong></div>
+            <div class="flex justify-between"><span>Direction:</span> <strong class="text-white">Horizontal / Vertical</strong></div>
+            <div class="flex justify-between"><span>Spacing:</span> <strong class="text-white">24px (1.5rem)</strong></div>
+            <div class="flex justify-between"><span>Padding:</span> <strong class="text-white">32px / 48px</strong></div>
+            <div class="flex justify-between"><span>Border:</span> <strong class="text-[#BFEA5A]">2px solid #171717</strong></div>
+            <div class="flex justify-between"><span>Shadow:</span> <strong class="text-white">4px 4px 0px #171717</strong></div>
+          </div>
+        </div>
+
+        <!-- Typography Specs -->
+        <div class="space-y-2">
+          <div class="text-[10px] uppercase font-bold text-neutral-400">Selected Typography</div>
+          <div class="bg-[#1c1c1c] p-3 rounded border border-[#383838] font-mono text-[11px] space-y-1.5">
+            <div class="flex justify-between"><span>Font Family:</span> <strong class="text-[#E61E6E]">Coolvetica</strong></div>
+            <div class="flex justify-between"><span>Weight:</span> <strong class="text-white">Bold (700)</strong></div>
+            <div class="flex justify-between"><span>Font Size:</span> <strong class="text-white">48px / 60px</strong></div>
+            <div class="flex justify-between"><span>Line Height:</span> <strong class="text-white">0.95 (Tight)</strong></div>
+            <div class="flex justify-between"><span>Letter Spacing:</span> <strong class="text-white">-0.02em</strong></div>
+          </div>
+        </div>
+
+        <!-- Color Tokens -->
+        <div class="space-y-2">
+          <div class="text-[10px] uppercase font-bold text-neutral-400">Color Token Swatch</div>
+          <div class="bg-[#1c1c1c] p-3 rounded border border-[#383838] font-mono text-[11px] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#E61E6E]"></span> #E61E6E
+              </span>
+              <strong class="text-neutral-400">Sourboo Pink</strong>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#E9ECD9]"></span> #E9ECD9
+              </span>
+              <strong class="text-neutral-400">Sage Cream</strong>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#BFEA5A]"></span> #BFEA5A
+              </span>
+              <strong class="text-neutral-400">Electric Lime</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export Tools -->
+        <div class="space-y-2">
+          <div class="text-[10px] uppercase font-bold text-neutral-400">Developer Actions</div>
+          <button onclick="exportFigmaJson()" class="w-full bg-[#383838] hover:bg-[#484848] text-white p-2.5 rounded font-mono text-xs border border-[#4a4a4a] text-center">
+            Download figma-sourboo-snack-diary.json
+          </button>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: INTERACTIVE PERSONALITY QUIZ POPUP (FULL 4-STEP FLOW) -->
+  <!-- ============================================================ -->
+  <div id="quiz-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#EEDDEB] text-[#171717] w-full max-w-lg rounded-3xl border-4 border-[#171717] shadow-brutal p-8 relative">
+      <!-- Close button -->
+      <button onclick="closeQuizModal()" class="absolute top-4 right-4 w-8 h-8 bg-white hover:bg-neutral-100 rounded-full border-2 border-black flex items-center justify-center font-bold text-sm">
+        ✕
+      </button>
+
+      <!-- STEP 1: Quiz Question -->
+      <div id="quiz-step-1" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="washi-tape px-3 py-0.5 text-xs font-bold uppercase -rotate-1 text-[#E61E6E]">
+            Personality Quiz
+          </span>
+          <span class="font-schoolbell text-sm text-neutral-600">be honest ¬‿¬</span>
+        </div>
+        <h3 class="font-coolvetica text-4xl uppercase tracking-tight text-[#171717] leading-none">
+          WHAT KIND OF SOUR ARE YOU?
+        </h3>
+        <p class="font-schoolbell text-base text-neutral-700">
+          pick your vibe to unlock a personalised flavour match + your secret 5% discount code:
+        </p>
+
+        <div class="space-y-3 pt-2 font-coolvetica text-base uppercase">
+          <button onclick="selectPersonality('Sour & Savage')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between items-center transition">
+            <span>1. Sour & Savage</span>
+            <span class="text-[#E61E6E]">→</span>
+          </button>
+          <button onclick="selectPersonality('Sweet but Psycho')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between items-center transition">
+            <span>2. Sweet but Psycho</span>
+            <span class="text-[#E61E6E]">→</span>
+          </button>
+          <button onclick="selectPersonality('Spicy Drama')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between items-center transition">
+            <span>3. Spicy Drama</span>
+            <span class="text-[#E61E6E]">→</span>
+          </button>
+          <button onclick="selectPersonality('Lowkey Tangy')" class="w-full text-left bg-white hover:bg-[#FFFF88] p-3.5 rounded-xl border-2 border-black shadow-brutal-sm flex justify-between items-center transition">
+            <span>4. Lowkey Tangy</span>
+            <span class="text-[#E61E6E]">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Lead Capture Form -->
+      <div id="quiz-step-2" class="space-y-4 hidden">
+        <div class="flex items-center justify-between">
+          <span class="washi-tape px-3 py-0.5 text-xs font-bold uppercase text-[#4C8B1D]">
+            Almost There!
+          </span>
+          <button onclick="goToQuizStep(1)" class="text-xs font-mono underline text-neutral-600">← Change Answer</button>
+        </div>
+        <h3 class="font-coolvetica text-3xl uppercase tracking-tight text-[#171717]">
+          HELLO <span id="personality-display" class="text-[#E61E6E]">SOUR & SAVAGE</span>!
+        </h3>
+        <p class="font-schoolbell text-sm text-neutral-700">
+          drop your deets to claim your instant 5% off coupon code:
+        </p>
+
+        <form onsubmit="handleLeadSubmit(event)" class="space-y-3 pt-2 text-xs">
+          <div>
+            <label class="block font-mono text-[11px] uppercase font-bold mb-1">Your Email Address</label>
+            <input id="lead-email" type="email" required placeholder="you@cravings.com" class="w-full bg-white border-2 border-black p-3 rounded-xl font-mono focus:outline-none focus:border-[#E61E6E]" />
+          </div>
+          <div>
+            <label class="block font-mono text-[11px] uppercase font-bold mb-1">Phone Number (WhatsApp for order updates)</label>
+            <input id="lead-phone" type="tel" required placeholder="+91 98765 43210" class="w-full bg-white border-2 border-black p-3 rounded-xl font-mono focus:outline-none focus:border-[#E61E6E]" />
+          </div>
+          <button type="submit" class="w-full bg-[#E61E6E] hover:bg-[#d01560] text-white py-3.5 rounded-xl font-coolvetica text-base uppercase font-bold border-2 border-black shadow-brutal transition mt-2">
+            Unlock My 5% →
+          </button>
+        </form>
+
+        <p class="text-[10px] font-mono text-center text-neutral-500 pt-2">
+          We don't spam. Only sweet-sour news and secret drops.
+        </p>
+      </div>
+
+      <!-- STEP 3: Coupon Code Reveal SOURBABE05 -->
+      <div id="quiz-step-3" class="space-y-4 hidden text-center">
+        <div class="w-16 h-16 bg-[#BFEA5A] text-black border-2 border-black rounded-full flex items-center justify-center text-2xl mx-auto shadow-brutal-sm">
+          ✓
+        </div>
+        <h3 class="font-coolvetica text-3xl uppercase tracking-tight text-[#171717]">
+          YOU'RE ONE OF US NOW ¬‿¬
+        </h3>
+        <p class="font-schoolbell text-base text-neutral-700">
+          use this coupon at checkout to get 5% off your entire order:
+        </p>
+
+        <div class="bg-white p-5 rounded-2xl border-2 border-black shadow-brutal my-4">
+          <div class="text-xs font-mono text-neutral-500 uppercase mb-1">5% OFF COUPON CODE</div>
+          <div id="coupon-code-val" class="font-coolvetica text-4xl text-[#E61E6E] tracking-wider font-bold">
+            SOURBABE05
+          </div>
+        </div>
+
+        <button onclick="copyCouponCode()" id="btn-copy-code" class="w-full bg-[#171717] hover:bg-neutral-800 text-[#BFEA5A] py-3.5 rounded-xl font-coolvetica text-base uppercase font-bold border-2 border-black shadow-brutal transition">
+          Copy Code & Continue Shopping
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SLIDE-OUT CART DRAWER -->
+  <!-- ============================================================ -->
+  <div id="cart-drawer" class="fixed inset-y-0 right-0 w-96 bg-[#E9ECD9] text-[#171717] border-l-4 border-black shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between border-b-2 border-black pb-4 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="font-coolvetica text-2xl uppercase">YOUR BAG</span>
+          <span class="bg-[#E61E6E] text-white px-2 py-0.5 rounded-full text-xs font-bold" id="drawer-count">2</span>
+        </div>
+        <button onclick="toggleCartDrawer()" class="font-bold text-lg hover:text-[#E61E6E]">✕</button>
+      </div>
+
+      <div class="space-y-3" id="cart-items-container">
+        <!-- Item 1 -->
+        <div class="bg-white p-3 rounded-xl border-2 border-black shadow-sm flex items-center space-x-3">
+          <img src="http://localhost:3456/side-eye.webp" class="w-14 h-14 object-contain" />
+          <div class="flex-1 text-xs">
+            <div class="font-coolvetica uppercase text-sm">SIDE EYE SOUR</div>
+            <div class="text-neutral-500 font-schoolbell">Lemon & Chaat Masala</div>
+            <div class="font-coolvetica text-[#E61E6E] font-bold">₹399</div>
+          </div>
+          <button class="text-neutral-400 hover:text-black text-xs font-mono">remove</button>
+        </div>
+        <!-- Item 2 -->
+        <div class="bg-white p-3 rounded-xl border-2 border-black shadow-sm flex items-center space-x-3">
+          <img src="http://localhost:3456/tamarin-tease.webp" class="w-14 h-14 object-contain" />
+          <div class="flex-1 text-xs">
+            <div class="font-coolvetica uppercase text-sm">TAMARIN’ TEASE</div>
+            <div class="text-neutral-500 font-schoolbell">Tamarind & Whole Chilli</div>
+            <div class="font-coolvetica text-[#C96A00] font-bold">₹399</div>
+          </div>
+          <button class="text-neutral-400 hover:text-black text-xs font-mono">remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="border-t-2 border-black pt-4 space-y-3">
+      <div class="flex justify-between font-coolvetica text-lg">
+        <span>SUBTOTAL</span>
+        <span class="text-[#E61E6E]" id="drawer-subtotal">₹798</span>
+      </div>
+      <div class="text-[11px] font-mono text-neutral-600">Free shipping on orders with 2+ jars</div>
+      <button onclick="alert('Proceeding to checkout with SOURBABE05 applied!')" class="w-full bg-[#E61E6E] text-white py-3.5 rounded-xl font-coolvetica uppercase tracking-wider text-base font-bold border-2 border-black shadow-brutal">
+        Checkout • ₹798 →
+      </button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP CONTROLLER -->
+  <script>
+    let currentZoom = 1;
+    let activePage = 'page-3'; // Default to desktop frames
+
+    const layersData = {
+      'page-1': [
+        { name: 'Art Direction Moodboard', type: 'frame' },
+        { name: 'Direction 1: Indie Gazette', type: 'component' },
+        { name: 'Direction 2: Flavor Lab', type: 'component' },
+        { name: 'Direction 3: Neon Bodega', type: 'component' },
+        { name: 'Color Swatches (8 tokens)', type: 'group' },
+        { name: 'Typography Pairs (Coolvetica/Rascal/Schoolbell)', type: 'text' }
+      ],
+      'page-2': [
+        { name: 'Component: Nav_Bar_Desktop', type: 'component' },
+        { name: 'Component: Button_Matrix', type: 'component' },
+        { name: 'Component: Product_Card_Editorial', type: 'component' },
+        { name: 'Component: Dossier_Tabs', type: 'component' },
+        { name: 'Component: Badge_Stickers', type: 'component' },
+        { name: 'Tokens: Spacing & 12-Col Grid', type: 'frame' }
+      ],
+      'page-3': [
+        { name: 'Frame: Desktop_Homepage (1440x6200)', type: 'frame' },
+        { name: '↳ 01_Editorial_Masthead_Nav', type: 'group' },
+        { name: '↳ 02_Hero_PickleHands_Asymmetric', type: 'group' },
+        { name: '↳ 03_The_Sour_Dossier_Cards', type: 'group' },
+        { name: '↳ 04_Brand_Manifesto_Spread', type: 'group' },
+        { name: '↳ 05_Moments_Archive_Posters', type: 'group' },
+        { name: '↳ 06_Fresh_Ingredients_Specimen', type: 'group' },
+        { name: '↳ 07_Social_Proof_Reviews', type: 'group' },
+        { name: '↳ 08_Colophon_Footer', type: 'group' }
+      ],
+      'page-4': [
+        { name: 'Frame: Mobile_Homepage (390x6800)', type: 'frame' },
+        { name: 'Frame: Mobile_Personality_Quiz', type: 'frame' },
+        { name: 'Frame: Mobile_Product_Detail', type: 'frame' },
+        { name: 'Frame: Mobile_Nav_Overlay', type: 'frame' }
+      ],
+      'page-5': [
+        { name: 'Popup_Step1_Quiz_Question', type: 'frame' },
+        { name: 'Popup_Step2_Lead_Capture', type: 'frame' },
+        { name: 'Popup_Step3_Coupon_Success', type: 'frame' },
+        { name: 'Popup_Validation_States', type: 'frame' }
+      ],
+      'page-6': [
+        { name: 'Interactive_Prototype_Stage', type: 'frame' },
+        { name: 'Interaction_Flow_Navigator', type: 'group' },
+        { name: 'Live_Cart_Slideout_State', type: 'group' }
+      ]
+    };
+
+    function switchPage(pageId) {
+      activePage = pageId;
+      document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('view-' + pageId).classList.remove('hidden');
+
+      // Update button styling
+      document.querySelectorAll('.page-tab').forEach(el => {
+        el.classList.remove('bg-[#E61E6E]', 'bg-[#BFEA5A]', 'text-white', 'text-black', 'font-bold');
+        el.classList.add('text-neutral-300');
+      });
+      const activeBtn = document.getElementById('tab-' + pageId);
+      if (pageId === 'page-6') {
+        activeBtn.classList.add('bg-[#BFEA5A]', 'text-black', 'font-bold');
+      } else {
+        activeBtn.classList.add('bg-[#E61E6E]', 'text-white', 'font-bold');
+      }
+
+      // Update Layers Sidebar
+      renderLayersTree(pageId);
+    }
+
+    function renderLayersTree(pageId) {
+      const tree = document.getElementById('layers-tree');
+      const items = layersData[pageId] || [];
+      document.getElementById('layer-count').innerText = items.length + ' Layers';
+      tree.innerHTML = items.map(item => `
+        <div class="px-2 py-1.5 rounded hover:bg-[#333] cursor-pointer flex items-center justify-between text-neutral-300">
+          <span class="truncate">${item.name}</span>
+          <span class="text-[9px] text-neutral-500 font-mono">${item.type}</span>
+        </div>
+      `).join('');
+    }
+
+    function switchDesktopArtboard(artboardId) {
+      document.querySelectorAll('.desktop-subview').forEach(el => el.classList.add('hidden'));
+      document.getElementById(artboardId).classList.remove('hidden');
+
+      ['home', 'shop', 'pdp', 'about'].forEach(key => {
+        const btn = document.getElementById('btn-artboard-' + key);
+        if (artboardId === 'artboard-' + key) {
+          btn.className = 'px-3 py-1 rounded text-xs font-bold bg-[#E61E6E] text-white transition';
+        } else {
+          btn.className = 'px-3 py-1 rounded text-xs font-medium text-neutral-300 hover:text-white transition';
+        }
+      });
+    }
+
+    function switchPdpTab(tabId) {
+      ['jar', 'tongue', 'storage'].forEach(key => {
+        document.getElementById('content-tab-' + key).classList.add('hidden');
+        document.getElementById('btn-tab-' + key).className = 'px-4 py-2 font-schoolbell text-sm font-medium text-neutral-600 hover:text-black';
+      });
+      document.getElementById('content-' + tabId).classList.remove('hidden');
+      document.getElementById('btn-' + tabId).className = 'px-4 py-2 font-schoolbell text-sm font-bold bg-[#FFFF88] border-2 border-b-0 border-[#171717] rounded-t-lg -mb-[2px]';
+    }
+
+    function adjustZoom(delta) {
+      currentZoom = Math.max(0.4, Math.min(1.6, currentZoom + delta));
+      document.getElementById('canvas-stage').style.transform = `scale(${currentZoom})`;
+      document.getElementById('zoom-label').innerText = `Zoom: ${Math.round(currentZoom * 100)}%`;
+    }
+
+    function resetZoom() {
+      currentZoom = 1;
+      document.getElementById('canvas-stage').style.transform = 'scale(1)';
+      document.getElementById('zoom-label').innerText = 'Zoom: 100%';
+    }
+
+    // Modal Quiz Logic
+    function openQuizModal() {
+      document.getElementById('quiz-modal').classList.remove('hidden');
+      goToQuizStep(1);
+    }
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+    function goToQuizStep(step) {
+      document.getElementById('quiz-step-1').classList.add('hidden');
+      document.getElementById('quiz-step-2').classList.add('hidden');
+      document.getElementById('quiz-step-3').classList.add('hidden');
+      document.getElementById('quiz-step-' + step).classList.remove('hidden');
+    }
+    function selectPersonality(personality) {
+      document.getElementById('personality-display').innerText = personality;
+      goToQuizStep(2);
+    }
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      goToQuizStep(3);
+    }
+    function copyCouponCode() {
+      navigator.clipboard.writeText('SOURBABE05');
+      const btn = document.getElementById('btn-copy-code');
+      btn.innerText = 'COPIED TO CLIPBOARD! ¬‿¬';
+      setTimeout(() => {
+        btn.innerText = 'Copy Code & Continue Shopping';
+        closeQuizModal();
+      }, 1500);
+    }
+
+    // Cart Drawer Logic
+    let cart = [
+      { id: 'sideeyesour', name: 'SIDE EYE SOUR', price: 399 },
+      { id: 'tamarintease', name: 'TAMARIN’ TEASE', price: 399 }
+    ];
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.toggle('translate-x-full');
+    }
+    function addToCart(id, name, price) {
+      cart.push({ id, name, price });
+      updateCartDisplay();
+      toggleCartDrawer();
+    }
+    function updateCartDisplay() {
+      const count = cart.length;
+      document.getElementById('drawer-count').innerText = count;
+      const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      document.getElementById('drawer-subtotal').innerText = '₹' + subtotal;
+      if (document.getElementById('proto-cart-count')) {
+        document.getElementById('proto-cart-count').innerText = count;
+      }
+    }
+
+    function exportFigmaJson() {
+      window.open('http://localhost:3456/figma-design/figma-sourboo-snack-diary.json', '_blank');
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLayersTree('page-3');
+    });
+  </script>
+</body>
+</html>

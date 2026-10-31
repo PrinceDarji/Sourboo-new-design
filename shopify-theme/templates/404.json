@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "collection_grid": {
+      "type": "main-collection",
+      "settings": {
+        "title": "404 - craving not found :(",
+        "subtitle": "looks like you took a wrong turn, but here are some mouth-watering pickles to get you back on track."
+      }
+    }
+  },
+  "order": [
+    "collection_grid"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "legal_content": {
+      "type": "legal-content",
+      "settings": {
+        "title": "Privacy Policy"
+      }
+    }
+  },
+  "order": [
+    "legal_content"
+  ]
+}

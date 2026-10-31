@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "legal_content": {
+      "type": "legal-content",
+      "settings": {
+        "title": "Shipping Policy"
+      }
+    }
+  },
+  "order": [
+    "legal_content"
+  ]
+}

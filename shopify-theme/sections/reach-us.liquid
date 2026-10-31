@@ -1,0 +1,97 @@
+{% comment %}
+  Sourboo Contact and Join Us Template Section
+  Bright yellow background, pink Coolvetica typography
+{% endcomment %}
+
+<main class="sb-reach-us-main" style="min-height: 80vh; background: var(--sb-bg-yellow); color: var(--sb-pink); padding: 120px 24px 80px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h1 class="font-coolvetica" style="font-size: clamp(3rem, 7vw, 6rem); line-height: 0.94; margin: 0 0 20px;">
+      {{ page.title | default: section.settings.title | default: 'Reach Out' }}
+    </h1>
+
+    {% if section.settings.intro != blank %}
+      <p class="font-coolvetica" style="font-size: clamp(1.5rem, 2.8vw, 3rem); line-height: 1.2; max-width: 900px; margin-bottom: 40px;">
+        {{ section.settings.intro }}
+      </p>
+    {% endif %}
+
+    <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 36px;">
+      <article>
+        <h2 class="font-coolvetica" style="font-size: clamp(1.4rem, 2.4vw, 2.2rem); margin: 0 0 8px; opacity: 0.9;">COMPANY NAME</h2>
+        <p class="font-coolvetica" style="font-size: clamp(1.8rem, 3vw, 3rem); margin: 0;">
+          Sourboo Snacks LLP
+        </p>
+      </article>
+
+      <article>
+        <h2 class="font-coolvetica" style="font-size: clamp(1.4rem, 2.4vw, 2.2rem); margin: 0 0 8px; opacity: 0.9;">MAIL</h2>
+        <a href="mailto:{{ section.settings.email | default: 'cravings@sourboo.com' }}" class="font-coolvetica" style="font-size: clamp(1.8rem, 3vw, 3rem); text-decoration: underline;">
+          {{ section.settings.email | default: 'cravings@sourboo.com' }}
+        </a>
+      </article>
+
+      <article>
+        <h2 class="font-coolvetica" style="font-size: clamp(1.4rem, 2.4vw, 2.2rem); margin: 0 0 8px; opacity: 0.9;">PHONE NUMBER</h2>
+        <a href="tel:+918120202060" class="font-coolvetica" style="font-size: clamp(1.8rem, 3vw, 3rem); text-decoration: underline;">
+          {{ section.settings.phone | default: '+91 8120202060' }}
+        </a>
+      </article>
+
+      <article>
+        <h2 class="font-coolvetica" style="font-size: clamp(1.4rem, 2.4vw, 2.2rem); margin: 0 0 14px; opacity: 0.9;">CONNECT WITH US</h2>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a
+            href="https://www.instagram.com/eatsourboo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sb-brush-cta"
+            style="background-image: url('{{ 'ctabg.svg' | asset_url }}'); color: #2F4918; font-size: 1.4rem; padding: 6px 28px;"
+          >
+            Instagram (@eatsourboo)
+          </a>
+          <a
+            href="https://chat.whatsapp.com/L9YSdLAYGfuEke1zXhvoWN"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sb-brush-cta"
+            style="background-image: url('{{ 'ctabg2.svg' | asset_url }}'); color: #26140A; font-size: 1.4rem; padding: 6px 28px;"
+          >
+            WhatsApp Community
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+{% schema %}
+{
+  "name": "Reach Us Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Page Title",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Intro Note",
+      "default": "For collabs, stockists, events, order support, and all things Sourboo."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "cravings@sourboo.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+91 8120202060"
+    }
+  ]
+}
+{% endschema %}

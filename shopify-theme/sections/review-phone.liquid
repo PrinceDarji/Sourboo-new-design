@@ -1,0 +1,76 @@
+{% comment %}
+  Sourboo Review Phone & Popping Bubbles Section
+  Tilted phone graphic with 4 animated conversational speech bubbles
+{% endcomment %}
+
+<section id="HomeReviewPhoneSection" class="sb-review-section" aria-label="Customer Reviews">
+  <div class="sb-review-stage">
+    <!-- Bubble 1: addictive -->
+    <article class="home-review-bubble sb-bubble-1">
+      <p>{{ section.settings.bubble_1_text | default: 'addictive' }}</p>
+    </article>
+
+    <!-- Bubble 2: super punchy & sour -->
+    <article class="home-review-bubble sb-bubble-2">
+      <p>{{ section.settings.bubble_2_text | default: 'super punchy\n& sour' }}</p>
+    </article>
+
+    <!-- Center Phone Graphic -->
+    <div class="sb-review-phone-wrap">
+      <img
+        src="{{ 'review-phone.svg' | asset_url }}"
+        alt="Phone showing what people say about Sourboo"
+        loading="lazy"
+        width="300"
+        height="670"
+      />
+    </div>
+
+    <!-- Bubble 3: perfect spicy -->
+    <article class="home-review-bubble sb-bubble-3">
+      <p>{{ section.settings.bubble_3_text | default: 'perfect spicy' }}</p>
+    </article>
+
+    <!-- Bubble 4: instant fav -->
+    <article class="home-review-bubble sb-bubble-4">
+      <p>{{ section.settings.bubble_4_text | default: 'instant fav' }}</p>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Review Phone & Bubbles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bubble_1_text",
+      "label": "Bubble 1 Text",
+      "default": "addictive"
+    },
+    {
+      "type": "textarea",
+      "id": "bubble_2_text",
+      "label": "Bubble 2 Text",
+      "default": "super punchy\n& sour"
+    },
+    {
+      "type": "text",
+      "id": "bubble_3_text",
+      "label": "Bubble 3 Text",
+      "default": "perfect spicy"
+    },
+    {
+      "type": "text",
+      "id": "bubble_4_text",
+      "label": "Bubble 4 Text",
+      "default": "instant fav"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review Phone & Bubbles"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,201 @@
+{% comment %}
+  Sourboo Interactive Flavour Matcher Section
+  Preserved from the original Shop experience
+{% endcomment %}
+
+<section id="ShopFlavorMatcher" class="sb-matcher-section" aria-label="Flavour Matcher Quiz">
+  <div style="text-align: center; margin-bottom: 28px;">
+    <h2 class="font-coolvetica text-pink" style="font-size: clamp(2.4rem, 4.8vw, 4.4rem); margin: 0; line-height: 1;">
+      can't decide?
+    </h2>
+    <p class="font-schoolbell" style="font-size: clamp(1.8rem, 3.2vw, 2.8rem); margin: 6px 0 0; color: #2F4918;">
+      let's match you with your flavour ;)
+    </p>
+
+    <!-- Player Switcher Buttons -->
+    <div style="display: inline-flex; gap: 12px; margin-top: 20px; background: rgba(0,0,0,0.06); padding: 6px; border-radius: 9999px;">
+      <button
+        type="button"
+        class="sb-matcher-switch-btn active sb-nav-pill"
+        data-target-player="1"
+        style="padding: 8px 24px; font-size: 1.25rem; color: #2F4918;"
+      >
+        Player 1 (Khatta / Sour)
+      </button>
+      <button
+        type="button"
+        class="sb-matcher-switch-btn sb-nav-pill"
+        data-target-player="2"
+        style="padding: 8px 24px; font-size: 1.25rem; color: #2F4918;"
+      >
+        Player 2 (Imli / Tangy)
+      </button>
+    </div>
+  </div>
+
+  <!-- PLAYER 1: Side Eye Sour Match -->
+  <div class="sb-matcher-player-card sb-matcher-player-1">
+    <div class="sb-matcher-grid">
+      <!-- Left: Character & Criteria -->
+      <div style="text-align: center;">
+        <img
+          src="{{ 'player1.svg' | asset_url }}"
+          alt="Player 1 illustration"
+          loading="lazy"
+          style="width: min(70vw, 260px); margin: 0 auto 18px;"
+        />
+        <p class="font-schoolbell" style="font-size: 1.45rem; line-height: 1.2; color: #26140A; white-space: pre-line;">
+          if you dislike sweet snacks
+          and you add extra chilli
+          without tasting
+        </p>
+
+        <!-- Animated Flavor Meters -->
+        <div style="max-width: 380px; margin: 24px auto 0; text-align: left;">
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>spice</span><span>82%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="82" style="width: 0%;"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>sour</span><span>100%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="100" style="width: 0%; background: var(--sb-pickle-green);"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>crunch</span><span>68%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="68" style="width: 0%;"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>attitude</span><span>100%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="100" style="width: 0%; background: var(--sb-pink);"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Locked Selection Card -->
+      <div style="background: #fff; border-radius: 32px; padding: 32px; text-align: center; border: 3px solid var(--sb-pickle-green); box-shadow: 0 12px 24px rgba(0,0,0,0.08);">
+        <p class="font-coolvetica" style="font-size: 1.6rem; color: var(--sb-pickle-green); margin: 0 0 12px;">
+          selection locked:
+        </p>
+        <img
+          src="{{ 'side-eye-jar.svg' | asset_url }}"
+          alt="Side Eye Sour jar illustration"
+          loading="lazy"
+          style="width: 180px; height: auto; margin: 0 auto 16px;"
+        />
+        <h3 class="font-coolvetica text-pink" style="font-size: 2.4rem; margin: 0 0 8px;">
+          SIDE EYE SOUR
+        </h3>
+        <p class="font-schoolbell" style="font-size: 1.3rem; color: var(--sb-text-muted); margin-bottom: 20px;">
+          Lemon & Chaat Masala • ₹399
+        </p>
+        <a
+          href="/products/sideeyesour"
+          class="sb-brush-cta"
+          style="background-image: url('{{ 'sideeyectabg.svg' | asset_url }}'); color: #FFF; width: 100%;"
+        >
+          <span>get side eye sour ¬‿¬</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYER 2: Tamarin' Tease Match -->
+  <div class="sb-matcher-player-card sb-matcher-player-2" style="display: none;">
+    <div class="sb-matcher-grid">
+      <!-- Left: Character & Criteria -->
+      <div style="text-align: center;">
+        <img
+          src="{{ 'player2.svg' | asset_url }}"
+          alt="Player 2 illustration"
+          loading="lazy"
+          style="width: min(70vw, 260px); margin: 0 auto 18px;"
+        />
+        <p class="font-schoolbell" style="font-size: 1.45rem; line-height: 1.2; color: #26140A; white-space: pre-line;">
+          you want tang?
+          you handle spice!
+          makes sense ;)
+        </p>
+
+        <!-- Animated Flavor Meters -->
+        <div style="max-width: 380px; margin: 24px auto 0; text-align: left;">
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>spice</span><span>84%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="84" style="width: 0%;"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>tang</span><span>100%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="100" style="width: 0%; background: var(--sb-amber);"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>hit</span><span>84%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="84" style="width: 0%;"></div></div>
+          </div>
+
+          <div class="sb-flavor-meter-row">
+            <div class="sb-flavor-meter-label">
+              <span>snaps</span><span>100%</span>
+            </div>
+            <div class="sb-meter-track"><div class="sb-meter-fill" data-fill="100" style="width: 0%; background: var(--sb-pink);"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Locked Selection Card -->
+      <div style="background: #fff; border-radius: 32px; padding: 32px; text-align: center; border: 3px solid var(--sb-amber); box-shadow: 0 12px 24px rgba(0,0,0,0.08);">
+        <p class="font-coolvetica" style="font-size: 1.6rem; color: var(--sb-amber); margin: 0 0 12px;">
+          selection locked:
+        </p>
+        <img
+          src="{{ 'tamarin-jar.svg' | asset_url }}"
+          alt="Tamarin Tease jar illustration"
+          loading="lazy"
+          style="width: 180px; height: auto; margin: 0 auto 16px;"
+        />
+        <h3 class="font-coolvetica text-pickle" style="font-size: 2.4rem; margin: 0 0 8px;">
+          TAMARIN’ TEASE
+        </h3>
+        <p class="font-schoolbell" style="font-size: 1.3rem; color: var(--sb-text-muted); margin-bottom: 20px;">
+          Tamarind & Chilli • ₹399
+        </p>
+        <a
+          href="/products/tamarintease"
+          class="sb-brush-cta"
+          style="background-image: url('{{ 'tamarinteasectabg.svg' | asset_url }}'); color: #FFF; width: 100%;"
+        >
+          <span>get tamarin tease →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop Flavour Matcher",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Shop Flavour Matcher"
+    }
+  ]
+}
+{% endschema %}

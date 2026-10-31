@@ -1,0 +1,198 @@
+{% comment %}
+  Sourboo Product Detail Page (PDP) Main Section
+  Includes authentic photography, 3 handwritten tabs, quantity picker and dispatch info
+{% endcomment %}
+
+{% assign p_title = product.title | default: 'SIDE EYE SOUR' %}
+{% assign p_price = product.price | default: '399' %}
+{% assign p_slug = product.handle | default: 'sideeyesour' %}
+{% assign is_tamarin = false %}
+{% if p_slug contains 'tamarin' %}
+  {% assign is_tamarin = true %}
+{% endif %}
+
+<section class="sb-pdp-section" aria-label="Product Details">
+  <div class="sb-pdp-grid">
+    <!-- Image Gallery -->
+    <div class="sb-pdp-gallery-col">
+      <div class="sb-pdp-gallery-main">
+        {% if is_tamarin %}
+          <img
+            id="PdpMainImage"
+            src="{{ 'tamarin-tease.webp' | asset_url }}"
+            alt="{{ p_title }}"
+            width="600"
+            height="600"
+            fetchpriority="high"
+          />
+        {% else %}
+          <img
+            id="PdpMainImage"
+            src="{{ 'side-eye.webp' | asset_url }}"
+            alt="{{ p_title }}"
+            width="600"
+            height="600"
+            fetchpriority="high"
+          />
+        {% endif %}
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div class="sb-pdp-thumbs">
+        {% if is_tamarin %}
+          <button type="button" class="sb-pdp-thumb active" data-full-src="{{ 'tamarin-tease.webp' | asset_url }}" aria-label="View product image 1">
+            <img src="{{ 'tamarin-tease.webp' | asset_url }}" alt="" />
+          </button>
+          <button type="button" class="sb-pdp-thumb" data-full-src="{{ 'tamarin-lifestyle.webp' | asset_url }}" aria-label="View lifestyle image 2">
+            <img src="{{ 'tamarin-lifestyle.webp' | asset_url }}" alt="" />
+          </button>
+        {% else %}
+          <button type="button" class="sb-pdp-thumb active" data-full-src="{{ 'side-eye.webp' | asset_url }}" aria-label="View product image 1">
+            <img src="{{ 'side-eye.webp' | asset_url }}" alt="" />
+          </button>
+          <button type="button" class="sb-pdp-thumb" data-full-src="{{ 'side-eye-lifestyle.webp' | asset_url }}" aria-label="View lifestyle image 2">
+            <img src="{{ 'side-eye-lifestyle.webp' | asset_url }}" alt="" />
+          </button>
+        {% endif %}
+        <button type="button" class="sb-pdp-thumb" data-full-src="{{ 'fridge.webp' | asset_url }}" aria-label="View fridge storage image 3">
+          <img src="{{ 'fridge.webp' | asset_url }}" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Information & Purchasing Actions -->
+    <div class="sb-pdp-info-col">
+      <h1 class="sb-pdp-title">
+        {% render 'cool-rascal-text', text: p_title %}
+      </h1>
+
+      <p class="sb-pdp-price">
+        ₹{{ p_price }}
+      </p>
+
+      <p class="font-schoolbell" style="font-size: 1.45rem; line-height: 1.2; color: var(--sb-text-dark); margin: 0 0 20px;">
+        {% if is_tamarin %}
+          Tamarind & Chilli • Snackable pickled gherkins (350g)
+        {% else %}
+          Lemon & Chaat Masala • Snackable pickled gherkins (350g)
+        {% endif %}
+      </p>
+
+      <!-- Pre-order & Dispatch Note -->
+      <div style="background: rgba(255, 255, 136, 0.4); border-left: 4px solid var(--sb-pickle-green); padding: 12px 16px; border-radius: 8px; margin-bottom: 24px;">
+        <p class="font-coolvetica" style="font-size: 1.15rem; color: var(--sb-pickle-dark); margin: 0;">
+          ★ Pre-orders only. Dispatched within 2-4 working days. Delivery timelines vary by location.
+        </p>
+      </div>
+
+      <!-- Quantity Picker & Add to Cart -->
+      <div class="sb-pdp-qty-row">
+        <div class="sb-qty-picker">
+          <button type="button" id="PdpQtyDec" class="sb-qty-btn" aria-label="Decrease quantity">-</button>
+          <input type="text" id="PdpQuantityInput" value="1" readonly class="sb-qty-value" aria-label="Quantity" />
+          <button type="button" id="PdpQtyInc" class="sb-qty-btn" aria-label="Increase quantity">+</button>
+        </div>
+
+        <button
+          type="button"
+          class="sb-pdp-add-cta sb-add-to-cart-trigger"
+          data-slug="{{ p_slug }}"
+          data-name="{{ p_title }}"
+          data-price="{{ p_price }}"
+          data-image="{% if is_tamarin %}{{ 'tamarin-tease.webp' | asset_url }}{% else %}{{ 'side-eye.webp' | asset_url }}{% endif %}"
+        >
+          Add to Cart →
+        </button>
+      </div>
+
+      <!-- Share Button -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-top: 14px;">
+        <button
+          type="button"
+          onclick="navigator.clipboard.writeText(window.location.href); alert('Product link copied to clipboard!');"
+          class="font-schoolbell"
+          style="display: inline-flex; align-items: center; gap: 6px; font-size: 1.15rem; color: var(--sb-text-muted); text-decoration: underline;"
+        >
+          <span>🔗 share this flavour</span>
+        </button>
+      </div>
+
+      <!-- 3 Signature Handwritten Information Tabs -->
+      <div class="sb-pdp-tabs-wrap">
+        <div class="sb-tab-buttons-row">
+          <button
+            type="button"
+            class="sb-tab-btn active"
+            data-tab="TabInJar"
+            style="background-image: url('{{ 'inthejarbg.svg' | asset_url }}');"
+          >
+            In the jar
+          </button>
+
+          <button
+            type="button"
+            class="sb-tab-btn"
+            data-tab="TabOnTongue"
+            style="background-image: url('{{ 'onthetonguebg.svg' | asset_url }}');"
+          >
+            On the tongue
+          </button>
+
+          <button
+            type="button"
+            class="sb-tab-btn"
+            data-tab="TabAfterOpening"
+            style="background-image: url('{{ 'afteropeningbg.svg' | asset_url }}');"
+          >
+            After opening
+          </button>
+        </div>
+
+        <!-- Tab 1: In the jar -->
+        <div id="TabInJar" class="sb-tab-panel active">
+          <h3 class="font-coolvetica text-pickle" style="font-size: 1.4rem; margin: 0 0 10px;">
+            {% if is_tamarin %}Tamarind & Chilli Gherkins{% else %}Lemon & Chaat Masala Gherkins{% endif %}
+          </h3>
+          <p style="margin: 0 0 12px;"><strong>Quantity:</strong> 350 grams (Snackable pickled gherkins)</p>
+          <p style="margin: 0;">
+            <strong>Ingredients:</strong><br>
+            {% if is_tamarin %}
+              Gherkins (60/100 grade), Water, Vinegar, Tamarind pulp, Rock salt, Chaat masala powder, Whole red chilli, Cumin powder, Dehydrated chopped garlic, Yellow mustard seeds, Sugar, Ginger powder, Calcium chloride.
+            {% else %}
+              Gherkins (60/100 grade), Water, Vinegar, Sugar, Lemon slices, Rock salt, Chaat masala powder, Whole red chilli, Cumin powder, Dehydrated chopped garlic, Yellow mustard seeds, Ginger powder, Calcium chloride.
+            {% endif %}
+          </p>
+        </div>
+
+        <!-- Tab 2: On the tongue -->
+        <div id="TabOnTongue" class="sb-tab-panel">
+          <p style="margin: 0; font-size: 1.35rem; line-height: 1.3;">
+            {% if is_tamarin %}
+              It’s sweet-sour at the first bite proper imli, the kind that makes your mouth water instantly.<br><br>
+              You get the full crunch of the whole gherkin, juicy and tangy, with spice slowly building as you chew. Teasing, mouth-watering, and hard to stop.
+            {% else %}
+              It’s properly khatta, with a sour punch that stops you for a second, and makes you squint a little.<br><br>
+              Juicy, spicy, sour, and more waiting to be discovered as you chew the crinkle-cut slices.<br>
+              Perfect for when you want to be extra and a lil hot. ¬‿¬
+            {% endif %}
+          </p>
+        </div>
+
+        <!-- Tab 3: After opening -->
+        <div id="TabAfterOpening" class="sb-tab-panel">
+          <p style="margin: 0; font-size: 1.35rem; line-height: 1.3;">
+            Store it in the fridge for max crunch - keep it where you can see it.<br><br>
+            Eat it straight from the jar, with chaat, burgers, sandwiches, or with any meal you love.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Product Details",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,98 @@
+{% comment %}
+  Sourboo Quirky Footer Section
+{% endcomment %}
+
+<footer class="sb-footer" role="contentinfo">
+  <div class="sb-footer-grid">
+    <!-- Brand & Community Column -->
+    <div class="sb-footer-brand-col">
+      <div class="sb-footer-logo-wrap">
+        <a href="/" aria-label="Sourboo Home">
+          <img
+            src="{{ 'logo.svg' | asset_url }}"
+            alt="Sourboo Logo"
+            width="180"
+            height="48"
+            loading="lazy"
+          />
+        </a>
+      </div>
+      <p class="sb-footer-tagline">
+        {{ section.settings.tagline | default: 'stay sour' }}
+      </p>
+
+      <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <p class="font-coolvetica" style="color: var(--sb-bg-yellow); font-size: 1.25rem; margin: 0;">
+          GET TO KNOW US:
+        </p>
+        <a
+          href="https://www.instagram.com/eatsourboo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.2rem; color: var(--sb-pink-soft);"
+        >
+          <span>📸</span> <span>@eatsourboo on Instagram</span>
+        </a>
+        <a
+          href="https://chat.whatsapp.com/L9YSdLAYGfuEke1zXhvoWN"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.2rem; color: var(--sb-lime);"
+        >
+          <span>💬</span> <span>Join Sourboo WhatsApp Community</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Column -->
+    <div class="sb-footer-links-col">
+      <h4>EXPLORE</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/about">Our Story</a></li>
+        <li><a href="/collections/all">Shop Pickles</a></li>
+        <li><a href="/pages/join-us">Join Us</a></li>
+        <li><a href="/pages/contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal & Policies Column -->
+    <div class="sb-footer-links-col">
+      <h4>POLICIES</h4>
+      <ul>
+        <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+        <li><a href="/pages/refund-policy">Refund Policy</a></li>
+        <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/pages/terms-and-conditions">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Legal Bar -->
+  <div class="sb-footer-bottom">
+    <div>
+      © {{ 'now' | date: '%Y' }} Sourboo Snacks LLP. Made for people who eat with intent.
+    </div>
+    <div style="display: flex; gap: 16px;">
+      <span>FSSAI Certified</span>
+      <span>•</span>
+      <span>100% Vegetarian</span>
+      <span>•</span>
+      <span>Crafted in India</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "stay sour"
+    }
+  ]
+}
+{% endschema %}

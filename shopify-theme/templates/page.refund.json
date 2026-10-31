@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "legal_content": {
+      "type": "legal-content",
+      "settings": {
+        "title": "Refund & Cancellation Policy"
+      }
+    }
+  },
+  "order": [
+    "legal_content"
+  ]
+}

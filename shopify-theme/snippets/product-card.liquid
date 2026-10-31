@@ -1,0 +1,55 @@
+{% comment %}
+  Sourboo Distinctive Product Card
+  Usage: {% render 'product-card', product: product %}
+{% endcomment %}
+
+{% assign p_title = product.title | default: title %}
+{% assign p_price = product.price | default: price %}
+{% assign p_slug = product.handle | default: slug %}
+{% assign p_img = product.featured_image | default: image %}
+{% assign p_lifestyle = product.metafields.custom.lifestyle_image | default: lifestyle_image %}
+{% assign p_label = product.metafields.custom.hover_label | default: hover_label %}
+
+<article class="sb-product-card" data-slug="{{ p_slug }}">
+  <a href="/products/{{ p_slug }}" class="sb-card-img-wrap" aria-label="View {{ p_title }}">
+    <img
+      src="{{ p_img | asset_url | default: p_img }}"
+      alt="{{ p_title }}"
+      class="sb-card-img"
+      loading="lazy"
+    />
+    {% if p_lifestyle != blank %}
+      <img
+        src="{{ p_lifestyle | asset_url | default: p_lifestyle }}"
+        alt="{{ p_title }} lifestyle"
+        class="sb-card-lifestyle-img"
+        loading="lazy"
+      />
+    {% endif %}
+  </a>
+
+  <h3 class="sb-card-title">
+    <a href="/products/{{ p_slug }}">
+      {% render 'cool-rascal-text', text: p_title %}
+    </a>
+  </h3>
+
+  {% if p_label != blank %}
+    <p class="sb-card-hover-label">{{ p_label }}</p>
+  {% endif %}
+
+  <div class="sb-card-footer">
+    <span class="sb-card-price">₹{{ p_price }}</span>
+    <button
+      type="button"
+      class="sb-quick-add-btn sb-add-to-cart-trigger"
+      data-slug="{{ p_slug }}"
+      data-name="{{ p_title }}"
+      data-price="{{ p_price }}"
+      data-image="{{ p_img | asset_url | default: p_img }}"
+      aria-label="Add {{ p_title }} to cart"
+    >
+      Quick Add +
+    </button>
+  </div>
+</article>
