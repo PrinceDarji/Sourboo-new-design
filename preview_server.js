@@ -797,7 +797,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/postcrysnack.webp" alt="Post Cry Snack poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">For when you need to feel something other than your feelings.</p>
+          <p class="sb-poster-caption font-schoolbell">Not a meal, a moment.</p>
         </article>
 
         <!-- Poster 2: Late Night Munchies -->
@@ -806,7 +806,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/latenightmunchies.webp" alt="Late Night Munchies poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">2:14 AM fridge raid essentials. Sweet snacks are cancelled.</p>
+          <p class="sb-poster-caption font-schoolbell">Snack irresponsibly.</p>
         </article>
 
         <!-- Poster 3: Girl Dinner But Sour -->
@@ -815,7 +815,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/girldinner.webp" alt="Girl Dinner But Sour poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">Certified girl dinner: 4 pickle slices, 3 olives, zero regrets.</p>
+          <p class="sb-poster-caption font-schoolbell">Keep within reach.</p>
         </article>
 
         <!-- Poster 4: Desk Cravings -->
@@ -824,31 +824,32 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/deskcravings.webp" alt="Desk Cravings poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">For 3 PM zoom calls that could have been an email.</p>
+          <p class="sb-poster-caption font-schoolbell">Presented by Sourboo.</p>
         </article>
       </div>
     </section>
 
     <!-- SECTION 5: DECONSTRUCTED INGREDIENTS DOSSIER -->
     <section class="sb-ingredients-dossier" aria-label="Fresh Ingredients">
-      <div class="sb-section-header-editorial" style="margin-bottom: 28px;">
+      <div class="sb-section-header-editorial" style="margin-bottom: 20px;">
         <div class="sb-section-eyebrow">RAW BOTANICALS // REAL CRUNCH</div>
         <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">Fresh </span>
-          <span class="font-rascal text-pink">Ingredients, </span>
-          <span class="font-coolvetica text-charcoal">Zero Shortcuts</span>
+          <span class="font-coolvetica text-charcoal">Real Ingredients. </span>
+          <span class="font-coolvetica text-charcoal" style="position: relative; display: inline-block;">Zero Drama.
+            <svg style="position: absolute; bottom: -6px; left: 0; width: 100%; height: 8px;" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none"><path d="M0 6 Q 25 12, 50 6 T 100 6" stroke="#E61E6E" stroke-width="4" stroke-linecap="round"/></svg>
+          </span>
         </h2>
         <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Farm-grown gherkins, whole spices, and sun-dried tamarind</p>
       </div>
       <div class="sb-ingredients-container">
-        <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 32px;">
-          <img src="/freshingredients.svg" alt="Fresh crunchy pickle slices and ingredients" class="sb-fresh-img" loading="lazy" width="1260" height="340" />
+        <div class="sb-ingredients-visual-stage">
+          <img src="/freshingredients.svg" alt="Fresh crunchy pickle slices and ingredients" class="sb-fresh-img" loading="lazy" width="840" height="280" />
         </div>
         <div class="sb-ingredients-annotation-grid">
-          <div class="sb-ingredient-callout font-schoolbell">✓ Crinkle-cut farm gherkins</div>
-          <div class="sb-ingredient-callout font-schoolbell">✓ Hand-pressed lemon slices</div>
-          <div class="sb-ingredient-callout font-schoolbell">✓ Sweet-sour tamarind pulp</div>
-          <div class="sb-ingredient-callout font-schoolbell">✓ Mineral rock salt &amp; chaat spice</div>
+          <div class="sb-ingredient-callout font-schoolbell">🌱 Fresh Cucumbers</div>
+          <div class="sb-ingredient-callout font-schoolbell">⚡ Tangy Spices</div>
+          <div class="sb-ingredient-callout font-schoolbell">🔥 Bold Flavours</div>
+          <div class="sb-ingredient-callout font-schoolbell">✨ Mineral Rock Salt</div>
         </div>
       </div>
     </section>
@@ -871,40 +872,52 @@ function getHomePageHtml(reqHost = 'localhost') {
       <div class="sb-section-header-editorial" style="margin-bottom: 36px;">
         <div class="sb-section-eyebrow">UNFILTERED PRAISE // SOUR CRITICS</div>
         <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">What people say about </span>
-          <span class="font-rascal text-pink">Sourboo</span>
+          <span class="font-coolvetica text-charcoal">People are pretty </span>
+          <span class="font-rascal text-pink">obsessed.</span>
         </h2>
         <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Straight from DMs, late night orders, and fridge raiders</p>
       </div>
 
-      <div class="sb-reviews-container" style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
-        <!-- Left: Readable Review Cards with Star Ratings -->
-        <div class="sb-review-cards-col" style="display: flex; flex-direction: column; gap: 20px;">
-          <div class="sb-review-card">
-            <div class="sb-review-stars">★★★★★</div>
-            <p class="sb-review-quote">"The crunch is unreal. I opened the Side Eye Sour at my desk and finished half the jar before my meeting even ended. Properly khatta, not like regular supermarket pickles."</p>
-            <div class="sb-review-author"><span>Ananya M. • Bengaluru</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
+      <div class="sb-reviews-grid-wrap">
+        <!-- Left: Grilled Cheese Toast Food Pairing -->
+        <div class="sb-review-pairing-col">
+          <div class="sb-pairing-photo-frame">
+            <img src="/recipe-1.jpg" alt="Sourboo pickles on crispy grilled cheese toast" loading="lazy" width="600" height="450" />
+            <div class="sb-washi-tape-strip sb-tape-top-right"></div>
           </div>
-          <div class="sb-review-card">
-            <div class="sb-review-stars">★★★★★</div>
-            <p class="sb-review-quote">"Tamarin' Tease is my official late-night craving fix. Sweet-sour imli hit followed by that slow warmth. Nothing else like it exists in India."</p>
-            <div class="sb-review-author"><span>Rohan K. • Mumbai</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
-          </div>
-          <div class="sb-review-card">
-            <div class="sb-review-stars">★★★★★</div>
-            <p class="sb-review-quote">"Finally, someone who understands sour snacks! If you love raw mangoes and chaat, you need this immediately."</p>
-            <div class="sb-review-author"><span>Devika S. • Delhi</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
-          </div>
+          <p class="sb-pairing-caption">The ultimate midnight grilled cheese with extra crunch</p>
         </div>
 
-        <!-- Right: Authentic Review Phone Graphic & Floaters -->
-        <div class="sb-phone-visual-wrap" style="display: flex; flex-direction: column; align-items: center; position: relative;">
-          <img src="/review-phone.svg" alt="Phone showing customer reviews about Sourboo" class="sb-phone-img" loading="lazy" width="300" height="670" />
-          <div class="sb-review-stage" style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; justify-content: center;">
+        <!-- Right: Authentic Review Phone with 3 Genuine Reviews & Floating Bubbles -->
+        <div class="sb-review-phone-col">
+          <div class="sb-phone-stage">
+            <!-- Floating organic speech bubbles around phone with real text -->
             <article class="home-review-bubble sb-bubble-1"><p>Addictive</p></article>
             <article class="home-review-bubble sb-bubble-2"><p>Super punchy &amp; sour</p></article>
             <article class="home-review-bubble sb-bubble-3"><p>Perfect spicy</p></article>
             <article class="home-review-bubble sb-bubble-4"><p>Instant fav</p></article>
+
+            <!-- Phone graphic -->
+            <img src="/review-phone.svg" alt="Phone showing customer reviews about Sourboo" class="sb-phone-img" loading="lazy" width="340" height="760" />
+
+            <!-- 3 Genuine 5-Star Customer Review Cards Overlaid on Screen -->
+            <div class="sb-phone-reviews-overlay">
+              <div class="sb-screen-review-card">
+                <div class="sb-screen-stars">★★★★★</div>
+                <p class="sb-screen-quote">"The perfect midnight snack! The crunch is unreal, finished half the jar in one sitting."</p>
+                <div class="sb-screen-author">Aanya M. • Bengaluru</div>
+              </div>
+              <div class="sb-screen-review-card">
+                <div class="sb-screen-stars">★★★★★</div>
+                <p class="sb-screen-quote">"Tangy, crunchy and so addictive. Sweet-sour imli hit followed by slow warmth."</p>
+                <div class="sb-screen-author">Rohan K. • Mumbai</div>
+              </div>
+              <div class="sb-screen-review-card">
+                <div class="sb-screen-stars">★★★★★</div>
+                <p class="sb-screen-quote">"I wasn't a pickle person... now I'm a Sourboo person. Proper khatta punch!"</p>
+                <div class="sb-screen-author">Devika S. • Delhi</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1144,61 +1157,158 @@ function getPdpPageHtml(slug, reqHost = 'localhost') {
  */
 function getAboutPageHtml(reqHost = 'localhost') {
   const content = `
-    <article class="sb-about-section" aria-label="Our Story">
-      <!-- Founder Cover Feature Header -->
-      <div class="sb-about-hero-grid">
-        <div class="sb-about-cover-wrap">
-          <img src="/about-cover.JPG" alt="Sakshi, Founder" width="680" height="840" />
+    <article class="sb-about-page-wrap" aria-label="Our Story">
+      <!-- Part 1: Founder Feature Hero -->
+      <section class="sb-about-hero-section">
+        <div class="sb-about-photo-frame">
+          <img src="/about-cover.JPG" alt="Sourboo Founders eating crunchy pickles straight from jar" width="680" height="840" />
+          <div class="sb-washi-tape-strip sb-tape-top-right"></div>
+          <div class="sb-about-photo-annotation font-schoolbell">
+            <span>The Founders (Also Chief Pickle Addicts) ↵</span>
+          </div>
+        </div>
+        <div class="sb-about-hero-content">
+          <span class="sb-about-eyebrow">OUR STORY // SOURBOO SNACK DIARY</span>
+          <h1 class="sb-about-title font-coolvetica">
+            The pickle project that<br>
+            <span class="sb-about-highlight-pink font-coolvetica">got out of hand.</span>
+          </h1>
+          <p class="sb-about-subhead font-schoolbell">
+            Born from a serious love for tangy, punchy and slightly unhinged flavours.
+          </p>
+          <p class="sb-about-body-text">
+            Sourboo started in a tiny kitchen with an obsession for real, unapologetic crunch. We were tired of sweet, mushy pickles that tasted like vinegar water and regret. So we started experimenting with raw mangoes, wild tamarind, garden gherkins and whole-roasted spices — crafting the exact tangy, spicy, mouth-watering punch we craved at 2 AM. Kitchen experiment notes piled up until Sourboo was born. My childhood raw mango obsession never left me, and before we knew it, thousands of snackers joined the club.
+          </p>
+          <p class="font-schoolbell text-pink" style="font-size: 1.45rem; margin: 0;">
+            xx - Sakshi &amp; Team
+          </p>
+        </div>
+      </section>
+
+      <!-- Part 2: Value Props Green Pill Bar -->
+      <section class="sb-about-props-bar" aria-label="Brand Pillars">
+        <div class="sb-about-props-inner">
+          <div class="sb-prop-item">
+            <span class="sb-prop-star">✦</span>
+            <span>Big on Flavour</span>
+          </div>
+          <div class="sb-prop-item">
+            <span class="sb-prop-star">✦</span>
+            <span>Real Ingredients</span>
+          </div>
+          <div class="sb-prop-item">
+            <span class="sb-prop-star">✦</span>
+            <span>For Real Life Cravings</span>
+          </div>
+          <div class="sb-prop-item">
+            <span class="sb-prop-star">✦</span>
+            <span>Handcrafted in Small Batches</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Part 3: Our Story (Origin Narrative) -->
+      <section class="sb-about-story-section" aria-label="Our Origin">
+        <div class="sb-story-content">
+          <span class="sb-about-eyebrow">KITCHEN EXPERIMENTS // CHILDHOOD NOSTALGIA</span>
+          <h2 class="font-coolvetica">
+            Our <span class="sb-story-highlight-yellow font-coolvetica">Story</span>
+          </h2>
+          <p class="sb-about-body-text">
+            If you are here, we assume you love sour or are curious enough to try it. We spent years around food and drinks, obsessing over why sour was always treated like a side dish or an afterthought. Childhood raw mango obsessions, street chaat cravings, and lime-drenched snacks never left us.
+          </p>
+          <p class="sb-about-body-text">
+            We set out to create pickles that aren't hidden inside a curry, but eaten proudly straight from the jar — with crackers, sandwiches, midnight grilled cheeses, or unadulterated fork raids. Every jar is packed with punch, personality, and real crunch.
+          </p>
+        </div>
+        <div class="sb-story-photo-wrap">
+          <img src="/recipe-2.webp" alt="Sourboo pickle jar family on wooden table" loading="lazy" width="600" height="450" />
           <div class="sb-washi-tape-strip sb-tape-top-right"></div>
         </div>
-        <div class="sb-about-header-text">
-          <span class="sb-about-volume-tag">FOUNDER NOTEBOOK // OCTOBER 2026</span>
-          <h1 class="font-coolvetica text-pink" style="font-size: clamp(2.6rem, 5.5vw, 5rem); line-height: 0.94; margin: 0 0 16px;">
-            Hi I am Sakshi,
-          </h1>
-          <p class="font-schoolbell text-pickle" style="font-size: clamp(1.8rem, 3.2vw, 3rem); line-height: 1.1; margin: 0 0 24px;">
-            and i am really glad you are here
+      </section>
+
+      <!-- Part 4: The Sourboo Way (3 Pillars) -->
+      <section class="sb-about-pillars-section" aria-label="The Sourboo Way">
+        <div class="sb-about-pillars-inner">
+          <div class="sb-pillars-header">
+            <h2 class="font-coolvetica">The Sourboo Way</h2>
+            <p class="font-schoolbell">Three rules we never break.</p>
+          </div>
+          <div class="sb-pillars-grid">
+            <div class="sb-pillar-card">
+              <span class="sb-pillar-tag">01 // THE INGREDIENTS</span>
+              <h3 class="sb-pillar-title font-coolvetica">Simple, real ingredients</h3>
+              <p class="sb-pillar-desc">
+                Farm-fresh gherkins, cold-pressed mustard oil, sun-dried tamarind, and whole-roasted spices. Zero artificial preservatives, zero fake colours, zero shortcuts.
+              </p>
+            </div>
+            <div class="sb-pillar-card">
+              <span class="sb-pillar-tag">02 // THE PROFILE</span>
+              <h3 class="sb-pillar-title font-coolvetica">Bold, unapologetic flavours</h3>
+              <p class="sb-pillar-desc">
+                Sour that hits you right between the eyes. Tangy, spicy, crunchy goodness engineered to wake up your palate. We don't do boring.
+              </p>
+            </div>
+            <div class="sb-pillar-card">
+              <span class="sb-pillar-tag">03 // THE PROCESS</span>
+              <h3 class="sb-pillar-title font-coolvetica">Made in small batches</h3>
+              <p class="sb-pillar-desc">
+                Handcrafted in limited runs to keep the crunch razor-sharp. Because mass-produced supermarket pickles lose their soul in gigantic industrial vats.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Part 5: Behind The Brand (Pink Ripped Paper Banner) -->
+      <section class="sb-behind-banner-section" aria-label="Behind the Brand">
+        <div class="sb-behind-inner">
+          <h2 class="sb-behind-title font-coolvetica">Behind The Brand</h2>
+          <div class="sb-behind-checklist">
+            <div class="sb-checklist-item">
+              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span>A lot of taste testing</span>
+            </div>
+            <div class="sb-checklist-item">
+              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span>Countless fridge raids</span>
+            </div>
+            <div class="sb-checklist-item">
+              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span>Debates over "the perfect tang"</span>
+            </div>
+            <div class="sb-checklist-item">
+              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span>And a growing pickle obsession</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Part 6: Closing Section (Still Curious?) -->
+      <section class="sb-about-closing-section" aria-label="Still Curious">
+        <div class="sb-closing-photo-wrap">
+          <img src="/recipe-1.jpg" alt="Sourboo pickles on crispy grilled cheese" loading="lazy" width="600" height="450" />
+          <div class="sb-washi-tape-strip sb-tape-top-right"></div>
+        </div>
+        <div class="sb-closing-content">
+          <h2 class="font-coolvetica">Still Curious?</h2>
+          <p class="font-schoolbell">
+            Try a jar. Your tastebuds will thank you (or file a complaint, but they won't be bored).
           </p>
-          <p class="font-schoolbell" style="font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.3; color: var(--sb-text-charcoal);">
-            if u are here, i am assuming, you like sour or curious enough to try it. I spent 5 years around food and drinks from london bar shifts to a 9-5 desk job in India, always obsessing over why sour was treated like a side. My childhood raw mango obsession never left me — kitchen experiment notes piled up until Sourboo was born.
-          </p>
+          <div class="sb-closing-btn-row">
+            <a href="/collections/all" class="sb-closing-btn sb-btn-shop">
+              <span>Shop Now →</span>
+            </a>
+            <a href="/pages/contact" class="sb-closing-btn sb-btn-contact">
+              <span>Get in Touch</span>
+            </a>
+          </div>
         </div>
-      </div>
-
-      <!-- Tongue Flavour Map -->
-      <div style="margin: 80px 0; text-align: center;">
-        <h2 class="font-coolvetica text-pickle" style="font-size: clamp(2.4rem, 4.8vw, 4.4rem); margin: 0 0 20px;">different lives, same cravings</h2>
-        <div class="sb-tongue-map-wrap">
-          <img src="/section-three-tongue.svg" alt="Tongue diagram" style="width: 100%; height: auto;" />
-          <div class="sb-tongue-callout" style="top: 14%; left: 10%;">→ India loves chaaat</div>
-          <div class="sb-tongue-callout" style="top: 42%; right: 4%;">→ India loves flavour</div>
-          <div class="sb-tongue-callout" style="bottom: 16%; left: 12%;">→ India loves that sour &amp; spicy hit</div>
-        </div>
-      </div>
-
-      <!-- Value Stamps -->
-      <div style="margin: 80px 0; text-align: center;">
-        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 30px;">
-          <span class="sb-brush-cta sb-cta-pickle" style="background-image: url('/boldbg.svg');">BOLD</span>
-          <span class="sb-brush-cta sb-cta-pink" style="background-image: url('/spicybg.svg');">spicy</span>
-          <span class="sb-brush-cta sb-cta-yellow" style="background-image: url('/sourbg.svg');">sour</span>
-        </div>
-        <p class="font-schoolbell" style="font-size: clamp(1.5rem, 2.5vw, 2.4rem); max-width: 720px; margin: 0 auto 40px; color: var(--sb-text-muted);">
-          but doesn't want to feel weighed down after snacking.
-        </p>
-      </div>
-
-      <!-- Personal Sign-Off -->
-      <div style="max-width: 580px; margin: 0 auto; background: var(--sb-bg-yellow); border: 3px solid var(--sb-pickle-green); border-radius: 28px; padding: 36px 30px; text-align: center; box-shadow: var(--sb-shadow-md);">
-        <h3 class="font-schoolbell text-pink" style="font-size: 2.2rem; margin: 0 0 14px;">hellooo</h3>
-        <p class="font-schoolbell" style="font-size: 1.45rem; line-height: 1.3; margin: 0 0 18px;">
-          i am sakshi the founder of sourboo.<br><br>we are hosting our next tasting pop-up soon! come through and make some sour faces with us.
-        </p>
-        <p class="font-schoolbell text-pink" style="font-size: 1.6rem; margin: 0;">xx - Sakshi</p>
-      </div>
+      </section>
     </article>
   `;
-  return wrapLayout(content, 'Hi I am Sakshi | Our Story • Sourboo', false, reqHost);
+  return wrapLayout(content, 'Our Story • The Pickle Project | Sourboo', false, reqHost);
 }
 
 /**

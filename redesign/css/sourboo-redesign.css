@@ -1782,18 +1782,41 @@ body {
 
 .sb-zine-poster-card {
   position: relative;
-  background-color: var(--sb-white);
-  border: var(--border-heavy);
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: var(--shadow-brutal);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sb-zine-poster-card:hover {
-  transform: translateY(-8px) scale(1.02) !important;
-  box-shadow: var(--shadow-brutal-lg);
+  transform: translateY(-8px) scale(1.03) rotate(0deg) !important;
   z-index: 10;
+}
+
+.sb-poster-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1.34;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border: 3px solid var(--sb-charcoal);
+  box-shadow: 4px 5px 0px var(--sb-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sb-poster-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .sb-pushpin-red {
@@ -1801,102 +1824,677 @@ body {
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   background-color: var(--sb-pink);
-  border: 2px solid var(--sb-charcoal);
+  border: 2.5px solid var(--sb-charcoal);
   border-radius: 50%;
   box-shadow: 1px 2px 0px rgba(0,0,0,0.4);
   z-index: 12;
 }
 
-.sb-poster-frame {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: var(--sb-charcoal);
-  border: 1px solid rgba(20, 20, 20, 0.2);
-}
-
-.sb-poster-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .sb-poster-caption {
+  font-family: var(--font-hand);
   font-size: 1.15rem;
-  line-height: 1.3;
+  line-height: 1.25;
   color: var(--sb-charcoal);
-  margin: 12px 0 4px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--sb-charcoal);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  margin: 14px 0 0;
   text-align: center;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  width: 90%;
+  box-sizing: border-box;
 }
 
-/* Ingredients Dossier */
+/* Ingredients Dossier: Compact & Zero Dead Space */
 .sb-ingredients-dossier {
-  padding: 96px 0;
+  padding: 52px 0 60px;
   background-color: var(--sb-bg-cream);
   border-bottom: var(--border-heavy);
+  position: relative;
+}
+
+.sb-ingredients-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sb-ingredients-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 940px;
+  margin: 18px auto 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sb-fresh-img {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 40px;
+  max-width: 860px;
+  height: auto;
   display: block;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.07));
 }
 
 .sb-ingredients-annotation-grid {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 960px;
+  margin-top: 6px;
 }
 
 .sb-ingredient-callout {
   background-color: var(--sb-white);
-  border: var(--border-thick);
-  border-radius: 999px;
-  padding: 12px 20px;
-  font-size: 1.15rem;
+  border: var(--border-heavy);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
   color: var(--sb-pickle-green);
-  text-align: center;
-  box-shadow: var(--shadow-brutal-sm);
+  box-shadow: 3px 3px 0px var(--sb-charcoal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
 }
 
-/* Review Section */
+.sb-ingredient-callout:hover {
+  transform: translateY(-3px);
+}
+
+/* Customer Reviews: High-Conversion Authentic Social Proof */
 .sb-review-section {
-  padding: 96px 0;
+  padding: 72px 0 88px;
   background-color: var(--sb-bg-sage);
   border-bottom: var(--border-heavy);
 }
 
-.sb-review-stage {
-  max-width: 1000px;
+.sb-reviews-grid-wrap {
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--gutter);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
+}
+
+.sb-review-pairing-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sb-pairing-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #FFFFFF;
+  border: var(--border-heavy);
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 6px 6px 0px var(--sb-charcoal);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.sb-pairing-photo-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.sb-pairing-photo-frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: block;
+}
+
+.sb-pairing-caption {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--sb-charcoal);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.sb-review-phone-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 }
 
-.home-review-bubble {
-  background-color: var(--sb-white);
-  border: var(--border-heavy);
-  border-radius: 20px;
-  padding: 16px 24px;
-  box-shadow: var(--shadow-brutal);
-  font-family: var(--font-hand);
-  font-size: 1.3rem;
+.sb-phone-stage {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.sb-phone-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,0.14));
+}
+
+/* Review cards overlaid on phone screen */
+.sb-phone-reviews-overlay {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 5;
+}
+
+.sb-screen-review-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid var(--sb-charcoal);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+}
+
+.sb-screen-stars {
+  color: #FFA41C;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-bottom: 2px;
+}
+
+.sb-screen-quote {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.32;
   color: var(--sb-charcoal);
+  margin: 0 0 4px;
+}
+
+.sb-screen-author {
+  font-family: var(--font-hand);
+  font-size: 0.92rem;
+  color: var(--sb-pickle-green);
+}
+
+/* Floating organic review speech bubbles */
+.home-review-bubble {
+  position: absolute;
+  border: 2.5px solid var(--sb-charcoal);
+  border-radius: 44% 56% 51% 49% / 49% 45% 55% 51%;
+  padding: 10px 18px;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 4px 4px 0px var(--sb-charcoal);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.sb-bubble-1 {
+  background: var(--sb-lime);
+  color: #171717;
+  top: -10px;
+  left: -52px;
+  transform: rotate(-6deg);
+}
+
+.sb-bubble-2 {
+  background: var(--sb-pink);
+  color: #FFFFFF;
+  top: 16px;
+  right: -60px;
+  transform: rotate(6deg);
+}
+
+.sb-bubble-3 {
+  background: var(--sb-yellow);
+  color: #171717;
+  bottom: 120px;
+  left: -52px;
+  transform: rotate(-4deg);
+}
+
+.sb-bubble-4 {
+  background: var(--sb-lime);
+  color: #171717;
+  bottom: 40px;
+  right: -48px;
+  transform: rotate(5deg);
 }
 
 .sb-review-phone-wrap {
   flex-shrink: 0;
+}
+
+/* ==========================================================================
+   ABOUT PAGE EDITORIAL REDESIGN (Gold-Standard Spec)
+   ========================================================================== */
+
+.sb-about-page-wrap {
+  width: 100%;
+  background-color: var(--sb-bg-cream);
+  color: var(--sb-charcoal);
+}
+
+.sb-about-hero-section {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 56px var(--gutter) 64px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.sb-about-photo-frame {
+  position: relative;
+  background: #FFFFFF;
+  border: var(--border-heavy);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 6px 6px 0px var(--sb-charcoal);
+  transform: rotate(-1.5deg);
+}
+
+.sb-about-photo-frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.sb-about-photo-annotation {
+  position: absolute;
+  bottom: -22px;
+  right: -16px;
+  background: var(--sb-yellow);
+  border: 2px solid var(--sb-charcoal);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--sb-charcoal);
+  box-shadow: 3px 3px 0px var(--sb-charcoal);
+  transform: rotate(3deg);
+  white-space: nowrap;
+}
+
+.sb-about-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-about-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--sb-pickle-green);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.sb-about-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
+  line-height: 0.96;
+  color: var(--sb-charcoal);
+  margin: 0 0 20px;
+}
+
+.sb-about-highlight-pink {
+  background: var(--sb-pink);
+  color: #FFFFFF;
+  padding: 2px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.sb-about-subhead {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+  color: var(--sb-pickle-green);
+  margin: 0 0 20px;
+}
+
+.sb-about-body-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #333333;
+  margin: 0 0 20px;
+}
+
+/* Value Props Green Pill Bar */
+.sb-about-props-bar {
+  background-color: var(--sb-pickle-green);
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+  padding: 18px var(--gutter);
+}
+
+.sb-about-props-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sb-prop-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+}
+
+.sb-prop-star {
+  color: var(--sb-lime);
+  font-size: 1.2rem;
+}
+
+/* Our Story Section */
+.sb-about-story-section {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 76px var(--gutter);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.sb-story-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  margin: 0 0 20px;
+  color: var(--sb-charcoal);
+}
+
+.sb-story-highlight-yellow {
+  background: var(--sb-yellow);
+  padding: 2px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  transform: rotate(1deg);
+}
+
+.sb-story-photo-wrap {
+  position: relative;
+  background: #FFFFFF;
+  border: var(--border-heavy);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 6px 6px 0px var(--sb-charcoal);
+  transform: rotate(2deg);
+}
+
+.sb-story-photo-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* The Sourboo Way (3 Pillars) */
+.sb-about-pillars-section {
+  background: var(--sb-bg-sage);
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+  padding: 76px var(--gutter);
+}
+
+.sb-about-pillars-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.sb-pillars-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sb-pillars-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+  color: var(--sb-charcoal);
+  margin: 0 0 12px;
+}
+
+.sb-pillars-header p {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  color: var(--sb-pickle-green);
+  margin: 0;
+}
+
+.sb-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sb-pillar-card {
+  background: #FFFFFF;
+  border: var(--border-heavy);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 5px 5px 0px var(--sb-charcoal);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.sb-pillar-card:hover {
+  transform: translateY(-6px);
+}
+
+.sb-pillar-tag {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.sb-pillar-card:nth-child(1) .sb-pillar-tag {
+  background: var(--sb-yellow);
+  color: #171717;
+}
+
+.sb-pillar-card:nth-child(2) .sb-pillar-tag {
+  background: var(--sb-pink);
+  color: #FFFFFF;
+}
+
+.sb-pillar-card:nth-child(3) .sb-pillar-tag {
+  background: var(--sb-lime);
+  color: #171717;
+}
+
+.sb-pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--sb-charcoal);
+  margin: 0 0 12px;
+}
+
+.sb-pillar-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #444444;
+  margin: 0;
+}
+
+/* Behind The Brand (Pink Ripped Paper Banner) */
+.sb-behind-banner-section {
+  position: relative;
+  background-color: var(--sb-pink);
+  background-image: url('/paper-tear.webp');
+  background-size: cover;
+  background-position: center;
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+  padding: 68px var(--gutter);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.sb-behind-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.sb-behind-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  color: #FFFFFF;
+  margin: 0 0 32px;
+  text-shadow: 3px 3px 0px #171717;
+  letter-spacing: 0.02em;
+}
+
+.sb-behind-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.sb-checklist-item {
+  background: rgba(255, 255, 255, 0.95);
+  border: var(--border-thick);
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sb-charcoal);
+  box-shadow: 3px 3px 0px var(--sb-charcoal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Closing Section (Still Curious?) */
+.sb-about-closing-section {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 76px var(--gutter) 96px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.sb-closing-photo-wrap {
+  position: relative;
+  background: #FFFFFF;
+  border: var(--border-heavy);
+  border-radius: 24px;
+  padding: 14px;
+  box-shadow: 6px 6px 0px var(--sb-charcoal);
+  transform: rotate(-2deg);
+}
+
+.sb-closing-photo-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.sb-closing-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  color: var(--sb-charcoal);
+  margin: 0 0 16px;
+}
+
+.sb-closing-content p {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  line-height: 1.35;
+  color: var(--sb-pickle-green);
+  margin: 0 0 28px;
+}
+
+.sb-closing-btn-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.sb-closing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  padding: 14px 30px;
+  border: var(--border-heavy);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 4px 4px 0px var(--sb-charcoal);
+  cursor: pointer;
+}
+
+.sb-closing-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--sb-charcoal);
+}
+
+.sb-btn-shop {
+  background: var(--sb-pickle-green);
+  color: #FFFFFF !important;
+}
+
+.sb-btn-contact {
+  background: var(--sb-pink);
+  color: #FFFFFF !important;
 }
 
 /* ==========================================================================
@@ -2311,5 +2909,42 @@ body {
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0px var(--sb-charcoal);
 }
+
+/* Responsive Rules for Redesigned Sections */
+@media (max-width: 900px) {
+  .sb-moments-zine-wall {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .sb-reviews-grid-wrap,
+  .sb-about-hero-section,
+  .sb-about-story-section,
+  .sb-about-closing-section {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .sb-pillars-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .sb-behind-checklist {
+    grid-template-columns: 1fr !important;
+  }
+  .sb-bubble-1 { top: 0%; left: -8px; }
+  .sb-bubble-2 { top: 6%; right: -8px; }
+  .sb-bubble-3 { bottom: 12%; left: -8px; }
+  .sb-bubble-4 { bottom: 2%; right: -8px; }
+}
+
+@media (max-width: 600px) {
+  .sb-moments-zine-wall {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .sb-ingredients-annotation-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 

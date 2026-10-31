@@ -187,31 +187,112 @@ function generateDesktopHomeSvg() {
     <!-- The Moments Archive (Poster Wall) -->
     <g id="Section_The_Moments_Archive" transform="translate(64, 2180)">
       <text x="656" y="40" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="48" class="text-coolvetica">THE MOMENTS ARCHIVE</text>
-      <text x="656" y="76" text-anchor="middle" fill="${TOKENS.pickle}" font-size="22" class="text-schoolbell">wheatpaste zine pinboard for real uncurated moments</text>
+      <text x="656" y="76" text-anchor="middle" fill="${TOKENS.pickle}" font-size="22" class="text-schoolbell">real snacks for uncurated life moments</text>
       <g transform="translate(0, 110)">
-        <g transform="rotate(-2, 150, 210)">
-          <rect x="0" y="0" width="300" height="420" rx="12" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
-          <circle cx="150" cy="10" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
+        <g transform="rotate(-1.5, 150, 210)">
+          <rect x="0" y="0" width="300" height="420" rx="16" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+          <circle cx="150" cy="12" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
           <text x="150" y="210" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-coolvetica">[ postcrysnack.webp ]</text>
-          <text x="150" y="380" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">for when you need to feel feelings</text>
+          <rect x="30" y="360" width="240" height="36" rx="18" fill="${TOKENS.white}" class="stroke-charcoal" />
+          <text x="150" y="384" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">Not a meal, a moment.</text>
         </g>
         <g transform="rotate(2, 480, 210)">
-          <rect x="330" y="0" width="300" height="420" rx="12" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
-          <circle cx="480" cy="10" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
+          <rect x="330" y="0" width="300" height="420" rx="16" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+          <circle cx="480" cy="12" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
           <text x="480" y="210" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-coolvetica">[ latenightmunchies.webp ]</text>
-          <text x="480" y="380" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">2:14 AM fridge raid essentials</text>
+          <rect x="360" y="360" width="240" height="36" rx="18" fill="${TOKENS.white}" class="stroke-charcoal" />
+          <text x="480" y="384" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">Snack irresponsibly.</text>
         </g>
-        <g transform="rotate(-1.5, 810, 210)">
-          <rect x="660" y="0" width="300" height="420" rx="12" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
-          <circle cx="810" cy="10" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
+        <g transform="rotate(-2.5, 810, 210)">
+          <rect x="660" y="0" width="300" height="420" rx="16" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+          <circle cx="810" cy="12" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
           <text x="810" y="210" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-coolvetica">[ girldinner.webp ]</text>
-          <text x="810" y="380" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">girl dinner: 4 pickles, 0 regrets</text>
+          <rect x="690" y="360" width="240" height="36" rx="18" fill="${TOKENS.white}" class="stroke-charcoal" />
+          <text x="810" y="384" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">Keep within reach.</text>
         </g>
-        <g transform="rotate(2.5, 1140, 210)">
-          <rect x="990" y="0" width="300" height="420" rx="12" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
-          <circle cx="1140" cy="10" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
+        <g transform="rotate(1, 1140, 210)">
+          <rect x="990" y="0" width="300" height="420" rx="16" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+          <circle cx="1140" cy="12" r="10" fill="${TOKENS.pink}" class="stroke-charcoal" />
           <text x="1140" y="210" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-coolvetica">[ deskcravings.webp ]</text>
-          <text x="1140" y="380" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">3 PM zoom call survival fuel</text>
+          <rect x="1020" y="360" width="240" height="36" rx="18" fill="${TOKENS.white}" class="stroke-charcoal" />
+          <text x="1140" y="384" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="14" class="text-schoolbell">Presented by Sourboo.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Fresh Ingredients Section (Zero Dead Space) -->
+    <g id="Section_Fresh_Ingredients" transform="translate(64, 2800)">
+      <text x="656" y="40" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="44" class="text-coolvetica">REAL INGREDIENTS. ZERO DRAMA.</text>
+      <text x="656" y="74" text-anchor="middle" fill="${TOKENS.pickle}" font-size="20" class="text-schoolbell">Farm-grown gherkins, whole spices, and sun-dried tamarind</text>
+      <rect x="160" y="100" width="1000" height="260" rx="20" fill="${TOKENS.cream}" class="stroke-charcoal" />
+      <text x="656" y="240" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="22" class="text-coolvetica">[ freshingredients.svg • Hand-cut gherkin fan &amp; spices ]</text>
+      <g transform="translate(190, 380)">
+        <rect x="0" y="0" width="200" height="40" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="100" y="25" text-anchor="middle" fill="${TOKENS.pickle}" font-size="16" class="text-schoolbell">🌱 Fresh Cucumbers</text>
+
+        <rect x="250" y="0" width="200" height="40" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="350" y="25" text-anchor="middle" fill="${TOKENS.pickle}" font-size="16" class="text-schoolbell">⚡ Tangy Spices</text>
+
+        <rect x="500" y="0" width="200" height="40" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="600" y="25" text-anchor="middle" fill="${TOKENS.pickle}" font-size="16" class="text-schoolbell">🔥 Bold Flavours</text>
+
+        <rect x="750" y="0" width="200" height="40" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="850" y="25" text-anchor="middle" fill="${TOKENS.pickle}" font-size="16" class="text-schoolbell">✨ Mineral Rock Salt</text>
+      </g>
+    </g>
+
+    <!-- Customer Reviews & Phone Stage -->
+    <g id="Section_Customer_Reviews" transform="translate(64, 3400)">
+      <text x="656" y="40" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="44" class="text-coolvetica">PEOPLE ARE PRETTY OBSESSED.</text>
+      <text x="656" y="74" text-anchor="middle" fill="${TOKENS.pickle}" font-size="20" class="text-schoolbell">Straight from DMs, late night orders, and fridge raiders</text>
+
+      <!-- Left: Grilled Cheese Toast -->
+      <g transform="translate(40, 110) rotate(-1.5)">
+        <rect width="520" height="400" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="14" y="14" width="492" height="340" rx="14" fill="#F4E8D6" />
+        <text x="260" y="180" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="20" class="text-coolvetica">[ recipe-1.jpg • Crispy Grilled Cheese ]</text>
+        <text x="260" y="380" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">The ultimate midnight grilled cheese with extra crunch</text>
+      </g>
+
+      <!-- Right: Phone with 3 Review Cards & Floaters -->
+      <g transform="translate(640, 110)">
+        <rect x="100" y="0" width="340" height="680" rx="36" fill="${TOKENS.charcoal}" class="shadow-hard-lg" />
+        <rect x="110" y="10" width="320" height="660" rx="28" fill="${TOKENS.sage}" />
+
+        <!-- Floating Bubbles -->
+        <g transform="translate(0, 40) rotate(-6)">
+          <rect width="130" height="42" rx="21" fill="${TOKENS.lime}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="65" y="26" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">Addictive</text>
+        </g>
+        <g transform="translate(380, 80) rotate(6)">
+          <rect width="180" height="42" rx="21" fill="${TOKENS.pink}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="90" y="26" text-anchor="middle" fill="${TOKENS.white}" font-size="16" class="text-schoolbell">Super punchy &amp; sour</text>
+        </g>
+        <g transform="translate(10, 480) rotate(-4)">
+          <rect width="150" height="42" rx="21" fill="${TOKENS.yellow}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="75" y="26" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">Perfect spicy</text>
+        </g>
+        <g transform="translate(390, 520) rotate(5)">
+          <rect width="140" height="42" rx="21" fill="${TOKENS.lime}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="70" y="26" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">Instant fav</text>
+        </g>
+
+        <!-- 3 Review Cards inside phone -->
+        <g transform="translate(130, 80)">
+          <rect width="280" height="130" rx="14" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="20" y="30" fill="#FFA41C" font-size="16">★★★★★</text>
+          <text x="20" y="60" fill="${TOKENS.charcoal}" font-size="13" class="text-sans">"The perfect midnight snack! The crunch is unreal."</text>
+          <text x="20" y="105" fill="${TOKENS.pickle}" font-size="13" class="text-schoolbell">Aanya M. • Bengaluru</text>
+
+          <rect y="150" width="280" height="130" rx="14" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="20" y="180" fill="#FFA41C" font-size="16">★★★★★</text>
+          <text x="20" y="210" fill="${TOKENS.charcoal}" font-size="13" class="text-sans">"Tangy, crunchy and so addictive. Sweet-sour hit."</text>
+          <text x="20" y="255" fill="${TOKENS.pickle}" font-size="13" class="text-schoolbell">Rohan K. • Mumbai</text>
+
+          <rect y="300" width="280" height="130" rx="14" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="20" y="330" fill="#FFA41C" font-size="16">★★★★★</text>
+          <text x="20" y="360" fill="${TOKENS.charcoal}" font-size="13" class="text-sans">"I wasn't a pickle person... now I'm a Sourboo person."</text>
+          <text x="20" y="405" fill="${TOKENS.pickle}" font-size="13" class="text-schoolbell">Devika S. • Delhi</text>
         </g>
       </g>
     </g>
@@ -429,38 +510,140 @@ function generateDesktopPdpSvg() {
 </svg>`;
 }
 
-// 5. Desktop About Page / Sakshi's Diary (1440 x 3200)
+// 5. Desktop About Page / The Pickle Project (1440 x 3600)
 function generateDesktopAboutSvg() {
-  return `${getSvgHeader(1440, 3200, 'Artboard - Sakshi\'s Diary (1440px)')}
-  <g id="Artboard_Desktop_About_1440x3200">
-    <rect width="1440" height="3200" fill="${TOKENS.sage}" />
+  return `${getSvgHeader(1440, 3600, 'Artboard - About Page / The Pickle Project (1440px)')}
+  <g id="Artboard_Desktop_About_1440x3600">
+    <rect width="1440" height="3600" fill="${TOKENS.cream}" />
 
-    <g id="About_Cover_Feature" transform="translate(64, 120)">
+    <!-- 1. Founder Feature Hero -->
+    <g id="About_Cover_Feature" transform="translate(64, 100)">
       <g id="Founder_Portrait">
-        <rect width="520" height="640" rx="20" fill="${TOKENS.white}" class="stroke-charcoal-thick shadow-hard-lg" transform="rotate(-1.5, 260, 320)" />
-        <rect x="14" y="14" width="492" height="612" rx="12" fill="#E8DEC8" transform="rotate(-1.5, 260, 320)" />
-        <text x="260" y="320" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="22" class="text-coolvetica" transform="rotate(-1.5, 260, 320)">[ about-cover.JPG • Sakshi ]</text>
-        <rect x="420" y="-10" width="90" height="30" fill="${TOKENS.yellow}" opacity="0.8" transform="rotate(15)" />
+        <rect width="520" height="660" rx="24" fill="${TOKENS.white}" class="stroke-charcoal-thick shadow-hard-lg" transform="rotate(-1.5, 260, 330)" />
+        <rect x="14" y="14" width="492" height="632" rx="16" fill="#E8DEC8" transform="rotate(-1.5, 260, 330)" />
+        <text x="260" y="320" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="22" class="text-coolvetica" transform="rotate(-1.5, 260, 330)">[ about-cover.JPG • Sakshi &amp; Founders ]</text>
+        <rect x="420" y="-10" width="100" height="32" fill="${TOKENS.yellow}" opacity="0.85" transform="rotate(12)" />
+        <g transform="translate(240, 640) rotate(3)">
+          <rect width="320" height="40" rx="20" fill="${TOKENS.yellow}" class="stroke-charcoal shadow-hard-sm" />
+          <text x="160" y="25" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="15" class="text-schoolbell">The Founders (Also Chief Pickle Addicts) ↵</text>
+        </g>
       </g>
       <g id="Founder_Letter" transform="translate(580, 40)">
-        <text x="0" y="30" fill="${TOKENS.pickle}" font-size="14" class="text-coolvetica" letter-spacing="1">FOUNDER NOTEBOOK // OCTOBER 2026</text>
-        <text x="0" y="90" fill="${TOKENS.pink}" font-size="64" class="text-coolvetica">HI I AM SAKSHI,</text>
-        <text x="0" y="140" fill="${TOKENS.pickle}" font-size="34" class="text-schoolbell">and i am really glad you are here</text>
-        <text x="0" y="210" fill="${TOKENS.charcoal}" font-size="20" class="text-schoolbell">if u are here, i am assuming you like sour or curious enough to try it.</text>
-        <text x="0" y="245" fill="${TOKENS.charcoal}" font-size="20" class="text-schoolbell">I spent 5 years around food and drinks from london bar shifts to a 9-5 desk job,</text>
-        <text x="0" y="280" fill="${TOKENS.charcoal}" font-size="20" class="text-schoolbell">always obsessing over why sour was treated like a side.</text>
-        <g transform="translate(0, 340)">
-          <rect width="200" height="48" rx="8" fill="${TOKENS.yellow}" class="stroke-charcoal" />
-          <text x="100" y="32" text-anchor="middle" fill="${TOKENS.pink}" font-size="24" class="text-schoolbell">xx - Sakshi</text>
-        </g>
+        <text x="0" y="30" fill="${TOKENS.pickle}" font-size="14" class="text-coolvetica" letter-spacing="1">OUR STORY // SOURBOO SNACK DIARY</text>
+        <text x="0" y="90" fill="${TOKENS.charcoal}" font-size="52" class="text-coolvetica">THE PICKLE PROJECT THAT</text>
+        <rect x="0" y="110" width="440" height="58" rx="8" fill="${TOKENS.pink}" />
+        <text x="220" y="152" text-anchor="middle" fill="${TOKENS.white}" font-size="48" class="text-coolvetica">GOT OUT OF HAND.</text>
+        <text x="0" y="210" fill="${TOKENS.pickle}" font-size="24" class="text-schoolbell">"Born from a serious love for tangy, punchy and slightly unhinged flavours."</text>
+        <text x="0" y="260" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">Sourboo started in a tiny kitchen with an obsession for real, unapologetic crunch.</text>
+        <text x="0" y="290" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">We were tired of sweet, mushy pickles that tasted like vinegar water and regret.</text>
+        <text x="0" y="320" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">So we started experimenting with raw mangoes, wild tamarind, garden gherkins</text>
+        <text x="0" y="350" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">and whole-roasted spices — crafting the exact tangy, spicy punch we craved at 2 AM.</text>
+        <text x="0" y="410" fill="${TOKENS.pink}" font-size="24" class="text-schoolbell">xx - Sakshi &amp; Team</text>
       </g>
     </g>
 
-    <!-- Tongue Flavor Map -->
-    <g id="Tongue_Flavor_Map" transform="translate(64, 880)">
-      <text x="656" y="40" text-anchor="middle" fill="${TOKENS.pickle}" font-size="44" class="text-coolvetica">DIFFERENT LIVES, SAME CRAVINGS</text>
-      <rect x="220" y="80" width="872" height="420" rx="24" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
-      <text x="656" y="280" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="22" class="text-coolvetica">[ section-three-tongue.svg • India Loves Chaat ]</text>
+    <!-- 2. Value Props Green Pill Bar -->
+    <g id="Value_Props_Bar" transform="translate(0, 880)">
+      <rect width="1440" height="72" fill="${TOKENS.pickle}" class="stroke-charcoal-thick" />
+      <text x="200" y="44" fill="${TOKENS.white}" font-size="20" class="text-coolvetica">✦ BIG ON FLAVOUR</text>
+      <text x="540" y="44" fill="${TOKENS.white}" font-size="20" class="text-coolvetica">✦ REAL INGREDIENTS</text>
+      <text x="900" y="44" fill="${TOKENS.white}" font-size="20" class="text-coolvetica">✦ FOR REAL LIFE CRAVINGS</text>
+      <text x="1240" y="44" fill="${TOKENS.lime}" font-size="18" class="text-coolvetica">✦ SMALL BATCH</text>
+    </g>
+
+    <!-- 3. Our Story Narrative Section -->
+    <g id="Our_Story_Section" transform="translate(64, 1020)">
+      <g transform="translate(0, 40)">
+        <text x="0" y="30" fill="${TOKENS.pickle}" font-size="14" class="text-coolvetica" letter-spacing="1">KITCHEN EXPERIMENTS // CHILDHOOD NOSTALGIA</text>
+        <text x="0" y="90" fill="${TOKENS.charcoal}" font-size="48" class="text-coolvetica">OUR </text>
+        <rect x="90" y="48" width="160" height="50" rx="8" fill="${TOKENS.yellow}" />
+        <text x="170" y="86" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="48" class="text-coolvetica">STORY</text>
+        <text x="0" y="160" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">If you are here, we assume you love sour or are curious enough to try it.</text>
+        <text x="0" y="195" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">We spent years around food and drinks, obsessing over why sour was treated like a side.</text>
+        <text x="0" y="230" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">Childhood raw mango obsessions, street chaat cravings, and lime-drenched snacks never left us.</text>
+        <text x="0" y="280" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">We set out to create pickles that aren't hidden inside a curry, but eaten proudly</text>
+        <text x="0" y="315" fill="${TOKENS.charcoal}" font-size="17" class="text-sans">straight from the jar — with crackers, sandwiches, midnight grilled cheeses.</text>
+      </g>
+      <g transform="translate(760, 20) rotate(2)">
+        <rect width="520" height="380" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="14" y="14" width="492" height="352" rx="14" fill="#E8DEC8" />
+        <text x="260" y="190" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="20" class="text-coolvetica">[ recipe-2.webp • Pickle Jar Family ]</text>
+      </g>
+    </g>
+
+    <!-- 4. The Sourboo Way (3 Pillars) -->
+    <g id="The_Sourboo_Way" transform="translate(64, 1540)">
+      <rect width="1312" height="540" rx="28" fill="${TOKENS.sage}" class="stroke-charcoal shadow-hard" />
+      <text x="656" y="60" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="44" class="text-coolvetica">THE SOURBOO WAY</text>
+      <text x="656" y="96" text-anchor="middle" fill="${TOKENS.pickle}" font-size="20" class="text-schoolbell">Three rules we never break.</text>
+
+      <g transform="translate(40, 140)">
+        <!-- Card 1 -->
+        <rect width="380" height="340" rx="18" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="24" y="24" width="160" height="30" rx="6" fill="${TOKENS.yellow}" />
+        <text x="104" y="44" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="12" class="text-coolvetica">01 // THE INGREDIENTS</text>
+        <text x="24" y="95" fill="${TOKENS.charcoal}" font-size="24" class="text-coolvetica">Simple, real ingredients</text>
+        <text x="24" y="140" fill="${TOKENS.muted}" font-size="15" class="text-sans">Farm-fresh gherkins, cold-pressed</text>
+        <text x="24" y="165" fill="${TOKENS.muted}" font-size="15" class="text-sans">mustard oil, sun-dried tamarind, and</text>
+        <text x="24" y="190" fill="${TOKENS.muted}" font-size="15" class="text-sans">whole-roasted spices. Zero preservatives.</text>
+
+        <!-- Card 2 -->
+        <rect x="420" width="380" height="340" rx="18" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="444" y="24" width="150" height="30" rx="6" fill="${TOKENS.pink}" />
+        <text x="519" y="44" text-anchor="middle" fill="${TOKENS.white}" font-size="12" class="text-coolvetica">02 // THE PROFILE</text>
+        <text x="444" y="95" fill="${TOKENS.charcoal}" font-size="24" class="text-coolvetica">Bold flavours</text>
+        <text x="444" y="140" fill="${TOKENS.muted}" font-size="15" class="text-sans">Sour that hits you right between</text>
+        <text x="444" y="165" fill="${TOKENS.muted}" font-size="15" class="text-sans">the eyes. Tangy, spicy, crunchy goodness</text>
+        <text x="444" y="190" fill="${TOKENS.muted}" font-size="15" class="text-sans">engineered to wake up your palate.</text>
+
+        <!-- Card 3 -->
+        <rect x="840" width="380" height="340" rx="18" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="864" y="24" width="150" height="30" rx="6" fill="${TOKENS.lime}" />
+        <text x="939" y="44" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="12" class="text-coolvetica">03 // THE PROCESS</text>
+        <text x="864" y="95" fill="${TOKENS.charcoal}" font-size="24" class="text-coolvetica">Made in small batches</text>
+        <text x="864" y="140" fill="${TOKENS.muted}" font-size="15" class="text-sans">Handcrafted in limited runs to keep</text>
+        <text x="864" y="165" fill="${TOKENS.muted}" font-size="15" class="text-sans">the crunch razor-sharp. Never mass-</text>
+        <text x="864" y="190" fill="${TOKENS.muted}" font-size="15" class="text-sans">produced in giant industrial vats.</text>
+      </g>
+    </g>
+
+    <!-- 5. Behind The Brand (Pink Ripped Paper Banner) -->
+    <g id="Behind_The_Brand_Banner" transform="translate(0, 2180)">
+      <rect width="1440" height="260" fill="${TOKENS.pink}" class="stroke-charcoal-thick" />
+      <text x="720" y="60" text-anchor="middle" fill="${TOKENS.white}" font-size="44" class="text-coolvetica">BEHIND THE BRAND</text>
+      <g transform="translate(160, 110)">
+        <rect width="250" height="50" rx="25" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="125" y="32" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">✓ A lot of taste testing</text>
+
+        <rect x="280" width="250" height="50" rx="25" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="405" y="32" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">✓ Countless fridge raids</text>
+
+        <rect x="560" width="280" height="50" rx="25" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="700" y="32" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">✓ Debates over "perfect tang"</text>
+
+        <rect x="870" width="250" height="50" rx="25" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard-sm" />
+        <text x="995" y="32" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="16" class="text-schoolbell">✓ Growing pickle obsession</text>
+      </g>
+    </g>
+
+    <!-- 6. Closing Section (Still Curious?) -->
+    <g id="About_Closing_Section" transform="translate(64, 2560)">
+      <g transform="translate(40, 0) rotate(-1.5)">
+        <rect width="520" height="380" rx="20" fill="${TOKENS.white}" class="stroke-charcoal shadow-hard" />
+        <rect x="14" y="14" width="492" height="352" rx="14" fill="#F4E8D6" />
+        <text x="260" y="190" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="20" class="text-coolvetica">[ recipe-1.jpg • Grilled Cheese Pairing ]</text>
+      </g>
+      <g transform="translate(640, 50)">
+        <text x="0" y="50" fill="${TOKENS.charcoal}" font-size="48" class="text-coolvetica">STILL CURIOUS?</text>
+        <text x="0" y="95" fill="${TOKENS.pickle}" font-size="22" class="text-schoolbell">Try a jar. Your tastebuds will thank you.</text>
+        <g transform="translate(0, 150)">
+          <rect width="180" height="50" rx="25" fill="${TOKENS.pickle}" class="stroke-charcoal shadow-hard" />
+          <text x="90" y="32" text-anchor="middle" fill="${TOKENS.white}" font-size="17" class="text-coolvetica">SHOP NOW →</text>
+
+          <rect x="210" width="180" height="50" rx="25" fill="${TOKENS.pink}" class="stroke-charcoal shadow-hard" />
+          <text x="300" y="32" text-anchor="middle" fill="${TOKENS.white}" font-size="17" class="text-coolvetica">GET IN TOUCH</text>
+        </g>
+      </g>
     </g>
   </g>
 </svg>`;
