@@ -1,0 +1,67 @@
+{
+  "total": 93,
+  "passed": 81,
+  "failed": 12,
+  "findings": [
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: 01-desktop-homepage.svg",
+      "details": "Found 4 W3C XML violation(s): Line 69, Col 172: Bare unescaped '&' found: \"...holder.webp • Hands & Pickles ]</text>\n      ...\""
+    },
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: 02-mobile-homepage.svg",
+      "details": "Found 1 W3C XML violation(s): Line 47, Col 88: Bare unescaped '&' found: \"...t-schoolbell\">Lemon & Chaat Masala • ₹399</te...\""
+    },
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: 03-desktop-shop.svg",
+      "details": "Found 2 W3C XML violation(s): Line 34, Col 90: Bare unescaped '&' found: \"...t-schoolbell\">Lemon & Chaat Masala • ₹399</te...\""
+    },
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: 04-desktop-pdp.svg",
+      "details": "Found 1 W3C XML violation(s): Line 39, Col 89: Bare unescaped '&' found: \"...t-schoolbell\">Lemon & Chaat Masala • Net wt. ...\""
+    },
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: 07-design-system-tokens.svg",
+      "details": "Found 1 W3C XML violation(s): Line 3, Col 35: Bare unescaped '&' found: \"...ard - Design System & Tokens</title>\n  <defs>...\""
+    },
+    {
+      "suite": "XML_VALIDITY",
+      "name": "SVG XML Well-Formedness: sourboo-master-figma.svg",
+      "details": "Found 9 W3C XML violation(s): Line 88, Col 172: Bare unescaped '&' found: \"...holder.webp • Hands & Pickles ]</text>\n      ...\""
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP tab buttons wrapper defines role=\"tablist\"",
+      "details": "Missing role=\"tablist\" on .sb-tab-buttons-row"
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP tab buttons define role=\"tab\"",
+      "details": "Missing role=\"tab\" on #TabInTheJar, #TabOnTheTongue, #TabAfterOpening"
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP tab buttons have initial aria-selected attribute",
+      "details": "Missing initial aria-selected=\"true/false\" in server-rendered markup"
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP tab buttons define aria-controls attribute",
+      "details": "Missing aria-controls referencing panel IDs"
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP panels define role=\"tabpanel\"",
+      "details": "Missing role=\"tabpanel\" on #TabInJar, #TabOnTongue, #TabAfterOpening"
+    },
+    {
+      "suite": "A11Y_TABS",
+      "name": "PDP panels define aria-labelledby referencing tab buttons",
+      "details": "Missing aria-labelledby on panels"
+    }
+  ]
+}

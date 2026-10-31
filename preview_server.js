@@ -166,17 +166,17 @@ function renderNav() {
         <span class="sb-nav-vol-tag font-schoolbell">daily snack edition ¬‿¬</span>
       </div>
       <div class="sb-nav-menu">
-        <a href="/collections/all" class="sb-nav-link font-schoolbell">Shop</a>
-        <a href="/pages/about" class="sb-nav-link font-schoolbell">Our Story</a>
-        <a href="/pages/join-us" class="sb-nav-link font-schoolbell">Join Us</a>
-        <a href="/pages/contact" class="sb-nav-link font-schoolbell">Contact</a>
+        <a href="/collections/all" class="sb-nav-link">Shop</a>
+        <a href="/pages/about" class="sb-nav-link">Our Story</a>
+        <a href="/pages/join-us" class="sb-nav-link">Join Us</a>
+        <a href="/pages/contact" class="sb-nav-link">Contact</a>
       </div>
       <div class="sb-nav-actions">
-        <button type="button" class="sb-nav-quiz-pill sb-open-quiz-trigger font-schoolbell" aria-label="Take Quiz for 5% off">
-          take quiz (5% off)
+        <button type="button" class="sb-nav-quiz-pill sb-open-quiz-trigger" aria-label="Take Quiz for 5% off">
+          Take quiz (5% off)
         </button>
-        <button type="button" class="sb-nav-bag-pill sb-open-cart-trigger font-coolvetica" aria-label="Open Cart Drawer">
-          <span>BAG</span>
+        <button type="button" class="sb-nav-bag-pill sb-open-cart-trigger" aria-label="Open Cart Drawer">
+          <span>Bag</span>
           <span class="sb-nav-bag-count sb-cart-count"></span>
         </button>
       </div>
@@ -246,10 +246,10 @@ function renderPopupModal(forceOpen = false) {
       <!-- SCREEN 1: Quiz Choices -->
       <div id="PopupScreen1">
         <h2 class="sb-popup-h1">
-          <span class="font-coolvetica text-pink">what </span>
+          <span class="font-coolvetica text-pink">What </span>
           <span class="font-schoolbell text-pink">kind of sour are you?</span>
         </h2>
-        <p class="sb-popup-subheading">be honest</p>
+        <p class="sb-popup-subheading">Be honest</p>
         <div class="sb-popup-options-grid">
           <button type="button" class="sb-popup-option-btn sb-choice-savage" data-personality="Sour & Savage">
             <span>Sour &amp; Savage →</span>
@@ -265,7 +265,7 @@ function renderPopupModal(forceOpen = false) {
           </button>
         </div>
         <button type="button" class="sb-popup-text-exit sb-close-popup-trigger">
-          no thanks take me to the website
+          No thanks, take me to the website
         </button>
       </div>
 
@@ -273,34 +273,34 @@ function renderPopupModal(forceOpen = false) {
       <div id="PopupScreen2" style="display: none;">
         <h2 id="PopupChosenHeading" class="sb-popup-h1 font-coolvetica text-pink">You're Sour & Savage</h2>
         <p class="font-schoolbell text-pink" style="font-size: clamp(20px, 3.5vw, 36px); margin: 6px 0;">
-          take 5% off. you've earned it
+          Take 5% off. You've earned it
         </p>
         <p class="font-schoolbell" style="font-size: 1.15rem; color: var(--sb-text-charcoal); margin-bottom: 18px;">
-          where should we send it?
+          Where should we send it?
         </p>
         <form id="PopupLeadForm" class="sb-coupon-form" novalidate>
           <div class="sb-input-row">
-            <input type="email" id="PopupEmailInput" placeholder="your email" required class="sb-pill-input" autocomplete="email" />
-            <input type="tel" id="PopupPhoneInput" placeholder="your phone number" required class="sb-pill-input" autocomplete="tel" />
+            <input type="email" id="PopupEmailInput" placeholder="Your email" required class="sb-pill-input" autocomplete="email" />
+            <input type="tel" id="PopupPhoneInput" placeholder="Your phone number" required class="sb-pill-input" autocomplete="tel" />
           </div>
           <p id="PopupFormError" style="color: #B4232B; font-family: 'Schoolbell', cursive; margin: 4px 0 0; min-height: 22px;"></p>
           <button type="submit" class="sb-unlock-cta font-schoolbell">
-            <span>unlock my 5%</span>
+            <span>Unlock my 5%</span>
           </button>
           <p class="font-schoolbell" style="font-size: 1rem; color: var(--sb-text-muted); margin: 6px 0 0;">
-            no spam, just sour things :)
+            No spam, just sour things :)
           </p>
         </form>
         <button type="button" class="sb-popup-text-exit sb-close-popup-trigger">
-          no thanks take me to the website
+          No thanks, take me to the website
         </button>
       </div>
 
       <!-- SCREEN 3: SOURBABE05 Coupon Reveal -->
       <div id="PopupScreen3" style="display: none;">
-        <h2 class="sb-popup-h1 font-coolvetica text-pink">you are in!</h2>
+        <h2 class="sb-popup-h1 font-coolvetica text-pink">You are in!</h2>
         <p class="font-schoolbell text-pink" style="font-size: clamp(18px, 3vw, 28px); margin: 10px 0 20px;">
-          copy the code and use it at checkout to get 5% off your cart total.
+          Copy the code and use it at checkout to get 5% off your cart total.
         </p>
         <div style="display: flex; justify-content: center; margin: 20px 0;">
           <button type="button" id="PopupCopyBtn" class="sb-code-copy-pill" aria-label="Copy coupon code">
@@ -309,7 +309,7 @@ function renderPopupModal(forceOpen = false) {
           </button>
         </div>
         <button type="button" class="sb-unlock-cta sb-close-popup-trigger" style="max-width: 380px; margin: 16px auto 0; font-family: 'Schoolbell', cursive;">
-          <span>start shopping with 5% off →</span>
+          <span>Start shopping with 5% off →</span>
         </button>
       </div>
     </div>
@@ -586,13 +586,13 @@ function getHomePageHtml(reqHost = 'localhost') {
           </div>
           <h1 class="sb-hero-h1" aria-label="the sourboo way, CRAVINGS COME FIRST">
             <span class="sb-hero-line1">
-              <span class="font-coolvetica text-charcoal">THE </span>
-              <span class="font-rascal text-pink">SOUR</span>
-              <span class="font-coolvetica text-charcoal">BOO </span>
-              <span class="font-rascal text-pink">WAY, </span>
+              <span class="font-coolvetica text-charcoal">The </span>
+              <span class="font-rascal text-pink">Sour</span><span class="font-coolvetica text-charcoal">boo </span>
+              <span class="font-rascal text-pink">way, </span>
             </span>
             <span class="sb-hero-line2">
-              <span class="font-coolvetica text-charcoal">CRAVINGS COME FIRST.</span>
+              <span class="font-coolvetica text-charcoal">Cravings come first. </span>
+              <span class="font-schoolbell text-pickle" style="font-size: 0.65em; display: inline-block;">Everything else can wait.</span>
             </span>
           </h1>
           <div class="sb-marginalia-note" style="transform: rotate(-2deg);">
@@ -602,11 +602,11 @@ function getHomePageHtml(reqHost = 'localhost') {
             We make loud, khatta pickled gherkins for people who don’t eat quietly. Whole Indian spices, crunch that makes you squint, and zero boring blandness.
           </p>
           <div class="sb-hero-action-row">
-            <a href="/collections/all" class="sb-brush-cta sb-cta-pink" style="background-image: url('/ctabg.svg');">
-              <span>shop the crunch →</span>
+            <a href="/collections/all" class="sb-brush-cta sb-cta-pink">
+              <span>Shop the crunch →</span>
             </a>
-            <button type="button" class="sb-brush-cta sb-cta-yellow sb-open-quiz-trigger" style="background-image: url('/ctabg2.svg');">
-              <span>take quiz (get 5% off)</span>
+            <button type="button" class="sb-brush-cta sb-cta-yellow sb-open-quiz-trigger">
+              <span>Take quiz (get 5% off)</span>
             </button>
           </div>
         </div>
@@ -797,7 +797,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/postcrysnack.webp" alt="Post Cry Snack poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">for when you need to feel something other than your feelings.</p>
+          <p class="sb-poster-caption font-schoolbell">For when you need to feel something other than your feelings.</p>
         </article>
 
         <!-- Poster 2: Late Night Munchies -->
@@ -806,7 +806,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/latenightmunchies.webp" alt="Late Night Munchies poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">2:14 AM fridge raid essentials. sweet snacks are cancelled.</p>
+          <p class="sb-poster-caption font-schoolbell">2:14 AM fridge raid essentials. Sweet snacks are cancelled.</p>
         </article>
 
         <!-- Poster 3: Girl Dinner But Sour -->
@@ -815,7 +815,7 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/girldinner.webp" alt="Girl Dinner But Sour poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">certified girl dinner: 4 pickle slices, 3 olives, zero regrets.</p>
+          <p class="sb-poster-caption font-schoolbell">Certified girl dinner: 4 pickle slices, 3 olives, zero regrets.</p>
         </article>
 
         <!-- Poster 4: Desk Cravings -->
@@ -824,15 +824,26 @@ function getHomePageHtml(reqHost = 'localhost') {
           <div class="sb-poster-frame">
             <img src="/deskcravings.webp" alt="Desk Cravings poster" loading="lazy" width="700" height="980" />
           </div>
-          <p class="sb-poster-caption font-schoolbell">for 3 PM zoom calls that could have been an email.</p>
+          <p class="sb-poster-caption font-schoolbell">For 3 PM zoom calls that could have been an email.</p>
         </article>
       </div>
     </section>
 
     <!-- SECTION 5: DECONSTRUCTED INGREDIENTS DOSSIER -->
     <section class="sb-ingredients-dossier" aria-label="Fresh Ingredients">
+      <div class="sb-section-header-editorial" style="margin-bottom: 28px;">
+        <div class="sb-section-eyebrow">RAW BOTANICALS // REAL CRUNCH</div>
+        <h2 class="sb-section-title-editorial">
+          <span class="font-coolvetica text-charcoal">Fresh </span>
+          <span class="font-rascal text-pink">Ingredients, </span>
+          <span class="font-coolvetica text-charcoal">Zero Shortcuts</span>
+        </h2>
+        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Farm-grown gherkins, whole spices, and sun-dried tamarind</p>
+      </div>
       <div class="sb-ingredients-container">
-        <img src="/freshingredients.svg" alt="Fresh crunchy pickle slices and ingredients" class="sb-fresh-img" loading="lazy" width="1260" height="340" />
+        <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 32px;">
+          <img src="/freshingredients.svg" alt="Fresh crunchy pickle slices and ingredients" class="sb-fresh-img" loading="lazy" width="1260" height="340" />
+        </div>
         <div class="sb-ingredients-annotation-grid">
           <div class="sb-ingredient-callout font-schoolbell">✓ Crinkle-cut farm gherkins</div>
           <div class="sb-ingredient-callout font-schoolbell">✓ Hand-pressed lemon slices</div>
@@ -857,14 +868,45 @@ function getHomePageHtml(reqHost = 'localhost') {
 
     <!-- SECTION 7: UNFILTERED REVIEWS & REVIEW PHONE -->
     <section id="HomeReviewPhoneSection" class="sb-review-section" aria-label="Customer Reviews">
-      <div class="sb-review-stage">
-        <article class="home-review-bubble sb-bubble-1"><p>addictive</p></article>
-        <article class="home-review-bubble sb-bubble-2"><p>super punchy &amp; sour</p></article>
-        <div class="sb-review-phone-wrap">
-          <img src="/review-phone.svg" alt="Phone showing what people say about Sourboo" loading="lazy" width="300" height="670" />
+      <div class="sb-section-header-editorial" style="margin-bottom: 36px;">
+        <div class="sb-section-eyebrow">UNFILTERED PRAISE // SOUR CRITICS</div>
+        <h2 class="sb-section-title-editorial">
+          <span class="font-coolvetica text-charcoal">What people say about </span>
+          <span class="font-rascal text-pink">Sourboo</span>
+        </h2>
+        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Straight from DMs, late night orders, and fridge raiders</p>
+      </div>
+
+      <div class="sb-reviews-container" style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
+        <!-- Left: Readable Review Cards with Star Ratings -->
+        <div class="sb-review-cards-col" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="sb-review-card">
+            <div class="sb-review-stars">★★★★★</div>
+            <p class="sb-review-quote">"The crunch is unreal. I opened the Side Eye Sour at my desk and finished half the jar before my meeting even ended. Properly khatta, not like regular supermarket pickles."</p>
+            <div class="sb-review-author"><span>Ananya M. • Bengaluru</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
+          </div>
+          <div class="sb-review-card">
+            <div class="sb-review-stars">★★★★★</div>
+            <p class="sb-review-quote">"Tamarin' Tease is my official late-night craving fix. Sweet-sour imli hit followed by that slow warmth. Nothing else like it exists in India."</p>
+            <div class="sb-review-author"><span>Rohan K. • Mumbai</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
+          </div>
+          <div class="sb-review-card">
+            <div class="sb-review-stars">★★★★★</div>
+            <p class="sb-review-quote">"Finally, someone who understands sour snacks! If you love raw mangoes and chaat, you need this immediately."</p>
+            <div class="sb-review-author"><span>Devika S. • Delhi</span><span class="sb-verified-pill">VERIFIED SNACKER</span></div>
+          </div>
         </div>
-        <article class="home-review-bubble sb-bubble-3"><p>perfect spicy</p></article>
-        <article class="home-review-bubble sb-bubble-4"><p>instant fav</p></article>
+
+        <!-- Right: Authentic Review Phone Graphic & Floaters -->
+        <div class="sb-phone-visual-wrap" style="display: flex; flex-direction: column; align-items: center; position: relative;">
+          <img src="/review-phone.svg" alt="Phone showing customer reviews about Sourboo" class="sb-phone-img" loading="lazy" width="300" height="670" />
+          <div class="sb-review-stage" style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; justify-content: center;">
+            <article class="home-review-bubble sb-bubble-1"><p>Addictive</p></article>
+            <article class="home-review-bubble sb-bubble-2"><p>Super punchy &amp; sour</p></article>
+            <article class="home-review-bubble sb-bubble-3"><p>Perfect spicy</p></article>
+            <article class="home-review-bubble sb-bubble-4"><p>Instant fav</p></article>
+          </div>
+        </div>
       </div>
     </section>
   `;

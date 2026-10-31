@@ -475,8 +475,8 @@ function generatePersonalityPopupSvg() {
     <!-- Screen 1: Quiz Choices -->
     <g id="Popup_Screen_1" transform="translate(60, 80)">
       <rect width="560" height="640" rx="28" fill="${TOKENS.white}" class="stroke-charcoal-thick shadow-hard-lg" />
-      <text x="280" y="60" text-anchor="middle" fill="${TOKENS.pink}" font-size="32" class="text-coolvetica">what kind of sour are you?</text>
-      <text x="280" y="90" text-anchor="middle" fill="${TOKENS.muted}" font-size="18" class="text-schoolbell">be honest</text>
+      <text x="280" y="60" text-anchor="middle" fill="${TOKENS.pink}" font-size="32" class="text-coolvetica">What kind of sour are you?</text>
+      <text x="280" y="90" text-anchor="middle" fill="${TOKENS.muted}" font-size="18" class="text-schoolbell">Be honest</text>
       <rect x="40" y="130" width="480" height="50" rx="25" fill="#FFF36A" class="stroke-charcoal" />
       <text x="60" y="162" fill="${TOKENS.charcoal}" font-size="18" class="text-schoolbell">Sour &amp; Savage →</text>
       <rect x="40" y="200" width="480" height="50" rx="25" fill="#F6E9DE" class="stroke-charcoal" />
@@ -485,21 +485,21 @@ function generatePersonalityPopupSvg() {
       <text x="60" y="302" fill="${TOKENS.charcoal}" font-size="18" class="text-schoolbell">Spicy Drama →</text>
       <rect x="40" y="340" width="480" height="50" rx="25" fill="#F0EC84" class="stroke-charcoal" />
       <text x="60" y="372" fill="${TOKENS.charcoal}" font-size="18" class="text-schoolbell">Lowkey Tangy →</text>
-      <text x="280" y="580" text-anchor="middle" fill="${TOKENS.muted}" font-size="14" class="text-schoolbell">no thanks take me to website</text>
+      <text x="280" y="580" text-anchor="middle" fill="${TOKENS.muted}" font-size="14" class="text-schoolbell">No thanks, take me to the website</text>
     </g>
 
     <!-- Screen 2: Lead Capture -->
     <g id="Popup_Screen_2" transform="translate(680, 80)">
       <rect width="560" height="640" rx="28" fill="${TOKENS.white}" class="stroke-charcoal-thick shadow-hard-lg" />
       <text x="280" y="60" text-anchor="middle" fill="${TOKENS.pink}" font-size="32" class="text-coolvetica">You're Sour &amp; Savage</text>
-      <text x="280" y="95" text-anchor="middle" fill="${TOKENS.pink}" font-size="20" class="text-schoolbell">take 5% off. you've earned it</text>
+      <text x="280" y="95" text-anchor="middle" fill="${TOKENS.pink}" font-size="20" class="text-schoolbell">Take 5% off. You've earned it</text>
       <rect x="40" y="160" width="480" height="50" rx="25" fill="${TOKENS.sage}" class="stroke-charcoal" />
-      <text x="60" y="192" fill="${TOKENS.muted}" font-size="16" class="text-schoolbell">your email</text>
+      <text x="60" y="192" fill="${TOKENS.muted}" font-size="16" class="text-schoolbell">Your email</text>
       <rect x="40" y="230" width="480" height="50" rx="25" fill="${TOKENS.sage}" class="stroke-charcoal" />
-      <text x="60" y="262" fill="${TOKENS.muted}" font-size="16" class="text-schoolbell">your phone number</text>
+      <text x="60" y="262" fill="${TOKENS.muted}" font-size="16" class="text-schoolbell">Your phone number</text>
       <rect x="40" y="320" width="480" height="54" rx="27" fill="${TOKENS.pink}" class="stroke-charcoal shadow-hard" />
-      <text x="280" y="355" text-anchor="middle" fill="${TOKENS.white}" font-size="20" class="text-schoolbell">unlock my 5%</text>
-      <text x="280" y="420" text-anchor="middle" fill="${TOKENS.muted}" font-size="14" class="text-schoolbell">no spam, just sour things :)</text>
+      <text x="280" y="355" text-anchor="middle" fill="${TOKENS.white}" font-size="20" class="text-schoolbell">Unlock my 5%</text>
+      <text x="280" y="420" text-anchor="middle" fill="${TOKENS.muted}" font-size="14" class="text-schoolbell">No spam, just sour things :)</text>
     </g>
 
     <!-- Screen 4: Validation Errors -->
@@ -517,8 +517,8 @@ function generatePersonalityPopupSvg() {
     <!-- Screen 3: SOURBABE05 Coupon Code -->
     <g id="Popup_Screen_3" transform="translate(1920, 80)">
       <rect width="560" height="640" rx="28" fill="${TOKENS.white}" class="stroke-charcoal-thick shadow-hard-lg" />
-      <text x="280" y="80" text-anchor="middle" fill="${TOKENS.pink}" font-size="36" class="text-coolvetica">you are in!</text>
-      <text x="280" y="120" text-anchor="middle" fill="${TOKENS.pink}" font-size="18" class="text-schoolbell">copy the code and use at checkout</text>
+      <text x="280" y="80" text-anchor="middle" fill="${TOKENS.pink}" font-size="36" class="text-coolvetica">You are in!</text>
+      <text x="280" y="120" text-anchor="middle" fill="${TOKENS.pink}" font-size="18" class="text-schoolbell">Copy the code and use at checkout</text>
       <g transform="translate(120, 200)">
         <rect width="320" height="60" rx="30" fill="${TOKENS.yellow}" class="stroke-charcoal shadow-hard" stroke-dasharray="6,4" />
         <text x="130" y="38" text-anchor="middle" fill="${TOKENS.charcoal}" font-size="22" font-weight="bold" class="text-coolvetica">SOURBABE05</text>
@@ -526,7 +526,7 @@ function generatePersonalityPopupSvg() {
         <text x="260" y="35" text-anchor="middle" fill="${TOKENS.white}" font-size="14" class="text-coolvetica">COPY</text>
       </g>
       <rect x="40" y="320" width="480" height="54" rx="27" fill="${TOKENS.pink}" class="stroke-charcoal shadow-hard" />
-      <text x="280" y="355" text-anchor="middle" fill="${TOKENS.white}" font-size="20" class="text-schoolbell">start shopping with 5% off →</text>
+      <text x="280" y="355" text-anchor="middle" fill="${TOKENS.white}" font-size="20" class="text-schoolbell">Start shopping with 5% off →</text>
     </g>
   </g>
 </svg>`;
