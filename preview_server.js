@@ -1093,146 +1093,208 @@ function getPdpPageHtml(slug, reqHost = 'localhost') {
  */
 function getAboutPageHtml(reqHost = 'localhost') {
   const content = `
-    <article class="sb-about-page-wrap" aria-label="Our Story">
-      <!-- Part 1: Founder Feature Hero -->
-      <section class="sb-about-hero-section">
+    <div class="sb-about-page-wrap">
+      <!-- SECTION 1: FOUNDER INTRODUCTION (Hero) -->
+      <section class="sb-about-hero-section" aria-label="Founder Introduction">
         <div class="sb-about-hero-content">
-          <span class="sb-about-eyebrow font-schoolbell">About Sourboo</span>
+          <div class="sb-about-eyebrow font-schoolbell">About Sourboo</div>
           <h1 class="sb-about-title font-coolvetica">
-            The pickle project<br>
-            that got<br>
-            <span class="sb-about-highlight-pink font-coolvetica">out of hand.</span>
+            hi i am sakshi,<br>
+            <span class="sb-about-highlight-pink font-coolvetica">and i am really glad you are here</span>
           </h1>
           <p class="sb-about-subhead font-schoolbell">
-            Born from a serious love for tangy, punchy and slightly unhinged flavours.
+            if u are here, i am assuming, you like sour or curious enough to try it
           </p>
-          <p class="sb-about-body-text">
-            It started with late-night cravings, fridge experiments and a very serious question — why are good pickles so hard to find? Childhood raw mango obsessions never left us.
-          </p>
-          <p class="sb-about-body-text">
-            So we made our own. Small batches, real ingredients and flavours that actually hit.
-          </p>
+          <div class="sb-about-doodle-arrow" style="margin-top: 14px;">
+            <span class="font-schoolbell text-pink" style="font-size: 1.25rem;">pull up a chair &amp; grab a fork ¬‿¬ ↳</span>
+          </div>
         </div>
         <div class="sb-about-photo-frame">
-          <img src="/about-cover.JPG" alt="Sourboo Founders eating crunchy pickles straight from jar" width="680" height="840" />
+          <img src="/about-cover.JPG" alt="Sakshi eating crunchy pickles straight from jar" class="sb-about-hero-img" width="600" height="750" fetchpriority="high" style="width: 100%; height: auto; display: block; object-fit: cover;" />
           <div class="sb-about-photo-annotation font-schoolbell">
-            The Founders<br>(Also Chief Pickle Addicts)
+            Sakshi (Also Chief Pickle Addict) ✦
           </div>
         </div>
       </section>
 
-      <!-- Part 2: Value Props Soft Green Ribbon -->
-      <section class="sb-about-props-bar" aria-label="Brand Pillars">
+      <!-- TRUST RIBBON: SOFT GREEN WAVY BAR -->
+      <div class="sb-about-props-bar" aria-label="Values">
         <div class="sb-about-props-inner">
           <div class="sb-prop-item">
-            <span style="font-size: 1.6rem;">🫙</span>
+            <span style="font-size: 1.6rem;">🥒</span>
             <span>Big on Flavour</span>
           </div>
+          <div class="sb-prop-divider" style="color: rgba(30,53,20,0.3); font-size: 1.2rem;">|</div>
           <div class="sb-prop-item">
-            <span style="font-size: 1.6rem;">🥒</span>
+            <span style="font-size: 1.6rem;">✨</span>
             <span>Real Ingredients</span>
           </div>
+          <div class="sb-prop-divider" style="color: rgba(30,53,20,0.3); font-size: 1.2rem;">|</div>
           <div class="sb-prop-item">
             <span style="font-size: 1.6rem;">⚡</span>
             <span>For Real Life Cravings</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Part 3: Our Story -->
-      <section class="sb-about-story-section" aria-label="Our Origin">
+      <!-- SECTION 2: THE FLAVOUR OBSESSION (Our Story) -->
+      <section class="sb-about-story-section" aria-label="The Flavour Obsession">
         <div class="sb-story-photo-wrap">
-          <div class="sb-story-tape"></div>
-          <img src="/recipe-2.webp" alt="Sourboo pickle jar family on table" loading="lazy" width="600" height="450" style="border-radius: 8px;" />
-          <img src="/eyes1.svg" alt="Cartoon eyes" style="width: 50px; position: absolute; bottom: 8px; left: 14px;" />
+          <div class="sb-story-tape font-schoolbell">★ RAW MANGO NOTES</div>
+          <img src="/recipe-1.jpg" alt="Sourboo kitchen taste experiments" style="width: 100%; height: auto; border-radius: 8px; display: block;" loading="lazy" />
+          <div class="sb-story-caption font-schoolbell" style="margin-top: 10px; font-size: 1.05rem; color: var(--sb-green-dark); text-align: center;">
+            kitchen experiments &amp; childhood raw mango cravings
+          </div>
+          <div class="sb-googly-eyes" style="position: absolute; bottom: -12px; left: -10px; font-size: 1.8rem; background: #fff; border-radius: 50%; padding: 2px 6px; border: 2px solid var(--sb-green-dark); box-shadow: 2px 2px 0px var(--sb-green-dark);">
+            👀
+          </div>
         </div>
         <div class="sb-story-content">
-          <h2>
-            <span class="sb-story-highlight-yellow font-rascal">Our Story</span>
+          <div class="sb-story-highlight-yellow font-rascal" style="font-size: 1.6rem; margin-bottom: 16px;">
+            Our Story
+          </div>
+          <h2 class="font-coolvetica" style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); line-height: 1.05; color: var(--sb-green-dark); margin-bottom: 16px;">
+            I've always been (annoyingly) obsessed with flavours.
           </h2>
-          <p class="sb-about-body-text">
-            It started with late-night cravings, fridge experiments and a very serious question – why are good pickles so hard to find?
+          <div class="sb-story-pills-row" style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <span class="sb-story-action-pill font-schoolbell" style="background: var(--sb-yellow); padding: 4px 14px; border-radius: 20px; border: 1.5px solid var(--sb-green-dark); font-size: 1.15rem; color: var(--sb-green-dark);">Mixing things</span>
+            <span class="sb-story-action-pill font-schoolbell" style="background: var(--sb-pink); padding: 4px 14px; border-radius: 20px; border: 1.5px solid var(--sb-green-dark); font-size: 1.15rem; color: #FFF;">Tasting everything</span>
+          </div>
+          <p class="sb-about-body-text font-schoolbell" style="font-size: 1.35rem; line-height: 1.4; color: var(--sb-green-dark); margin-bottom: 14px;">
+            spent 5 years around food and drinks from london bar shifts to a 9-5 desk job in India
           </p>
-          <p class="sb-about-body-text">
-            So we made our own. Small batches, real ingredients and flavours that actually hit.
-          </p>
+          <div class="sb-story-highlight-box font-coolvetica" style="font-size: 1.45rem; color: var(--sb-pink); margin-top: 12px;">
+            different lives, same cravings
+          </div>
         </div>
       </section>
 
-      <!-- Part 4: The Sourboo Way (3 Pillars) -->
-      <section class="sb-about-pillars-section" aria-label="The Sourboo Way">
-        <div class="sb-pillars-header">
-          <h2 class="font-rascal">The Sourboo Way</h2>
+      <!-- SECTION 3: THE INDIAN PALATE (The Sourboo Way) -->
+      <section class="sb-about-pillars-section" aria-label="The Indian Palate">
+        <div class="sb-pillars-header" style="text-align: left; max-width: 1100px; margin: 0 auto 32px;">
+          <h2 class="font-coolvetica text-charcoal" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 8px;">
+            The Sourboo Way
+          </h2>
+          <p class="font-schoolbell" style="font-size: 1.35rem; color: var(--sb-green-dark);">
+            India loves chaaat • India loves flavour • India loves that sour &amp; spicy hit
+          </p>
         </div>
         <div class="sb-pillars-grid">
           <div class="sb-pillar-card">
             <div class="sb-pillar-icon">🥒</div>
-            <h3 class="sb-pillar-title font-coolvetica">Simple, real ingredients</h3>
-            <p class="sb-pillar-desc font-schoolbell">Farm-fresh gherkins, whole spices, and sun-dried tamarind. Zero artificial preservatives.</p>
+            <div class="sb-pillar-title font-coolvetica" style="font-size: 1.8rem; color: var(--sb-pink);">BOLD</div>
+            <p class="sb-pillar-desc font-schoolbell">
+              Simple, real ingredients that pack an unapologetic punch.
+            </p>
           </div>
-          <div class="sb-pillar-card">
-            <div class="sb-pillar-icon">👅</div>
-            <h3 class="sb-pillar-title font-coolvetica">Bold, unapologetic flavours</h3>
-            <p class="sb-pillar-desc font-schoolbell">Sour that hits you right between the eyes. Tangy, spicy, crunchy goodness.</p>
+          <div class="sb-pillar-card" style="transform: rotate(1deg);">
+            <div class="sb-pillar-icon">🌶️</div>
+            <div class="sb-pillar-title font-coolvetica" style="font-size: 1.8rem; color: var(--sb-pink);">spicy</div>
+            <p class="sb-pillar-desc font-schoolbell">
+              Desi kick that wakes up your mouth without burning it out.
+            </p>
           </div>
-          <div class="sb-pillar-card">
-            <div class="sb-pillar-icon">🫙</div>
-            <h3 class="sb-pillar-title font-coolvetica">Made in small batches</h3>
-            <p class="sb-pillar-desc font-schoolbell">Handcrafted in limited runs to keep the crunch razor-sharp.</p>
+          <div class="sb-pillar-card" style="transform: rotate(-1deg);">
+            <div class="sb-pillar-icon">🍋</div>
+            <div class="sb-pillar-title font-coolvetica" style="font-size: 1.8rem; color: var(--sb-pink);">sour</div>
+            <p class="sb-pillar-desc font-schoolbell">
+              Intense, mouth-puckering tang made for genuine cravings.
+            </p>
           </div>
+        </div>
+        <div class="sb-desi-summary-box font-schoolbell" style="max-width: 800px; margin: 28px auto 0; text-align: center; font-size: 1.35rem; color: var(--sb-green-dark); background: rgba(255,255,255,0.7); padding: 16px 24px; border-radius: 12px; border: 2px dashed var(--sb-green-dark);">
+          Nothing worked for a desi palate that loves BOLD, spicy, sour, but doesn't want to feel weighed down after snacking
         </div>
       </section>
 
-      <!-- Part 5: Behind The Brand (Pink Torn Paper Banner) -->
-      <section class="sb-behind-banner-section" aria-label="Behind the Brand">
+      <!-- SECTION 4: THE PROBLEM (Behind The Brand — Ripped Pink Banner) -->
+      <section class="sb-behind-banner-section" aria-label="The Problem">
         <div class="sb-behind-inner">
-          <h2 class="sb-behind-title font-rascal">
-            Behind<br>The Brand
-          </h2>
+          <div class="sb-behind-left">
+            <div class="sb-behind-sticker font-rascal" style="background: var(--sb-yellow); color: var(--sb-green-dark); padding: 6px 20px; border-radius: 12px; border: 2.5px solid var(--sb-green-dark); display: inline-block; transform: rotate(-3deg); font-size: 2.2rem; box-shadow: 3px 3px 0px var(--sb-green-dark); margin-bottom: 12px;">
+              Behind The Brand
+            </div>
+            <h2 class="font-coolvetica" style="font-size: clamp(2.4rem, 4vw, 3.6rem); color: #FFF; line-height: 1.0; margin: 8px 0 16px;">
+              MY BIGGEST ISSUE?
+            </h2>
+          </div>
           <div class="sb-behind-checklist">
             <div class="sb-checklist-item">
               <span class="sb-check-icon">✓</span>
-              <span>A lot of taste testing</span>
+              <span>Sour was always treated like a side.</span>
             </div>
             <div class="sb-checklist-item">
               <span class="sb-check-icon">✓</span>
-              <span>Countless fridge raids</span>
+              <span>A squeeze here.</span>
             </div>
             <div class="sb-checklist-item">
               <span class="sb-check-icon">✓</span>
-              <span>Debates over "the perfect tang"</span>
+              <span>A spoon of pickle there.</span>
             </div>
-            <div class="sb-checklist-item">
-              <span class="sb-check-icon">✓</span>
-              <span>And a growing pickle obsession</span>
+            <div class="sb-checklist-item" style="gap: 16px;">
+              <img src="/lemonsqueeze.gif" alt="Lemon squeeze" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%; background: #FFF;" loading="lazy" />
+              <img src="/spoonofpickle.gif" alt="Spoon of pickle" style="width: 44px; height: 44px; object-fit: contain; border-radius: 50%; background: #FFF;" loading="lazy" />
+              <span style="font-size: 1.1rem; opacity: 0.95;">Never the hero. Until now.</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Part 6: Still Curious? -->
-      <section class="sb-about-closing-section" aria-label="Still Curious">
+      <!-- SECTION 5 & 6: INTRODUCING SOURBOO & COMMUNITY (Still Curious?) -->
+      <section class="sb-about-closing-section" aria-label="Still Curious and Introducing Sourboo">
         <div class="sb-closing-photo-wrap">
-          <img src="/recipe-1.jpg" alt="Sourboo pickles bowl" loading="lazy" width="600" height="450" />
+          <img src="/section-six-top-1.webp" alt="Sourboo community crunch face" style="width: 100%; height: auto; display: block;" loading="lazy" />
+          <div class="sb-closing-jars-bar" style="background: #FFF; padding: 12px; display: flex; justify-content: center; gap: 16px; border-top: 2px solid var(--sb-green-dark);">
+            <img src="/side-eye-jar.png" alt="Side Eye Sour" style="height: 90px; width: auto;" loading="lazy" />
+            <img src="/tamarin-jar.png" alt="Tamarin' Tease" style="height: 90px; width: auto;" loading="lazy" />
+          </div>
         </div>
         <div class="sb-closing-content">
-          <h2 class="font-rascal">Still Curious?</h2>
-          <p class="font-schoolbell">
-            Explore the flavours, read our rant, or just say hi. We're always up for a good pickle chat.
-          </p>
-          <div class="sb-closing-btn-row">
-            <a href="/collections/all" class="sb-btn-yellow">
+          <div class="sb-curious-tag font-rascal text-pink" style="font-size: 1.8rem; margin-bottom: 6px;">
+            Still Curious?
+          </div>
+          <h2 class="font-coolvetica text-charcoal" style="font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1.05; margin-bottom: 14px;">
+            Introducing Sourboo
+          </h2>
+          <div class="sb-manifesto-copy font-schoolbell" style="font-size: 1.25rem; line-height: 1.4; color: var(--sb-green-dark); margin-bottom: 16px;">
+            <p style="margin-bottom: 8px;"><strong>sour first snack, made for people who don't eat quietly.</strong></p>
+            <p style="margin-bottom: 8px;">for women who love loud flavours, strong opinions, and fully indulging.</p>
+            <p style="margin-bottom: 4px;">★ The kind who make faces when they eat.</p>
+            <p style="margin-bottom: 12px;">★ The kind who ask for extra nimbu.</p>
+            <p style="font-family: 'Coolvetica', sans-serif; font-size: 1.4rem; color: var(--sb-pink); margin-bottom: 12px;">A new way of snacking.</p>
+            <p style="margin-bottom: 4px;">That's Sourboo to me.</p>
+            <p style="margin-bottom: 16px;">And I hope you love it as much as I do</p>
+          </div>
+
+          <!-- Sakshi's Letter Card -->
+          <div class="sb-letter-paper" style="background: #FFF; border: 2px solid var(--sb-green-dark); border-radius: 12px; padding: 18px 22px; box-shadow: 4px 4px 0px var(--sb-green-dark); margin-bottom: 24px;">
+            <p class="font-schoolbell" style="font-size: 1.25rem; line-height: 1.35; color: var(--sb-green-dark); margin-bottom: 12px;">
+              hellooo,<br>
+              i am sakshi the founder of sourboo.<br>
+              we are hosting tastings &amp; dropping small batches regularly.<br>
+              come through!
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <span class="font-rascal text-pink" style="font-size: 2rem;">xx - sakshi</span>
+              <a href="/pages/join-us" class="sb-join-more-link font-coolvetica" style="color: var(--sb-green-dark); text-decoration: underline; font-size: 1.2rem;">
+                join more →
+              </a>
+            </div>
+          </div>
+
+          <div class="sb-about-actions-row" style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="/collections/all" class="sb-btn-yellow font-coolvetica" style="padding: 14px 28px; font-size: 1.2rem;">
               <span>Shop Now →</span>
             </a>
-            <a href="/pages/contact" class="sb-btn-outline">
+            <a href="/pages/contact" class="sb-btn-outline font-coolvetica" style="padding: 14px 28px; font-size: 1.2rem;">
               <span>Get in Touch</span>
             </a>
           </div>
         </div>
       </section>
-    </article>
+    </div>
   `;
-  return wrapLayout(content, 'Our Story • The Pickle Project | Sourboo', false, reqHost);
+  return wrapLayout(content, "Our Story • Sakshi's Diary | Sourboo", false, reqHost);
 }
 
 function getJoinPageHtml(reqHost = 'localhost') {
