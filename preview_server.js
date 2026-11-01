@@ -160,24 +160,38 @@ function renderNav() {
   <header class="sb-nav-wrapper">
     <nav id="NavMenu" class="sb-navbar" role="navigation" aria-label="Main Navigation">
       <div class="sb-nav-brand">
-        <a href="/" aria-label="Sourboo Home" style="display: flex; align-items: center; gap: 8px;">
+        <a href="/" aria-label="Sourboo Home">
           <img src="/logo.svg" alt="Sourboo Logo" class="sb-nav-logo" width="140" height="38" />
         </a>
-        <span class="sb-nav-vol-tag font-schoolbell">daily snack edition ¬‿¬</span>
       </div>
       <div class="sb-nav-menu">
         <a href="/collections/all" class="sb-nav-link">Shop</a>
-        <a href="/pages/about" class="sb-nav-link">Our Story</a>
+        <a href="/pages/about" class="sb-nav-link">About</a>
         <a href="/pages/join-us" class="sb-nav-link">Join Us</a>
-        <a href="/pages/contact" class="sb-nav-link">Contact</a>
       </div>
       <div class="sb-nav-actions">
-        <button type="button" class="sb-nav-quiz-pill sb-open-quiz-trigger" aria-label="Take Quiz for 5% off">
-          Take quiz (5% off)
-        </button>
+        <!-- Search Icon -->
+        <a href="/collections/all" class="sb-nav-icon-btn" aria-label="Search products">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+        <!-- Account Icon -->
+        <a href="/pages/join-us" class="sb-nav-icon-btn" aria-label="User Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <!-- Bag/Cart Icon Button -->
         <button type="button" class="sb-nav-bag-pill sb-open-cart-trigger" aria-label="Open Cart Drawer">
-          <span>Bag</span>
-          <span class="sb-nav-bag-count sb-cart-count"></span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="sb-nav-bag-count sb-cart-count">0</span>
         </button>
       </div>
     </nav>
@@ -185,9 +199,6 @@ function renderNav() {
   `;
 }
 
-/**
- * Slide-Out Cart Drawer Component
- */
 function renderCartDrawer() {
   return `
   <div id="CartDrawerOverlay" class="sb-cart-drawer-overlay sb-close-cart-trigger" aria-hidden="true"></div>
@@ -575,347 +586,275 @@ function wrapLayout(content, title = 'Sourboo | Spicy Sour Gherkin Snacks & Pick
  */
 function getHomePageHtml(reqHost = 'localhost') {
   const content = `
-    <!-- SECTION 1: ASYMMETRIC BROADSHEET HERO (7:5 Split) -->
-    <header class="sb-broadsheet-hero" aria-label="Editorial Hero">
-      <div class="sb-broadsheet-hero-grid">
-        <!-- Left Editorial Broadsheet Column -->
-        <div class="sb-hero-editorial-col">
-          <div class="sb-dateline-ticker">
-            <span>OCTOBER 2026 • ISSUE NO. 02 • BENGALURU, INDIA</span>
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 1: HERO (7:5 ASYMMETRIC BROADSHEET)
+         ═══════════════════════════════════════════════════════ -->
+    <header class="sb-hero-v3 sb-broadsheet-hero" aria-label="the sourboo way, CRAVINGS COME FIRST">
+      <div class="sb-hero-v3-inner sb-broadsheet-hero-grid">
+        <!-- Left Editorial Text Column -->
+        <div class="sb-hero-text-col sb-hero-editorial-col">
+          <div class="sb-dateline-ticker" aria-hidden="true" style="display:none;">
+            <span>ISSUE NO. 03 • BENGALURU, INDIA</span>
             <span class="sb-dateline-pill">SNACK DIARY</span>
           </div>
-          <h1 class="sb-hero-h1" aria-label="the sourboo way, CRAVINGS COME FIRST">
-            <span class="sb-hero-line1">
-              <span class="font-coolvetica text-charcoal">The </span>
-              <span class="font-rascal text-pink">Sour</span><span class="font-coolvetica text-charcoal">boo </span>
-              <span class="font-rascal text-pink">way, </span>
-            </span>
-            <span class="sb-hero-line2">
-              <span class="font-coolvetica text-charcoal">Cravings come first. </span>
-              <span class="font-schoolbell text-pickle" style="font-size: 0.65em; display: inline-block;">Everything else can wait.</span>
-            </span>
-          </h1>
-          <div class="sb-marginalia-note" style="transform: rotate(-2deg);">
-            <span class="font-schoolbell text-pickle" style="font-size: 1.5rem;">mouth wants to misbehave ¬‿¬</span>
+          <div class="sb-hero-tagline-wrap">
+            <span class="sb-hero-tagline font-schoolbell sb-marginalia-note">made for mouths that misbehave</span>
+            <span class="sb-doodle-pink-bolt">⚡</span>
           </div>
-          <p class="sb-hero-lead-editorial">
-            We make loud, khatta pickled gherkins for people who don’t eat quietly. Whole Indian spices, crunch that makes you squint, and zero boring blandness.
-          </p>
-          <div class="sb-hero-action-row">
-            <a href="/collections/all" class="sb-brush-cta sb-cta-pink">
-              <span>Shop the crunch →</span>
+          <h1 class="sb-hero-headline sb-hero-h1 font-coolvetica text-charcoal">
+            Cravings<br>
+            <span class="font-coolvetica text-charcoal">come first.</span><br>
+            <span class="sb-hero-headline-accent font-coolvetica">Everything else can wait.</span>
+          </h1>
+          <div class="sb-hero-action-row sb-hero-cta-row">
+            <a href="/collections/all" class="sb-hero-cta-primary sb-brush-cta sb-cta-pink">
+              <span>Shop Pickles →</span>
             </a>
-            <button type="button" class="sb-brush-cta sb-cta-yellow sb-open-quiz-trigger">
-              <span>Take quiz (get 5% off)</span>
-            </button>
           </div>
         </div>
 
-        <!-- Right Photographic Crop Column -->
-        <div class="sb-hero-visual-col">
-          <div class="sb-hero-photo-frame">
-            <img src="/hero-placeholder.webp" alt="Hands holding fresh crunchy Sourboo pickle slices" class="sb-hero-broadsheet-img" width="1600" height="900" fetchpriority="high" />
-            <div class="sb-sticker-badge sb-sticker-khatta" style="transform: rotate(6deg);">
-              <span>100% REAL KHATTA</span>
-            </div>
-            <div class="sb-sticker-badge sb-sticker-crunch" style="transform: rotate(-4deg);">
-              <span>CRUNCH RATED 10/10</span>
-            </div>
-            <div class="sb-washi-tape-strip sb-tape-top-left"></div>
-            <div class="sb-washi-tape-strip sb-tape-bottom-right"></div>
+        <!-- Right Visual Photo Column -->
+        <div class="sb-hero-visual-col sb-hero-photo-col">
+          <!-- Hot Pink Spiky Sticker -->
+          <div class="sb-sticker-starburst font-coolvetica">
+            <span>SOUR.</span>
+            <span>TANGY.</span>
+            <span>UNFILTERED.</span>
+          </div>
+          <div class="sb-hero-photo-wrap">
+            <img src="/hero-placeholder.webp" alt="Hands holding fresh crunchy Sourboo pickle slices" class="sb-hero-photo-img sb-hero-broadsheet-img" width="1600" height="900" fetchpriority="high" />
           </div>
         </div>
       </div>
     </header>
 
-    <!-- SECTION 2: THE SOUR DOSSIER (Staggered 3-Column Asymmetric Cards) -->
-    <section id="ProductShowcase" class="sb-dossier-showcase" aria-label="The Sour Dossier">
-      <div class="sb-section-header-editorial">
-        <div class="sb-section-eyebrow">FIELD REPORT #01 // HARVEST ARCHIVE</div>
-        <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">THE SOUR </span>
-          <span class="font-rascal text-pink">DOSSIER</span>
-        </h2>
-        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">staggered crunch for loud snacking — choose your weapon</p>
-      </div>
-
-      <div class="sb-dossier-grid">
-        <!-- Card 1: Side Eye Sour -->
-        <article class="sb-dossier-card sb-dossier-card-sideeye" data-slug="sideeyesour">
-          <div class="sb-dossier-tape">CASE #001</div>
-          <a href="/products/sideeyesour" class="sb-dossier-img-link" aria-label="View Side Eye Sour">
-            <img src="/side-eye.webp" alt="Side Eye Sour Jar" class="sb-dossier-jar-img" loading="lazy" />
-          </a>
-          <div class="sb-dossier-meta">
-            <span class="sb-dossier-category">LEMON &amp; CHAAT MASALA</span>
-            <h3 class="sb-dossier-title">
-              <a href="/products/sideeyesour">
-                <span class="font-coolvetica text-charcoal">SIDE EYE </span>
-                <span class="font-rascal text-pink">SOUR</span>
-              </a>
-            </h3>
-            <p class="sb-dossier-desc font-schoolbell">Crinkle-cut gherkins. Properly khatta with a sour punch that makes you squint.</p>
-            <div class="sb-dossier-meter">
-              <div class="sb-meter-line"><span>Sourness</span><span class="sb-meter-dots">★★★★★</span></div>
-              <div class="sb-meter-line"><span>Crunch</span><span class="sb-meter-dots">★★★★★</span></div>
-              <div class="sb-meter-line"><span>Spice</span><span class="sb-meter-dots">★★★☆☆</span></div>
-            </div>
-            <div class="sb-dossier-footer">
-              <span class="sb-dossier-price">₹399</span>
-              <button type="button" class="sb-quick-add-pill sb-add-to-cart-trigger" data-slug="sideeyesour" data-name="SIDE EYE SOUR" data-price="399" data-image="/side-eye.webp">
-                Quick Add +
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2: Tamarin' Tease -->
-        <article class="sb-dossier-card sb-dossier-card-tamarin" data-slug="tamarintease">
-          <div class="sb-dossier-tape sb-tape-amber">CASE #002</div>
-          <a href="/products/tamarintease" class="sb-dossier-img-link" aria-label="View Tamarin' Tease">
-            <img src="/tamarin-tease.webp" alt="Tamarin' Tease Jar" class="sb-dossier-jar-img" loading="lazy" />
-          </a>
-          <div class="sb-dossier-meta">
-            <span class="sb-dossier-category">TAMARIND &amp; CHILLI</span>
-            <h3 class="sb-dossier-title">
-              <a href="/products/tamarintease">
-                <span class="font-coolvetica text-charcoal">TAMARIN’ </span>
-                <span class="font-rascal text-amber">TEASE</span>
-              </a>
-            </h3>
-            <p class="sb-dossier-desc font-schoolbell">Whole gherkins. Sweet-sour imli that teases the tongue with slow-building chilli heat.</p>
-            <div class="sb-dossier-meter">
-              <div class="sb-meter-line"><span>Sourness</span><span class="sb-meter-dots">★★★★☆</span></div>
-              <div class="sb-meter-line"><span>Crunch</span><span class="sb-meter-dots">★★★★★</span></div>
-              <div class="sb-meter-line"><span>Spice</span><span class="sb-meter-dots">★★★★☆</span></div>
-            </div>
-            <div class="sb-dossier-footer">
-              <span class="sb-dossier-price">₹399</span>
-              <button type="button" class="sb-quick-add-pill sb-add-to-cart-trigger" data-slug="tamarintease" data-name="TAMARIN’ TEASE" data-price="399" data-image="/tamarin-tease.webp">
-                Quick Add +
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3: Sourboo Stash (Party Pack) -->
-        <article class="sb-dossier-card sb-dossier-card-stash" data-slug="sourboo-stash">
-          <div class="sb-dossier-tape sb-tape-lime">VAULT #006</div>
-          <a href="/products/sourboo-stash" class="sb-dossier-img-link" aria-label="View Sourboo Stash">
-            <img src="/sourboo-stash.webp" alt="Sourboo Stash Box" class="sb-dossier-jar-img" loading="lazy" />
-          </a>
-          <div class="sb-dossier-meta">
-            <span class="sb-dossier-category">4-JAR ULTIMATE STASH</span>
-            <h3 class="sb-dossier-title">
-              <a href="/products/sourboo-stash">
-                <span class="font-coolvetica text-charcoal">SOURBOO </span>
-                <span class="font-rascal text-pink">STASH</span>
-              </a>
-            </h3>
-            <p class="sb-dossier-desc font-schoolbell">2 Side Eye + 2 Tamarin. Save ₹297 + Free shipping. Never run out of midnight munchies.</p>
-            <div class="sb-dossier-meter">
-              <div class="sb-meter-line"><span>Variety</span><span class="sb-meter-dots">★★★★★</span></div>
-              <div class="sb-meter-line"><span>Value</span><span class="sb-meter-dots">★★★★★</span></div>
-              <div class="sb-meter-line"><span>Shipping</span><span class="sb-meter-dots">FREE ★</span></div>
-            </div>
-            <div class="sb-dossier-footer">
-              <span class="sb-dossier-price">₹1299</span>
-              <button type="button" class="sb-quick-add-pill sb-add-to-cart-trigger" data-slug="sourboo-stash" data-name="Sourboo Stash" data-price="1299" data-image="/sourboo-stash.webp">
-                Quick Add +
-              </button>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECTION 3: BRAND MANIFESTO SPREAD -->
-    <section class="sb-manifesto-spread" aria-label="Brand Manifesto">
-      <div class="sb-manifesto-inner">
-        <div class="sb-manifesto-header">
-          <h2 class="font-coolvetica text-charcoal" style="font-size: clamp(2rem, 4vw, 3.6rem); margin: 0 0 12px;">
-            why pickles? because bland snacks are an insult to cravings.
-          </h2>
-          <p class="font-schoolbell text-pink" style="font-size: 1.6rem; margin: 0;">
-            for people who like flavour loud and immediate — food that fits into real moments
-          </p>
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 2: WAVY TRUST RIBBON
+         ═══════════════════════════════════════════════════════ -->
+    <div class="sb-trust-ribbon-wrap">
+      <div class="sb-trust-ribbon-inner">
+        <div class="sb-trust-item">
+          <span class="sb-trust-icon">🥒</span>
+          <span>Small batch</span>
         </div>
-        <div class="sb-manifesto-cards-grid">
-          <div class="sb-manifesto-card">
-            <span class="sb-manifesto-num">01</span>
-            <h3 class="font-coolvetica text-charcoal" style="font-size: 1.3rem; margin: 0 0 8px;">EAT WITH INTENT</h3>
-            <p class="font-schoolbell" style="font-size: 1.05rem; margin: 0; color: var(--sb-text-muted);">
-              We don’t do quiet snacks. Sourboo is crafted to make your tongue tingle and demand your full attention.
-            </p>
+        <div class="sb-trust-divider"></div>
+        <div class="sb-trust-item">
+          <span class="sb-trust-icon">🍃</span>
+          <span>Real ingredients</span>
+        </div>
+        <div class="sb-trust-divider"></div>
+        <div class="sb-trust-item">
+          <span class="sb-trust-icon">🫙</span>
+          <span>No boring pickles</span>
+        </div>
+        <div class="sb-trust-divider"></div>
+        <div class="sb-trust-item">
+          <span class="sb-trust-icon">⚡</span>
+          <span>Big mood</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 3: THE PICKLE LINEUP (PRODUCT DOSSIER)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="ProductShowcase" class="sb-lineup-section sb-dossier-showcase" aria-label="The Pickle Lineup">
+      <div class="sb-section-eyebrow" style="display:none;">THE SOUR DOSSIER</div>
+      <div class="sb-lineup-inner">
+        <div class="sb-lineup-header-row">
+          <div class="sb-lineup-badge-group">
+            <div class="sb-lineup-cloud-badge font-rascal">
+              The Pickle Lineup
+            </div>
+            <div class="sb-lineup-subtitle font-coolvetica">
+              Six moods. One obsession— all things sour.
+            </div>
           </div>
-          <div class="sb-manifesto-card">
-            <span class="sb-manifesto-num">02</span>
-            <h3 class="font-coolvetica text-charcoal" style="font-size: 1.3rem; margin: 0 0 8px;">RELENTLESS CRUNCH</h3>
-            <p class="font-schoolbell" style="font-size: 1.05rem; margin: 0; color: var(--sb-text-muted);">
-              Straight from the fridge to your teeth. Crisp, juiced gherkins that never turn soggy.
-            </p>
-          </div>
-          <div class="sb-manifesto-card">
-            <span class="sb-manifesto-num">03</span>
-            <h3 class="font-coolvetica text-charcoal" style="font-size: 1.3rem; margin: 0 0 8px;">REAL KHATTA</h3>
-            <p class="font-schoolbell" style="font-size: 1.05rem; margin: 0; color: var(--sb-text-muted);">
-              Real lemon slices, authentic imli pulp, rock salt, and hand-roasted chaat masala. Zero fake powders.
-            </p>
-          </div>
-          <div class="sb-manifesto-card">
-            <span class="sb-manifesto-num">04</span>
-            <h3 class="font-coolvetica text-charcoal" style="font-size: 1.3rem; margin: 0 0 8px;">ZERO CHILL</h3>
-            <p class="font-schoolbell" style="font-size: 1.05rem; margin: 0; color: var(--sb-text-muted);">
-              100% vegetarian, FSSAI certified, and made for desks, girl dinners, midnight fridges, and crying sessions.
-            </p>
+          <div class="sb-lineup-nav-arrows">
+            <button type="button" class="sb-lineup-nav-btn" aria-label="Previous">‹</button>
+            <button type="button" class="sb-lineup-nav-btn" aria-label="Next">›</button>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 36px;">
-          <a href="/pages/about" class="sb-brush-cta sb-cta-pickle" style="background-image: url('/ctabg.svg');">
-            <span>read sakshi's founder diary →</span>
-          </a>
+
+        <div class="sb-lineup-main-grid">
+          <!-- Left Feature: Big Pink Hero Card -->
+          <div class="sb-lineup-hero-card">
+            <img src="/side-eye-jar.png" alt="Side Eye Sour Jar Big Feature" class="sb-lineup-hero-jar" loading="lazy" />
+          </div>
+
+          <!-- Right Grid: 3 Staggered Product Cards -->
+          <div class="sb-dossier-grid sb-lineup-cards-row">
+            <!-- Card 1: Side Eye Sour -->
+            <article class="sb-dossier-card sb-product-card-v3" data-slug="sideeyesour">
+              <a href="/products/sideeyesour" class="sb-card-img-stage bg-green" aria-label="View Side Eye Sour">
+                <img src="/side-eye-jar.png" alt="Side Eye Sour" class="sb-dossier-jar-img sb-card-jar-img" loading="lazy" />
+              </a>
+              <div class="sb-card-info-wrap">
+                <div class="sb-dossier-tape">CASE #001</div>
+                <h3 class="sb-card-name sb-dossier-title font-coolvetica">
+                  <a href="/products/sideeyesour">Side Eye Sour</a>
+                </h3>
+                <p class="sb-card-subtitle sb-dossier-desc font-schoolbell">The classic. Sharp, bold and a little rude.</p>
+                <div class="sb-dossier-meter">
+                  <div class="sb-meter-line"><span>Sourness</span><span>★★★★★</span></div>
+                  <div class="sb-meter-line"><span>Crunch</span><span>★★★★★</span></div>
+                </div>
+                <div class="sb-card-buy-bar sb-dossier-footer">
+                  <span class="sb-card-price sb-dossier-price font-coolvetica">₹349</span>
+                  <button type="button" class="sb-card-add-btn sb-quick-add-pill sb-add-to-cart-trigger" data-slug="sideeyesour" data-name="SIDE EYE SOUR" data-price="349" data-image="/side-eye-jar.png">Add to cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Tamarin' Tease -->
+            <article class="sb-dossier-card sb-product-card-v3" data-slug="tamarintease">
+              <a href="/products/tamarintease" class="sb-card-img-stage bg-pink" aria-label="View Tamarin' Tease">
+                <img src="/tamarin-jar.png" alt="Tamarin' Tease" class="sb-dossier-jar-img sb-card-jar-img" loading="lazy" />
+              </a>
+              <div class="sb-card-info-wrap">
+                <div class="sb-dossier-tape">CASE #002</div>
+                <h3 class="sb-card-name sb-dossier-title font-coolvetica">
+                  <a href="/products/tamarintease">Tamarin' Tease</a>
+                </h3>
+                <p class="sb-card-subtitle sb-dossier-desc font-schoolbell">Sweet. Tangy. Totally addictive.</p>
+                <div class="sb-dossier-meter">
+                  <div class="sb-meter-line"><span>Sourness</span><span>★★★★☆</span></div>
+                  <div class="sb-meter-line"><span>Crunch</span><span>★★★★★</span></div>
+                </div>
+                <div class="sb-card-buy-bar sb-dossier-footer">
+                  <span class="sb-card-price sb-dossier-price font-coolvetica">₹349</span>
+                  <button type="button" class="sb-card-add-btn sb-quick-add-pill sb-add-to-cart-trigger" data-slug="tamarintease" data-name="TAMARIN' TEASE" data-price="349" data-image="/tamarin-jar.png">Add to cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Tamarind Twins -->
+            <article class="sb-dossier-card sb-product-card-v3" data-slug="tamarind-twins">
+              <a href="/products/tamarind-twins" class="sb-card-img-stage bg-orange" aria-label="View Tamarind Twins">
+                <img src="/tamarind-twins.webp" alt="Tamarind Twins" class="sb-dossier-jar-img sb-card-jar-img" loading="lazy" />
+              </a>
+              <div class="sb-card-info-wrap">
+                <div class="sb-dossier-tape">VAULT #006</div>
+                <h3 class="sb-card-name sb-dossier-title font-coolvetica">
+                  <a href="/products/tamarind-twins">Tamarind Twins</a>
+                </h3>
+                <p class="sb-card-subtitle sb-dossier-desc font-schoolbell">Double the tamarind. Double the drama.</p>
+                <div class="sb-dossier-meter">
+                  <div class="sb-meter-line"><span>Sourness</span><span>★★★★★</span></div>
+                  <div class="sb-meter-line"><span>Crunch</span><span>★★★★★</span></div>
+                </div>
+                <div class="sb-card-buy-bar sb-dossier-footer">
+                  <span class="sb-card-price sb-dossier-price font-coolvetica">₹349</span>
+                  <button type="button" class="sb-card-add-btn sb-quick-add-pill sb-add-to-cart-trigger" data-slug="tamarind-twins" data-name="Tamarind Twins" data-price="349" data-image="/tamarind-twins.webp">Add to cart</button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: THE MOMENTS ARCHIVE (Integrated Wheatpaste Zine Poster Wall) -->
-    <section class="sb-moments-archive" aria-label="Campaign Poster Archive">
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 4: CAMPAIGN POSTERS (MOMENTS ARCHIVE)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="HomePosterPinboard" class="sb-moments-archive" aria-label="Campaign Poster Archive">
       <div class="sb-section-header-editorial">
-        <div class="sb-section-eyebrow">PHOTO ARCHIVE // MOMENTS OF RELIEF</div>
-        <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">THE </span>
-          <span class="font-rascal text-pink">MOMENTS </span>
-          <span class="font-coolvetica text-charcoal">ARCHIVE</span>
+        <h2 class="font-coolvetica text-charcoal" style="font-size: clamp(2rem, 3.5vw, 3.2rem); margin: 0 0 6px;">
+          THE MOMENTS ARCHIVE
         </h2>
-        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">real snacks for uncurated life moments</p>
+        <p class="font-schoolbell text-pickle" style="font-size: 1.35rem; margin: 0;">real snacks for uncurated life moments</p>
       </div>
 
-      <div id="HomePosterPinboard" class="sb-moments-zine-wall">
+      <div class="sb-moments-zine-wall sb-poster-strip-wrap">
         <!-- Poster 1: Post Cry Snack -->
-        <article class="sb-zine-poster-card sb-poster-postcry" style="transform: rotate(-1.5deg);">
-          <div class="sb-pushpin-red" aria-hidden="true"></div>
+        <article class="sb-zine-poster-card sb-poster-card-v3 sb-poster-postcry" style="transform: rotate(-1.5deg);">
+          <div class="sb-pushpin-red" style="display:none;"></div>
           <div class="sb-poster-frame">
-            <img src="/postcrysnack.webp" alt="Post Cry Snack poster" loading="lazy" width="700" height="980" />
+            <img src="/postcrysnack.webp" alt="Post Cry Snack poster" loading="lazy" width="900" height="1164" />
           </div>
           <p class="sb-poster-caption font-schoolbell">Not a meal, a moment.</p>
         </article>
 
         <!-- Poster 2: Late Night Munchies -->
-        <article class="sb-zine-poster-card sb-poster-munchies" style="transform: rotate(2deg);">
-          <div class="sb-pushpin-red" aria-hidden="true"></div>
+        <article class="sb-zine-poster-card sb-poster-card-v3 sb-poster-munchies" style="transform: rotate(2deg);">
+          <div class="sb-pushpin-red" style="display:none;"></div>
           <div class="sb-poster-frame">
-            <img src="/latenightmunchies.webp" alt="Late Night Munchies poster" loading="lazy" width="700" height="980" />
+            <img src="/latenightmunchies.webp" alt="Late Night Munchies poster" loading="lazy" width="900" height="1172" />
           </div>
           <p class="sb-poster-caption font-schoolbell">Snack irresponsibly.</p>
         </article>
 
         <!-- Poster 3: Girl Dinner But Sour -->
-        <article class="sb-zine-poster-card sb-poster-girldinner" style="transform: rotate(-2.5deg);">
-          <div class="sb-pushpin-red" aria-hidden="true"></div>
+        <article class="sb-zine-poster-card sb-poster-card-v3 sb-poster-girldinner" style="transform: rotate(-2.5deg);">
+          <div class="sb-pushpin-red" style="display:none;"></div>
           <div class="sb-poster-frame">
-            <img src="/girldinner.webp" alt="Girl Dinner But Sour poster" loading="lazy" width="700" height="980" />
+            <img src="/girldinner.webp" alt="Girl Dinner But Sour poster" loading="lazy" width="900" height="1048" />
           </div>
           <p class="sb-poster-caption font-schoolbell">Keep within reach.</p>
         </article>
 
         <!-- Poster 4: Desk Cravings -->
-        <article class="sb-zine-poster-card sb-poster-deskcravings" style="transform: rotate(1deg);">
-          <div class="sb-pushpin-red" aria-hidden="true"></div>
+        <article class="sb-zine-poster-card sb-poster-card-v3 sb-poster-deskcravings" style="transform: rotate(1deg);">
+          <div class="sb-pushpin-red" style="display:none;"></div>
           <div class="sb-poster-frame">
-            <img src="/deskcravings.webp" alt="Desk Cravings poster" loading="lazy" width="700" height="980" />
+            <img src="/deskcravings.webp" alt="Desk Cravings poster" loading="lazy" width="1400" height="1981" />
           </div>
           <p class="sb-poster-caption font-schoolbell">Presented by Sourboo.</p>
         </article>
       </div>
     </section>
 
-    <!-- SECTION 5: DECONSTRUCTED INGREDIENTS DOSSIER -->
-    <section class="sb-ingredients-dossier" aria-label="Fresh Ingredients">
-      <div class="sb-section-header-editorial" style="margin-bottom: 20px;">
-        <div class="sb-section-eyebrow">RAW BOTANICALS // REAL CRUNCH</div>
-        <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">Real Ingredients. </span>
-          <span class="font-coolvetica text-charcoal" style="position: relative; display: inline-block;">Zero Drama.
-            <svg style="position: absolute; bottom: -6px; left: 0; width: 100%; height: 8px;" viewBox="0 0 100 12" preserveAspectRatio="none" fill="none"><path d="M0 6 Q 25 12, 50 6 T 100 6" stroke="#E61E6E" stroke-width="4" stroke-linecap="round"/></svg>
-          </span>
-        </h2>
-        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Farm-grown gherkins, whole spices, and sun-dried tamarind</p>
-      </div>
-      <div class="sb-ingredients-container">
-        <div class="sb-ingredients-visual-stage">
-          <img src="/freshingredients.svg" alt="Fresh crunchy pickle slices and ingredients" class="sb-fresh-img" loading="lazy" width="840" height="280" />
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 5: REAL INGREDIENTS. ZERO DRAMA.
+         ═══════════════════════════════════════════════════════ -->
+    <section class="sb-ingredients-dossier sb-ingredients-v3" aria-label="Fresh Ingredients">
+      <div class="sb-ingredients-v3-inner">
+        <div class="sb-ingredients-text-wrap">
+          <h2>
+            Real<br>
+            Ingredients.<br>
+            <span class="sb-underline-pink-scribble">Zero Drama.</span>
+          </h2>
         </div>
-        <div class="sb-ingredients-annotation-grid">
-          <div class="sb-ingredient-callout font-schoolbell">🌱 Fresh Cucumbers</div>
-          <div class="sb-ingredient-callout font-schoolbell">⚡ Tangy Spices</div>
-          <div class="sb-ingredient-callout font-schoolbell">🔥 Bold Flavours</div>
-          <div class="sb-ingredient-callout font-schoolbell">✨ Mineral Rock Salt</div>
+        <div class="sb-ingredients-stage-wrap">
+          <img src="/freshingredients.svg" alt="Fresh crunchy cucumbers and spices" class="sb-cucumber-arc-img" loading="lazy" width="840" height="280" />
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: FOOD COLLAGE / MOMENTS GALLERY -->
-    <section class="sb-gallery-section" aria-label="Food Collage Gallery">
-      <div class="sb-gallery-scroll-container">
-        <div class="sb-gallery-card sb-gal-1"><img src="/recipe-1.jpg" alt="Recipe 1" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-2"><img src="/postcrysnack.webp" alt="Post cry snack" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-3"><img src="/girldinner.webp" alt="Girl dinner" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-4"><img src="/hangoverdetox.webp" alt="Hangover detox" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-5"><img src="/deskcravings.webp" alt="Desk cravings" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-6"><img src="/recipe-2.webp" alt="Recipe 2" loading="lazy" /></div>
-        <div class="sb-gallery-card sb-gal-7"><img src="/latenightmunchies.webp" alt="Late night munchies" loading="lazy" /></div>
-      </div>
-    </section>
-
-    <!-- SECTION 7: UNFILTERED REVIEWS & REVIEW PHONE -->
-    <section id="HomeReviewPhoneSection" class="sb-review-section" aria-label="Customer Reviews">
-      <div class="sb-section-header-editorial" style="margin-bottom: 36px;">
-        <div class="sb-section-eyebrow">UNFILTERED PRAISE // SOUR CRITICS</div>
-        <h2 class="sb-section-title-editorial">
-          <span class="font-coolvetica text-charcoal">People are pretty </span>
-          <span class="font-rascal text-pink">obsessed.</span>
-        </h2>
-        <p class="font-schoolbell text-pickle" style="font-size: 1.4rem;">Straight from DMs, late night orders, and fridge raiders</p>
-      </div>
-
-      <div class="sb-reviews-grid-wrap">
-        <!-- Left: Grilled Cheese Toast Food Pairing -->
-        <div class="sb-review-pairing-col">
-          <div class="sb-pairing-photo-frame">
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 6: CUSTOMER REVIEWS & SMARTPHONE MOCKUP
+         ═══════════════════════════════════════════════════════ -->
+    <section id="HomeReviewPhoneSection" class="sb-review-section sb-reviews-v3" aria-label="Customer Reviews">
+      <div class="sb-reviews-v3-inner">
+        <!-- Left: Grilled Cheese Photo -->
+        <div class="sb-reviews-toast-col">
+          <div class="sb-reviews-toast-frame">
             <img src="/recipe-1.jpg" alt="Sourboo pickles on crispy grilled cheese toast" loading="lazy" width="600" height="450" />
-            <div class="sb-washi-tape-strip sb-tape-top-right"></div>
           </div>
-          <p class="sb-pairing-caption">The ultimate midnight grilled cheese with extra crunch</p>
         </div>
 
-        <!-- Right: Authentic Review Phone with 3 Genuine Reviews & Floating Bubbles -->
-        <div class="sb-review-phone-col">
-          <div class="sb-phone-stage">
-            <!-- Floating organic speech bubbles around phone with real text -->
-            <article class="home-review-bubble sb-bubble-1"><p>Addictive</p></article>
-            <article class="home-review-bubble sb-bubble-2"><p>Super punchy &amp; sour</p></article>
-            <article class="home-review-bubble sb-bubble-3"><p>Perfect spicy</p></article>
-            <article class="home-review-bubble sb-bubble-4"><p>Instant fav</p></article>
-
-            <!-- Phone graphic -->
-            <img src="/review-phone.svg" alt="Phone showing customer reviews about Sourboo" class="sb-phone-img" loading="lazy" width="340" height="760" />
-
-            <!-- 3 Genuine 5-Star Customer Review Cards Overlaid on Screen -->
-            <div class="sb-phone-reviews-overlay">
-              <div class="sb-screen-review-card">
-                <div class="sb-screen-stars">★★★★★</div>
-                <p class="sb-screen-quote">"The perfect midnight snack! The crunch is unreal, finished half the jar in one sitting."</p>
-                <div class="sb-screen-author">Aanya M. • Bengaluru</div>
+        <!-- Right: Reviews Header & Smartphone Display -->
+        <div class="sb-reviews-phone-col">
+          <div class="sb-reviews-header-block">
+            <h2>
+              People are pretty <span class="font-rascal text-pink">obsessed.</span>
+            </h2>
+          </div>
+          <div class="sb-reviews-phone-mockup">
+            <div class="sb-phone-pill-notch"></div>
+            <div class="sb-phone-reviews-list">
+              <div class="sb-phone-review-bubble">
+                <p class="sb-phone-review-quote">"The perfect midnight snack!"</p>
+                <div class="sb-phone-review-stars">★★★★★</div>
               </div>
-              <div class="sb-screen-review-card">
-                <div class="sb-screen-stars">★★★★★</div>
-                <p class="sb-screen-quote">"Tangy, crunchy and so addictive. Sweet-sour imli hit followed by slow warmth."</p>
-                <div class="sb-screen-author">Rohan K. • Mumbai</div>
+              <div class="sb-phone-review-bubble">
+                <p class="sb-phone-review-quote">"Tangy, crunchy and so addictive."</p>
+                <div class="sb-phone-review-stars">★★★★★</div>
               </div>
-              <div class="sb-screen-review-card">
-                <div class="sb-screen-stars">★★★★★</div>
-                <p class="sb-screen-quote">"I wasn't a pickle person... now I'm a Sourboo person. Proper khatta punch!"</p>
-                <div class="sb-screen-author">Devika S. • Delhi</div>
+              <div class="sb-phone-review-bubble">
+                <p class="sb-phone-review-quote">"I wasn't a pickle person... now I'm a Sourboo person."</p>
+                <div class="sb-phone-review-stars">★★★★★</div>
               </div>
             </div>
           </div>
@@ -926,9 +865,6 @@ function getHomePageHtml(reqHost = 'localhost') {
   return wrapLayout(content, 'Sourboo | The Snack Diary • The Sourboo Way', false, reqHost);
 }
 
-/**
- * Route 2: Shop Collection (/collections/all, /shop, /product)
- */
 function getShopPageHtml(reqHost = 'localhost') {
   const cardsHtml = PRODUCTS.map(p => `
     <article class="sb-product-card" data-slug="${p.slug}">
@@ -1160,147 +1096,135 @@ function getAboutPageHtml(reqHost = 'localhost') {
     <article class="sb-about-page-wrap" aria-label="Our Story">
       <!-- Part 1: Founder Feature Hero -->
       <section class="sb-about-hero-section">
-        <div class="sb-about-photo-frame">
-          <img src="/about-cover.JPG" alt="Sourboo Founders eating crunchy pickles straight from jar" width="680" height="840" />
-          <div class="sb-washi-tape-strip sb-tape-top-right"></div>
-          <div class="sb-about-photo-annotation font-schoolbell">
-            <span>The Founders (Also Chief Pickle Addicts) ↵</span>
-          </div>
-        </div>
         <div class="sb-about-hero-content">
-          <span class="sb-about-eyebrow">OUR STORY // SOURBOO SNACK DIARY</span>
+          <span class="sb-about-eyebrow font-schoolbell">About Sourboo</span>
           <h1 class="sb-about-title font-coolvetica">
-            The pickle project that<br>
-            <span class="sb-about-highlight-pink font-coolvetica">got out of hand.</span>
+            The pickle project<br>
+            that got<br>
+            <span class="sb-about-highlight-pink font-coolvetica">out of hand.</span>
           </h1>
           <p class="sb-about-subhead font-schoolbell">
             Born from a serious love for tangy, punchy and slightly unhinged flavours.
           </p>
           <p class="sb-about-body-text">
-            Sourboo started in a tiny kitchen with an obsession for real, unapologetic crunch. We were tired of sweet, mushy pickles that tasted like vinegar water and regret. So we started experimenting with raw mangoes, wild tamarind, garden gherkins and whole-roasted spices — crafting the exact tangy, spicy, mouth-watering punch we craved at 2 AM. Kitchen experiment notes piled up until Sourboo was born. My childhood raw mango obsession never left me, and before we knew it, thousands of snackers joined the club.
+            It started with late-night cravings, fridge experiments and a very serious question — why are good pickles so hard to find? Childhood raw mango obsessions never left us.
           </p>
-          <p class="font-schoolbell text-pink" style="font-size: 1.45rem; margin: 0;">
-            xx - Sakshi &amp; Team
+          <p class="sb-about-body-text">
+            So we made our own. Small batches, real ingredients and flavours that actually hit.
           </p>
+        </div>
+        <div class="sb-about-photo-frame">
+          <img src="/about-cover.JPG" alt="Sourboo Founders eating crunchy pickles straight from jar" width="680" height="840" />
+          <div class="sb-about-photo-annotation font-schoolbell">
+            The Founders<br>(Also Chief Pickle Addicts)
+          </div>
         </div>
       </section>
 
-      <!-- Part 2: Value Props Green Pill Bar -->
+      <!-- Part 2: Value Props Soft Green Ribbon -->
       <section class="sb-about-props-bar" aria-label="Brand Pillars">
         <div class="sb-about-props-inner">
           <div class="sb-prop-item">
-            <span class="sb-prop-star">✦</span>
+            <span style="font-size: 1.6rem;">🫙</span>
             <span>Big on Flavour</span>
           </div>
           <div class="sb-prop-item">
-            <span class="sb-prop-star">✦</span>
+            <span style="font-size: 1.6rem;">🥒</span>
             <span>Real Ingredients</span>
           </div>
           <div class="sb-prop-item">
-            <span class="sb-prop-star">✦</span>
+            <span style="font-size: 1.6rem;">⚡</span>
             <span>For Real Life Cravings</span>
-          </div>
-          <div class="sb-prop-item">
-            <span class="sb-prop-star">✦</span>
-            <span>Handcrafted in Small Batches</span>
           </div>
         </div>
       </section>
 
-      <!-- Part 3: Our Story (Origin Narrative) -->
+      <!-- Part 3: Our Story -->
       <section class="sb-about-story-section" aria-label="Our Origin">
+        <div class="sb-story-photo-wrap">
+          <div class="sb-story-tape"></div>
+          <img src="/recipe-2.webp" alt="Sourboo pickle jar family on table" loading="lazy" width="600" height="450" style="border-radius: 8px;" />
+          <img src="/eyes1.svg" alt="Cartoon eyes" style="width: 50px; position: absolute; bottom: 8px; left: 14px;" />
+        </div>
         <div class="sb-story-content">
-          <span class="sb-about-eyebrow">KITCHEN EXPERIMENTS // CHILDHOOD NOSTALGIA</span>
-          <h2 class="font-coolvetica">
-            Our <span class="sb-story-highlight-yellow font-coolvetica">Story</span>
+          <h2>
+            <span class="sb-story-highlight-yellow font-rascal">Our Story</span>
           </h2>
           <p class="sb-about-body-text">
-            If you are here, we assume you love sour or are curious enough to try it. We spent years around food and drinks, obsessing over why sour was always treated like a side dish or an afterthought. Childhood raw mango obsessions, street chaat cravings, and lime-drenched snacks never left us.
+            It started with late-night cravings, fridge experiments and a very serious question – why are good pickles so hard to find?
           </p>
           <p class="sb-about-body-text">
-            We set out to create pickles that aren't hidden inside a curry, but eaten proudly straight from the jar — with crackers, sandwiches, midnight grilled cheeses, or unadulterated fork raids. Every jar is packed with punch, personality, and real crunch.
+            So we made our own. Small batches, real ingredients and flavours that actually hit.
           </p>
-        </div>
-        <div class="sb-story-photo-wrap">
-          <img src="/recipe-2.webp" alt="Sourboo pickle jar family on wooden table" loading="lazy" width="600" height="450" />
-          <div class="sb-washi-tape-strip sb-tape-top-right"></div>
         </div>
       </section>
 
       <!-- Part 4: The Sourboo Way (3 Pillars) -->
       <section class="sb-about-pillars-section" aria-label="The Sourboo Way">
-        <div class="sb-about-pillars-inner">
-          <div class="sb-pillars-header">
-            <h2 class="font-coolvetica">The Sourboo Way</h2>
-            <p class="font-schoolbell">Three rules we never break.</p>
+        <div class="sb-pillars-header">
+          <h2 class="font-rascal">The Sourboo Way</h2>
+        </div>
+        <div class="sb-pillars-grid">
+          <div class="sb-pillar-card">
+            <div class="sb-pillar-icon">🥒</div>
+            <h3 class="sb-pillar-title font-coolvetica">Simple, real ingredients</h3>
+            <p class="sb-pillar-desc font-schoolbell">Farm-fresh gherkins, whole spices, and sun-dried tamarind. Zero artificial preservatives.</p>
           </div>
-          <div class="sb-pillars-grid">
-            <div class="sb-pillar-card">
-              <span class="sb-pillar-tag">01 // THE INGREDIENTS</span>
-              <h3 class="sb-pillar-title font-coolvetica">Simple, real ingredients</h3>
-              <p class="sb-pillar-desc">
-                Farm-fresh gherkins, cold-pressed mustard oil, sun-dried tamarind, and whole-roasted spices. Zero artificial preservatives, zero fake colours, zero shortcuts.
-              </p>
-            </div>
-            <div class="sb-pillar-card">
-              <span class="sb-pillar-tag">02 // THE PROFILE</span>
-              <h3 class="sb-pillar-title font-coolvetica">Bold, unapologetic flavours</h3>
-              <p class="sb-pillar-desc">
-                Sour that hits you right between the eyes. Tangy, spicy, crunchy goodness engineered to wake up your palate. We don't do boring.
-              </p>
-            </div>
-            <div class="sb-pillar-card">
-              <span class="sb-pillar-tag">03 // THE PROCESS</span>
-              <h3 class="sb-pillar-title font-coolvetica">Made in small batches</h3>
-              <p class="sb-pillar-desc">
-                Handcrafted in limited runs to keep the crunch razor-sharp. Because mass-produced supermarket pickles lose their soul in gigantic industrial vats.
-              </p>
-            </div>
+          <div class="sb-pillar-card">
+            <div class="sb-pillar-icon">👅</div>
+            <h3 class="sb-pillar-title font-coolvetica">Bold, unapologetic flavours</h3>
+            <p class="sb-pillar-desc font-schoolbell">Sour that hits you right between the eyes. Tangy, spicy, crunchy goodness.</p>
+          </div>
+          <div class="sb-pillar-card">
+            <div class="sb-pillar-icon">🫙</div>
+            <h3 class="sb-pillar-title font-coolvetica">Made in small batches</h3>
+            <p class="sb-pillar-desc font-schoolbell">Handcrafted in limited runs to keep the crunch razor-sharp.</p>
           </div>
         </div>
       </section>
 
-      <!-- Part 5: Behind The Brand (Pink Ripped Paper Banner) -->
+      <!-- Part 5: Behind The Brand (Pink Torn Paper Banner) -->
       <section class="sb-behind-banner-section" aria-label="Behind the Brand">
         <div class="sb-behind-inner">
-          <h2 class="sb-behind-title font-coolvetica">Behind The Brand</h2>
+          <h2 class="sb-behind-title font-rascal">
+            Behind<br>The Brand
+          </h2>
           <div class="sb-behind-checklist">
             <div class="sb-checklist-item">
-              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span class="sb-check-icon">✓</span>
               <span>A lot of taste testing</span>
             </div>
             <div class="sb-checklist-item">
-              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span class="sb-check-icon">✓</span>
               <span>Countless fridge raids</span>
             </div>
             <div class="sb-checklist-item">
-              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span class="sb-check-icon">✓</span>
               <span>Debates over "the perfect tang"</span>
             </div>
             <div class="sb-checklist-item">
-              <span style="color: var(--sb-pickle-green); font-size: 1.5rem;">✓</span>
+              <span class="sb-check-icon">✓</span>
               <span>And a growing pickle obsession</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Part 6: Closing Section (Still Curious?) -->
+      <!-- Part 6: Still Curious? -->
       <section class="sb-about-closing-section" aria-label="Still Curious">
         <div class="sb-closing-photo-wrap">
-          <img src="/recipe-1.jpg" alt="Sourboo pickles on crispy grilled cheese" loading="lazy" width="600" height="450" />
-          <div class="sb-washi-tape-strip sb-tape-top-right"></div>
+          <img src="/recipe-1.jpg" alt="Sourboo pickles bowl" loading="lazy" width="600" height="450" />
         </div>
         <div class="sb-closing-content">
-          <h2 class="font-coolvetica">Still Curious?</h2>
+          <h2 class="font-rascal">Still Curious?</h2>
           <p class="font-schoolbell">
-            Try a jar. Your tastebuds will thank you (or file a complaint, but they won't be bored).
+            Explore the flavours, read our rant, or just say hi. We're always up for a good pickle chat.
           </p>
           <div class="sb-closing-btn-row">
-            <a href="/collections/all" class="sb-closing-btn sb-btn-shop">
+            <a href="/collections/all" class="sb-btn-yellow">
               <span>Shop Now →</span>
             </a>
-            <a href="/pages/contact" class="sb-closing-btn sb-btn-contact">
+            <a href="/pages/contact" class="sb-btn-outline">
               <span>Get in Touch</span>
             </a>
           </div>
@@ -1311,45 +1235,34 @@ function getAboutPageHtml(reqHost = 'localhost') {
   return wrapLayout(content, 'Our Story • The Pickle Project | Sourboo', false, reqHost);
 }
 
-/**
- * Route 6: Join Us (/pages/join-us and /join)
- */
 function getJoinPageHtml(reqHost = 'localhost') {
   const content = `
-    <main style="min-height: 80vh; background: var(--sb-bg-sage); color: var(--sb-text-charcoal); padding: 120px 24px 80px;">
-      <div style="max-width: 1100px; margin: 0 auto;">
-        <div class="sb-dateline-ticker">COMMUNITY // THE SOURBOO SNACK CLUB</div>
-        <h1 class="font-coolvetica text-pink" style="font-size: clamp(3rem, 7vw, 6rem); line-height: 0.94; margin: 16px 0 20px;">
-          Join Us
-        </h1>
-        <p class="font-schoolbell text-pickle" style="font-size: clamp(1.6rem, 2.8vw, 2.8rem); line-height: 1.2; max-width: 800px; margin-bottom: 40px;">
-          for people who eat pickles straight from the fridge at 2 AM
-        </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-          <div style="background: #FFF; border: 3px solid #171717; border-radius: 24px; padding: 32px; box-shadow: 4px 4px 0px #171717;">
-            <h2 class="font-coolvetica text-pink" style="font-size: 2rem; margin: 0 0 12px;">WHATSAPP COMMUNITY</h2>
-            <p class="font-schoolbell" style="font-size: 1.3rem; margin-bottom: 24px;">Get first access to small-batch seasonal recipes, tasting pop-ups, and secret discounts.</p>
-            <a href="https://chat.whatsapp.com/L9YSdLAYGfuEke1zXhvoWN" target="_blank" rel="noopener noreferrer" class="sb-brush-cta sb-cta-pickle" style="background-image: url('/ctabg.svg');">
-              <span>Join WhatsApp Group →</span>
-            </a>
-          </div>
-          <div style="background: var(--sb-bg-yellow); border: 3px solid #171717; border-radius: 24px; padding: 32px; box-shadow: 4px 4px 0px #171717;">
-            <h2 class="font-coolvetica text-charcoal" style="font-size: 2rem; margin: 0 0 12px;">STOCKISTS &amp; COLLABS</h2>
-            <p class="font-schoolbell" style="font-size: 1.3rem; margin-bottom: 24px;">Want Sourboo in your cafe, bar, or retail shelf? We love collaborating with good humans.</p>
-            <a href="mailto:cravings@sourboo.com" class="sb-brush-cta sb-cta-pink" style="background-image: url('/ctabg2.svg');">
-              <span>Email Us For Stocking →</span>
-            </a>
-          </div>
+    <div class="sb-join-page-wrap">
+      <div class="sb-join-hero">
+        <h1 class="font-coolvetica">Join the <span class="text-pink font-rascal">Sourboo</span> Club</h1>
+        <p class="font-schoolbell">for people who eat pickles straight from the fridge at 2 AM</p>
+      </div>
+      <div class="sb-join-cards-grid">
+        <div class="sb-join-card">
+          <h2 class="font-coolvetica text-pink">WHATSAPP COMMUNITY</h2>
+          <p class="font-schoolbell">Get first access to small-batch seasonal recipes, tasting pop-ups, and secret discounts.</p>
+          <a href="https://chat.whatsapp.com/L9YSdLAYGfuEke1zXhvoWN" target="_blank" rel="noopener noreferrer" class="sb-btn-yellow" style="display: inline-flex; width: fit-content;">
+            Join WhatsApp Group →
+          </a>
+        </div>
+        <div class="sb-join-card accent-yellow">
+          <h2 class="font-coolvetica">STOCKISTS &amp; COLLABS</h2>
+          <p class="font-schoolbell">Want Sourboo in your cafe, bar, or retail shelf? We love collaborating with good humans.</p>
+          <a href="mailto:cravings@sourboo.com" class="sb-btn-outline" style="display: inline-flex; width: fit-content; background: var(--sb-green-dark); color: #FFF;">
+            Email Us For Stocking →
+          </a>
         </div>
       </div>
-    </main>
+    </div>
   `;
   return wrapLayout(content, 'Join Us | The Sourboo Club', false, reqHost);
 }
 
-/**
- * Route 7: Contact Page (/pages/contact and /contact)
- */
 function getContactPageHtml(reqHost = 'localhost') {
   const content = `
     <main style="min-height: 80vh; background: var(--sb-bg-yellow); color: var(--sb-pink); padding: 120px 24px 80px;">
