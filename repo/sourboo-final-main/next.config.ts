@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
       })),
     ];
   },
+  async rewrites() {
+    return [
+      { source: "/collections/all", destination: "/product" },
+      { source: "/shop", destination: "/product" },
+      { source: "/products/:slug", destination: "/product/:slug" },
+      { source: "/pages/about", destination: "/about" },
+      { source: "/pages/join-us", destination: "/join" },
+      { source: "/pages/contact", destination: "/contact" },
+    ];
+  },
   images: {
     qualities: [72, 74, 75, 76, 78, 80, 82],
     remotePatterns: [

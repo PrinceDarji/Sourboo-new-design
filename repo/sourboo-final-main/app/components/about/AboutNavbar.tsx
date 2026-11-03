@@ -1,193 +1,145 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import type { MouseEvent } from 'react';
+import { useState } from 'react';
 import { useCart } from '@/app/components/cart/CartProvider';
-
-const leftLinks = [
-  { href: '/', label: 'home' },
-  { href: '/about', label: 'about' },
-  { href: '/product', label: 'product' },
-];
-
-const rightLinks = [
-  { href: '/join', label: 'join us' },
-];
 
 export default function Navbar() {
   const pathname = usePathname();
   const { openCart, totalItems } = useCart();
-  const navItemClass =
-    'group relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-2.5 py-1 text-[clamp(0.72rem,1.1vw,1.22rem)] leading-none text-[#E9E6B8] transition-colors duration-200 hover:bg-[#E9E6B8]/16 hover:text-[#FFFBD8] focus-visible:bg-[#E9E6B8]/22 focus-visible:text-[#FFFBD8] focus-visible:outline-none font-schoolbell';
-  const navItemActiveClass = 'bg-[#E9E6B8]/16 text-[#FFFBD8]';
-  const navItemBlobClass =
-    'pointer-events-none absolute inset-x-[-0.4rem] inset-y-[-0.3rem] -z-10 scale-75 rounded-[48%_52%_53%_47%/60%_44%_56%_40%] bg-[#E9E6B8]/24 opacity-0 blur-[0.6px] transition-all duration-250 ease-out group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100';
-  const navItemBlobActiveClass = 'scale-100 opacity-100';
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const normalizedPathname = pathname?.replace(/\/+$/, '') || '/';
-  const isHomePath = normalizedPathname === '/' || normalizedPathname === '/home';
 
-  function isActivePath(href: string) {
+  function isActive(href: string) {
     const normalizedHref = href.replace(/\/+$/, '') || '/';
-
-    if (normalizedHref === '/') {
-      return normalizedPathname === '/' || normalizedPathname === '/home';
-    }
-
-    if (normalizedHref === '/product') {
-      return normalizedPathname === '/product' || normalizedPathname.startsWith('/product/');
-    }
-
+    if (normalizedHref === '/') return normalizedPathname === '/' || normalizedPathname === '/home';
+    if (normalizedHref === '/product') return normalizedPathname === '/product' || normalizedPathname.startsWith('/product/');
     return normalizedPathname === normalizedHref;
   }
 
-  function handleHomeLogoClick(event: MouseEvent<HTMLAnchorElement>) {
-    if (!isHomePath) return;
-    if (
-      event.defaultPrevented ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey ||
-      event.button !== 0
-    ) {
-      return;
+  const handleQuizClick = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-sourboo-quiz'));
     }
-
-    event.preventDefault();
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  }
+  };
 
   return (
-    <nav className="pointer-events-none fixed left-0 right-0 -top-4 z-50 w-full px-2 [backface-visibility:hidden] [contain:paint] [transform:translateZ(0)] sm:px-4 md:px-6 lg:-top-10 lg:px-8 xl:px-10">
-      <div className="relative mx-auto hidden w-full max-w-[1120px] lg:block xl:max-w-[1240px] 2xl:max-w-[1320px]">
-        <div className="relative aspect-[1440/260] w-full overflow-hidden">
-          <div className="absolute inset-0 -translate-y-[8%] scale-[1.06] origin-top">
-            <Image
-              src="/navbar.webp"
-              alt="Navigation"
-              fill
-              sizes="(min-width: 1024px) min(100vw, 1320px), 0px"
-              priority
-              className="pointer-events-none select-none object-contain object-center"
-            />
+    <header className="sb-nav-wrapper" role="banner">
+      <div className="sb-navbar">
+        {/* Brand & Left Links */}
+        <div className="sb-nav-left">
+          <Link href="/" className="sb-nav-logo" aria-label="Sourboo Home">
+            <span
+              className="font-coolvetica text-[#FF6392]"
+              style={{ fontSize: '1.9rem', letterSpacing: '-0.02em', lineHeight: 1 }}
+            >
+              sourboo
+            </span>
+          </Link>
+
+          <nav className="sb-nav-links" aria-label="Primary navigation">
             <Link
-              href="/"
-              aria-label="Go to home page"
-              onClick={handleHomeLogoClick}
-              className="pointer-events-auto absolute left-1/2 top-[38%] z-30 block h-[74px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9E6B8]/70 xl:h-[86px] xl:w-[260px] 2xl:h-[94px] 2xl:w-[292px]"
-            />
-            <div className="absolute inset-x-[8%] top-[50%] z-20 flex items-center justify-between">
-              <div className="pointer-events-auto flex items-center gap-5 xl:gap-8">
-                {leftLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`${navItemClass} ${isActivePath(item.href) ? navItemActiveClass : ''}`}
-                  >
-                    <span
-                      aria-hidden
-                      className={`${navItemBlobClass} ${isActivePath(item.href) ? navItemBlobActiveClass : ''}`}
-                    />
-                    <span className="relative z-10">{item.label}</span>
-                  </Link>
-                ))}
-              </div>
-
-              <div className="pointer-events-auto flex items-center gap-5 xl:gap-8">
-                {rightLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`${navItemClass} ${isActivePath(item.href) ? navItemActiveClass : ''}`}
-                  >
-                    <span
-                      aria-hidden
-                      className={`${navItemBlobClass} ${isActivePath(item.href) ? navItemBlobActiveClass : ''}`}
-                    />
-                    <span className="relative z-10">{item.label}</span>
-                  </Link>
-                ))}
-                <button type="button" onClick={openCart} className={navItemClass}>
-                  <span aria-hidden className={navItemBlobClass} />
-                  <span className="relative z-10">cart{totalItems > 0 ? ` (${totalItems})` : ''}</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative mx-auto w-full max-w-[1520px] lg:hidden">
-        <div className="relative h-[100px] w-full overflow-hidden sm:h-[112px] md:h-[124px]">
-          <Image
-            src="/navbody.webp"
-            alt="Navigation background"
-            fill
-            sizes="(max-width: 1023px) 100vw, 0px"
-            className="pointer-events-none select-none object-cover object-center"
-          />
-
-          <div className="pointer-events-auto absolute left-1/2 top-[16%] z-20 -translate-x-1/2">
-            <Link href="/" onClick={handleHomeLogoClick} className="block" aria-label="Go to home page">
-              <div className="relative h-[36px] w-[160px] sm:h-[60px] sm:w-[210px] md:h-[72px] md:w-[252px]">
-                <Image
-                  src="/navlogo.webp"
-                  alt="Sourboo logo"
-                  fill
-                  sizes="(max-width: 640px) 160px, (max-width: 768px) 210px, 252px"
-                  fetchPriority="high"
-                  className="object-contain object-center"
-                />
-              </div>
+              href="/product"
+              className={`sb-nav-link ${isActive('/product') ? 'active' : ''}`}
+            >
+              Shop
             </Link>
-          </div>
+            <Link
+              href="/about"
+              className={`sb-nav-link ${isActive('/about') ? 'active' : ''}`}
+            >
+              About
+            </Link>
+            <Link
+              href="/join"
+              className={`sb-nav-link ${isActive('/join') ? 'active' : ''}`}
+            >
+              Join Us
+            </Link>
+          </nav>
+        </div>
 
-          <div className="absolute inset-x-[7%] top-[50%] z-20 flex items-center justify-between sm:inset-x-[8%] sm:top-[67%] md:inset-x-[9%] md:top-[69%]">
-            <div className="pointer-events-auto flex items-center gap-2.5 sm:gap-4 md:gap-7">
-              {leftLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`${navItemClass} ${isActivePath(item.href) ? navItemActiveClass : ''}`}
-                >
-                  <span
-                    aria-hidden
-                    className={`${navItemBlobClass} ${isActivePath(item.href) ? navItemBlobActiveClass : ''}`}
-                  />
-                  <span className="relative z-10">{item.label}</span>
-                </Link>
-              ))}
-            </div>
+        {/* Right Actions: Quiz Pill + Cart Bag Button */}
+        <div className="sb-nav-right">
+          <button
+            type="button"
+            onClick={handleQuizClick}
+            className="sb-nav-quiz-pill"
+            aria-label="Open personality quiz for 5% off"
+          >
+            take quiz (get 5% off)
+          </button>
 
-            <div className="pointer-events-auto flex items-center gap-2.5 sm:gap-4 md:gap-7">
-              {rightLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`${navItemClass} ${isActivePath(item.href) ? navItemActiveClass : ''}`}
-                >
-                  <span
-                    aria-hidden
-                    className={`${navItemBlobClass} ${isActivePath(item.href) ? navItemBlobActiveClass : ''}`}
-                  />
-                  <span className="relative z-10">{item.label}</span>
-                </Link>
-              ))}
-              <button
-                type="button"
-                onClick={openCart}
-                className={navItemClass}
-              >
-                <span aria-hidden className={navItemBlobClass} />
-                <span className="relative z-10">cart{totalItems > 0 ? ` (${totalItems})` : ''}</span>
-              </button>
-            </div>
-          </div>
+          <button
+            type="button"
+            onClick={openCart}
+            className="sb-nav-cart-btn"
+            aria-label={`Shopping Cart with ${totalItems} items`}
+          >
+            <span className="sb-nav-cart-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </span>
+            <span className="sb-nav-cart-text">bag</span>
+            <span className="sb-nav-cart-badge">{totalItems}</span>
+          </button>
+
+          {/* Mobile Menu Hamburger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="sb-nav-mobile-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className="sb-nav-hamburger-bar"></span>
+            <span className="sb-nav-hamburger-bar"></span>
+          </button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="sb-nav-mobile-menu">
+          <Link
+            href="/product"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`sb-nav-mobile-link ${isActive('/product') ? 'active' : ''}`}
+          >
+            Shop
+          </Link>
+          <Link
+            href="/about"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`sb-nav-mobile-link ${isActive('/about') ? 'active' : ''}`}
+          >
+            About
+          </Link>
+          <Link
+            href="/join"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`sb-nav-mobile-link ${isActive('/join') ? 'active' : ''}`}
+          >
+            Join Us
+          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              handleQuizClick();
+            }}
+            className="sb-nav-quiz-pill"
+            style={{ marginTop: '12px', width: '100%', textAlign: 'center' }}
+          >
+            take quiz (get 5% off)
+          </button>
+        </div>
+      )}
+    </header>
   );
 }

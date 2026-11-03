@@ -1,8 +1,11 @@
 import { rascal, coolvetica, schoolbell } from "./fonts";
 import "./globals.css";
+import "./sourboo.css";
+import "./sourboo-redesign.css";
 import CartRoot from './components/cart/CartRoot';
 import SectionScrollReveal from './components/SectionScrollReveal';
 import LandingPopupRedirect from './components/popup/LandingPopupRedirect';
+import PersonalityPopupModal from './components/popup/PersonalityPopupModal';
 import { getLandingPopupContent } from '@/src/lib/sanity/landingPopup';
 import { siteUrl } from '@/src/lib/siteUrl';
 import type { Metadata } from "next";
@@ -49,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       lang="en"
       className={`${rascal.variable} ${coolvetica.variable} ${schoolbell.variable}`}
     >
-      <body>
+      <body className="sb-concept-a-body font-rascal">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
@@ -87,7 +90,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           delaySeconds={landingPopup.delaySeconds}
         />
         <SectionScrollReveal />
-        <CartRoot>{children}</CartRoot>
+        <CartRoot>
+          <PersonalityPopupModal />
+          {children}
+        </CartRoot>
       </body>
     </html>
   );
