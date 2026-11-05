@@ -15,7 +15,7 @@ export default function Navbar() {
   function isActive(href: string) {
     const normalizedHref = href.replace(/\/+$/, '') || '/';
     if (normalizedHref === '/') return normalizedPathname === '/' || normalizedPathname === '/home';
-    if (normalizedHref === '/product') return normalizedPathname === '/product' || normalizedPathname.startsWith('/product/');
+    if (normalizedHref === '/product') return normalizedPathname === '/product' || normalizedPathname.startsWith('/product/') || normalizedPathname === '/shop';
     return normalizedPathname === normalizedHref;
   }
 
@@ -26,20 +26,26 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sb-nav-wrapper" role="banner">
+    <header className="sb-nav-wrapper sb-entry-nav" role="banner">
       <div className="sb-navbar">
         {/* Brand & Left Links */}
         <div className="sb-nav-left">
-          <Link href="/" className="sb-nav-logo" aria-label="Sourboo Home">
-            <span
-              className="font-coolvetica text-[#FF6392]"
-              style={{ fontSize: '1.9rem', letterSpacing: '-0.02em', lineHeight: 1 }}
-            >
-              sourboo
-            </span>
+          <Link href="/" className="sb-nav-logo-link" aria-label="Sourboo Home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.svg"
+              alt="Sourboo"
+              className="sb-nav-real-logo"
+            />
           </Link>
 
           <nav className="sb-nav-links" aria-label="Primary navigation">
+            <Link
+              href="/"
+              className={`sb-nav-link ${isActive('/') ? 'active' : ''}`}
+            >
+              Home
+            </Link>
             <Link
               href="/product"
               className={`sb-nav-link ${isActive('/product') ? 'active' : ''}`}
@@ -107,18 +113,25 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="sb-nav-mobile-menu">
           <Link
-            href="/product"
+            href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className={`sb-nav-mobile-link ${isActive('/product') ? 'active' : ''}`}
+            className={`sb-nav-mobile-link ${isActive('/') ? 'active' : ''}`}
           >
-            Shop
+            Home
           </Link>
           <Link
             href="/about"
             onClick={() => setMobileMenuOpen(false)}
             className={`sb-nav-mobile-link ${isActive('/about') ? 'active' : ''}`}
           >
-            About
+            Our Story
+          </Link>
+          <Link
+            href="/product"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`sb-nav-mobile-link ${isActive('/product') ? 'active' : ''}`}
+          >
+            Shop
           </Link>
           <Link
             href="/join"

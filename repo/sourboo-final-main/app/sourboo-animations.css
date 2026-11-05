@@ -1,0 +1,403 @@
+/* ==========================================================================
+   SOURBOO CREATIVE BRAND ENTRY ANIMATIONS
+   Sensory, playful, bold, and full of life.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL PAGE TRANSITION OVERLAY
+   -------------------------------------------------------------------------- */
+.sb-trans-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Curtain Top: Hot Pink with torn bottom edge */
+.sb-trans-curtain-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background-color: #E81B6D;
+  z-index: 1;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.sb-trans-curtain-top.sb-opening {
+  animation: sbCurtainTopExit 0.62s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.sb-trans-curtain-top svg.sb-curtain-tear {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+}
+
+/* Curtain Bottom: Sour Acid Yellow with torn top edge */
+.sb-trans-curtain-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background-color: #FFE664;
+  z-index: 1;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.sb-trans-curtain-bottom.sb-opening {
+  animation: sbCurtainBottomExit 0.62s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.sb-trans-curtain-bottom svg.sb-curtain-tear {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   2. CENTERPIECE EMBLEM & SOUR SPLASH BURST
+   -------------------------------------------------------------------------- */
+.sb-trans-center {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.sb-trans-center.sb-opening {
+  animation: sbCenterBadgeOut 0.58s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Squeezed Lemon & Dripping Juice Graphic */
+.sb-trans-mascot-box {
+  position: relative;
+  margin-bottom: 12px;
+  animation: sbLemonSqueeze 0.65s ease-in-out infinite alternate;
+}
+
+.sb-trans-lemon-svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 6px 0 #1A3320);
+}
+
+.sb-trans-drips {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.sb-trans-drip {
+  width: 7px;
+  height: 12px;
+  background: #FFE664;
+  border: 1.5px solid #1A3320;
+  border-radius: 9999px;
+  animation: sbJuiceDrip 0.5s ease-in infinite;
+}
+
+.sb-trans-drip:nth-child(2) {
+  height: 16px;
+  background: #B6E63A;
+  animation-delay: 0.12s;
+}
+
+.sb-trans-drip:nth-child(3) {
+  height: 10px;
+  animation-delay: 0.22s;
+}
+
+/* Center Brand Badge */
+.sb-trans-badge {
+  background: #1A3320;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 20px;
+  border: 3.5px solid #FFE664;
+  box-shadow: 6px 6px 0 #E81B6D;
+  transform: rotate(-2deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sb-trans-badge-title {
+  font-family: var(--font-coolvetica), 'Coolvetica', sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #FFE664;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 2px 2px 0 #E81B6D;
+}
+
+.sb-trans-badge-sub {
+  font-family: var(--font-schoolbell), 'Schoolbell', cursive;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+  color: #B6E63A;
+  margin: 0;
+}
+
+/* Radial Juice Splash Burst Particles */
+.sb-trans-splash-burst {
+  position: absolute;
+  inset: -100px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sb-splash-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #1A3320;
+  transform: translate(-50%, -50%);
+  animation: sbSplashBurst 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.sb-splash-particle.p1 { background: #FFE664; --tx: -130px; --ty: -110px; animation-delay: 0.05s; }
+.sb-splash-particle.p2 { background: #B6E63A; --tx: 120px;  --ty: -120px; animation-delay: 0.08s; width: 18px; height: 18px; }
+.sb-splash-particle.p3 { background: #E81B6D; --tx: -160px; --ty: 40px;   animation-delay: 0.06s; }
+.sb-splash-particle.p4 { background: #FFE664; --tx: 150px;  --ty: 60px;   animation-delay: 0.1s; width: 12px; height: 12px; }
+.sb-splash-particle.p5 { background: #B6E63A; --tx: -80px;  --ty: 130px;  animation-delay: 0.04s; width: 16px; height: 16px; }
+.sb-splash-particle.p6 { background: #E81B6D; --tx: 80px;   --ty: 140px;  animation-delay: 0.09s; }
+.sb-splash-particle.p7 { background: #FFE664; --tx: 0px;    --ty: -150px; animation-delay: 0.07s; width: 10px; height: 10px; }
+.sb-splash-particle.p8 { background: #B6E63A; --tx: 0px;    --ty: 150px;  animation-delay: 0.11s; }
+
+/* --------------------------------------------------------------------------
+   3. KEYFRAME DEFINITIONS
+   -------------------------------------------------------------------------- */
+@keyframes sbCurtainTopExit {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8%);
+  }
+  100% {
+    transform: translateY(-106%);
+  }
+}
+
+@keyframes sbCurtainBottomExit {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(106%);
+  }
+}
+
+@keyframes sbCenterBadgeOut {
+  0% {
+    transform: scale(0.9) rotate(-3deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.08) rotate(2deg);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.18) rotate(-1deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.4) rotate(4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sbLemonSqueeze {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15, 0.88) rotate(-4deg);
+  }
+  100% {
+    transform: scale(0.92, 1.12) rotate(4deg);
+  }
+}
+
+@keyframes sbJuiceDrip {
+  0% {
+    transform: translateY(-6px) scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(28px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes sbSplashBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. IN-PAGE ENTRANCE ANIMATIONS (Triggered on page load/reveal)
+   -------------------------------------------------------------------------- */
+
+/* Navbar slide down */
+.sb-entry-nav {
+  animation: sbNavSlideDown 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes sbNavSlideDown {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hero text pop-in */
+.sb-entry-pop {
+  animation: sbEntryPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes sbEntryPop {
+  0% {
+    transform: translateY(30px) scale(0.92);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Stamp slap effect (for stickers, badges, pills) */
+.sb-entry-stamp {
+  animation: sbEntryStamp 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes sbEntryStamp {
+  0% {
+    transform: scale(1.4) rotate(-12deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.95) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(var(--sb-stamp-rot, 0deg));
+    opacity: 1;
+  }
+}
+
+/* Hero Jars / Founders Photo bounce up */
+.sb-entry-jar-drop {
+  animation: sbJarBounceUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes sbJarBounceUp {
+  0% {
+    transform: translateY(60px) rotate(-4deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Floating animation for decorative pickle slices / icons */
+.sb-entry-float {
+  animation: sbFloatPickle 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes sbFloatPickle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(6px) rotate(-3deg);
+  }
+}
+
+/* Stagger delay utility classes */
+.sb-delay-1 { animation-delay: 0.08s !important; }
+.sb-delay-2 { animation-delay: 0.16s !important; }
+.sb-delay-3 { animation-delay: 0.24s !important; }
+.sb-delay-4 { animation-delay: 0.32s !important; }
+.sb-delay-5 { animation-delay: 0.40s !important; }
+.sb-delay-6 { animation-delay: 0.48s !important; }
+
+/* --------------------------------------------------------------------------
+   5. ACCESSIBILITY OVERRIDES (prefers-reduced-motion)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .sb-trans-curtain-top,
+  .sb-trans-curtain-bottom,
+  .sb-trans-center,
+  .sb-splash-particle,
+  .sb-entry-nav,
+  .sb-entry-pop,
+  .sb-entry-stamp,
+  .sb-entry-jar-drop,
+  .sb-entry-float {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sb-trans-overlay {
+    display: none !important;
+  }
+}

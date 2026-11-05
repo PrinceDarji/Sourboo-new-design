@@ -5,7 +5,7 @@ import { CATALOG_PRODUCTS, findCatalogProduct } from '../src/lib/catalog/product
 import { priceCheckoutItems } from '../src/lib/checkout/pricing';
 import { calculatePayableTotalPaise, calculateShippingPaiseForItems } from '../src/lib/checkout/totals';
 
-const expected = [39900, 39900, 71900, 72900, 72900, 129900];
+const expected = [39900, 39900, 72900, 72900, 72900, 129900];
 test('all six products have approved prices, local images, and galleries', () => {
   assert.deepEqual(CATALOG_PRODUCTS.map(p => p.pricePaise), expected);
   assert.equal(new Set(CATALOG_PRODUCTS.map(p => p.slug)).size, 6);
@@ -31,12 +31,12 @@ test('checkout prices every single and bundle without any network access', async
 });
 test('mixed cart pays shipping once; empty cart has no shipping', async () => {
   const cart = await priceCheckoutItems(CATALOG_PRODUCTS.map(p => ({ slug: p.slug, quantity: 1 })));
-  assert.equal(cart.subtotalPaise, 427400);
-  assert.equal(calculatePayableTotalPaise(cart.subtotalPaise, calculateShippingPaiseForItems(cart.items)), 437400);
+  assert.equal(cart.subtotalPaise, 428400);
+  assert.equal(calculatePayableTotalPaise(cart.subtotalPaise, calculateShippingPaiseForItems(cart.items)), 438400);
   assert.equal(calculateShippingPaiseForItems([]), 0);
 });
 test('legacy links resolve and duplicate aliases merge safely', async () => {
-  assert.equal(findCatalogProduct('tamarin-twins-tangy-tamarind-pickled-gherkins')?.pricePaise, 71900);
+  assert.equal(findCatalogProduct('tamarin-twins-tangy-tamarind-pickled-gherkins')?.pricePaise, 72900);
   const cart = await priceCheckoutItems([{ slug: 'side-eye-sour', quantity: 1 }, { slug: 'sideeyesour', quantity: 2 }]);
   assert.equal(cart.items.length, 1);
   assert.equal(cart.items[0].quantity, 3);

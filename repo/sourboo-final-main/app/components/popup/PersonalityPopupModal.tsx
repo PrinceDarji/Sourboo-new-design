@@ -5,7 +5,32 @@ import { usePathname } from 'next/navigation';
 import { useCart } from '@/app/components/cart/CartProvider';
 
 const POPUP_SEEN_KEY = 'sourboo_popup_seen';
+const POPUP_DISMISSED_KEY = 'sourboo_popup_dismissed';
 const COUPON_CODE = 'SOURBABE05';
+
+function checkIsDismissed(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return (
+      localStorage.getItem(POPUP_DISMISSED_KEY) === '1' ||
+      sessionStorage.getItem(POPUP_DISMISSED_KEY) === '1' ||
+      localStorage.getItem(POPUP_SEEN_KEY) === '1' ||
+      sessionStorage.getItem(POPUP_SEEN_KEY) === '1'
+    );
+  } catch {
+    return false;
+  }
+}
+
+function persistDismissed(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(POPUP_DISMISSED_KEY, '1');
+    sessionStorage.setItem(POPUP_DISMISSED_KEY, '1');
+    localStorage.setItem(POPUP_SEEN_KEY, '1');
+    sessionStorage.setItem(POPUP_SEEN_KEY, '1');
+  } catch {}
+}
 
 const OPTIONS = [
   { label: 'Sour & Savage →', personality: 'Sour & Savage', key: 'savage' },
@@ -35,10 +60,13 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
-    try {
-      sessionStorage.setItem(POPUP_SEEN_KEY, '1');
-    } catch {}
-  }, []);
+    persistDismissed();
+    if (pathname === '/popup') {
+      if (typeof window !== 'undefined') {
+        window.location.href = '/';
+      }
+    }
+  }, [pathname]);
 
   // Listen for custom trigger event
   useEffect(() => {
@@ -47,19 +75,19 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
     return () => window.removeEventListener('open-sourboo-quiz', handleOpen);
   }, [openModal]);
 
-  // Auto-show on homepage after 3.5s if not seen
+  // Auto-show on homepage after 5s ONLY if never dismissed before
   useEffect(() => {
     if (initialOpen) return;
     if (pathname !== '/' && pathname !== '/home') return;
 
-    try {
-      if (!sessionStorage.getItem(POPUP_SEEN_KEY)) {
-        const timer = setTimeout(() => {
-          setIsOpen(true);
-        }, 3500);
-        return () => clearTimeout(timer);
+    if (checkIsDismissed()) return;
+
+    const timer = setTimeout(() => {
+      if (!checkIsDismissed()) {
+        setIsOpen(true);
       }
-    } catch {}
+    }, 5000);
+    return () => clearTimeout(timer);
   }, [pathname, initialOpen]);
 
   // Prevent background scroll when open
@@ -168,7 +196,9 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   className={`sb-popup-option-btn sb-choice-${opt.key}`}
                   data-personality={opt.personality}
                 >
-                  <span>{opt.label}</span>
+                  <span className="sb-popup-option-text" style={{ color: '#171717', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '0.01em' }}>
+                    {opt.label}
+                  </span>
                 </button>
               ))}
             </div>

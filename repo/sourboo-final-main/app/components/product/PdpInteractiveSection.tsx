@@ -37,7 +37,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
     <section className="sb-pdp-section" aria-label="Product Details">
       <div className="sb-pdp-grid">
         {/* Gallery Column */}
-        <div className="sb-pdp-gallery-col">
+        <div className="sb-pdp-gallery-col sb-entry-jar-drop sb-delay-1">
           <div className="sb-pdp-gallery-main">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

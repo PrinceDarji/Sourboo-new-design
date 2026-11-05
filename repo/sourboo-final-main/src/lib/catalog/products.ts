@@ -112,7 +112,7 @@ function bundle(
 export const CATALOG_PRODUCTS: readonly CatalogProduct[] = [
   sideEye,
   tamarin,
-  bundle('tamarind-twins', 'Tamarind Twins', 'tamarind', 'twins', 719, 0, 2),
+  bundle('tamarind-twins', 'Tamarind Twins', 'tamarind', 'twins', 729, 0, 2),
   bundle('lemon-lovers', 'lemon lovers', 'lemon', 'lovers', 729, 2, 0),
   bundle('sour-sampler', 'Sour sampler', 'sour', 'sampler', 729, 1, 1),
   // Four-jar assortment: two of each flavour.

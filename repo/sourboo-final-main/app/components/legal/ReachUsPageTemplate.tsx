@@ -62,7 +62,7 @@ export default function ReachUsPageTemplate({
     <main className="min-h-screen w-full overflow-x-hidden bg-[#FFFF88] text-[#E61E6E]">
       <Navbar />
 
-      <section className="mx-auto w-full max-w-[1800px] px-6 pb-20 pt-32 sm:px-10 sm:pt-36 md:px-14 md:pb-28 md:pt-44 lg:px-16">
+      <section className="mx-auto w-full max-w-[1800px] px-6 pb-20 pt-32 sm:px-10 sm:pt-36 md:px-14 md:pb-28 md:pt-44 lg:px-16 sb-entry-pop sb-delay-1">
         <h1 className="text-[clamp(2.5rem,5.6vw,6.1rem)] leading-[0.94] font-coolvetica">{title}</h1>
 
         {intro ? (

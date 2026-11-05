@@ -2,11 +2,12 @@ import { rascal, coolvetica, schoolbell } from "./fonts";
 import "./globals.css";
 import "./sourboo.css";
 import "./sourboo-redesign.css";
+import "./sourboo-homepage.css";
+import "./sourboo-animations.css";
 import CartRoot from './components/cart/CartRoot';
 import SectionScrollReveal from './components/SectionScrollReveal';
-import LandingPopupRedirect from './components/popup/LandingPopupRedirect';
+import BrandPageTransition from './components/BrandPageTransition';
 import PersonalityPopupModal from './components/popup/PersonalityPopupModal';
-import { getLandingPopupContent } from '@/src/lib/sanity/landingPopup';
 import { siteUrl } from '@/src/lib/siteUrl';
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -44,9 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const landingPopup = await getLandingPopupContent(300);
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -85,10 +84,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             `}
           </Script>
         )}
-        <LandingPopupRedirect
-          enabled={landingPopup.enabled}
-          delaySeconds={landingPopup.delaySeconds}
-        />
+        <BrandPageTransition />
         <SectionScrollReveal />
         <CartRoot>
           <PersonalityPopupModal />

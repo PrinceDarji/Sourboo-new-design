@@ -1,0 +1,795 @@
+/* ==========================================================================
+   SOURBOO ABOUT / OUR STORY PAGE STYLES
+   Exact match to Approved Design (Image 1 / 05-desktop-about.svg)
+   ========================================================================== */
+
+.sb-about-page {
+  min-height: 100vh;
+  background-color: #F8F5EC;
+  color: #1A3320;
+  overflow-x: hidden;
+  position: relative;
+  font-family: var(--font-rascal), system-ui, sans-serif;
+}
+
+.sb-ab-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION: Sakshi & The Pickle Project
+   -------------------------------------------------------------------------- */
+.sb-ab-hero-wrap {
+  padding: 50px 0 60px;
+  position: relative;
+}
+
+.sb-ab-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.sb-ab-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sb-ab-pill-tag-row {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.sb-ab-pill-tag {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1.45rem;
+  color: #1A3320;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sb-ab-pink-squiggle {
+  width: 68px;
+  height: 12px;
+  margin-top: 2px;
+}
+
+.sb-ab-hero-heading {
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #1A3320;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+}
+
+.sb-ab-pink-box {
+  display: inline-block;
+  background: #E81B6D;
+  color: #FFFFFF;
+  padding: 4px 18px 8px;
+  border-radius: 14px;
+  position: relative;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 #1A3320;
+  margin-top: 4px;
+}
+
+.sb-ab-brush-sparks {
+  position: absolute;
+  top: -16px;
+  right: -20px;
+  width: 32px;
+  height: 32px;
+}
+
+.sb-ab-hero-sub {
+  font-family: var(--font-rascal), system-ui, sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.45;
+  color: #2D2D2D;
+  max-width: 460px;
+  margin: 0;
+}
+
+/* Hero Media: Cutout Photo of Founders */
+.sb-ab-hero-media {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.sb-ab-founder-frame {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+}
+
+.sb-ab-pink-rays {
+  position: absolute;
+  top: -34px;
+  left: 20%;
+  width: 80px;
+  height: 44px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sb-ab-founder-sticker-wrap {
+  position: absolute;
+  top: 10px;
+  right: -24px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.sb-ab-sticker-arrow {
+  width: 34px;
+  height: 34px;
+  margin-right: 32px;
+  transform: rotate(25deg);
+}
+
+.sb-ab-founder-sticker {
+  background: #FFE664;
+  color: #1A3320;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 2px solid #1A3320;
+  box-shadow: 3px 3px 0 #1A3320;
+  transform: rotate(4deg);
+  white-space: nowrap;
+}
+
+.sb-ab-founder-img-holder {
+  width: 100%;
+  aspect-ratio: 1.08;
+  border-radius: 44px 44px 28px 28px;
+  overflow: hidden;
+  background: #F1ECE0;
+  box-shadow: 0 16px 36px rgba(26, 51, 32, 0.12);
+  border: 3.5px solid #1A3320;
+}
+
+.sb-ab-founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   2. VALUE PROPS STRIP (Green wave banner)
+   -------------------------------------------------------------------------- */
+.sb-ab-values-section {
+  padding: 30px 0 50px;
+  position: relative;
+}
+
+.sb-ab-values-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sb-ab-pickle-slice {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sb-ab-pickle-slice.left {
+  left: 0;
+  top: -12px;
+  transform: rotate(-22deg);
+}
+
+.sb-ab-pickle-slice.right {
+  right: 0;
+  bottom: -16px;
+  transform: rotate(26deg);
+}
+
+.sb-ab-values-bar {
+  background: #E8F2D5;
+  border: 2.5px solid #1A3320;
+  border-radius: 9999px;
+  box-shadow: 4px 4px 0 #1A3320;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+  z-index: 2;
+  gap: 16px;
+}
+
+.sb-ab-value-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  justify-content: center;
+}
+
+.sb-ab-val-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-ab-val-title {
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  color: #1A3320;
+  line-height: 1.2;
+}
+
+.sb-ab-val-pink-underline {
+  border-bottom: 3.5px solid #E81B6D;
+  padding-bottom: 2px;
+}
+
+.sb-ab-val-divider {
+  width: 1.5px;
+  height: 38px;
+  background: rgba(26, 51, 32, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. OUR STORY SECTION: Polaroid + Story Text
+   -------------------------------------------------------------------------- */
+.sb-ab-story-section {
+  padding: 60px 0 70px;
+  position: relative;
+}
+
+.sb-ab-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.sb-ab-story-photo-col {
+  display: flex;
+  justify-content: center;
+}
+
+.sb-ab-polaroid-card {
+  position: relative;
+  background: #FFFFFF;
+  padding: 16px 16px 36px;
+  border-radius: 20px;
+  border: 3px solid #1A3320;
+  box-shadow: 8px 8px 0 #1A3320;
+  transform: rotate(-2.8deg);
+  transition: transform 0.3s ease;
+  max-width: 440px;
+  width: 100%;
+}
+
+.sb-ab-polaroid-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.sb-ab-polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1.5deg);
+  width: 100px;
+  height: 28px;
+  background: #FFE664;
+  opacity: 0.94;
+  border: 1.5px solid rgba(26, 51, 32, 0.3);
+  z-index: 4;
+}
+
+.sb-ab-polaroid-img-box {
+  width: 100%;
+  aspect-ratio: 1.18;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #1A3320;
+  background: #E8DEC8;
+}
+
+.sb-ab-polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-ab-polaroid-eyes {
+  position: absolute;
+  bottom: -18px;
+  left: -20px;
+  z-index: 5;
+  filter: drop-shadow(3px 3px 0 #1A3320);
+}
+
+/* Story Text Column */
+.sb-ab-story-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sb-ab-story-tag-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.sb-ab-story-pill {
+  background: #FFE664;
+  color: #1A3320;
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  padding: 6px 26px;
+  border-radius: 9999px;
+  border: 2.5px solid #1A3320;
+  box-shadow: 3.5px 3.5px 0 #1A3320;
+  display: inline-block;
+}
+
+.sb-ab-story-spark {
+  width: 32px;
+  height: 32px;
+}
+
+.sb-ab-story-para {
+  font-family: var(--font-rascal), system-ui, sans-serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.55;
+  color: #1A3320;
+  margin: 0 0 20px;
+}
+
+.sb-ab-pink-dash {
+  width: 90px;
+  height: 20px;
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   4. THE SOURBOO WAY SECTION
+   -------------------------------------------------------------------------- */
+.sb-ab-pillars-section {
+  padding: 50px 0 60px;
+}
+
+.sb-ab-pillars-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: center;
+}
+
+.sb-ab-pillars-heading-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.sb-ab-pillars-heading {
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(2.8rem, 4.4vw, 4rem);
+  line-height: 0.98;
+  font-weight: 800;
+  color: #1A3320;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sb-ab-pink-tick {
+  width: 24px;
+  height: 16px;
+}
+
+.sb-ab-pink-tick.top {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+}
+
+.sb-ab-pink-tick.bottom {
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+}
+
+/* Yellow Rounded Pillars Container */
+.sb-ab-pillars-yellow-card {
+  background: #FCF6DB;
+  border: 2.5px solid #1A3320;
+  border-radius: 40px;
+  box-shadow: 5px 5px 0 #1A3320;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sb-ab-pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  gap: 12px;
+}
+
+.sb-ab-pillar-icon {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-ab-pillar-label {
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  font-weight: 700;
+  color: #1A3320;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.sb-ab-pillar-line {
+  width: 1.5px;
+  height: 72px;
+  background: rgba(26, 51, 32, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   5. BEHIND THE BRAND: Hot Pink Torn Banner with Checklist
+   -------------------------------------------------------------------------- */
+.sb-ab-pink-torn-banner {
+  background: #E81B6D;
+  position: relative;
+  margin: 60px 0 70px;
+  padding: 28px 0;
+}
+
+.sb-ab-torn-edge {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  z-index: 2;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.sb-ab-torn-edge.top {
+  top: -22px;
+}
+
+.sb-ab-torn-edge.bottom {
+  bottom: -22px;
+}
+
+.sb-ab-torn-edge svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sb-ab-torn-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 3;
+}
+
+.sb-ab-torn-pickle-left {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sb-ab-torn-arrow {
+  position: absolute;
+  top: 14px;
+  left: -24px;
+  width: 32px;
+  height: 32px;
+}
+
+.sb-ab-torn-badge-wrap {
+  flex-shrink: 0;
+}
+
+.sb-ab-torn-yellow-badge {
+  background: #FFE664;
+  color: #1A3320;
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  padding: 16px 28px;
+  border-radius: 20px;
+  border: 3px solid #1A3320;
+  box-shadow: 4px 4px 0 #1A3320;
+  transform: rotate(-4.5deg);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sb-ab-torn-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  max-width: 480px;
+}
+
+.sb-ab-torn-check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sb-ab-check-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #B6E63A;
+  color: #1A3320;
+  border: 2px solid #1A3320;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sb-ab-check-text {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.sb-ab-torn-pickle-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sb-ab-torn-star {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 34px;
+  height: 34px;
+}
+
+/* --------------------------------------------------------------------------
+   6. STILL CURIOUS? SECTION: Pickle Bowl + CTA
+   -------------------------------------------------------------------------- */
+.sb-ab-closing-section {
+  padding: 50px 0 90px;
+}
+
+.sb-ab-closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.sb-ab-closing-media {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.sb-ab-bowl-card {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+}
+
+.sb-ab-seed-doodles {
+  position: absolute;
+  top: -24px;
+  left: 20%;
+  z-index: 2;
+}
+
+.sb-ab-bowl-img-wrap {
+  width: 100%;
+  aspect-ratio: 1.1;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 3.5px solid #1A3320;
+  box-shadow: 8px 8px 0 #1A3320;
+  background: #E8DEC8;
+}
+
+.sb-ab-bowl-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-ab-closing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sb-ab-closing-heading-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.sb-ab-closing-heading {
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: clamp(2.8rem, 4.8vw, 4.4rem);
+  font-weight: 800;
+  color: #1A3320;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sb-ab-pink-tick.right {
+  width: 24px;
+  height: 16px;
+}
+
+.sb-ab-closing-sub {
+  font-family: var(--font-rascal), system-ui, sans-serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.38rem);
+  line-height: 1.45;
+  color: #2D2D2D;
+  margin: 0 0 32px;
+  max-width: 460px;
+}
+
+.sb-ab-closing-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.sb-ab-btn-shop {
+  background: #FFE664;
+  color: #1A3320;
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  border: 2.5px solid #1A3320;
+  box-shadow: 4px 4px 0 #1A3320;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sb-ab-btn-shop:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 #1A3320;
+}
+
+.sb-ab-btn-touch {
+  background: #FFFFFF;
+  color: #1A3320;
+  font-family: var(--font-coolvetica), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  border: 2.5px solid #1A3320;
+  box-shadow: 4px 4px 0 #1A3320;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sb-ab-btn-touch:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 #1A3320;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .sb-ab-hero-grid,
+  .sb-ab-story-grid,
+  .sb-ab-pillars-grid,
+  .sb-ab-closing-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .sb-ab-hero-text,
+  .sb-ab-story-text-col,
+  .sb-ab-closing-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .sb-ab-hero-sub,
+  .sb-ab-closing-sub {
+    max-width: 100%;
+  }
+
+  .sb-ab-values-bar {
+    flex-direction: column;
+    border-radius: 28px;
+    padding: 24px;
+  }
+
+  .sb-ab-val-divider {
+    width: 60%;
+    height: 1.5px;
+  }
+
+  .sb-ab-pillars-yellow-card {
+    flex-direction: column;
+    padding: 28px 20px;
+  }
+
+  .sb-ab-pillar-line {
+    width: 60%;
+    height: 1.5px;
+  }
+
+  .sb-ab-torn-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sb-ab-torn-pickle-left,
+  .sb-ab-torn-pickle-right {
+    display: none;
+  }
+
+  .sb-ab-closing-buttons {
+    justify-content: center;
+  }
+}

@@ -20,17 +20,17 @@ export default async function JoinPage() {
 
       <section className="sb-shop-hero" aria-label="Join Header">
         <div className="sb-shop-hero-inner">
-          <div className="sb-tag font-schoolbell">community // the inner circle</div>
-          <h1 className="sb-shop-heading font-coolvetica">
+          <div className="sb-tag font-schoolbell sb-entry-stamp sb-delay-1">community // the inner circle</div>
+          <h1 className="sb-shop-heading font-coolvetica sb-entry-pop sb-delay-2">
             join the <span className="text-[#FF6392]">sourboo club.</span>
           </h1>
-          <p className="sb-shop-subheading font-rascal">
+          <p className="sb-shop-subheading font-rascal sb-entry-pop sb-delay-3">
             be the first to taste experiment drops, grab unreleased merch, and hang with fellow sour fiends.
           </p>
         </div>
       </section>
 
-      <section className="sb-catalog-section" aria-label="Join Cards">
+      <section className="sb-catalog-section sb-entry-jar-drop sb-delay-4" aria-label="Join Cards">
         <div className="sb-catalog-grid" style={{ maxWidth: '960px', margin: '0 auto' }}>
           {/* Card 1: WhatsApp Community */}
           <div className="sb-dossier-card card-green" style={{ padding: '36px' }}>

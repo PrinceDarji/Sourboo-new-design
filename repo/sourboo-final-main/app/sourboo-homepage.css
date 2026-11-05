@@ -1,0 +1,1006 @@
+/* ==========================================================================
+   SOURBOO HOMEPAGE REDESIGN: SENSORY ANIMATIONS & STYLING
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   KEYFRAME ANIMATIONS: LIQUID FLOW, LEMON SQUEEZE, SPICE SCATTER, JAR FLOATS
+   -------------------------------------------------------------------------- */
+
+@keyframes lemonSqueezePulse {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(0.92, 1.08) rotate(-4deg); }
+  50% { transform: scale(1.12, 0.88) rotate(3deg); }
+  75% { transform: scale(0.96, 1.04) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes juiceDripFlow {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+}
+
+@keyframes juiceSplashDrop {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(120px) scale(1.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(220px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes floatJarSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes floatJarOpposite {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-2deg);
+  }
+}
+
+@keyframes spiceScatter {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(var(--tx, 20px), var(--ty, -25px)) rotate(180deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+@keyframes liquidWobble {
+  0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+  33% { border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%; }
+  66% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes messagePopIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+  50% { transform: scale(1.2) rotate(15deg); filter: brightness(1.3); }
+}
+
+/* --------------------------------------------------------------------------
+   HERO SECTION: SENSORY LEMON & FLUID JUICE CANVAS
+   -------------------------------------------------------------------------- */
+
+.sb-hero-experience {
+  position: relative;
+  min-height: 90vh;
+  background: radial-gradient(circle at 50% 20%, #FFFDE8 0%, #F5F2D0 50%, #ECE6B2 100%);
+  overflow: hidden;
+  padding: 100px 24px 60px;
+}
+
+.sb-hero-cravings-banner {
+  display: inline-block;
+  padding: 8px 24px;
+  background: #2F4918;
+  color: #D7F557;
+  border-radius: 9999px;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  letter-spacing: 0.04em;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 24px;
+  transition: transform 0.25s ease;
+}
+
+.sb-hero-cravings-banner:hover {
+  transform: rotate(1deg) scale(1.04);
+}
+
+.sb-hero-title-main {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.8rem, 7.5vw, 6.8rem);
+  line-height: 0.95;
+  color: #141414;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.sb-hero-title-main span.text-punchy {
+  color: #FF6392;
+  text-shadow: 2px 2px 0 #141414;
+}
+
+.sb-hero-subline {
+  font-family: var(--font-rascal), sans-serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.7rem);
+  line-height: 1.3;
+  color: #2F4918;
+  max-width: 680px;
+  margin: 0 auto 32px;
+}
+
+/* Hero Product Duo Showcase (Side Eye Sour vs Tamarin' Tease) */
+.sb-hero-duo-wrapper {
+  position: relative;
+  max-width: 960px;
+  margin: 24px auto 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 54px);
+  padding: 0 16px;
+}
+
+.sb-hero-product-preview {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.sb-hero-product-preview.left {
+  animation: floatJarSlow 4.5s infinite ease-in-out;
+}
+
+.sb-hero-product-preview.right {
+  animation: floatJarOpposite 4.8s infinite ease-in-out;
+}
+
+.sb-hero-jar-img {
+  width: clamp(140px, 22vw, 250px);
+  height: auto;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.22));
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.sb-hero-product-preview:hover .sb-hero-jar-img {
+  transform: scale(1.06) rotate(3deg);
+}
+
+.sb-hero-prod-label {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  text-transform: uppercase;
+  color: #141414;
+  margin-top: 14px;
+  background: #FFF;
+  padding: 4px 18px;
+  border-radius: 9999px;
+  border: 2.5px solid #141414;
+  box-shadow: 3px 3px 0 #141414;
+}
+
+.sb-hero-prod-sublabel {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: #2F4918;
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+/* Central VS Duel Badge */
+.sb-hero-vs-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 6;
+  flex-shrink: 0;
+}
+
+.sb-hero-vs-circle {
+  width: clamp(56px, 8vw, 76px);
+  height: clamp(56px, 8vw, 76px);
+  background: #E61E6E;
+  color: #FFF275;
+  border-radius: 50%;
+  border: 3.5px solid #141414;
+  box-shadow: 4px 4px 0 #141414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  letter-spacing: 0.05em;
+  animation: pulseJarBadge 3s infinite ease-in-out;
+}
+
+@keyframes pulseJarBadge {
+  0%, 100% {
+    transform: scale(1) rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(3deg);
+  }
+}
+
+.sb-hero-vs-sub {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  background: #D7F557;
+  color: #141414;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 2px solid #141414;
+  box-shadow: 2px 2px 0 #141414;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+/* SHOP NOW CTA Button */
+.sb-hero-shop-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 48px;
+  background: #2F4918;
+  color: #D7F557;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  border: 3px solid #141414;
+  box-shadow: 6px 6px 0 #141414;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 12;
+}
+
+.sb-hero-shop-cta:hover {
+  background: #FF6392;
+  color: #FFF;
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 #141414;
+}
+
+/* Floating Spices & Ingredients */
+.sb-floating-spice {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  animation: spiceScatter 6s infinite ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   BRAND TICKER MARQUEE: RECURRING BRAND VOICE
+   -------------------------------------------------------------------------- */
+
+.sb-brand-ticker {
+  background: #141414;
+  color: #D7F557;
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  border-top: 3px solid #141414;
+  border-bottom: 3px solid #141414;
+}
+
+.sb-ticker-inner {
+  display: flex;
+  gap: 32px;
+  animation: marqueeScroll 22s linear infinite;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sb-ticker-inner span.dot {
+  color: #FF6392;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 2: INTRO (YOUR OTHER SNACKS COULD NEVER)
+   -------------------------------------------------------------------------- */
+
+.sb-intro-section {
+  padding: 80px 24px;
+  background: #F8F6F0;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-intro-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.sb-intro-visual {
+  position: relative;
+  text-align: center;
+}
+
+.sb-intro-polaroid-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 14px 14px 22px;
+  background: #FFF;
+  border-radius: 24px;
+  border: 3.5px solid #141414;
+  box-shadow: 8px 8px 0 #2F4918;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 480px;
+  width: 100%;
+}
+
+.sb-intro-polaroid-wrap:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 12px 12px 0 #141414;
+}
+
+.sb-intro-img-frame {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #141414;
+  background: #E4E8D4;
+}
+
+.sb-intro-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-intro-tape {
+  position: absolute;
+  width: 90px;
+  height: 28px;
+  background: #FFFF88;
+  opacity: 0.92;
+  border: 1.5px solid rgba(20, 20, 20, 0.4);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sb-intro-tape.top-left {
+  top: -12px;
+  left: 20px;
+  transform: rotate(-14deg);
+}
+
+.sb-intro-tape.bottom-right {
+  bottom: -12px;
+  right: 28px;
+  transform: rotate(8deg);
+}
+
+.sb-intro-stamp {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: #FF6392;
+  color: #FFF;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 2px solid #141414;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1.15rem;
+  box-shadow: 4px 4px 0 #141414;
+  transform: rotate(-4deg);
+  z-index: 4;
+}
+
+.sb-intro-text-col {
+  text-align: left;
+}
+
+.sb-intro-headline {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+  line-height: 1;
+  color: #141414;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.sb-intro-body {
+  font-family: var(--font-rascal), sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.45;
+  color: #2F4918;
+  margin: 0 0 24px;
+}
+
+.sb-intro-badge {
+  display: inline-block;
+  background: #D7F557;
+  color: #141414;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 2px solid #141414;
+  box-shadow: 4px 4px 0 #141414;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3: FLAVOUR FACE OFF (SIDE EYE VS TAMARIN' TEASE)
+   -------------------------------------------------------------------------- */
+
+.sb-faceoff-section {
+  padding: 90px 24px;
+  background: #141414;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-faceoff-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sb-faceoff-title {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: #FFF;
+}
+
+.sb-faceoff-title span.vs {
+  color: #FF6392;
+  font-style: italic;
+  padding: 0 12px;
+}
+
+.sb-faceoff-subtitle {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: #D7F557;
+  margin: 0;
+}
+
+.sb-faceoff-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.sb-fighter-card {
+  border-radius: 32px;
+  padding: 44px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 4px solid #141414;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.sb-fighter-card.side-eye {
+  background: radial-gradient(circle at 50% 20%, #E9FFA4 0%, #BFEA5A 70%, #99C534 100%);
+  color: #141414;
+}
+
+.sb-fighter-card.tamarin {
+  background: radial-gradient(circle at 50% 20%, #FFA87D 0%, #FF6F43 70%, #D44216 100%);
+  color: #FFF;
+}
+
+.sb-fighter-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.6);
+}
+
+.sb-fighter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.sb-fighter-name {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.sb-fighter-persona {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-style: italic;
+  margin: 6px 0 0;
+  opacity: 0.9;
+}
+
+.sb-fighter-badge-svg {
+  width: 58px;
+  height: 58px;
+}
+
+.sb-fighter-img-wrap {
+  text-align: center;
+  margin: 20px 0 28px;
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-fighter-jar {
+  width: clamp(160px, 22vw, 230px);
+  height: auto;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sb-fighter-card:hover .sb-fighter-jar {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.sb-fighter-desc {
+  font-family: var(--font-rascal), sans-serif;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+.sb-fighter-combo {
+  display: inline-block;
+  background: #141414;
+  color: #D7F557;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+
+.sb-fighter-card.tamarin .sb-fighter-combo {
+  background: #FFF;
+  color: #141414;
+}
+
+.sb-fighter-cta {
+  display: block;
+  text-align: center;
+  padding: 16px 28px;
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 9999px;
+  border: 3px solid #141414;
+  box-shadow: 5px 5px 0 #141414;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sb-fighter-card.side-eye .sb-fighter-cta {
+  background: #141414;
+  color: #D7F557;
+}
+
+.sb-fighter-card.side-eye .sb-fighter-cta:hover {
+  background: #FF6392;
+  color: #FFF;
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 #141414;
+}
+
+.sb-fighter-card.tamarin .sb-fighter-cta {
+  background: #141414;
+  color: #FFA87D;
+}
+
+.sb-fighter-card.tamarin .sb-fighter-cta:hover {
+  background: #D7F557;
+  color: #141414;
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 #141414;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4: THE BOO IN THE WILD
+   -------------------------------------------------------------------------- */
+
+.sb-wild-section {
+  padding: 90px 24px;
+  background: #F4EEDB;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-wild-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sb-wild-title {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  line-height: 1;
+  color: #141414;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.sb-wild-callout {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  color: #2F4918;
+  margin: 0;
+}
+
+.sb-wild-carousel-wrap {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 20px 8px 40px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.sb-wild-card {
+  flex: 0 0 clamp(270px, 28vw, 320px);
+  scroll-snap-align: center;
+  background: #FFF;
+  border-radius: 24px;
+  padding: 16px 16px 20px;
+  border: 3.5px solid #141414;
+  box-shadow: 6px 6px 0 #141414;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-wild-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 8px 8px 0 #141414;
+}
+
+.sb-wild-img-wrap {
+  width: 100%;
+  height: 310px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #FAF7EE;
+  border: 2.5px solid #141414;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-wild-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+}
+
+/* Counter-rotations to make each paper cutout perfectly straight and fit cleanly inside the box with all texts visible */
+.sb-wild-img.straight-late-night {
+  transform: rotate(-14.73deg) scale(1.16);
+}
+
+.sb-wild-img.straight-girl-dinner {
+  transform: rotate(-20.87deg) scale(1.22);
+}
+
+.sb-wild-img.straight-post-cry {
+  transform: rotate(8.49deg) scale(1.14);
+}
+
+.sb-wild-img.straight-desk {
+  transform: scale(1.02);
+}
+
+.sb-wild-img.straight-hangover {
+  transform: scale(1.02);
+}
+
+.sb-wild-card:hover .sb-wild-img.straight-late-night {
+  transform: rotate(-14.73deg) scale(1.20);
+}
+
+.sb-wild-card:hover .sb-wild-img.straight-girl-dinner {
+  transform: rotate(-20.87deg) scale(1.26);
+}
+
+.sb-wild-card:hover .sb-wild-img.straight-post-cry {
+  transform: rotate(8.49deg) scale(1.18);
+}
+
+.sb-wild-card:hover .sb-wild-img.straight-desk,
+.sb-wild-card:hover .sb-wild-img.straight-hangover {
+  transform: scale(1.06);
+}
+
+.sb-wild-caption {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1.25rem;
+  color: #141414;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 5: YOUR INTERNET FAV BADDIES & REVIEWS
+   -------------------------------------------------------------------------- */
+
+.sb-baddies-section {
+  padding: 90px 24px;
+  background: radial-gradient(circle at 50% 50%, #2F4918 0%, #1D2E0F 100%);
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-baddies-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sb-baddies-title {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 1.05;
+  color: #D7F557;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.sb-baddies-sub {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  color: #FFF;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.sb-baddies-phone-container {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.sb-phone-frame {
+  background: #141414;
+  border-radius: 44px;
+  border: 4px solid #FFF;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  padding: 24px 18px 32px;
+  position: relative;
+}
+
+.sb-phone-notch {
+  width: 140px;
+  height: 22px;
+  background: #000;
+  border-radius: 0 0 16px 16px;
+  margin: -24px auto 20px;
+}
+
+.sb-messages-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sb-bubble {
+  padding: 14px 20px;
+  border-radius: 20px;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: messagePopIn 0.6s ease-out backwards;
+}
+
+.sb-bubble.b-green {
+  background: #D7F557;
+  color: #141414;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.sb-bubble.b-pink {
+  background: #FF6392;
+  color: #FFF;
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+}
+
+.sb-bubble.b-white {
+  background: #FFF;
+  color: #141414;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.sb-stars-cluster {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.sb-star-icon {
+  width: 28px;
+  height: 28px;
+  animation: starTwinkle 2s infinite ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 6: SOCIAL SECTION & FOOTER
+   -------------------------------------------------------------------------- */
+
+.sb-social-footer {
+  background: #0C0C0C;
+  color: #FFF;
+  padding: 70px 24px 40px;
+  position: relative;
+}
+
+.sb-social-handle {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  text-align: center;
+  color: #FF6392;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.sb-social-motto {
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  text-align: center;
+  color: #D7F557;
+  margin: 0 0 40px;
+}
+
+.sb-footer-nav-row {
+  max-width: 800px;
+  margin: 0 auto 36px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.sb-footer-nav-link {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: #FFF;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.sb-footer-nav-link:hover {
+  color: #D7F557;
+}
+
+.sb-footer-legal-row {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sb-footer-legal-link {
+  font-family: var(--font-rascal), sans-serif;
+  font-size: 0.95rem;
+  color: #AAA;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sb-footer-legal-link:hover {
+  color: #FFF;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .sb-intro-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .sb-faceoff-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .sb-hero-duo-wrapper {
+    gap: 10px;
+  }
+  .sb-hero-jar-img {
+    width: clamp(120px, 36vw, 160px);
+  }
+  .sb-hero-vs-circle {
+    width: 46px;
+    height: 46px;
+    font-size: 1.35rem;
+  }
+}
