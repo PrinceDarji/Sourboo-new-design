@@ -6,7 +6,7 @@ import HomeHero from '../components/home/HomeHero';
 import CravingsIntro from '../components/home/CravingsIntro';
 import InTheJar from '../components/home/InTheJar';
 import GoodTasteMoments from '../components/home/GoodTasteMoments';
-import FlavourDuo from '../components/home/FlavourDuo';
+import FlavourDuo, { FlavourSampler } from '../components/home/FlavourDuo';
 import TasteGame from '../components/home/TasteGame';
 import FavBaddiesReviews from '../components/home/FavBaddiesReviews';
 import '../sourboo-home.css';
@@ -45,7 +45,9 @@ export default function HomePage() {
       <CravingsIntro />
       <InTheJar />
       <GoodTasteMoments />
-      <FlavourDuo />
+      <FlavourDuo>
+        <FlavourSampler />
+      </FlavourDuo>
       <TasteGame />
       <FavBaddiesReviews />
       <SiteFooter />

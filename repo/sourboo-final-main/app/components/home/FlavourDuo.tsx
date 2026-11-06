@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import InteractiveJar, { type JarFlavour } from '../product/InteractiveJar';
 import QuickBuyButton from '../cart/QuickBuyButton';
 import { findCatalogProduct } from '@/src/lib/catalog/products';
@@ -38,10 +38,9 @@ const FLAVOURS: Flavour[] = [
   },
 ];
 
-export default function FlavourDuo() {
+export default function FlavourDuo({ children }: { children?: ReactNode }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const sampler = findCatalogProduct('sour-sampler');
 
   const updateActive = useCallback(() => {
     const track = trackRef.current;
@@ -161,26 +160,32 @@ export default function FlavourDuo() {
           →
         </button>
       </div>
-
-      {sampler ? (
-        <div className="sbx-duo__both">
-          <div className="sbx-duo__both-img">
-            <Image src={sampler.jarImage} alt={`${sampler.name}: one jar of each flavour`} fill sizes="(max-width: 768px) 70vw, 300px" quality={78} />
-          </div>
-          <div className="sbx-duo__both-copy">
-            <p className="sbx-duo__both-name">{sampler.name}</p>
-            <p className="sbx-duo__both-desc">{sampler.hoverLabel.split('\n').join(' + ')}</p>
-            <div className="sbx-duo__actions">
-              <QuickBuyButton slug={sampler.slug} name={sampler.name} priceLabel={sampler.price} image={sampler.jarImage} className="sbx-duo__add sbx-duo__add--both">
-                add both to bag · {sampler.price}
-              </QuickBuyButton>
-              <Link href="/product" className="sbx-text-link">
-                SHOP NOW →
-              </Link>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {children}
     </section>
+  );
+}
+
+export function FlavourSampler() {
+  const sampler = findCatalogProduct('sour-sampler');
+  if (!sampler) return null;
+
+  return (
+    <div className="sbx-duo__both">
+      <div className="sbx-duo__both-img">
+        <Image src={sampler.jarImage} alt={`${sampler.name}: one jar of each flavour`} fill sizes="(max-width: 768px) 70vw, 300px" quality={78} />
+      </div>
+      <div className="sbx-duo__both-copy">
+        <p className="sbx-duo__both-name">{sampler.name}</p>
+        <p className="sbx-duo__both-desc">{sampler.hoverLabel.split('\n').join(' + ')}</p>
+        <div className="sbx-duo__actions">
+          <QuickBuyButton slug={sampler.slug} name={sampler.name} priceLabel={sampler.price} image={sampler.jarImage} className="sbx-duo__add sbx-duo__add--both">
+            add both to bag · {sampler.price}
+          </QuickBuyButton>
+          <Link href="/product" className="sbx-text-link">
+            SHOP NOW →
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

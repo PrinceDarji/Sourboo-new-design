@@ -1,460 +1,234 @@
 /* ==========================================================================
-   SOURBOO SHOP / COLLECTION PAGE STYLES
+   Shop catalog (sbx-shop)
    ========================================================================== */
 
-.sb-shop-page {
-  min-height: 100vh;
-  background: #F8F6F0;
-  color: #141414;
-  overflow-x: hidden;
+.sbx-shop {
+  overflow-x: clip;
+  background: var(--sbx-cream);
+  color: var(--sbx-ink);
+  font-family: var(--sbx-display);
 }
 
-/* --------------------------------------------------------------------------
-   SHOP HERO
-   -------------------------------------------------------------------------- */
-.sb-shop-hero-banner {
-  padding: 110px 24px 30px;
-  text-align: center;
-  max-width: 1100px;
-  margin: 0 auto;
+.sbx-shop h1,
+.sbx-shop h2,
+.sbx-shop h3 {
+  font-weight: 400;
 }
 
-.sb-shop-hero-pill {
-  display: inline-block;
-  background: #FFF;
-  color: #2F4918;
-  font-family: var(--font-schoolbell), cursive;
-  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
-  padding: 6px 22px;
-  border-radius: 9999px;
-  border: 2px solid #141414;
-  box-shadow: 3px 3px 0 #141414;
-  margin-bottom: 20px;
+.sbx-shop__hero {
+  padding: calc(var(--sbx-nav-h) + 48px) clamp(20px, 5vw, 80px) 36px;
+  max-width: 1180px;
 }
 
-.sb-shop-hero-title {
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
-  line-height: 1.02;
-  text-transform: uppercase;
-  color: #141414;
-  margin: 0 0 16px;
-  letter-spacing: -0.01em;
+.sbx-shop__kicker {
+  margin: 0 0 10px;
+  color: var(--sbx-purple-ink);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  transform: rotate(-2deg);
+  transform-origin: left;
 }
 
-.sb-shop-hero-sub {
-  font-family: var(--font-rascal), sans-serif;
-  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
-  color: #2F4918;
-  max-width: 760px;
-  margin: 0 auto 36px;
-  line-height: 1.4;
+.sbx-shop__title {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.94;
 }
 
-/* --------------------------------------------------------------------------
-   COLLECTION SECTION HEADERS
-   -------------------------------------------------------------------------- */
-.sb-collection-section {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 30px 24px 50px;
+.sbx-shop__lede {
+  max-width: 42ch;
+  margin: 16px 0 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  line-height: 1.3;
 }
 
-.sb-collection-header {
+.sbx-shop__marquee {
+  margin: 10px 0 20px;
+}
+
+.sbx-shop .sbx-duo {
+  padding-top: 20px;
+}
+
+.sbx-shop__bundles {
+  padding: 20px 0 clamp(50px, 7vw, 90px);
+}
+
+.sbx-shop__bundles-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  border-bottom: 3.5px solid #141414;
-  padding-bottom: 14px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px 24px;
+  padding: 0 clamp(20px, 5vw, 80px);
+  margin-bottom: 20px;
 }
 
-.sb-collection-heading {
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  text-transform: uppercase;
-  color: #141414;
+.sbx-shop__bundles-title {
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.95;
 }
 
-.sb-collection-tag {
-  font-family: var(--font-schoolbell), cursive;
-  font-size: 1.15rem;
-  color: #2F4918;
+.sbx-shop__bundles-note {
+  margin: 0;
+  color: var(--sbx-purple-ink);
+  font-size: 1.2rem;
 }
 
-/* --------------------------------------------------------------------------
-   SINGLES PRODUCT GRID (2 Large Cards)
-   -------------------------------------------------------------------------- */
-.sb-singles-grid {
+.sbx-shop__bundle-track {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 36px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
 }
 
-.sb-product-card-large {
-  background: #FFF;
-  border-radius: 28px;
-  border: 3.5px solid #141414;
-  box-shadow: 8px 8px 0 #141414;
-  padding: 24px;
+.sbx-shop__bundle {
   display: flex;
   flex-direction: column;
-  position: relative;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.sb-product-card-large:hover {
-  transform: translateY(-8px);
-  box-shadow: 12px 12px 0 #141414;
-}
-
-.sb-card-badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: #141414;
-  color: #FFF;
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  padding: 5px 14px;
-  border-radius: 8px;
-  z-index: 5;
-}
-
-.sb-card-badge.bestseller {
-  background: #E61E6E;
-  color: #FFF;
-  border: 2px solid #141414;
-  box-shadow: 2px 2px 0 #141414;
-  font-weight: bold;
-}
-
-.sb-card-image-box {
+.sbx-shop__bundle-img {
+  display: grid;
+  place-items: center;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  background: #FAF7EE;
-  border-radius: 20px;
-  border: 2.5px solid #141414;
-  position: relative;
+  aspect-ratio: 1;
+  margin-bottom: 10px;
+  border-radius: 48% 52% 46% 54% / 42% 38% 62% 58%;
+  background: var(--sbx-lilac);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  transition: transform 0.45s var(--sbx-spring);
 }
 
-.sb-card-img-primary,
-.sb-card-img-hover {
-  width: 85%;
-  height: 85%;
+.sbx-shop__bundle:nth-child(2) .sbx-shop__bundle-img {
+  background: var(--sbx-lemon);
+  border-radius: 54% 46% 58% 42% / 36% 48% 52% 64%;
+}
+
+.sbx-shop__bundle:nth-child(3) .sbx-shop__bundle-img {
+  background: var(--sbx-amber-soft);
+}
+
+.sbx-shop__bundle:nth-child(4) .sbx-shop__bundle-img {
+  background: var(--sbx-lime);
+}
+
+.sbx-shop__bundle-img:hover {
+  transform: rotate(-3deg) scale(1.03);
+}
+
+.sbx-shop__bundle-img img {
+  width: 78%;
+  height: 78%;
   object-fit: contain;
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: block;
 }
 
-.sb-card-img-hover {
-  position: absolute;
-  top: 7.5%;
-  left: 7.5%;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sb-product-card-large:hover .sb-card-img-primary {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.sb-product-card-large:hover .sb-card-img-hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.sb-card-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.sb-card-title {
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
-  text-transform: uppercase;
-  color: #141414;
-  margin: 0 0 6px;
-}
-
-.sb-card-title a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.sb-card-title a:hover {
-  color: #E61E6E;
-}
-
-.sb-card-descriptor {
-  font-family: var(--font-schoolbell), cursive;
-  font-size: 1.35rem;
-  color: #4C8B1D;
-  margin: 0 0 12px;
-  font-weight: bold;
-}
-
-.sb-card-descriptor.chilli {
-  color: #C96A00;
-}
-
-.sb-card-summary {
-  font-family: var(--font-rascal), sans-serif;
-  font-size: 1.15rem;
-  color: #555;
-  line-height: 1.4;
-  margin: 0 0 18px;
-  flex: 1;
-}
-
-.sb-card-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  padding: 12px 0;
-  border-top: 1.5px dashed rgba(20, 20, 20, 0.15);
-  border-bottom: 1.5px dashed rgba(20, 20, 20, 0.15);
-}
-
-.sb-card-price {
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 2.2rem;
-  color: #141414;
-}
-
-.sb-card-shipping-pill {
-  font-family: var(--font-schoolbell), cursive;
-  font-size: 1.05rem;
-  background: #FFF36A;
-  color: #141414;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  border: 1.5px solid #141414;
-  box-shadow: 2px 2px 0 #141414;
-}
-
-.sb-card-btn-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.sb-btn-view {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 16px;
-  background: #FFF;
-  color: #141414;
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 1.15rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 9999px;
-  border: 2.5px solid #141414;
-  box-shadow: 3px 3px 0 #141414;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.sb-btn-view:hover {
-  background: #F8F6F0;
-  transform: translateY(-2px);
-  box-shadow: 5px 5px 0 #141414;
-}
-
-.sb-btn-quick-add {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 16px;
-  background: #E61E6E;
-  color: #FFF;
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 1.15rem;
-  text-transform: uppercase;
-  border-radius: 9999px;
-  border: 2.5px solid #141414;
-  box-shadow: 3px 3px 0 #141414;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.sb-btn-quick-add:hover {
-  background: #D41460;
-  transform: translateY(-2px);
-  box-shadow: 5px 5px 0 #141414;
-}
-
-/* --------------------------------------------------------------------------
-   BUNDLES PRODUCT GRID (4 Cards, 2x2 or 4x1)
-   -------------------------------------------------------------------------- */
-.sb-bundles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.sb-product-card-bundle {
-  background: #FFF;
-  border-radius: 24px;
-  border: 3.5px solid #141414;
-  box-shadow: 6px 6px 0 #141414;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-
-.sb-product-card-bundle:hover {
-  transform: translateY(-6px);
-  box-shadow: 10px 10px 0 #141414;
-}
-
-.sb-bundle-image-box {
-  width: 100%;
-  aspect-ratio: 1.1 / 1;
-  background: #FAF7EE;
-  border-radius: 18px;
-  border: 2px solid #141414;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-
-.sb-bundle-img {
-  width: 88%;
-  height: 88%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.sb-product-card-bundle:hover .sb-bundle-img {
-  transform: scale(1.06);
-}
-
-.sb-bundle-title {
-  font-family: var(--font-coolvetica), sans-serif;
+.sbx-shop__bundle-name {
+  margin: 0;
   font-size: clamp(1.4rem, 2vw, 1.85rem);
-  text-transform: uppercase;
-  color: #141414;
-  margin: 0 0 6px;
+  line-height: 1.05;
 }
 
-.sb-bundle-title a {
+.sbx-shop__bundle-name a {
   color: inherit;
   text-decoration: none;
 }
 
-.sb-bundle-title a:hover {
-  color: #E61E6E;
-}
-
-.sb-bundle-descriptor {
-  font-family: var(--font-schoolbell), cursive;
-  font-size: 1.15rem;
-  color: #2F4918;
-  margin: 0 0 10px;
+.sbx-shop__bundle-desc {
+  margin: 8px 0;
+  font-family: var(--sbx-sketch);
+  font-size: 1.05rem;
   line-height: 1.25;
 }
 
-.sb-bundle-price-row {
+.sbx-shop__bundle-price {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+}
+
+.sbx-shop__bundle-actions {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1.5px dashed rgba(20, 20, 20, 0.15);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
 }
 
-.sb-bundle-price {
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 1.85rem;
-  color: #141414;
+.sbx-shop__faq {
+  padding: clamp(50px, 7vw, 110px) clamp(20px, 5vw, 80px);
+  background: var(--sbx-white);
 }
 
-.sb-bundle-shipping-pill {
-  font-family: var(--font-schoolbell), cursive;
-  font-size: 0.95rem;
-  background: #FFF36A;
-  color: #141414;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  border: 1.5px solid #141414;
-  box-shadow: 1.5px 1.5px 0 #141414;
+.sbx-shop__faq-title {
+  max-width: 18ch;
+  margin: 0 0 28px;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.98;
 }
 
-.sb-bundle-btn-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.sbx-shop__faq-list {
+  max-width: 860px;
 }
 
-/* --------------------------------------------------------------------------
-   REVIEWS & TRUST MARQUEE
-   -------------------------------------------------------------------------- */
-.sb-shop-reviews-ribbon {
-  background: #FF6392;
-  color: #FFF;
+.sbx-shop__faq-item {
   padding: 16px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 3.5px solid #141414;
-  border-bottom: 3.5px solid #141414;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4C80 1 180 7 320 4s280-4 478 0' fill='none' stroke='%234a2412' stroke-opacity='.22' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    bottom / 100% 8px no-repeat;
 }
 
-.sb-shop-ribbon-track {
-  display: inline-flex;
-  gap: 28px;
-  animation: sbMarqueeScroll 24s linear infinite;
-  font-family: var(--font-coolvetica), sans-serif;
-  font-size: 1.35rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.sbx-shop__faq-item summary {
+  cursor: pointer;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  list-style: none;
 }
 
-/* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN
-   -------------------------------------------------------------------------- */
-@media (max-width: 640px) {
-  .sb-shop-hero-banner {
-    padding: 90px 16px 20px;
+.sbx-shop__faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.sbx-shop__faq-item summary::after {
+  content: '+';
+  float: right;
+  color: var(--sbx-purple);
+}
+
+.sbx-shop__faq-item[open] summary::after {
+  content: '–';
+}
+
+.sbx-shop__faq-item p {
+  margin: 10px 0 4px;
+  max-width: 52ch;
+  font-family: var(--sbx-sketch);
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .sbx-shop__bundle-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 12px;
   }
-  .sb-collection-section {
-    padding: 20px 16px 40px;
+
+  .sbx-shop__bundle-track::-webkit-scrollbar {
+    display: none;
   }
-  .sb-singles-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+
+  .sbx-shop__bundle {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    padding: 0 18px;
   }
-  .sb-bundles-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .sb-card-btn-row,
-  .sb-bundle-btn-row {
-    grid-template-columns: 1fr;
+}
+
+@media (max-width: 720px) {
+  .sbx-shop__bundle {
+    flex-basis: 88%;
   }
 }
