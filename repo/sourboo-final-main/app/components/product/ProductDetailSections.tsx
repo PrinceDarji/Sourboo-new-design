@@ -133,7 +133,7 @@ export default function ProductDetailSections({
             onClick={() => togglePanel('inJar')}
             aria-expanded={openPanel === 'inJar'}
             aria-controls={PANEL_IDS.inJar}
-            className="shrink-0 cursor-pointer border-0 bg-transparent p-0 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6E9A19]"
+            className="shrink-0 cursor-pointer border-0 bg-transparent p-0 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B5CF6]"
           >
           <span className="relative inline-flex h-[44px] w-[132px] items-center justify-center md:h-[66px] md:w-[300px]">
             <Image
@@ -144,7 +144,7 @@ export default function ProductDetailSections({
               sizes="(max-width: 768px) 132px, 300px"
               className="object-contain"
             />
-            <span className="relative z-10 text-[clamp(1.45rem,4.6vw,2.05rem)] leading-none text-[#171717] font-schoolbell md:text-[clamp(2.3rem,3vw,3.6rem)]">
+            <span className="relative z-10 text-[clamp(1.45rem,4.6vw,2.05rem)] leading-none text-[#26140A] font-schoolbell md:text-[clamp(2.3rem,3vw,3.6rem)]">
               {detailInJarTitle}
             </span>
           </span>
@@ -155,7 +155,7 @@ export default function ProductDetailSections({
             onClick={() => togglePanel('onTongue')}
             aria-expanded={openPanel === 'onTongue'}
             aria-controls={PANEL_IDS.onTongue}
-            className="shrink-0 cursor-pointer border-0 bg-transparent p-0 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#BBB123]"
+            className="shrink-0 cursor-pointer border-0 bg-transparent p-0 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C96A00]"
           >
           <span className="relative inline-flex h-[50px] w-[102px] items-center justify-center md:h-[84px] md:w-[158px]">
             <Image
@@ -166,7 +166,7 @@ export default function ProductDetailSections({
               sizes="(max-width: 768px) 102px, 158px"
               className="object-contain"
             />
-            <span className="relative z-10 max-w-[84px] text-center text-[clamp(1.15rem,3.6vw,1.6rem)] leading-[0.95] text-[#171717] font-schoolbell md:max-w-[130px] md:text-[clamp(1.9rem,2.6vw,3rem)]">
+            <span className="relative z-10 max-w-[84px] text-center text-[clamp(1.15rem,3.6vw,1.6rem)] leading-[0.95] text-[#26140A] font-schoolbell md:max-w-[130px] md:text-[clamp(1.9rem,2.6vw,3rem)]">
               {detailOnTongueTitle}
             </span>
           </span>
@@ -188,7 +188,7 @@ export default function ProductDetailSections({
               sizes="(max-width: 768px) 102px, 154px"
               className="object-contain"
             />
-            <span className="relative z-10 max-w-[84px] text-center text-[clamp(1.1rem,3.5vw,1.55rem)] leading-[0.95] text-[#171717] font-schoolbell md:max-w-[122px] md:text-[clamp(1.9rem,2.6vw,3rem)]">
+            <span className="relative z-10 max-w-[84px] text-center text-[clamp(1.1rem,3.5vw,1.55rem)] leading-[0.95] text-[#26140A] font-schoolbell md:max-w-[122px] md:text-[clamp(1.9rem,2.6vw,3rem)]">
               {detailAfterOpeningTitle}
             </span>
           </span>
@@ -200,12 +200,12 @@ export default function ProductDetailSections({
           id={PANEL_IDS.inJar}
           className="relative mx-auto mt-7 w-full max-w-[400px] pl-9 pr-5 pb-7 pt-6 md:mt-9 md:max-w-[960px] md:pl-14 md:pr-10 md:pb-10 md:pt-8"
         >
-          <HandDrawnSideBorder side="left" color="#A8D64A" className="left-0 top-3 bottom-5" />
+          <HandDrawnSideBorder side="left" color="#D7F557" className="left-0 top-3 bottom-5" />
           <div>
-            <p className="whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.03] text-[#1A1A1A] font-schoolbell">
+            <p className="whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.03] text-[#26140A] font-schoolbell">
               {detailInJarSummary}
             </p>
-            <p className="mt-4 whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.07] text-[#1C2B08] font-schoolbell">
+            <p className="mt-4 whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.07] text-[#632D10] font-schoolbell">
               {detailInJarIngredients}
             </p>
           </div>
@@ -217,10 +217,10 @@ export default function ProductDetailSections({
           id={PANEL_IDS.onTongue}
           className="relative mx-auto mt-7 w-full max-w-[400px] px-9 pb-8 pt-6 md:mt-9 md:max-w-[960px] md:px-14 md:pb-11 md:pt-8"
         >
-          <HandDrawnSideBorder side="left" color="#EFE86D" className="left-0 top-3 bottom-5" />
-          <HandDrawnSideBorder side="right" color="#EFE86D" className="right-0 top-3 bottom-5" />
+          <HandDrawnSideBorder side="left" color="#D7F557" className="left-0 top-3 bottom-5" />
+          <HandDrawnSideBorder side="right" color="#D7F557" className="right-0 top-3 bottom-5" />
           <div>
-            <p className="mx-auto max-w-[86%] whitespace-pre-line text-center text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.08] text-[#1A1A1A] font-schoolbell">
+            <p className="mx-auto max-w-[86%] whitespace-pre-line text-center text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.08] text-[#26140A] font-schoolbell">
               {detailOnTongueBody}
             </p>
           </div>
@@ -234,7 +234,7 @@ export default function ProductDetailSections({
         >
           <HandDrawnSideBorder side="right" color="#C96A00" className="right-0 top-3 bottom-5" />
           <div>
-            <p className="whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.08] text-[#1A1A1A] font-schoolbell">
+            <p className="whitespace-pre-line text-[clamp(1.64rem,2.1vw,1.95rem)] leading-[1.08] text-[#26140A] font-schoolbell">
               {detailAfterOpeningBody}
             </p>
           </div>

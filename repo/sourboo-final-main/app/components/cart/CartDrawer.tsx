@@ -153,7 +153,7 @@ export default function CartDrawer() {
             </svg>
           </button>
         </div>
-        <p className="sbx-cart__note font-schoolbell">small-batch handcrafted • ships in 2-4 business days</p>
+        <p className="sbx-cart__note">small-batch handcrafted • ships in 2-4 business days</p>
 
         <div className="sbx-cart__body">
           {items.length === 0 ? (
@@ -229,7 +229,7 @@ export default function CartDrawer() {
               PROCEED TO CHECKOUT →
             </Link>
 
-            <p className="sbx-cart__secure font-schoolbell">🔒 100% secure checkout via PhonePe &amp; Shopify</p>
+            <p className="sbx-cart__secure">🔒 100% secure checkout via PhonePe &amp; Shopify</p>
           </div>
         )}
       </aside>

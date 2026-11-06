@@ -83,7 +83,9 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
             <span className="sbx-footer__handle-small font-rascal">*{instagram.headingPrefix}</span>
             <span className="sbx-footer__handle-big">{handle}*</span>
           </a>
-          <p className="sbx-footer__motto font-schoolbell">*Made for mouths that misbehave*</p>
+          <p className="sbx-footer__motto">
+            *Made for <span className="sbx-highlight">mouths that misbehave</span>*
+          </p>
         </div>
 
         <div className="sbx-footer__cols">

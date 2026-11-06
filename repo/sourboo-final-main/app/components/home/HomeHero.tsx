@@ -50,8 +50,8 @@ export default function HomeHero() {
           <span className="sbx-hero__kicker font-rascal">*the sourboo way, cravings comes first*</span>{' '}
           <span className="sbx-hero__headline">
             <Word>Mouths</Word> <Word>That</Word> <LayeredWord tone="lime">Misbehave</LayeredWord>{' '}
-            <span className="sbx-hero__and font-schoolbell">and</span> <Word>India’s</Word> <Word>First</Word>{' '}
-            <LayeredWord tone="lilac" hand="schoolbell">Cult</LayeredWord> <LayeredWord tone="lemon">Sour</LayeredWord>{' '}
+            <span className="sbx-hero__and font-rascal">and</span> <Word>India’s</Word> <Word>First</Word>{' '}
+            <LayeredWord tone="lilac">Cult</LayeredWord> <LayeredWord tone="lemon">Sour</LayeredWord>{' '}
             <Word>Snack.</Word>
           </span>{' '}
           <span className="sbx-hero__lede">
