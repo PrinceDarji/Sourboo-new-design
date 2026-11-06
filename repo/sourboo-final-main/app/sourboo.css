@@ -30,33 +30,33 @@
 
 /* 2. ROOT TOKENS & SYSTEM VARIABLES */
 :root {
-  --sb-bg-sage: #FDFBF7;
+  --sb-bg-sage: #EBDDF8;
   --sb-bg-yellow: #D7F557;
-  --sb-bg-popup: #F4EFFB;
+  --sb-bg-popup: #EBDDF8;
   --sb-bg-input: #FFFFFF;
   --sb-bg-pill: #EBDDF8;
-  --sb-bg-dark: #26140A;
+  --sb-bg-dark: #8B5CF6;
 
   --sb-pink: #E81B6D;
-  --sb-pink-hover: #C96A00;
+  --sb-pink-hover: #8B5CF6;
   --sb-pink-soft: #EBDDF8;
   --sb-pink-punch: #E81B6D;
 
   --sb-lime: #D7F557;
-  --sb-pickle-green: #632D10;
-  --sb-pickle-olive: #632D10;
-  --sb-pickle-dark: #26140A;
-  --sb-pickle-forest: #26140A;
+  --sb-pickle-green: #8B5CF6;
+  --sb-pickle-olive: #8B5CF6;
+  --sb-pickle-dark: #8B5CF6;
+  --sb-pickle-forest: #8B5CF6;
 
-  --sb-amber: #C96A00;
-  --sb-cinnamon: #C96A00;
-  --sb-rust: #632D10;
-  --sb-tamarind-dark: #26140A;
+  --sb-amber: #E81B6D;
+  --sb-cinnamon: #E81B6D;
+  --sb-rust: #8B5CF6;
+  --sb-tamarind-dark: #8B5CF6;
 
-  --sb-text-charcoal: #26140A;
-  --sb-text-dark: #632D10;
-  --sb-text-muted: #632D10;
-  --sb-text-cream: #FDFBF7;
+  --sb-text-charcoal: #8B5CF6;
+  --sb-text-dark: #8B5CF6;
+  --sb-text-muted: #8B5CF6;
+  --sb-text-cream: #FFFFFF;
   --sb-text-light: #FFFFFF;
 
   --sb-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1551,7 +1551,7 @@ input, button, select, textarea {
   background: #FFF;
   border-radius: 32px;
   overflow: hidden;
-  border: 3px solid rgba(76, 139, 29, 0.18);
+  border: 3px solid rgba(139, 92, 246, 0.28);
   box-shadow: 0 16px 36px rgba(0,0,0,0.08);
 }
 
@@ -1695,7 +1695,7 @@ input, button, select, textarea {
   border-radius: 24px;
   padding: 28px;
   margin-top: 18px;
-  border: 2px dashed rgba(76, 139, 29, 0.25);
+  border: 2px dashed rgba(139, 92, 246, 0.35);
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.25rem, 1.8vw, 1.75rem);
   line-height: 1.25;

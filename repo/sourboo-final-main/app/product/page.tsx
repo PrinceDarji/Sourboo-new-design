@@ -75,7 +75,7 @@ export default function ProductCatalogPage() {
         </p>
       </section>
 
-      <Marquee label="Sourboo brand lines" tone="lilac" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
+      <Marquee label="Sourboo brand lines" tone="berry" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
 
       <FlavourDuo />
 

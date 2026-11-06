@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { HandArrow } from '../site/Organic';
+import { HandArrow, Wave } from '../site/Organic';
 
 const MOMENTS = [
   { src: '/about/section-six-top-3.webp', alt: 'A Sourboo fan biting into a gherkin at a tasting' },
@@ -12,6 +12,7 @@ const MOMENTS = [
 export default function GoodTasteMoments() {
   return (
     <section className="sbx-moments" aria-labelledby="sbx-moments-title">
+      <Wave fill="var(--sbx-lilac)" position="bottom" variant={1} />
       <h2 id="sbx-moments-title" className="sbx-moments__title">
         Good taste <span className="sbx-moments__title-hand font-rascal">looks like this.</span>
       </h2>

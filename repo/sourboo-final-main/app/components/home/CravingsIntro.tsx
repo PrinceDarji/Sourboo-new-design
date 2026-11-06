@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Highlight from '../site/Highlight';
-import { HandUnderline } from '../site/Organic';
+import { HandUnderline, Wave } from '../site/Organic';
 
 const PHOTOS = [
   {
@@ -27,6 +27,7 @@ const PHOTOS = [
 export default function CravingsIntro() {
   return (
     <section className="sbx-crave" aria-labelledby="sbx-crave-title">
+      <Wave fill="var(--sbx-pink)" position="bottom" variant={2} />
       <div className="sbx-crave__grid">
         <div className="sbx-crave__copy">
           <h2 id="sbx-crave-title" className="sbx-crave__title" aria-label="sourboo made for people who eat with intent">

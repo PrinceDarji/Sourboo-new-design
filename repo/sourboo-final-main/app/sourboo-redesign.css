@@ -5,24 +5,24 @@
 
 /* ── COLOR TOKENS ── */
 :root {
-  --sb-bg: #FDFBF7;
+  --sb-bg: #EBDDF8;
   --sb-bg-card: #FFFFFF;
-  --sb-cream: #FDFBF7;
+  --sb-cream: #EBDDF8;
   --sb-yellow: #D7F557;
   --sb-lime-btn: #D7F557;
-  --sb-lime-btn-hover: #C96A00;
+  --sb-lime-btn-hover: #8B5CF6;
   --sb-pink: #E81B6D;
   --sb-pink-hot: #E81B6D;
   --sb-pink-light: #EBDDF8;
   --sb-pink-card: #E81B6D;
-  --sb-green-dark: #26140A;
-  --sb-green-moss: #632D10;
-  --sb-green-ribbon: #632D10;
+  --sb-green-dark: #8B5CF6;
+  --sb-green-moss: #8B5CF6;
+  --sb-green-ribbon: #8B5CF6;
   --sb-green-light: #D7F557;
   --sb-orange-light: #EBDDF8;
-  --sb-charcoal: #26140A;
-  --sb-text-muted: #632D10;
-  --sb-border-dark: #26140A;
+  --sb-charcoal: #8B5CF6;
+  --sb-text-muted: #8B5CF6;
+  --sb-border-dark: #8B5CF6;
   --sb-radius-sm: 10px;
   --sb-radius-md: 18px;
   --sb-radius-lg: 28px;

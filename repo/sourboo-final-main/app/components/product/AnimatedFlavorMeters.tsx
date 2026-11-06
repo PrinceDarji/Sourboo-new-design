@@ -29,13 +29,13 @@ function AnimatedPixelMeter({
       <p className="mb-1 text-center text-[clamp(1.65rem,2.4vw,2.6rem)] leading-none text-[#E61E6E] font-rascal">
         {label}
       </p>
-      <div className="relative h-4 overflow-hidden border border-[#E61E6E]/40 bg-[#FFE6F2] shadow-[inset_0_0_0_1px_#FFC7DE] md:h-5">
+      <div className="relative h-4 overflow-hidden border border-[#E81B6D]/40 bg-[#EBDDF8] shadow-[inset_0_0_0_1px_#EBDDF8] md:h-5">
         <div
-          className="absolute inset-y-0 left-0 bg-[#E61E6E] transition-[width] ease-out"
+          className="absolute inset-y-0 left-0 bg-[#E81B6D] transition-[width] ease-out"
           style={{
             width: `${isActive ? safeFill : 0}%`,
             transitionDuration: '1700ms',
-            backgroundImage: 'repeating-linear-gradient(90deg, #E61E6E 0 8px, #D8156A 8px 16px)',
+            backgroundImage: 'repeating-linear-gradient(90deg, #E81B6D 0 8px, #8B5CF6 8px 16px)',
             imageRendering: 'pixelated',
           }}
         />
@@ -44,7 +44,7 @@ function AnimatedPixelMeter({
             className="absolute inset-y-0 right-0 w-[18%]"
             style={{
               backgroundImage:
-                'repeating-linear-gradient(45deg, #FFD8EA 0 3px, #FFF2F8 3px 6px)',
+                'repeating-linear-gradient(45deg, #D7F557 0 3px, #FFFFFF 3px 6px)',
               imageRendering: 'pixelated',
             }}
           />

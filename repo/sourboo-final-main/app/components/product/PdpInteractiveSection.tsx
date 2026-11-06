@@ -112,8 +112,8 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
           <div
             style={{
-              background: 'rgba(255, 255, 136, 0.55)',
-              borderLeft: '4px solid var(--sb-green-moss, #632D10)',
+              background: '#D7F557',
+              borderLeft: '4px solid #8B5CF6',
               padding: '12px 16px',
               borderRadius: '8px',
               marginBottom: '20px',
@@ -136,7 +136,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                   display: 'block',
                   fontSize: '1.05rem',
                   fontWeight: 700,
-                  color: 'var(--sb-green-dark, #632D10)',
+                  color: 'var(--sb-green-dark, #8B5CF6)',
                   marginBottom: '8px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
@@ -155,16 +155,16 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                       borderRadius: '14px',
                       border: selectedVariant.id === v.id
                         ? '2.5px solid #E81B6D'
-                        : '2px solid #632D10',
-                      background: selectedVariant.id === v.id ? '#F4EFFB' : '#FFFFFF',
-                      color: selectedVariant.id === v.id ? '#E81B6D' : '#632D10',
+                        : '2px solid #8B5CF6',
+                      background: selectedVariant.id === v.id ? '#D7F557' : '#FFFFFF',
+                      color: selectedVariant.id === v.id ? '#8B5CF6' : '#8B5CF6',
                       cursor: 'pointer',
                       fontFamily: 'Coolvetica, sans-serif',
                       fontSize: '1.05rem',
                       fontWeight: 700,
                       boxShadow: selectedVariant.id === v.id
                         ? '3px 3px 0px #E81B6D'
-                        : '2px 2px 0px #632D10',
+                        : '2px 2px 0px #8B5CF6',
                       transition: 'all 0.15s ease',
                       textAlign: 'center',
                     }}
