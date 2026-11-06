@@ -3,7 +3,7 @@
 import { FormEvent, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
-import HomepageFooter from '../components/home/HomepageFooter';
+import SiteFooter from '../components/SiteFooter';
 import { useCart } from '../components/cart/CartProvider';
 import { formatInr } from '@/src/lib/cart/price';
 
@@ -518,7 +518,7 @@ export default function CheckoutPage() {
         </section>
       )}
 
-      <HomepageFooter />
+      <SiteFooter />
     </main>
   );
 }

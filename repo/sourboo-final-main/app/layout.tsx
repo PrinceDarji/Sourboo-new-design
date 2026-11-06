@@ -4,9 +4,10 @@ import "./sourboo.css";
 import "./sourboo-redesign.css";
 import "./sourboo-homepage.css";
 import "./sourboo-animations.css";
+import "./sourboo-site.css";
 import CartRoot from './components/cart/CartRoot';
 import SectionScrollReveal from './components/SectionScrollReveal';
-import BrandPageTransition from './components/BrandPageTransition';
+import { FRIDGE_DECISION_SCRIPT } from './components/site/fridgeConfig';
 import PersonalityPopupModal from './components/popup/PersonalityPopupModal';
 import { siteUrl } from '@/src/lib/siteUrl';
 import type { Metadata } from "next";
@@ -50,7 +51,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${rascal.variable} ${coolvetica.variable} ${schoolbell.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: FRIDGE_DECISION_SCRIPT }} />
+      </head>
       <body className="sb-concept-a-body font-rascal">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
@@ -84,7 +89,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `}
           </Script>
         )}
-        <BrandPageTransition />
         <SectionScrollReveal />
         <CartRoot>
           <PersonalityPopupModal />

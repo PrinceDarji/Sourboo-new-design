@@ -166,6 +166,7 @@ export default function SiteFooter() {
         headingPrefix: social.footer.instagramHeadingPrefix,
         fallbackCardLabel: social.footer.instagramFallbackCardLabel,
       }}
+      whatsappUrl={social.whatsappUrl}
       footer={{
         backgroundImageUrl: social.footer.backgroundImageUrl,
         logoImageUrl: social.footer.logoImageUrl,

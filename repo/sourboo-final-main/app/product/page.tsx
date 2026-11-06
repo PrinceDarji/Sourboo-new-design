@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
-import HomepageFooter from '../components/home/HomepageFooter';
+import SiteFooter from '../components/SiteFooter';
 import QuickBuyButton from '../components/cart/QuickBuyButton';
 import FlavorMatcher from '../components/product/FlavorMatcher';
 import '../sourboo-shop.css';
@@ -293,7 +293,7 @@ export default function ProductCatalogPage() {
       </section>
 
       {/* Brand Footer */}
-      <HomepageFooter />
+      <SiteFooter />
     </main>
   );
 }
