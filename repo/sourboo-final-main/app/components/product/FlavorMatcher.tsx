@@ -34,30 +34,16 @@ export default function FlavorMatcher() {
           <button
             type="button"
             onClick={() => setActivePlayer(1)}
-            className={`sb-matcher-switch-btn sb-nav-quiz-pill ${activePlayer === 1 ? 'active' : ''}`}
-            style={{
-              padding: '8px 24px',
-              fontSize: '1.15rem',
-              cursor: 'pointer',
-              border: 'none',
-              background: activePlayer === 1 ? 'var(--sb-pink)' : 'transparent',
-              color: activePlayer === 1 ? '#FFF' : 'var(--sb-green-dark)',
-            }}
+            className={`sb-matcher-switch-btn ${activePlayer === 1 ? 'active' : ''}`}
+            aria-pressed={activePlayer === 1}
           >
             Player 1 (Khatta / Sour)
           </button>
           <button
             type="button"
             onClick={() => setActivePlayer(2)}
-            className={`sb-matcher-switch-btn sb-nav-quiz-pill ${activePlayer === 2 ? 'active' : ''}`}
-            style={{
-              padding: '8px 24px',
-              fontSize: '1.15rem',
-              cursor: 'pointer',
-              border: 'none',
-              background: activePlayer === 2 ? 'var(--sb-pink)' : 'transparent',
-              color: activePlayer === 2 ? '#FFF' : 'var(--sb-green-dark)',
-            }}
+            className={`sb-matcher-switch-btn ${activePlayer === 2 ? 'active' : ''}`}
+            aria-pressed={activePlayer === 2}
           >
             Player 2 (Imli / Tangy)
           </button>
@@ -131,7 +117,7 @@ export default function FlavorMatcher() {
               style={{
                 background: '#fff',
                 borderRadius: '32px',
-                padding: '32px',
+                padding: '32px 28px',
                 textAlign: 'center',
                 border: '3px solid var(--sb-green-moss, #4A6318)',
                 boxShadow: 'var(--sb-shadow-card)',
@@ -143,28 +129,34 @@ export default function FlavorMatcher() {
               >
                 selection locked:
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/side-eye-jar.svg"
-                alt="Side Eye Sour"
-                style={{ width: '180px', margin: '0 auto 16px' }}
-              />
+              
+              {/* Prominent Jar Image Container */}
+              <div className="sb-matcher-jar-box">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/product/catalog/side-eye.webp"
+                  alt="Side Eye Sour"
+                  className="sb-matcher-jar-img"
+                />
+              </div>
+
               <h3
                 className="font-coolvetica text-pink"
-                style={{ fontSize: '2.4rem', margin: '0 0 8px' }}
+                style={{ fontSize: '2.5rem', margin: '0 0 8px', lineHeight: 1 }}
               >
                 SIDE EYE SOUR
               </h3>
               <p
                 className="font-schoolbell"
-                style={{ fontSize: '1.3rem', color: 'var(--sb-text-muted)', marginBottom: '20px' }}
+                style={{ fontSize: '1.35rem', color: '#333333', marginBottom: '22px', fontWeight: 600 }}
               >
                 Lemon &amp; Chaat Masala • ₹399
               </p>
+
+              {/* Responsive, fully padded CTA button */}
               <Link
                 href="/product/sideeyesour"
-                className="sb-brush-cta sb-cta-pink"
-                style={{ backgroundImage: "url('/sideeyectabg.svg')", width: '100%' }}
+                className="sb-matcher-cta-btn sb-matcher-cta-p1"
               >
                 <span>get side eye sour ¬‿¬</span>
               </Link>
@@ -240,7 +232,7 @@ export default function FlavorMatcher() {
               style={{
                 background: '#fff',
                 borderRadius: '32px',
-                padding: '32px',
+                padding: '32px 28px',
                 textAlign: 'center',
                 border: '3px solid var(--sb-amber, #C96A00)',
                 boxShadow: 'var(--sb-shadow-card)',
@@ -252,28 +244,34 @@ export default function FlavorMatcher() {
               >
                 selection locked:
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/tamarin-jar.svg"
-                alt="Tamarin' Tease"
-                style={{ width: '180px', margin: '0 auto 16px' }}
-              />
+
+              {/* Prominent Jar Image Container */}
+              <div className="sb-matcher-jar-box">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/product/catalog/tamarin-tease.webp"
+                  alt="Tamarin' Tease"
+                  className="sb-matcher-jar-img"
+                />
+              </div>
+
               <h3
                 className="font-coolvetica text-pink"
-                style={{ fontSize: '2.4rem', margin: '0 0 8px' }}
+                style={{ fontSize: '2.5rem', margin: '0 0 8px', lineHeight: 1 }}
               >
                 TAMARIN&apos; TEASE
               </h3>
               <p
                 className="font-schoolbell"
-                style={{ fontSize: '1.3rem', color: 'var(--sb-text-muted)', marginBottom: '20px' }}
+                style={{ fontSize: '1.35rem', color: '#333333', marginBottom: '22px', fontWeight: 600 }}
               >
                 Tamarind &amp; Chilli • ₹399
               </p>
+
+              {/* Responsive, fully padded CTA button */}
               <Link
                 href="/product/tamarintease"
-                className="sb-brush-cta sb-cta-pickle"
-                style={{ backgroundImage: "url('/tamarinteasectabg.svg')", width: '100%' }}
+                className="sb-matcher-cta-btn sb-matcher-cta-p2"
               >
                 <span>get tamarin&apos; tease ¬‿¬</span>
               </Link>

@@ -1332,6 +1332,8 @@ input, button, select, textarea {
   justify-content: space-between;
   font-family: 'coolvetica', sans-serif;
   font-size: 1.25rem;
+  color: #1A3320 !important;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 
@@ -1349,6 +1351,129 @@ input, button, select, textarea {
   border-radius: 9999px;
   background: var(--sb-pink);
   transition: width 1s var(--sb-ease-spring);
+}
+
+/* Matcher Player Toggle Pills */
+.sb-matcher-switch-btn {
+  font-family: var(--font-schoolbell), 'Schoolbell', cursive;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-matcher-switch-btn.active {
+  background: var(--sb-pink, #E81B6D) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  border: 2.5px solid #141414 !important;
+  box-shadow: 3px 3px 0 #141414 !important;
+}
+
+.sb-matcher-switch-btn:not(.active) {
+  background: #FFFFFF !important;
+  color: #1E3514 !important;
+  font-weight: 700 !important;
+  border: 2px solid rgba(20, 20, 20, 0.25) !important;
+  box-shadow: none !important;
+}
+
+.sb-matcher-switch-btn:hover:not(.active) {
+  background: #F4FBF0 !important;
+  border-color: #1E3514 !important;
+  transform: translateY(-1px);
+}
+
+/* Matcher Large Prominent Jar Container */
+.sb-matcher-jar-box {
+  width: 100%;
+  max-width: 320px;
+  height: 280px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-matcher-jar-img {
+  max-height: 280px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+  transition: transform 0.25s ease;
+}
+
+.sb-matcher-jar-img:hover {
+  transform: scale(1.05);
+}
+
+/* Matcher Responsive CTA Buttons with Guaranteed Contrast & Containment */
+.sb-matcher-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 15px 28px;
+  font-family: var(--font-schoolbell), 'Schoolbell', cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 9999px;
+  border: 3px solid #141414;
+  box-shadow: 4px 4px 0 #141414;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.sb-matcher-cta-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #141414;
+  filter: brightness(1.06);
+}
+
+.sb-matcher-cta-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #141414;
+}
+
+.sb-matcher-cta-p1 {
+  background: var(--sb-pink, #E81B6D) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.sb-matcher-cta-p2 {
+  background: var(--sb-green-dark, #1E3514) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .sb-matcher-jar-box {
+    height: 230px;
+  }
+  .sb-matcher-jar-img {
+    max-height: 230px;
+  }
+  .sb-matcher-cta-btn {
+    font-size: 1.25rem;
+    padding: 13px 20px;
+  }
+  .sb-matcher-switch-btn {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
 }
 
 /* FAQ Accordion */

@@ -34,7 +34,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* =========================================================================
-          1. HERO SECTION: Sakshi & Founders Pickle Feature
+          1. HERO SECTION: Sakshi - Founder Pickle Feature
           ========================================================================= */}
       <section className="sb-ab-hero-wrap" aria-label="The Pickle Project Hero">
         <div className="sb-ab-container sb-ab-hero-grid">
@@ -94,16 +94,16 @@ export default function AboutPage() {
                   />
                 </svg>
                 <div className="sb-ab-founder-sticker">
-                  The Founders (Also Chief Pickle Addicts) 🥒
+                  The Founder (Also Chief Pickle Addict) 🥒
                 </div>
               </div>
 
-              {/* Founders Image */}
+              {/* Founder Image */}
               <div className="sb-ab-founder-img-holder">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/about-cover.JPG"
-                  alt="Sourboo Founders eating pickled gherkins"
+                  alt="Sourboo Founder Sakshi eating pickled gherkins"
                   className="sb-ab-founder-img"
                 />
               </div>

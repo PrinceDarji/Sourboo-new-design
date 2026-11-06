@@ -24,7 +24,7 @@
    1. HERO SECTION: Sakshi & The Pickle Project
    -------------------------------------------------------------------------- */
 .sb-ab-hero-wrap {
-  padding: 50px 0 60px;
+  padding: clamp(110px, 11vw, 140px) 0 60px;
   position: relative;
 }
 
