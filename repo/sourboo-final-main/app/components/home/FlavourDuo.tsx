@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import InteractiveJar, { type JarFlavour } from '../product/InteractiveJar';
 import QuickBuyButton from '../cart/QuickBuyButton';
 import { findCatalogProduct } from '@/src/lib/catalog/products';
+import { Wave } from '../site/Organic';
 
 type Flavour = {
   slug: string;
@@ -75,6 +76,7 @@ export default function FlavourDuo({ children }: { children?: ReactNode }) {
 
   return (
     <section className="sbx-duo" id="flavours" aria-labelledby="sbx-duo-title">
+      <Wave fill="var(--sbx-lime)" position="bottom" variant={2} />
       <div className="sbx-duo__head">
         <p className="sbx-duo__kicker font-schoolbell">Snackable pickled gherkins.</p>
         <h2 id="sbx-duo-title" className="sbx-duo__title">

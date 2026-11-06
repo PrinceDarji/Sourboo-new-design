@@ -88,7 +88,7 @@ export default function AboutPage() {
                 <svg className="sb-ab-sticker-arrow" viewBox="0 0 40 40" fill="none" aria-hidden="true">
                   <path
                     d="M10 8C20 4 32 12 28 26C26 31 22 34 16 36M16 36L22 32M16 36L20 40"
-                    stroke="#26140A"
+                    stroke="#8B5CF6"
                     strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -121,14 +121,14 @@ export default function AboutPage() {
           {/* Floating Pickle Slice Left */}
           <div className="sb-ab-pickle-slice left" aria-hidden="true">
             <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#632D10" stroke="#26140A" strokeWidth="3" />
+              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
               <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FDFBF7" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#632D10" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#632D10" transform="rotate(20 54 36)" />
-              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#632D10" transform="rotate(5 49 45)" />
-              <circle cx="38" cy="42" r="1.5" fill="#26140A" />
-              <circle cx="61" cy="40" r="1.5" fill="#26140A" />
+              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
+              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
+              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
+              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#8B5CF6" transform="rotate(5 49 45)" />
+              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
+              <circle cx="61" cy="40" r="1.5" fill="#8B5CF6" />
             </svg>
           </div>
 
@@ -138,11 +138,11 @@ export default function AboutPage() {
             <div className="sb-ab-value-col">
               <div className="sb-ab-val-icon">
                 <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
-                  <rect x="12" y="7" width="24" height="6" rx="3" fill="#D7F557" stroke="#26140A" strokeWidth="2.5" />
-                  <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#FDFBF7" stroke="#26140A" strokeWidth="2.5" />
-                  <ellipse cx="24" cy="28" rx="6" ry="9" fill="#D7F557" stroke="#632D10" strokeWidth="1.5" />
-                  <ellipse cx="24" cy="28" rx="4" ry="6" fill="#FDFBF7" />
-                  <circle cx="23" cy="27" r="1" fill="#632D10" />
+                  <rect x="12" y="7" width="24" height="6" rx="3" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" />
+                  <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="2.5" />
+                  <ellipse cx="24" cy="28" rx="6" ry="9" fill="#D7F557" stroke="#8B5CF6" strokeWidth="1.5" />
+                  <ellipse cx="24" cy="28" rx="4" ry="6" fill="#FFFFFF" />
+                  <circle cx="23" cy="27" r="1" fill="#8B5CF6" />
                 </svg>
               </div>
               <div className="sb-ab-val-text-wrap">
@@ -158,11 +158,11 @@ export default function AboutPage() {
             <div className="sb-ab-value-col">
               <div className="sb-ab-val-icon">
                 <svg viewBox="0 0 54 48" width="46" height="40" fill="none">
-                  <ellipse cx="20" cy="26" rx="15" ry="11" fill="#D7F557" stroke="#26140A" strokeWidth="2.5" transform="rotate(-20 20 26)" />
-                  <ellipse cx="20" cy="26" rx="10" ry="7" fill="#FDFBF7" transform="rotate(-20 20 26)" />
-                  <ellipse cx="34" cy="24" rx="15" ry="11" fill="#C96A00" stroke="#26140A" strokeWidth="2.5" transform="rotate(22 34 24)" />
-                  <ellipse cx="34" cy="24" rx="10" ry="7" fill="#FDFBF7" transform="rotate(22 34 24)" />
-                  <circle cx="34" cy="24" r="1.5" fill="#632D10" />
+                  <ellipse cx="20" cy="26" rx="15" ry="11" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(-20 20 26)" />
+                  <ellipse cx="20" cy="26" rx="10" ry="7" fill="#FFFFFF" transform="rotate(-20 20 26)" />
+                  <ellipse cx="34" cy="24" rx="15" ry="11" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(22 34 24)" />
+                  <ellipse cx="34" cy="24" rx="10" ry="7" fill="#FFFFFF" transform="rotate(22 34 24)" />
+                  <circle cx="34" cy="24" r="1.5" fill="#8B5CF6" />
                 </svg>
               </div>
               <div className="sb-ab-val-text-wrap">
@@ -179,7 +179,7 @@ export default function AboutPage() {
                   <polygon
                     points="26,4 12,25 22,25 18,44 34,21 24,21"
                     fill="#D7F557"
-                    stroke="#26140A"
+                    stroke="#8B5CF6"
                     strokeWidth="2.5"
                     strokeLinejoin="round"
                   />
@@ -194,13 +194,13 @@ export default function AboutPage() {
           {/* Floating Pickle Slice Right */}
           <div className="sb-ab-pickle-slice right" aria-hidden="true">
             <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#632D10" stroke="#26140A" strokeWidth="3" />
+              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
               <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FDFBF7" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#632D10" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#632D10" transform="rotate(20 54 36)" />
-              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#632D10" transform="rotate(5 49 45)" />
-              <circle cx="38" cy="42" r="1.5" fill="#26140A" />
+              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
+              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
+              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
+              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#8B5CF6" transform="rotate(5 49 45)" />
+              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
             </svg>
           </div>
         </div>
@@ -231,14 +231,14 @@ export default function AboutPage() {
               <div className="sb-ab-polaroid-eyes" aria-hidden="true">
                 <svg viewBox="0 0 64 42" width="60" height="40" fill="none">
                   {/* Left eye */}
-                  <ellipse cx="20" cy="22" rx="16" ry="18" fill="#FFFFFF" stroke="#26140A" strokeWidth="3" />
-                  <ellipse cx="24" cy="18" rx="8" ry="9" fill="#26140A" />
+                  <ellipse cx="20" cy="22" rx="16" ry="18" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="3" />
+                  <ellipse cx="24" cy="18" rx="8" ry="9" fill="#8B5CF6" />
                   <circle cx="27" cy="15" r="3" fill="#FFFFFF" />
                   <path d="M6 10C12 4 24 5 30 11" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
 
                   {/* Right eye */}
-                  <ellipse cx="46" cy="22" rx="14" ry="16" fill="#FFFFFF" stroke="#26140A" strokeWidth="3" />
-                  <ellipse cx="50" cy="18" rx="7" ry="8" fill="#26140A" />
+                  <ellipse cx="46" cy="22" rx="14" ry="16" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="3" />
+                  <ellipse cx="50" cy="18" rx="7" ry="8" fill="#8B5CF6" />
                   <circle cx="53" cy="15" r="2.5" fill="#FFFFFF" />
                   <path d="M36 11C42 5 54 6 58 12" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
@@ -307,10 +307,10 @@ export default function AboutPage() {
               <div className="sb-ab-pillar-item">
                 <div className="sb-ab-pillar-icon">
                   <svg viewBox="0 0 54 48" width="48" height="42" fill="none">
-                    <ellipse cx="20" cy="26" rx="14" ry="10" fill="#D7F557" stroke="#26140A" strokeWidth="2.5" transform="rotate(-20 20 26)" />
-                    <ellipse cx="20" cy="26" rx="9" ry="6" fill="#FDFBF7" transform="rotate(-20 20 26)" />
-                    <ellipse cx="34" cy="24" rx="14" ry="10" fill="#C96A00" stroke="#26140A" strokeWidth="2.5" transform="rotate(22 34 24)" />
-                    <ellipse cx="34" cy="24" rx="9" ry="6" fill="#FDFBF7" transform="rotate(22 34 24)" />
+                    <ellipse cx="20" cy="26" rx="14" ry="10" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(-20 20 26)" />
+                    <ellipse cx="20" cy="26" rx="9" ry="6" fill="#FFFFFF" transform="rotate(-20 20 26)" />
+                    <ellipse cx="34" cy="24" rx="14" ry="10" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(22 34 24)" />
+                    <ellipse cx="34" cy="24" rx="9" ry="6" fill="#FFFFFF" transform="rotate(22 34 24)" />
                   </svg>
                 </div>
                 <h3 className="sb-ab-pillar-label">Simple, real ingredients</h3>
@@ -326,13 +326,13 @@ export default function AboutPage() {
                     <path
                       d="M10 23C13 18 19 19 24 22C29 19 35 18 38 23C38 23 34 32 24 32C14 32 10 23 10 23Z"
                       fill="#E81B6D"
-                      stroke="#26140A"
+                      stroke="#8B5CF6"
                       strokeWidth="2.5"
                       strokeLinejoin="round"
                     />
                     {/* Green tongue */}
-                    <path d="M19 26C19 34 21.5 39 24 39C26.5 39 29 34 29 26H19Z" fill="#FDFBF7" stroke="#26140A" strokeWidth="2" />
-                    <line x1="24" y1="26" x2="24" y2="35" stroke="#632D10" strokeWidth="1.5" />
+                    <path d="M19 26C19 34 21.5 39 24 39C26.5 39 29 34 29 26H19Z" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="2" />
+                    <line x1="24" y1="26" x2="24" y2="35" stroke="#8B5CF6" strokeWidth="1.5" />
                     {/* Spark */}
                     <path d="M8 12L12 16M14 8L16 14" stroke="#E81B6D" strokeWidth="2" strokeLinecap="round" />
                   </svg>
@@ -346,9 +346,9 @@ export default function AboutPage() {
               <div className="sb-ab-pillar-item">
                 <div className="sb-ab-pillar-icon">
                   <svg viewBox="0 0 48 48" width="42" height="42" fill="none">
-                    <rect x="12" y="7" width="24" height="6" rx="3" fill="#E81B6D" stroke="#26140A" strokeWidth="2.5" />
-                    <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#D7F557" stroke="#26140A" strokeWidth="2.5" />
-                    <line x1="16" y1="20" x2="32" y2="20" stroke="#26140A" strokeWidth="2" />
+                    <rect x="12" y="7" width="24" height="6" rx="3" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" />
+                    <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" />
+                    <line x1="16" y1="20" x2="32" y2="20" stroke="#8B5CF6" strokeWidth="2" />
                   </svg>
                 </div>
                 <h3 className="sb-ab-pillar-label">Made in small batches</h3>
@@ -364,7 +364,7 @@ export default function AboutPage() {
       <section className="sb-ab-pink-torn-banner" aria-label="Behind The Brand">
         {/* Top Torn Jagged Edge SVG */}
         <div className="sb-ab-torn-edge top" aria-hidden="true">
-          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#FDFBF7">
+          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#EBDDF8">
             <path d="M0 0L40 18L80 4L120 22L160 8L200 24L240 6L280 20L320 8L360 26L400 6L440 22L480 4L520 20L560 8L600 24L640 4L680 22L720 6L760 24L800 8L840 22L880 6L920 24L960 4L1000 20L1040 6L1080 22L1120 6L1160 22L1200 6L1240 24L1280 8L1320 24L1360 6L1400 20L1440 0V32H0V0Z" />
           </svg>
         </div>
@@ -373,12 +373,12 @@ export default function AboutPage() {
           {/* Floating Pickle Slice on Left */}
           <div className="sb-ab-torn-pickle-left" aria-hidden="true">
             <svg viewBox="0 0 100 80" width="90" height="72">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#632D10" stroke="#26140A" strokeWidth="3" />
+              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
               <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FDFBF7" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#632D10" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#632D10" transform="rotate(20 54 36)" />
-              <circle cx="38" cy="42" r="1.5" fill="#26140A" />
+              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
+              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
+              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
+              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
             </svg>
             <svg className="sb-ab-torn-arrow" viewBox="0 0 40 40" fill="none">
               <path d="M8 8C16 12 24 24 20 34M20 34L14 30M20 34L26 30" stroke="#D7F557" strokeWidth="2.5" strokeLinecap="round" />
@@ -426,18 +426,18 @@ export default function AboutPage() {
               />
             </svg>
             <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#632D10" stroke="#26140A" strokeWidth="3" />
+              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
               <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FDFBF7" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#632D10" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#632D10" transform="rotate(20 54 36)" />
+              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
+              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
+              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
             </svg>
           </div>
         </div>
 
         {/* Bottom Torn Jagged Edge SVG */}
         <div className="sb-ab-torn-edge bottom" aria-hidden="true">
-          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#FDFBF7">
+          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#D7F557">
             <path d="M0 32L40 14L80 28L120 10L160 24L200 8L240 26L280 12L320 24L360 6L400 26L440 10L480 28L520 12L560 24L600 8L640 28L680 10L720 26L760 8L800 24L840 10L880 26L920 8L960 28L1000 12L1040 26L1080 10L1120 26L1160 10L1200 26L1240 8L1280 24L1320 8L1360 26L1400 12L1440 32V0H0V32Z" />
           </svg>
         </div>

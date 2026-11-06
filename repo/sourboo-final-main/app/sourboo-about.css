@@ -187,6 +187,7 @@
 .sb-ab-values-section {
   padding: 30px 0 50px;
   position: relative;
+  background: var(--sbx-lime);
 }
 
 .sb-ab-values-outer {
@@ -215,7 +216,7 @@
 }
 
 .sb-ab-values-bar {
-  background: var(--sbx-lilac);
+  background: var(--sbx-white);
   border: 2.5px solid var(--sbx-ink);
   border-radius: 9999px;
   box-shadow: 4px 4px 0 var(--sbx-ink);
@@ -261,7 +262,7 @@
 .sb-ab-val-divider {
   width: 1.5px;
   height: 38px;
-  background: rgba(38, 20, 10, 0.22);
+  background: rgba(139, 92, 246, 0.28);
 }
 
 /* --------------------------------------------------------------------------
@@ -270,6 +271,7 @@
 .sb-ab-story-section {
   padding: 60px 0 70px;
   position: relative;
+  background: var(--sbx-white);
 }
 
 .sb-ab-story-grid {
@@ -390,6 +392,7 @@
    -------------------------------------------------------------------------- */
 .sb-ab-pillars-section {
   padding: 50px 0 60px;
+  background: var(--sbx-lilac);
 }
 
 .sb-ab-pillars-grid {
@@ -472,7 +475,7 @@
 .sb-ab-pillar-line {
   width: 1.5px;
   height: 72px;
-  background: rgba(38, 20, 10, 0.22);
+  background: rgba(139, 92, 246, 0.28);
 }
 
 /* --------------------------------------------------------------------------
@@ -609,6 +612,7 @@
    -------------------------------------------------------------------------- */
 .sb-ab-closing-section {
   padding: 50px 0 90px;
+  background: var(--sbx-lime);
 }
 
 .sb-ab-closing-grid {
@@ -700,8 +704,8 @@
 }
 
 .sb-ab-btn-shop {
-  background: var(--sbx-lime);
-  color: var(--sbx-ink);
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
   font-family: var(--sbx-display);
   font-size: 1.25rem;
   font-weight: 800;
@@ -721,8 +725,8 @@
 }
 
 .sb-ab-btn-touch {
-  background: var(--sbx-white);
-  color: var(--sbx-ink);
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
   font-family: var(--sbx-display);
   font-size: 1.25rem;
   font-weight: 800;

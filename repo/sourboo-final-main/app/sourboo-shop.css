@@ -17,7 +17,9 @@
 
 .sbx-shop__hero {
   padding: calc(var(--sbx-nav-h) + 48px) clamp(20px, 5vw, 80px) 36px;
-  max-width: 1180px;
+  max-width: none;
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
 }
 
 .sbx-shop__kicker {
@@ -51,6 +53,8 @@
 
 .sbx-shop__bundles {
   padding: 20px 0 clamp(50px, 7vw, 90px);
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
 }
 
 .sbx-shop__bundles-head {
@@ -71,7 +75,7 @@
 
 .sbx-shop__bundles-note {
   margin: 0;
-  color: var(--sbx-purple-ink);
+  color: var(--sbx-lime);
   font-size: 1.2rem;
 }
 
@@ -156,9 +160,14 @@
   gap: 10px 16px;
 }
 
+.sbx-shop__bundles .sbx-text-link {
+  color: var(--sbx-white);
+}
+
 .sbx-shop__faq {
   padding: clamp(50px, 7vw, 110px) clamp(20px, 5vw, 80px);
-  background: var(--sbx-white);
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
 }
 
 .sbx-shop__faq-title {
@@ -174,7 +183,7 @@
 
 .sbx-shop__faq-item {
   padding: 16px 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4C80 1 180 7 320 4s280-4 478 0' fill='none' stroke='%234a2412' stroke-opacity='.22' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4C80 1 180 7 320 4s280-4 478 0' fill='none' stroke='%23d7f557' stroke-opacity='.55' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
     bottom / 100% 8px no-repeat;
 }
 
@@ -191,7 +200,7 @@
 .sbx-shop__faq-item summary::after {
   content: '+';
   float: right;
-  color: var(--sbx-purple);
+  color: var(--sbx-lime);
 }
 
 .sbx-shop__faq-item[open] summary::after {

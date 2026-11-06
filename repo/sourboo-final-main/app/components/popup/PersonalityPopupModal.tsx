@@ -206,15 +206,15 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   data-personality={opt.personality}
                   style={{
                     backgroundColor: '#FFFFFF',
-                    borderColor: '#26140A',
-                    color: '#26140A',
-                    boxShadow: '3.5px 3.5px 0px #26140A',
+                    borderColor: '#8B5CF6',
+                    color: '#8B5CF6',
+                    boxShadow: '3.5px 3.5px 0px #8B5CF6',
                   }}
                 >
                   <span
                     className="sb-popup-option-text"
                     style={{
-                      color: '#26140A',
+                      color: '#8B5CF6',
                       fontWeight: 800,
                       fontSize: '1.25rem',
                       letterSpacing: '0.01em',
@@ -428,7 +428,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   id="PopupCopyText"
                   className="sb-btn-coupon-badge font-schoolbell"
                   style={{
-                    background: copied ? '#632D10' : 'var(--sb-pink)',
+                    background: copied ? '#8B5CF6' : 'var(--sb-pink)',
                     color: '#FFFFFF',
                     padding: '4px 12px',
                     borderRadius: '9999px',

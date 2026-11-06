@@ -95,7 +95,7 @@ export default function HomeHero() {
         </div>
       </div>
 
-      <Wave fill="var(--sbx-cream)" position="bottom" variant={1} />
+      <Wave fill="var(--sbx-lime)" position="bottom" variant={1} />
     </section>
   );
 }
