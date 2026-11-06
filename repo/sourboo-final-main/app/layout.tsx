@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: FRIDGE_DECISION_SCRIPT }} />
       </head>
-      <body className="sb-concept-a-body font-rascal">
+      <body className="sb-concept-a-body font-coolvetica">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script

@@ -156,7 +156,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#FAF6EC]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FDFBF7]">
       <Navbar />
 
       {/* =========================================================================
@@ -164,16 +164,16 @@ export default function CheckoutPage() {
           ========================================================================= */}
       {confirmedOrder ? (
         <section className="mx-auto w-full max-w-[960px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
-          <div className="rounded-3xl border-3 border-[#163300] bg-white p-6 shadow-[6px_6px_0px_#163300] md:p-10">
+          <div className="rounded-3xl border-3 border-[#632D10] bg-white p-6 shadow-[6px_6px_0px_#632D10] md:p-10">
             {/* Header Badge */}
             <div className="text-center">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F557] border-2 border-[#163300] text-3xl shadow-[3px_3px_0px_#163300]">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F557] border-2 border-[#632D10] text-3xl shadow-[3px_3px_0px_#632D10]">
                 🥒
               </div>
               <h1 className="mt-4 font-coolvetica text-[clamp(2.4rem,4.5vw,3.6rem)] text-[#E81B6D] leading-tight">
                 Order Received!
               </h1>
-              <p className="mt-1 font-schoolbell text-[1.3rem] text-[#163300]">
+              <p className="mt-1 font-coolvetica text-[1.3rem] text-[#632D10]">
                 Demo Order Reference:{' '}
                 <span className="font-bold underline text-[#E81B6D]">
                   {confirmedOrder.reference}
@@ -186,7 +186,7 @@ export default function CheckoutPage() {
               <p className="font-coolvetica text-[1.15rem] font-bold text-[#E81B6D] uppercase tracking-wide">
                 Demo Notice
               </p>
-              <p className="mt-1 font-schoolbell text-[1.1rem] text-[#163300]">
+              <p className="mt-1 font-coolvetica text-[1.1rem] text-[#632D10]">
                 This is a demo order. No payment has been processed and no actual order has been placed.
               </p>
             </div>
@@ -194,11 +194,11 @@ export default function CheckoutPage() {
             {/* Order Details Grid */}
             <div className="mt-8 grid gap-8 md:grid-cols-2">
               {/* Customer & Delivery */}
-              <div className="rounded-2xl border-2 border-[#163300] bg-[#FAF6EC] p-5">
-                <h3 className="font-coolvetica text-[1.3rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+              <div className="rounded-2xl border-2 border-[#632D10] bg-[#FDFBF7] p-5">
+                <h3 className="font-coolvetica text-[1.3rem] text-[#632D10] border-b-2 border-[#632D10] pb-2">
                   Delivery Details
                 </h3>
-                <div className="mt-3 space-y-1.5 font-schoolbell text-[1.1rem] text-[#163300]">
+                <div className="mt-3 space-y-1.5 font-coolvetica text-[1.1rem] text-[#632D10]">
                   <p>
                     <strong>Name:</strong> {confirmedOrder.customer.fullName}
                   </p>
@@ -216,15 +216,15 @@ export default function CheckoutPage() {
                     <strong>City / State:</strong> {confirmedOrder.customer.city},{' '}
                     {confirmedOrder.customer.state} - {confirmedOrder.customer.postalCode}
                   </p>
-                  <p className="pt-2 text-[0.95rem] text-[#556947]">
+                  <p className="pt-2 text-[0.95rem] text-[#632D10]">
                     <strong>Placed On:</strong> {confirmedOrder.date}
                   </p>
                 </div>
               </div>
 
               {/* Order Summary */}
-              <div className="rounded-2xl border-2 border-[#163300] bg-[#FAF6EC] p-5">
-                <h3 className="font-coolvetica text-[1.3rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+              <div className="rounded-2xl border-2 border-[#632D10] bg-[#FDFBF7] p-5">
+                <h3 className="font-coolvetica text-[1.3rem] text-[#632D10] border-b-2 border-[#632D10] pb-2">
                   Items Purchased
                 </h3>
                 <div className="mt-3 divide-y divide-[#E0DACB] space-y-2">
@@ -234,19 +234,19 @@ export default function CheckoutPage() {
                       className="flex items-center justify-between pt-2 text-[1.05rem]"
                     >
                       <div>
-                        <p className="font-coolvetica font-bold text-[#163300]">{item.name}</p>
-                        <p className="font-schoolbell text-[0.95rem] text-[#556947]">
+                        <p className="font-coolvetica font-bold text-[#632D10]">{item.name}</p>
+                        <p className="font-coolvetica text-[0.95rem] text-[#632D10]">
                           Qty: {item.quantity} × {formatInr(item.price)}
                         </p>
                       </div>
-                      <p className="font-coolvetica font-bold text-[#163300]">
+                      <p className="font-coolvetica font-bold text-[#632D10]">
                         {formatInr(item.price * item.quantity)}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-4 border-t-2 border-[#163300] pt-3 font-schoolbell text-[1.1rem] text-[#163300] space-y-1.5">
+                <div className="mt-4 border-t-2 border-[#632D10] pt-3 font-coolvetica text-[1.1rem] text-[#632D10] space-y-1.5">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
                     <span>{formatInr(confirmedOrder.subtotal)}</span>
@@ -261,7 +261,7 @@ export default function CheckoutPage() {
                       <span>-{formatInr(confirmedOrder.discountAmount)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between pt-2 border-t border-[#163300] font-coolvetica text-[1.35rem] font-bold text-[#163300]">
+                  <div className="flex justify-between pt-2 border-t border-[#632D10] font-coolvetica text-[1.35rem] font-bold text-[#632D10]">
                     <span>Total</span>
                     <span>{formatInr(confirmedOrder.total)}</span>
                   </div>
@@ -273,7 +273,7 @@ export default function CheckoutPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/product"
-                className="inline-flex items-center justify-center rounded-full border-2 border-[#163300] bg-[#D7F557] px-8 py-4 font-coolvetica text-[1.25rem] font-bold text-[#163300] shadow-[4px_4px_0px_#163300] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#163300]"
+                className="inline-flex items-center justify-center rounded-full border-2 border-[#632D10] bg-[#D7F557] px-8 py-4 font-coolvetica text-[1.25rem] font-bold text-[#632D10] shadow-[4px_4px_0px_#632D10] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#632D10]"
               >
                 Continue Shopping →
               </Link>
@@ -286,13 +286,13 @@ export default function CheckoutPage() {
             ========================================================================= */
         <section className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
           <div className="text-center">
-            <span className="inline-block rounded-full border-2 border-[#163300] bg-[#FFE664] px-4 py-1 font-schoolbell text-[1.05rem] text-[#163300] shadow-[2px_2px_0px_#163300]">
+            <span className="inline-block rounded-full border-2 border-[#632D10] bg-[#D7F557] px-4 py-1 font-coolvetica text-[1.05rem] text-[#632D10] shadow-[2px_2px_0px_#632D10]">
               *client presentation demo*
             </span>
             <h1 className="mt-3 font-coolvetica text-[clamp(2.8rem,5.5vw,4.8rem)] text-[#E81B6D] leading-[0.95]">
               Demo Checkout
             </h1>
-            <p className="mt-2 font-schoolbell text-[clamp(1.2rem,2.2vw,1.6rem)] text-[#163300]">
+            <p className="mt-2 font-coolvetica text-[clamp(1.2rem,2.2vw,1.6rem)] text-[#632D10]">
               Simulate the complete Sourboo ordering experience
             </p>
           </div>
@@ -301,21 +301,21 @@ export default function CheckoutPage() {
             {/* Form Column */}
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl border-3 border-[#163300] bg-white p-6 shadow-[5px_5px_0px_#163300] md:p-8"
+              className="rounded-3xl border-3 border-[#632D10] bg-white p-6 shadow-[5px_5px_0px_#632D10] md:p-8"
               noValidate
             >
-              <div className="flex items-center justify-between border-b-2 border-[#163300] pb-3">
-                <h2 className="font-coolvetica text-[1.8rem] text-[#163300]">
+              <div className="flex items-center justify-between border-b-2 border-[#632D10] pb-3">
+                <h2 className="font-coolvetica text-[1.8rem] text-[#632D10]">
                   1. Delivery Details
                 </h2>
-                <span className="font-schoolbell text-[0.95rem] text-[#556947]">
+                <span className="font-coolvetica text-[0.95rem] text-[#632D10]">
                   *all fields required
                 </span>
               </div>
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Full Name</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Full Name</span>
                   <input
                     required
                     placeholder="e.g. Sakshi Agarwal"
@@ -323,12 +323,12 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, fullName: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Email</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Email</span>
                   <input
                     required
                     type="email"
@@ -337,12 +337,12 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, email: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Phone</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Phone</span>
                   <input
                     required
                     type="tel"
@@ -351,12 +351,12 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, phone: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Address Line 1</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Address Line 1</span>
                   <input
                     required
                     placeholder="Flat / House No., Street, Building"
@@ -364,24 +364,24 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, line1: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Address Line 2 (optional)</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Address Line 2 (optional)</span>
                   <input
                     placeholder="Landmark, Area"
                     value={formState.line2}
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, line2: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">City</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">City</span>
                   <input
                     required
                     placeholder="e.g. Mumbai"
@@ -389,12 +389,12 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, city: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">State</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">State</span>
                   <input
                     required
                     placeholder="e.g. Maharashtra"
@@ -402,12 +402,12 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, state: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
                 <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Postal / PIN Code</span>
+                  <span className="font-coolvetica text-[1.05rem] text-[#632D10]">Postal / PIN Code</span>
                   <input
                     required
                     placeholder="e.g. 400001"
@@ -415,14 +415,14 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, postalCode: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#632D10] bg-[#FDFBF7] px-3.5 py-2.5 font-coolvetica text-[#632D10] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
               </div>
 
               {errorMessage && (
                 <div className="mt-4 rounded-xl border-2 border-[#E81B6D] bg-[#FFEBF3] p-3 text-center">
-                  <p className="font-schoolbell text-[1rem] text-[#E81B6D] font-bold">
+                  <p className="font-coolvetica text-[1rem] text-[#E81B6D] font-bold">
                     {errorMessage}
                   </p>
                 </div>
@@ -432,30 +432,30 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={!canSubmit}
-                  className="w-full rounded-2xl border-2 border-[#163300] bg-[#E81B6D] py-4 text-center font-coolvetica text-[1.35rem] font-bold text-white shadow-[4px_4px_0px_#163300] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#163300] active:translate-x-0 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full rounded-2xl border-2 border-[#632D10] bg-[#E81B6D] py-4 text-center font-coolvetica text-[1.35rem] font-bold text-white shadow-[4px_4px_0px_#632D10] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#632D10] active:translate-x-0 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Confirming Demo Order...' : 'Complete Demo Order →'}
                 </button>
-                <p className="mt-2 text-center font-schoolbell text-[0.95rem] text-[#556947]">
+                <p className="mt-2 text-center font-coolvetica text-[0.95rem] text-[#632D10]">
                   No real payment will be charged. This completes the simulated client demonstration.
                 </p>
               </div>
             </form>
 
             {/* Order Summary Column */}
-            <aside className="h-fit rounded-3xl border-3 border-[#163300] bg-[#D7F557] p-6 shadow-[5px_5px_0px_#163300] md:p-8">
-              <h2 className="font-coolvetica text-[1.8rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+            <aside className="h-fit rounded-3xl border-3 border-[#632D10] bg-[#D7F557] p-6 shadow-[5px_5px_0px_#632D10] md:p-8">
+              <h2 className="font-coolvetica text-[1.8rem] text-[#632D10] border-b-2 border-[#632D10] pb-2">
                 Order Summary ({itemCount})
               </h2>
 
               {items.length === 0 ? (
                 <div className="mt-6 text-center">
-                  <p className="font-schoolbell text-[1.2rem] text-[#163300]">
+                  <p className="font-coolvetica text-[1.2rem] text-[#632D10]">
                     Your bag is empty!
                   </p>
                   <Link
                     href="/product"
-                    className="mt-3 inline-block rounded-full border-2 border-[#163300] bg-white px-5 py-2 font-coolvetica text-[1rem] text-[#163300] shadow-[2px_2px_0px_#163300]"
+                    className="mt-3 inline-block rounded-full border-2 border-[#632D10] bg-white px-5 py-2 font-coolvetica text-[1rem] text-[#632D10] shadow-[2px_2px_0px_#632D10]"
                   >
                     Browse Stash →
                   </Link>
@@ -466,11 +466,11 @@ export default function CheckoutPage() {
                     {items.map((item) => (
                       <div
                         key={item.slug}
-                        className="flex items-center justify-between pt-2 text-[#163300]"
+                        className="flex items-center justify-between pt-2 text-[#632D10]"
                       >
                         <div>
                           <p className="font-coolvetica font-bold text-[1.1rem]">{item.name}</p>
-                          <p className="font-schoolbell text-[0.95rem]">
+                          <p className="font-coolvetica text-[0.95rem]">
                             Qty: {item.quantity} × {formatInr(item.price)}
                           </p>
                         </div>
@@ -481,7 +481,7 @@ export default function CheckoutPage() {
                     ))}
                   </div>
 
-                  <div className="mt-6 border-t-2 border-[#163300] pt-4 font-schoolbell text-[1.1rem] text-[#163300] space-y-2">
+                  <div className="mt-6 border-t-2 border-[#632D10] pt-4 font-coolvetica text-[1.1rem] text-[#632D10] space-y-2">
                     <div className="flex justify-between">
                       <span>Subtotal</span>
                       <span className="font-bold">{formatInr(subtotal)}</span>
@@ -499,14 +499,14 @@ export default function CheckoutPage() {
                       </div>
                     )}
 
-                    <div className="flex items-center justify-between border-t-2 border-[#163300] pt-3 font-coolvetica text-[1.45rem] font-bold text-[#163300]">
+                    <div className="flex items-center justify-between border-t-2 border-[#632D10] pt-3 font-coolvetica text-[1.45rem] font-bold text-[#632D10]">
                       <span>Total Payable</span>
                       <span className="text-[#E81B6D]">{formatInr(totalPayable)}</span>
                     </div>
                   </div>
 
                   {discountCode && (
-                    <div className="mt-4 rounded-xl border border-[#163300] bg-white p-2.5 text-center font-schoolbell text-[0.95rem] text-[#163300]">
+                    <div className="mt-4 rounded-xl border border-[#632D10] bg-white p-2.5 text-center font-coolvetica text-[0.95rem] text-[#632D10]">
                       🎉 Code <span className="font-bold text-[#E81B6D]">{discountCode}</span>{' '}
                       applied!
                     </div>

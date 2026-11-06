@@ -30,34 +30,34 @@
 
 /* 2. ROOT TOKENS & SYSTEM VARIABLES */
 :root {
-  --sb-bg-sage: #E9ECD9;
-  --sb-bg-yellow: #FFFF88;
-  --sb-bg-popup: #EEDDEB;
-  --sb-bg-input: #F8F0F8;
-  --sb-bg-pill: #FFF7D6;
-  --sb-bg-dark: #171717;
+  --sb-bg-sage: #FDFBF7;
+  --sb-bg-yellow: #D7F557;
+  --sb-bg-popup: #F4EFFB;
+  --sb-bg-input: #FFFFFF;
+  --sb-bg-pill: #EBDDF8;
+  --sb-bg-dark: #26140A;
 
-  --sb-pink: #E61E6E;
-  --sb-pink-hover: #CC0F5F;
-  --sb-pink-soft: #F18BB7;
-  --sb-pink-punch: #EA1970;
+  --sb-pink: #E81B6D;
+  --sb-pink-hover: #C96A00;
+  --sb-pink-soft: #EBDDF8;
+  --sb-pink-punch: #E81B6D;
 
-  --sb-lime: #BFEA5A;
-  --sb-pickle-green: #4C8B1D;
-  --sb-pickle-olive: #3E6A18;
-  --sb-pickle-dark: #2F4918;
-  --sb-pickle-forest: #1C2B08;
+  --sb-lime: #D7F557;
+  --sb-pickle-green: #632D10;
+  --sb-pickle-olive: #632D10;
+  --sb-pickle-dark: #26140A;
+  --sb-pickle-forest: #26140A;
 
   --sb-amber: #C96A00;
-  --sb-cinnamon: #A35A0A;
-  --sb-rust: #5E3C10;
+  --sb-cinnamon: #C96A00;
+  --sb-rust: #632D10;
   --sb-tamarind-dark: #26140A;
 
-  --sb-text-charcoal: #171717;
-  --sb-text-dark: #1D1D1D;
-  --sb-text-muted: #6F5F6B;
-  --sb-text-cream: #E9E6B8;
-  --sb-text-light: #FFFBD8;
+  --sb-text-charcoal: #26140A;
+  --sb-text-dark: #632D10;
+  --sb-text-muted: #632D10;
+  --sb-text-cream: #FDFBF7;
+  --sb-text-light: #FFFFFF;
 
   --sb-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --sb-ease-poster: cubic-bezier(0.2, 1, 0.22, 1);
@@ -76,7 +76,7 @@ html, body {
   overflow-x: hidden !important;
   background-color: var(--sb-bg-sage);
   color: var(--sb-text-charcoal);
-  font-family: 'Schoolbell', cursive, sans-serif;
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
@@ -106,9 +106,9 @@ input, button, select, textarea {
 }
 
 /* Typography Utility Classes */
-.font-coolvetica { font-family: 'coolvetica', sans-serif !important; }
-.font-rascal { font-family: 'rascal', cursive !important; }
-.font-schoolbell { font-family: 'Schoolbell', cursive !important; }
+.font-coolvetica { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
+.font-rascal, .font-butter { font-family: var(--font-rascal), cursive !important; }
+.font-schoolbell { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
 
 .text-pink { color: var(--sb-pink) !important; }
 .text-pink-punch { color: var(--sb-pink-punch) !important; }

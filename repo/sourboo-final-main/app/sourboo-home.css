@@ -37,7 +37,7 @@
 }
 
 .sbx-hero {
-  background: linear-gradient(110deg, #fff3df 0%, #fbe2b8 46%, #f2c787 100%);
+  background: linear-gradient(110deg, var(--sbx-cream) 0%, var(--sbx-lilac) 55%, var(--sbx-lilac-2) 100%);
 }
 
 .sbx-hero__media {

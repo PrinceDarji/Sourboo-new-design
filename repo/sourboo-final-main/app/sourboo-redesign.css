@@ -5,24 +5,24 @@
 
 /* ── COLOR TOKENS ── */
 :root {
-  --sb-bg: #FAF5E8;
+  --sb-bg: #FDFBF7;
   --sb-bg-card: #FFFFFF;
-  --sb-cream: #FFFDF7;
-  --sb-yellow: #FFF1B5;
-  --sb-lime-btn: #E5F237;
-  --sb-lime-btn-hover: #D4E226;
-  --sb-pink: #E61E6E;
-  --sb-pink-hot: #FF1A75;
-  --sb-pink-light: #FFD6E5;
-  --sb-pink-card: #FF8DAE;
-  --sb-green-dark: #1E3514;
-  --sb-green-moss: #4A6318;
-  --sb-green-ribbon: #526C1C;
-  --sb-green-light: #EDF9B8;
-  --sb-orange-light: #FFE3CD;
-  --sb-charcoal: #171717;
-  --sb-text-muted: #555555;
-  --sb-border-dark: #1E3514;
+  --sb-cream: #FDFBF7;
+  --sb-yellow: #D7F557;
+  --sb-lime-btn: #D7F557;
+  --sb-lime-btn-hover: #C96A00;
+  --sb-pink: #E81B6D;
+  --sb-pink-hot: #E81B6D;
+  --sb-pink-light: #EBDDF8;
+  --sb-pink-card: #E81B6D;
+  --sb-green-dark: #26140A;
+  --sb-green-moss: #632D10;
+  --sb-green-ribbon: #632D10;
+  --sb-green-light: #D7F557;
+  --sb-orange-light: #EBDDF8;
+  --sb-charcoal: #26140A;
+  --sb-text-muted: #632D10;
+  --sb-border-dark: #26140A;
   --sb-radius-sm: 10px;
   --sb-radius-md: 18px;
   --sb-radius-lg: 28px;
@@ -58,9 +58,9 @@
   font-display: swap;
 }
 
-.font-coolvetica { font-family: 'Coolvetica', sans-serif; }
-.font-rascal { font-family: 'Rascal', cursive; }
-.font-schoolbell { font-family: 'Schoolbell', cursive; }
+.font-coolvetica { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif; }
+.font-rascal, .font-butter { font-family: var(--font-rascal), cursive; }
+.font-schoolbell { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif; }
 
 .text-charcoal { color: var(--sb-green-dark); }
 .text-pink { color: var(--sb-pink); }

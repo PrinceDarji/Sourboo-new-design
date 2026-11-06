@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #e9ecd9;
-  --foreground: #171717;
+  --background: #fdfbf7;
+  --foreground: #632d10;
   color-scheme: light;
 }
 
@@ -15,8 +15,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #e9ecd9;
-    --foreground: #171717;
+    --background: #fdfbf7;
+    --foreground: #632d10;
     color-scheme: light;
   }
 }
@@ -24,7 +24,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
 }
 
 html,
@@ -77,7 +77,11 @@ body {
 }
 
 .font-schoolbell {
-  font-family: var(--font-schoolbell), cursive;
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+}
+
+.font-butter {
+  font-family: var(--font-rascal), cursive;
 }
 
 .scroll-reveal {

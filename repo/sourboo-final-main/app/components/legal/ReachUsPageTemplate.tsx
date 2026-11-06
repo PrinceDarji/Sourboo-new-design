@@ -62,7 +62,7 @@ export default function ReachUsPageTemplate({
           {title}
         </h1>
 
-        {intro ? <p className="sbx-legal__intro font-schoolbell">{intro}</p> : null}
+        {intro ? <p className="sbx-legal__intro">{intro}</p> : null}
 
         <div className="sbx-legal__sections">
           <article className="sbx-legal__article">
