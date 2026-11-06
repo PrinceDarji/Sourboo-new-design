@@ -1,18 +1,22 @@
 import Navbar from '../components/about/AboutNavbar';
-import HeroLemonJuiceExperience from '../components/home/HeroLemonJuiceExperience';
-import BrandVoiceMarquee from '../components/home/BrandVoiceMarquee';
-import SnackCrunchIntro from '../components/home/SnackCrunchIntro';
-import FlavourFaceOffArena from '../components/home/FlavourFaceOffArena';
-import BooInTheWildGallery from '../components/home/BooInTheWildGallery';
+import SiteFooter from '../components/SiteFooter';
+import FridgeLoader from '../components/site/FridgeLoader';
+import Marquee from '../components/site/Marquee';
+import HomeHero from '../components/home/HomeHero';
+import CravingsIntro from '../components/home/CravingsIntro';
+import InTheJar from '../components/home/InTheJar';
+import GoodTasteMoments from '../components/home/GoodTasteMoments';
+import FlavourDuo, { FlavourSampler } from '../components/home/FlavourDuo';
+import TasteGame from '../components/home/TasteGame';
 import FavBaddiesReviews from '../components/home/FavBaddiesReviews';
-import HomepageFooter from '../components/home/HomepageFooter';
+import '../sourboo-home.css';
 import type { Metadata } from 'next';
 
 export const revalidate = 300;
 
 const homeTitle = 'Sourboo | Made for Mouths That Misbehave';
 const homeDescription =
-  'India’s First Cult Sour Snack. Snackable pickled gherkins. Tangy, spicy, unapologetically crunchy. Deeply Fermented • Slightly Unhinged.';
+  'India’s First Cult Sour Snack. Snackable pickled gherkins made to be bold, made to be yours. Deeply Fermented • Slightly Unhinged.';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -33,33 +37,20 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main
-      className="sb-home-container"
-      style={{ minHeight: '100vh', background: '#F8F6F0', overflowX: 'hidden' }}
-    >
-      {/* Navigation: HOME | OUR STORY | SHOP | JOIN US */}
+    <main className="sbx-home">
+      <FridgeLoader />
       <Navbar />
-
-      {/* Hero Banner / First Fold: the sourboo way, cravings comes first */}
-      <HeroLemonJuiceExperience />
-
-      {/* Brand Voice Recurring Lines Ticker */}
-      <BrandVoiceMarquee />
-
-      {/* Intro: YOUR OTHER SNACKS COULD NEVER */}
-      <SnackCrunchIntro />
-
-      {/* Flavour Face Off: SIDE EYE SOUR vs TAMARIN' TEASE */}
-      <FlavourFaceOffArena />
-
-      {/* The Boo in the Wild: Your jar called. It wants to be on everything */}
-      <BooInTheWildGallery />
-
-      {/* Your Internet Fav Baddies and Their Moms Love It ;) */}
+      <HomeHero />
+      <Marquee label="Sourboo brand lines" tone="lilac" duration={46} tilt={-1.2} className="sbx-home__marquee" />
+      <CravingsIntro />
+      <InTheJar />
+      <GoodTasteMoments />
+      <FlavourDuo>
+        <FlavourSampler />
+      </FlavourDuo>
+      <TasteGame />
       <FavBaddiesReviews />
-
-      {/* Social Section and Footer */}
-      <HomepageFooter />
+      <SiteFooter />
     </main>
   );
 }

@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useCart } from './CartProvider';
 import { formatInr } from '@/src/lib/cart/price';
+import { SHIPPING_CHARGE_INR } from '@/src/lib/checkout/totals';
 
 function CartItemRow({
   slug,
@@ -21,46 +22,36 @@ function CartItemRow({
   const { updateQuantity, removeItem } = useCart();
 
   return (
-    <div className="sb-cart-item">
-      <div className="sb-cart-item-img-wrap">
+    <li className="sbx-cart__item">
+      <div className="sbx-cart__item-img">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt={name} className="sb-cart-item-img" />
+        <img src={image} alt="" />
       </div>
 
-      <div className="sb-cart-item-info">
-        <h4 className="sb-cart-item-title font-coolvetica">{name}</h4>
-        <div className="sb-cart-item-price font-coolvetica">{formatInr(price)}</div>
+      <div className="sbx-cart__item-info">
+        <p className="sbx-cart__item-name">{name}</p>
+        <p className="sbx-cart__item-price">{formatInr(price * quantity)}</p>
 
-        <div className="sb-cart-qty-control">
-          <button
-            type="button"
-            onClick={() => updateQuantity(slug, quantity - 1)}
-            className="sb-cart-qty-btn"
-            aria-label="Decrease quantity"
-          >
+        <div className="sbx-cart__qty" role="group" aria-label={`Quantity of ${name}`}>
+          <button type="button" onClick={() => updateQuantity(slug, quantity - 1)} aria-label={`Decrease quantity of ${name}`}>
             −
           </button>
-          <span className="sb-cart-qty-num">{quantity}</span>
+          <span aria-live="polite">{quantity}</span>
           <button
             type="button"
             onClick={() => updateQuantity(slug, quantity + 1)}
-            className="sb-cart-qty-btn"
-            aria-label="Increase quantity"
+            aria-label={`Increase quantity of ${name}`}
+            disabled={quantity >= 99}
           >
             +
           </button>
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={() => removeItem(slug)}
-        className="sb-cart-item-remove"
-        aria-label={`Remove ${name}`}
-      >
-        ✕
+      <button type="button" onClick={() => removeItem(slug)} className="sbx-cart__remove" aria-label={`Remove ${name} from bag`}>
+        remove
       </button>
-    </div>
+    </li>
   );
 }
 
@@ -71,6 +62,7 @@ export default function CartDrawer() {
     subtotal,
     discountCode,
     discountAmount,
+    discountPercent,
     subtotalAfterDiscount,
     isOpen,
     closeCart,
@@ -80,6 +72,23 @@ export default function CartDrawer() {
 
   const [inputCode, setInputCode] = useState('');
   const [discountError, setDiscountError] = useState('');
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    restoreFocusRef.current = document.activeElement as HTMLElement | null;
+    const focusTimer = window.setTimeout(() => closeRef.current?.focus(), 60);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeCart();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.clearTimeout(focusTimer);
+      window.removeEventListener('keydown', onKeyDown);
+      restoreFocusRef.current?.focus?.();
+    };
+  }, [isOpen, closeCart]);
 
   const handleApplyCode = (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,7 +104,6 @@ export default function CartDrawer() {
   };
 
   const handleCheckoutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Check if Shopify store domain is set or running in Shopify environment
     const shopifyDomain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '';
     if (shopifyDomain && items.length > 0) {
       e.preventDefault();
@@ -107,143 +115,121 @@ export default function CartDrawer() {
 
   return (
     <>
-      {/* Backdrop Overlay */}
-      <div
-        className={`sb-cart-drawer-overlay ${isOpen ? 'is-open open active' : ''}`}
-        onClick={closeCart}
-        role="presentation"
-        aria-hidden={!isOpen}
-      />
+      <div className={`sbx-cart-overlay ${isOpen ? 'is-open' : ''}`} onClick={closeCart} role="presentation" aria-hidden="true" />
 
-      {/* Slide-over Drawer */}
       <aside
-        className={`sb-cart-drawer ${isOpen ? 'is-open open active' : ''}`}
+        className={`sbx-cart ${isOpen ? 'is-open' : ''}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Shopping Bag"
+        aria-labelledby="sbx-cart-title"
         aria-hidden={!isOpen}
+        inert={!isOpen}
       >
-        {/* Header */}
-        <div className="sb-cart-drawer-header">
-          <div className="sb-cart-drawer-title-row">
-            <h3 className="sb-cart-drawer-title font-coolvetica">
-              YOUR BAG ({totalItems})
-            </h3>
-            <button
-              type="button"
-              onClick={closeCart}
-              className="sb-cart-drawer-close"
-              aria-label="Close cart drawer"
-            >
-              ✕
-            </button>
-          </div>
-          <div className="sb-cart-preorder-badge font-schoolbell">
-            ⚡ small-batch handcrafted • ships in 2-4 business days
-          </div>
-        </div>
+        <svg className="sbx-cart__edge" viewBox="0 0 24 800" preserveAspectRatio="none" aria-hidden="true">
+          <path
+            d="M14 0C9 40 17 78 12 120C7 164 16 204 11 250C6 296 15 338 12 384C9 430 17 470 11 518C6 562 15 604 12 648C9 694 16 742 12 800"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <path
+            d="M18 0C15 52 20 96 17 150C14 202 21 248 17 300C13 356 20 404 17 456C14 510 20 560 17 612C14 664 20 716 18 800"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+        </svg>
 
-        {/* Item List */}
-        <div className="sb-cart-drawer-body">
+        <div className="sbx-cart__head">
+          <h2 id="sbx-cart-title" className="sbx-cart__title">
+            your bag <span className="font-rascal">({totalItems})</span>
+          </h2>
+          <button ref={closeRef} type="button" onClick={closeCart} className="sbx-cart__close" aria-label="Close bag">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 5.5c4.6 4.2 9 8.6 13.6 13.2M18.6 5.2C14 9.8 9.6 14.2 5.3 18.6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <p className="sbx-cart__note font-schoolbell">small-batch handcrafted • ships in 2-4 business days</p>
+
+        <div className="sbx-cart__body">
           {items.length === 0 ? (
-            <div className="sb-cart-empty">
-              {/* Cute Pickle Doodle Graphic */}
-              <svg viewBox="0 0 100 80" width="80" height="64" fill="none" aria-hidden="true">
-                <ellipse cx="50" cy="40" rx="42" ry="32" fill="#2E5A27" stroke="#162E13" strokeWidth="3" />
-                <ellipse cx="50" cy="40" rx="36" ry="26" fill="#88C744" />
-                <ellipse cx="50" cy="40" rx="28" ry="19" fill="#ABDE68" />
-                <ellipse cx="44" cy="38" rx="4" ry="2" fill="#2E5A27" transform="rotate(-15 44 38)" />
-                <ellipse cx="54" cy="36" rx="4" ry="2" fill="#2E5A27" transform="rotate(20 54 36)" />
-              </svg>
-              <h4 className="sb-cart-empty-text font-coolvetica">YOUR BAG IS EMPTY :(</h4>
-              <p className="sb-cart-empty-sub font-rascal">
-                Don&apos;t leave your tastebuds hanging. Get some sour snacks!
-              </p>
-              <Link
-                href="/product"
-                onClick={closeCart}
-                className="sb-cart-shop-now-btn font-coolvetica"
-              >
-                SHOP ALL FLAVOURS →
+            <div className="sbx-cart__empty">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/product/side-eye-jar.webp" alt="" className="sbx-cart__empty-jar" />
+              <p className="sbx-cart__empty-title">your bag is empty</p>
+              <Link href="/product" onClick={closeCart} className="sbx-cart__shop">
+                SHOP NOW →
               </Link>
             </div>
           ) : (
-            <div className="sb-cart-items-list">
+            <ul className="sbx-cart__items">
               {items.map((item) => (
                 <CartItemRow key={item.slug} {...item} />
               ))}
-            </div>
+            </ul>
           )}
         </div>
 
-        {/* Footer & Checkout */}
         {items.length > 0 && (
-          <div className="sb-cart-drawer-footer">
-            {/* Promo Code Form */}
-            <form onSubmit={handleApplyCode} className="sb-cart-discount-form">
+          <div className="sbx-cart__foot">
+            <form onSubmit={handleApplyCode} className="sbx-cart__code">
+              <label htmlFor="sbx-cart-code" className="sr-only">
+                Discount code
+              </label>
               <input
+                id="sbx-cart-code"
                 type="text"
-                placeholder="Discount code (e.g. SOURBABE05)"
+                placeholder="discount code"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
-                className="sb-cart-discount-input font-coolvetica"
+                autoComplete="off"
               />
-              <button type="submit" className="sb-cart-discount-apply font-coolvetica">
-                Apply
-              </button>
+              <button type="submit">apply</button>
             </form>
 
-            {discountError && (
-              <p className="sb-cart-discount-error font-schoolbell">{discountError}</p>
-            )}
+            {discountError && <p className="sbx-cart__error">{discountError}</p>}
 
             {discountCode && (
-              <div className="sb-cart-active-discount font-coolvetica">
-                <span>Code <strong>{discountCode}</strong> applied (−5%)</span>
-                <button
-                  type="button"
-                  onClick={clearDiscountCode}
-                  className="sb-cart-remove-discount"
-                >
+              <p className="sbx-cart__applied">
+                <span>
+                  code <strong>{discountCode}</strong> applied (−{discountPercent}%)
+                </span>
+                <button type="button" onClick={clearDiscountCode}>
                   remove
                 </button>
-              </div>
+              </p>
             )}
 
-            {/* Calculations Breakdown */}
-            <div className="sb-cart-summary">
-              <div className="sb-cart-summary-row">
-                <span>Subtotal</span>
-                <span>{formatInr(subtotal)}</span>
+            <dl className="sbx-cart__summary">
+              <div>
+                <dt>Subtotal</dt>
+                <dd>{formatInr(subtotal)}</dd>
               </div>
               {discountAmount > 0 && (
-                <div className="sb-cart-summary-row discount">
-                  <span>5% Discount ({discountCode})</span>
-                  <span>−{formatInr(discountAmount)}</span>
+                <div className="is-discount">
+                  <dt>Discount ({discountCode})</dt>
+                  <dd>−{formatInr(discountAmount)}</dd>
                 </div>
               )}
-              <div className="sb-cart-summary-row shipping-note">
-                <span>Shipping</span>
-                <span>+ ₹100 per order</span>
+              <div>
+                <dt>Shipping</dt>
+                <dd>+ {formatInr(SHIPPING_CHARGE_INR)} per order</dd>
               </div>
-              <div className="sb-cart-summary-row total">
-                <span>Estimated Total</span>
-                <span>{formatInr(subtotalAfterDiscount + 100)}</span>
+              <div className="is-total">
+                <dt>Estimated total</dt>
+                <dd>{formatInr(subtotalAfterDiscount + SHIPPING_CHARGE_INR)}</dd>
               </div>
-            </div>
+            </dl>
 
-            {/* Checkout Action Button */}
-            <Link
-              href="/checkout"
-              onClick={handleCheckoutClick}
-              className="sb-cart-checkout-btn font-coolvetica"
-            >
+            <Link href="/checkout" onClick={handleCheckoutClick} className="sbx-cart__checkout">
               PROCEED TO CHECKOUT →
             </Link>
 
-            <p className="sb-cart-guarantee-note font-schoolbell">
-              🔒 100% secure checkout via PhonePe &amp; Shopify
-            </p>
+            <p className="sbx-cart__secure font-schoolbell">🔒 100% secure checkout via PhonePe &amp; Shopify</p>
           </div>
         )}
       </aside>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
-import HomepageFooter from '../components/home/HomepageFooter';
+import SiteFooter from '../components/SiteFooter';
 import '../sourboo-about.css';
 import type { Metadata } from 'next';
 
@@ -498,7 +498,7 @@ export default function AboutPage() {
       </section>
 
       {/* Website Footer */}
-      <HomepageFooter />
+      <SiteFooter />
     </main>
   );
 }
