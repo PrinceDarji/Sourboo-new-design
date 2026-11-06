@@ -731,7 +731,7 @@
 
 .sb-wild-img-wrap {
   width: 100%;
-  height: 310px;
+  height: 320px;
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 14px;
@@ -741,53 +741,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6px;
 }
 
 .sb-wild-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain !important;
   display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease;
+  transform: none !important;
+  transition: transform 0.25s ease;
 }
 
-/* Counter-rotations to make each paper cutout perfectly straight and fit cleanly inside the box with all texts visible */
-.sb-wild-img.straight-late-night {
-  transform: rotate(-14.73deg) scale(1.16);
-}
-
-.sb-wild-img.straight-girl-dinner {
-  transform: rotate(-20.87deg) scale(1.22);
-}
-
-.sb-wild-img.straight-post-cry {
-  transform: rotate(8.49deg) scale(1.14);
-}
-
-.sb-wild-img.straight-desk {
-  transform: scale(1.02);
-}
-
+.sb-wild-img.straight-late-night,
+.sb-wild-img.straight-girl-dinner,
+.sb-wild-img.straight-post-cry,
+.sb-wild-img.straight-desk,
 .sb-wild-img.straight-hangover {
-  transform: scale(1.02);
+  transform: none !important;
 }
 
-.sb-wild-card:hover .sb-wild-img.straight-late-night {
-  transform: rotate(-14.73deg) scale(1.20);
-}
-
-.sb-wild-card:hover .sb-wild-img.straight-girl-dinner {
-  transform: rotate(-20.87deg) scale(1.26);
-}
-
-.sb-wild-card:hover .sb-wild-img.straight-post-cry {
-  transform: rotate(8.49deg) scale(1.18);
-}
-
+.sb-wild-card:hover .sb-wild-img,
+.sb-wild-card:hover .sb-wild-img.straight-late-night,
+.sb-wild-card:hover .sb-wild-img.straight-girl-dinner,
+.sb-wild-card:hover .sb-wild-img.straight-post-cry,
 .sb-wild-card:hover .sb-wild-img.straight-desk,
 .sb-wild-card:hover .sb-wild-img.straight-hangover {
-  transform: scale(1.06);
+  transform: scale(1.03) !important;
 }
 
 .sb-wild-caption {

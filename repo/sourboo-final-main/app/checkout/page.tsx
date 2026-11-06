@@ -1,12 +1,11 @@
 'use client';
 
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
-import SiteFooter from '../components/SiteFooter';
+import HomepageFooter from '../components/home/HomepageFooter';
 import { useCart } from '../components/cart/CartProvider';
 import { formatInr } from '@/src/lib/cart/price';
-import { calculateShippingPaiseForItems } from '@/src/lib/checkout/totals';
 
 type CheckoutFormState = {
   fullName: string;
@@ -19,38 +18,23 @@ type CheckoutFormState = {
   postalCode: string;
 };
 
-type CreatePaymentResponse = {
-  ok: boolean;
-  checkoutUrl?: string;
-  error?: string;
-};
-
-type QuoteResponse = {
-  ok: boolean;
-  items?: Array<{
+type ConfirmedOrder = {
+  reference: string;
+  customer: CheckoutFormState;
+  items: Array<{
     slug: string;
-    lineTotalPaise: number;
+    name: string;
+    price: number;
+    quantity: number;
+    image?: string;
   }>;
-  subtotalPaise?: number;
-  discountPaise?: number;
-  discountPercent?: number;
-  appliedDiscountCode?: string | null;
-  shippingPaise?: number;
-  payableTotalPaise?: number;
-  error?: string;
+  subtotal: number;
+  shipping: number;
+  discountCode: string | null;
+  discountAmount: number;
+  total: number;
+  date: string;
 };
-
-async function parseJsonSafely<T>(response: Response): Promise<T> {
-  const raw = await response.text();
-  try {
-    return JSON.parse(raw) as T;
-  } catch {
-    const snippet = raw.slice(0, 180).replace(/\s+/g, ' ').trim();
-    throw new Error(
-      `Expected JSON from API but received non-JSON (status ${response.status}). ${snippet}`,
-    );
-  }
-}
 
 const initialFormState: CheckoutFormState = {
   fullName: '',
@@ -62,8 +46,6 @@ const initialFormState: CheckoutFormState = {
   state: '',
   postalCode: '',
 };
-
-const GENERIC_BACKEND_ERROR = 'oops the backend isnt working';
 
 function toTrimmedCheckoutForm(formState: CheckoutFormState): CheckoutFormState {
   return {
@@ -82,165 +64,52 @@ function getCheckoutValidationError(
   formState: CheckoutFormState,
   items: Array<{ slug: string; quantity: number }>,
 ): string | null {
-  if (items.length === 0) return 'Your cart is empty.';
+  if (items.length === 0) return 'Your cart is empty. Add products before checking out.';
   if (items.some((item) => !item.slug?.trim() || !Number.isInteger(item.quantity) || item.quantity < 1)) {
     return 'Your cart has an invalid item. Please remove it and add it again.';
   }
   if (formState.fullName.length < 2) return 'Please enter your full name.';
-  if (formState.phone.length < 8) return 'Please enter a valid phone number.';
-  if (formState.line1.length < 3) return 'Please enter your address.';
+  if (!formState.email.includes('@') || !formState.email.includes('.')) {
+    return 'Please enter a valid email address.';
+  }
+  const cleanPhone = formState.phone.replace(/\D/g, '');
+  if (cleanPhone.length < 8) return 'Please enter a valid phone number (at least 8 digits).';
+  if (formState.line1.length < 3) return 'Please enter your delivery street address.';
   if (formState.city.length < 2) return 'Please enter your city.';
   if (formState.state.length < 2) return 'Please enter your state.';
-  if (formState.postalCode.length < 3) return 'Please enter your postal code.';
+  if (formState.postalCode.length < 3) return 'Please enter your postal/PIN code.';
   return null;
 }
 
 export default function CheckoutPage() {
-  const { items, subtotal, discountCode, discountAmount, discountPercent } = useCart();
+  const { items, subtotal, discountCode, discountAmount, discountPercent, clearCart } = useCart();
   const [formState, setFormState] = useState<CheckoutFormState>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [serverSubtotal, setServerSubtotal] = useState<number | null>(null);
-  const [serverDiscount, setServerDiscount] = useState<number | null>(null);
-  const [serverDiscountPercent, setServerDiscountPercent] = useState<number | null>(null);
-  const [serverAppliedDiscountCode, setServerAppliedDiscountCode] = useState<string | null>(null);
-  const [serverShipping, setServerShipping] = useState<number | null>(null);
-  const [serverTotal, setServerTotal] = useState<number | null>(null);
-  const [serverLineTotalsBySlug, setServerLineTotalsBySlug] = useState<Record<string, number>>({});
-  const [quoteError, setQuoteError] = useState<string | null>(null);
+  const [confirmedOrder, setConfirmedOrder] = useState<ConfirmedOrder | null>(null);
 
   const itemCount = useMemo(
     () => items.reduce((sum, item) => sum + item.quantity, 0),
     [items],
   );
-  const fallbackShipping = useMemo(
-    () => calculateShippingPaiseForItems(items) / 100,
-    [items],
-  );
-  const discountForDisplay = useMemo(
-    () => (typeof serverDiscount === 'number' ? serverDiscount : discountAmount),
-    [discountAmount, serverDiscount],
-  );
-  const appliedDiscountCodeForDisplay = useMemo(
-    () => serverAppliedDiscountCode || discountCode,
-    [discountCode, serverAppliedDiscountCode],
-  );
-  const discountPercentForDisplay = useMemo(
-    () => (typeof serverDiscountPercent === 'number' ? serverDiscountPercent : discountPercent),
-    [discountPercent, serverDiscountPercent],
-  );
+
+  // Flat demo shipping rate: ₹100 per order
+  const shippingAmount = useMemo(() => (items.length > 0 ? 100 : 0), [items]);
+
   const totalPayable = useMemo(
-    () =>
-      typeof serverTotal === 'number'
-        ? serverTotal
-        : Math.max(0, subtotal + fallbackShipping - discountAmount),
-    [discountAmount, fallbackShipping, serverTotal, subtotal],
-  );
-  const subtotalForDisplay = useMemo(
-    () => (typeof serverSubtotal === 'number' ? serverSubtotal : subtotal),
-    [serverSubtotal, subtotal],
-  );
-  const shippingForDisplay = useMemo(
-    () => (typeof serverShipping === 'number' ? serverShipping : fallbackShipping),
-    [fallbackShipping, serverShipping],
+    () => Math.max(0, subtotal + shippingAmount - discountAmount),
+    [discountAmount, shippingAmount, subtotal],
   );
 
   const canSubmit = items.length > 0 && !isSubmitting;
 
-  useEffect(() => {
-    if (items.length === 0) {
-      setServerSubtotal(null);
-      setServerDiscount(null);
-      setServerDiscountPercent(null);
-      setServerAppliedDiscountCode(null);
-      setServerShipping(null);
-      setServerTotal(null);
-      setServerLineTotalsBySlug({});
-      setQuoteError(null);
-      return;
-    }
-
-    let cancelled = false;
-
-    async function loadQuote() {
-      try {
-        const response = await fetch('/api/checkout/quote', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          cache: 'no-store',
-          body: JSON.stringify({
-            items: items.map((item) => ({
-              slug: item.slug,
-              name: item.name,
-              quantity: item.quantity,
-            })),
-            discountCode,
-          }),
-        });
-
-        const result = await parseJsonSafely<QuoteResponse>(response);
-        if (!response.ok || !result.ok) {
-          throw new Error(result.error || 'Unable to calculate payable total.');
-        }
-
-        if (cancelled) return;
-
-        const subtotalRupees =
-          typeof result.subtotalPaise === 'number' ? result.subtotalPaise / 100 : null;
-        const discountRupees =
-          typeof result.discountPaise === 'number' ? result.discountPaise / 100 : null;
-        const shippingRupees =
-          typeof result.shippingPaise === 'number' ? result.shippingPaise / 100 : null;
-        const totalRupees =
-          typeof result.payableTotalPaise === 'number' ? result.payableTotalPaise / 100 : null;
-        const lineTotalsBySlug = Array.isArray(result.items)
-          ? result.items.reduce<Record<string, number>>((acc, item) => {
-              if (!item || typeof item.slug !== 'string') return acc;
-              if (typeof item.lineTotalPaise !== 'number') return acc;
-              acc[item.slug] = item.lineTotalPaise / 100;
-              return acc;
-            }, {})
-          : {};
-
-        setServerSubtotal(subtotalRupees);
-        setServerDiscount(discountRupees);
-        setServerDiscountPercent(
-          typeof result.discountPercent === 'number' ? result.discountPercent : null,
-        );
-        setServerAppliedDiscountCode(result.appliedDiscountCode || null);
-        setServerShipping(shippingRupees);
-        setServerTotal(totalRupees);
-        setServerLineTotalsBySlug(lineTotalsBySlug);
-        setQuoteError(null);
-      } catch {
-        if (cancelled) return;
-        setServerSubtotal(null);
-        setServerDiscount(null);
-        setServerDiscountPercent(null);
-        setServerAppliedDiscountCode(null);
-        setServerShipping(null);
-        setServerTotal(null);
-        setServerLineTotalsBySlug({});
-        setQuoteError(GENERIC_BACKEND_ERROR);
-      }
-    }
-
-    void loadQuote();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [discountCode, items]);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!canSubmit) return;
 
     setErrorMessage(null);
-    const checkoutForm = toTrimmedCheckoutForm(formState);
-    const validationError = getCheckoutValidationError(checkoutForm, items);
+    const trimmedForm = toTrimmedCheckoutForm(formState);
+    const validationError = getCheckoutValidationError(trimmedForm, items);
 
     if (validationError) {
       setErrorMessage(validationError);
@@ -249,277 +118,407 @@ export default function CheckoutPage() {
 
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch('/api/payments/phonepe/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          items: items.map((item) => ({
-            slug: item.slug,
-            name: item.name,
-            quantity: item.quantity,
-          })),
-          discountCode,
-          customer: {
-            fullName: checkoutForm.fullName,
-            email: checkoutForm.email,
-            phone: checkoutForm.phone,
-          },
-          shippingAddress: {
-            line1: checkoutForm.line1,
-            line2: checkoutForm.line2,
-            city: checkoutForm.city,
-            state: checkoutForm.state,
-            postalCode: checkoutForm.postalCode,
-          },
+    // Simulate realistic client-demo order placement
+    setTimeout(() => {
+      const demoReference = `SB-DEMO-${Math.floor(100000 + Math.random() * 900000)}`;
+      const orderSnapshot: ConfirmedOrder = {
+        reference: demoReference,
+        customer: trimmedForm,
+        items: items.map((i) => ({
+          slug: i.slug,
+          name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+          image: i.image,
+        })),
+        subtotal,
+        shipping: shippingAmount,
+        discountCode,
+        discountAmount,
+        total: totalPayable,
+        date: new Date().toLocaleDateString('en-IN', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
         }),
-      });
+      };
 
-      const result = await parseJsonSafely<CreatePaymentResponse>(response);
-      if (!response.ok || !result.ok || !result.checkoutUrl) {
-        throw new Error(result.error || 'Failed to initiate payment.');
-      }
-
-      window.location.assign(result.checkoutUrl);
-    } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : GENERIC_BACKEND_ERROR);
+      setConfirmedOrder(orderSnapshot);
+      clearCart();
       setIsSubmitting(false);
-    }
-  }
+
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 700);
+  };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#E9ECD9]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FAF6EC]">
       <Navbar />
 
-      <section className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-36 md:px-10 md:pt-44">
-        <h1 className="text-center text-[clamp(3rem,6vw,6rem)] leading-[0.92] text-[#E61E6E] font-coolvetica">
-          Checkout
-        </h1>
-
-        <p className="mx-auto mt-3 max-w-[920px] text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.08] text-[#2E2A2A] font-schoolbell">
-          please fill your details carefully
-        </p>
-
-        <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-3xl bg-[#FCF4FD] p-5 md:p-7"
-          >
-            <p className="text-[clamp(1.8rem,2.4vw,2.6rem)] leading-none text-[#E61E6E] font-coolvetica">
-              Delivery details
-            </p>
-
-            <div className="mt-5 grid gap-3 md:grid-cols-2">
-              <label className="flex flex-col gap-1 md:col-span-2">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Full Name</span>
-                <input
-                  required
-                  minLength={2}
-                  maxLength={120}
-                  value={formState.fullName}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, fullName: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Email</span>
-                <input
-                  required
-                  type="email"
-                  maxLength={160}
-                  value={formState.email}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, email: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Phone</span>
-                <input
-                  required
-                  type="tel"
-                  minLength={8}
-                  maxLength={18}
-                  value={formState.phone}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, phone: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1 md:col-span-2">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Address Line 1</span>
-                <input
-                  required
-                  minLength={3}
-                  maxLength={200}
-                  value={formState.line1}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, line1: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1 md:col-span-2">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Address Line 2 (optional)</span>
-                <input
-                  maxLength={200}
-                  value={formState.line2}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, line2: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">City</span>
-                <input
-                  required
-                  minLength={2}
-                  maxLength={80}
-                  value={formState.city}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, city: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">State</span>
-                <input
-                  required
-                  minLength={2}
-                  maxLength={80}
-                  value={formState.state}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, state: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1 md:col-span-2">
-                <span className="text-[1.1rem] text-[#2E2A2A] font-schoolbell">Postal Code</span>
-                <input
-                  required
-                  minLength={3}
-                  maxLength={12}
-                  value={formState.postalCode}
-                  onChange={(event) =>
-                    setFormState((prev) => ({ ...prev, postalCode: event.target.value }))
-                  }
-                  className="rounded-xl border border-[#C6C6B9] bg-white px-3 py-2 text-[#1D1D1D]"
-                />
-              </label>
+      {/* =========================================================================
+          CONFIRMED DEMO ORDER SCREEN
+          ========================================================================= */}
+      {confirmedOrder ? (
+        <section className="mx-auto w-full max-w-[960px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
+          <div className="rounded-3xl border-3 border-[#163300] bg-white p-6 shadow-[6px_6px_0px_#163300] md:p-10">
+            {/* Header Badge */}
+            <div className="text-center">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F557] border-2 border-[#163300] text-3xl shadow-[3px_3px_0px_#163300]">
+                🥒
+              </div>
+              <h1 className="mt-4 font-coolvetica text-[clamp(2.4rem,4.5vw,3.6rem)] text-[#E81B6D] leading-tight">
+                Order Received!
+              </h1>
+              <p className="mt-1 font-schoolbell text-[1.3rem] text-[#163300]">
+                Demo Order Reference:{' '}
+                <span className="font-bold underline text-[#E81B6D]">
+                  {confirmedOrder.reference}
+                </span>
+              </p>
             </div>
 
-            {errorMessage ? (
-              <p className="mt-4 text-[1rem] text-[#9F1C74] font-schoolbell">{errorMessage}</p>
-            ) : null}
+            {/* MANDATORY CLIENT DEMO NOTICE BANNER */}
+            <div className="mt-6 rounded-2xl border-2 border-[#E81B6D] bg-[#FFEBF3] p-4 text-center">
+              <p className="font-coolvetica text-[1.15rem] font-bold text-[#E81B6D] uppercase tracking-wide">
+                Demo Notice
+              </p>
+              <p className="mt-1 font-schoolbell text-[1.1rem] text-[#163300]">
+                This is a demo order. No payment has been processed and no actual order has been placed.
+              </p>
+            </div>
 
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className="mt-6 inline-flex w-[min(100%,360px)] aspect-[256/67] items-center justify-center bg-[url('/home/readmyrantcta.svg')] bg-contain bg-center bg-no-repeat px-8 text-center text-[clamp(1.2rem,2.1vw,2rem)] leading-none text-[#FFF8F8] font-schoolbell transition duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E61E7A] disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              <span className="relative -translate-y-[6px]">
-                {isSubmitting ? 'redirecting to phonepe...' : 'pay with phonepe →'}
-              </span>
-            </button>
-          </form>
-
-          <aside className="h-fit rounded-3xl border-2 border-[#A8D64A] bg-[#F4FFD9] p-5 md:p-7">
-            <p className="text-[clamp(1.8rem,2.4vw,2.6rem)] leading-none text-[#2D5A0D] font-coolvetica">
-              Your order
-            </p>
-
-            {items.length === 0 ? (
-              <div className="mt-5">
-                <p className="text-[1.2rem] leading-[1.2] text-[#2E2A2A] font-schoolbell">
-                  Your cart is empty.
-                </p>
-                <Link
-                  href="/product"
-                  className="mt-3 inline-block text-[1.1rem] text-[#2D5A0D] underline font-schoolbell"
-                >
-                  Browse products
-                </Link>
+            {/* Order Details Grid */}
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              {/* Customer & Delivery */}
+              <div className="rounded-2xl border-2 border-[#163300] bg-[#FAF6EC] p-5">
+                <h3 className="font-coolvetica text-[1.3rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+                  Delivery Details
+                </h3>
+                <div className="mt-3 space-y-1.5 font-schoolbell text-[1.1rem] text-[#163300]">
+                  <p>
+                    <strong>Name:</strong> {confirmedOrder.customer.fullName}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {confirmedOrder.customer.email}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong> {confirmedOrder.customer.phone}
+                  </p>
+                  <p>
+                    <strong>Address:</strong> {confirmedOrder.customer.line1}
+                    {confirmedOrder.customer.line2 ? `, ${confirmedOrder.customer.line2}` : ''}
+                  </p>
+                  <p>
+                    <strong>City / State:</strong> {confirmedOrder.customer.city},{' '}
+                    {confirmedOrder.customer.state} - {confirmedOrder.customer.postalCode}
+                  </p>
+                  <p className="pt-2 text-[0.95rem] text-[#556947]">
+                    <strong>Placed On:</strong> {confirmedOrder.date}
+                  </p>
+                </div>
               </div>
-            ) : (
-              <>
-                <div className="mt-5 space-y-3">
-                  {items.map((item) => (
-                    <div key={item.slug} className="flex items-start justify-between gap-3">
-                      <p className="text-[1.05rem] leading-[1.2] text-[#2E2A2A]">
-                        {item.name} x {item.quantity}
-                      </p>
-                      <p className="text-[1.05rem] leading-[1.2] text-[#2E2A2A]">
-                        {formatInr(serverLineTotalsBySlug[item.slug] ?? item.price * item.quantity)}
+
+              {/* Order Summary */}
+              <div className="rounded-2xl border-2 border-[#163300] bg-[#FAF6EC] p-5">
+                <h3 className="font-coolvetica text-[1.3rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+                  Items Purchased
+                </h3>
+                <div className="mt-3 divide-y divide-[#E0DACB] space-y-2">
+                  {confirmedOrder.items.map((item) => (
+                    <div
+                      key={item.slug}
+                      className="flex items-center justify-between pt-2 text-[1.05rem]"
+                    >
+                      <div>
+                        <p className="font-coolvetica font-bold text-[#163300]">{item.name}</p>
+                        <p className="font-schoolbell text-[0.95rem] text-[#556947]">
+                          Qty: {item.quantity} × {formatInr(item.price)}
+                        </p>
+                      </div>
+                      <p className="font-coolvetica font-bold text-[#163300]">
+                        {formatInr(item.price * item.quantity)}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-5 border-t border-[#9FCF41] pt-4">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[1.25rem] leading-none text-[#2D5A0D] font-coolvetica">
-                      Items ({itemCount})
-                    </p>
-                    <p className="text-[1.25rem] leading-none text-[#2D5A0D] font-coolvetica">
-                      {formatInr(subtotalForDisplay)}
-                    </p>
+                <div className="mt-4 border-t-2 border-[#163300] pt-3 font-schoolbell text-[1.1rem] text-[#163300] space-y-1.5">
+                  <div className="flex justify-between">
+                    <span>Subtotal</span>
+                    <span>{formatInr(confirmedOrder.subtotal)}</span>
                   </div>
-                  <div className="mt-2 flex items-center justify-between">
-                    <p className="text-[1.1rem] leading-none text-[#365A17] font-schoolbell">Shipping</p>
-                    <p className="text-[1.1rem] leading-none text-[#365A17] font-schoolbell">
-                      {formatInr(shippingForDisplay)}
-                    </p>
+                  <div className="flex justify-between">
+                    <span>Shipping (Demo Flat Rate)</span>
+                    <span>{formatInr(confirmedOrder.shipping)}</span>
                   </div>
-                  {appliedDiscountCodeForDisplay ? (
-                    <div className="mt-2 flex items-center justify-between">
-                      <p className="text-[1.1rem] leading-none text-[#365A17] font-schoolbell">
-                        Discount ({appliedDiscountCodeForDisplay})
-                      </p>
-                      <p className="text-[1.1rem] leading-none text-[#365A17] font-schoolbell">
-                        -{formatInr(discountForDisplay)}
-                      </p>
+                  {confirmedOrder.discountAmount > 0 && (
+                    <div className="flex justify-between text-[#E81B6D]">
+                      <span>Discount ({confirmedOrder.discountCode})</span>
+                      <span>-{formatInr(confirmedOrder.discountAmount)}</span>
                     </div>
-                  ) : null}
-                  <div className="mt-3 flex items-center justify-between border-t border-[#9FCF41] pt-3">
-                    <p className="text-[1.35rem] leading-none text-[#2D5A0D] font-coolvetica">Total payable</p>
-                    <p className="text-[1.35rem] leading-none text-[#2D5A0D] font-coolvetica">
-                      {formatInr(totalPayable)}
-                    </p>
+                  )}
+                  <div className="flex justify-between pt-2 border-t border-[#163300] font-coolvetica text-[1.35rem] font-bold text-[#163300]">
+                    <span>Total</span>
+                    <span>{formatInr(confirmedOrder.total)}</span>
                   </div>
-                  {appliedDiscountCodeForDisplay ? (
-                    <p className="mt-2 text-[0.95rem] leading-[1.2] text-[#365A17] font-schoolbell">
-                      {discountPercentForDisplay}% off applied with {appliedDiscountCodeForDisplay}.
-                    </p>
-                  ) : null}
-                  {quoteError ? (
-                    <p className="mt-2 text-[0.95rem] leading-[1.2] text-[#9F1C74] font-schoolbell">
-                      {quoteError}
-                    </p>
-                  ) : null}
                 </div>
-              </>
-            )}
-          </aside>
-        </div>
-      </section>
+              </div>
+            </div>
 
-      <SiteFooter />
+            {/* Back to Shop Button */}
+            <div className="mt-8 text-center">
+              <Link
+                href="/product"
+                className="inline-flex items-center justify-center rounded-full border-2 border-[#163300] bg-[#D7F557] px-8 py-4 font-coolvetica text-[1.25rem] font-bold text-[#163300] shadow-[4px_4px_0px_#163300] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#163300]"
+              >
+                Continue Shopping →
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* =========================================================================
+            CHECKOUT FORM & ORDER SUMMARY SCREEN
+            ========================================================================= */
+        <section className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
+          <div className="text-center">
+            <span className="inline-block rounded-full border-2 border-[#163300] bg-[#FFE664] px-4 py-1 font-schoolbell text-[1.05rem] text-[#163300] shadow-[2px_2px_0px_#163300]">
+              *client presentation demo*
+            </span>
+            <h1 className="mt-3 font-coolvetica text-[clamp(2.8rem,5.5vw,4.8rem)] text-[#E81B6D] leading-[0.95]">
+              Demo Checkout
+            </h1>
+            <p className="mt-2 font-schoolbell text-[clamp(1.2rem,2.2vw,1.6rem)] text-[#163300]">
+              Simulate the complete Sourboo ordering experience
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+            {/* Form Column */}
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-3xl border-3 border-[#163300] bg-white p-6 shadow-[5px_5px_0px_#163300] md:p-8"
+              noValidate
+            >
+              <div className="flex items-center justify-between border-b-2 border-[#163300] pb-3">
+                <h2 className="font-coolvetica text-[1.8rem] text-[#163300]">
+                  1. Delivery Details
+                </h2>
+                <span className="font-schoolbell text-[0.95rem] text-[#556947]">
+                  *all fields required
+                </span>
+              </div>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <label className="flex flex-col gap-1 md:col-span-2">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Full Name</span>
+                  <input
+                    required
+                    placeholder="e.g. Sakshi Agarwal"
+                    value={formState.fullName}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, fullName: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Email</span>
+                  <input
+                    required
+                    type="email"
+                    placeholder="you@example.com"
+                    value={formState.email}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, email: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Phone</span>
+                  <input
+                    required
+                    type="tel"
+                    placeholder="9876543210"
+                    value={formState.phone}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, phone: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1 md:col-span-2">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Address Line 1</span>
+                  <input
+                    required
+                    placeholder="Flat / House No., Street, Building"
+                    value={formState.line1}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, line1: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1 md:col-span-2">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Address Line 2 (optional)</span>
+                  <input
+                    placeholder="Landmark, Area"
+                    value={formState.line2}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, line2: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">City</span>
+                  <input
+                    required
+                    placeholder="e.g. Mumbai"
+                    value={formState.city}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, city: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">State</span>
+                  <input
+                    required
+                    placeholder="e.g. Maharashtra"
+                    value={formState.state}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, state: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-1 md:col-span-2">
+                  <span className="font-schoolbell text-[1.05rem] text-[#163300]">Postal / PIN Code</span>
+                  <input
+                    required
+                    placeholder="e.g. 400001"
+                    value={formState.postalCode}
+                    onChange={(e) =>
+                      setFormState((prev) => ({ ...prev, postalCode: e.target.value }))
+                    }
+                    className="rounded-xl border-2 border-[#163300] bg-[#FAF6EC] px-3.5 py-2.5 font-coolvetica text-[#163300] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                  />
+                </label>
+              </div>
+
+              {errorMessage && (
+                <div className="mt-4 rounded-xl border-2 border-[#E81B6D] bg-[#FFEBF3] p-3 text-center">
+                  <p className="font-schoolbell text-[1rem] text-[#E81B6D] font-bold">
+                    {errorMessage}
+                  </p>
+                </div>
+              )}
+
+              <div className="mt-6">
+                <button
+                  type="submit"
+                  disabled={!canSubmit}
+                  className="w-full rounded-2xl border-2 border-[#163300] bg-[#E81B6D] py-4 text-center font-coolvetica text-[1.35rem] font-bold text-white shadow-[4px_4px_0px_#163300] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#163300] active:translate-x-0 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Confirming Demo Order...' : 'Complete Demo Order →'}
+                </button>
+                <p className="mt-2 text-center font-schoolbell text-[0.95rem] text-[#556947]">
+                  No real payment will be charged. This completes the simulated client demonstration.
+                </p>
+              </div>
+            </form>
+
+            {/* Order Summary Column */}
+            <aside className="h-fit rounded-3xl border-3 border-[#163300] bg-[#D7F557] p-6 shadow-[5px_5px_0px_#163300] md:p-8">
+              <h2 className="font-coolvetica text-[1.8rem] text-[#163300] border-b-2 border-[#163300] pb-2">
+                Order Summary ({itemCount})
+              </h2>
+
+              {items.length === 0 ? (
+                <div className="mt-6 text-center">
+                  <p className="font-schoolbell text-[1.2rem] text-[#163300]">
+                    Your bag is empty!
+                  </p>
+                  <Link
+                    href="/product"
+                    className="mt-3 inline-block rounded-full border-2 border-[#163300] bg-white px-5 py-2 font-coolvetica text-[1rem] text-[#163300] shadow-[2px_2px_0px_#163300]"
+                  >
+                    Browse Stash →
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="mt-4 divide-y divide-[#BEDC3D] space-y-3">
+                    {items.map((item) => (
+                      <div
+                        key={item.slug}
+                        className="flex items-center justify-between pt-2 text-[#163300]"
+                      >
+                        <div>
+                          <p className="font-coolvetica font-bold text-[1.1rem]">{item.name}</p>
+                          <p className="font-schoolbell text-[0.95rem]">
+                            Qty: {item.quantity} × {formatInr(item.price)}
+                          </p>
+                        </div>
+                        <p className="font-coolvetica font-bold text-[1.15rem]">
+                          {formatInr(item.price * item.quantity)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 border-t-2 border-[#163300] pt-4 font-schoolbell text-[1.1rem] text-[#163300] space-y-2">
+                    <div className="flex justify-between">
+                      <span>Subtotal</span>
+                      <span className="font-bold">{formatInr(subtotal)}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span>Shipping (Demo Standard)</span>
+                      <span className="font-bold">{formatInr(shippingAmount)}</span>
+                    </div>
+
+                    {discountAmount > 0 && (
+                      <div className="flex justify-between text-[#E81B6D] font-bold">
+                        <span>Discount ({discountCode || `${discountPercent}% OFF`})</span>
+                        <span>-{formatInr(discountAmount)}</span>
+                      </div>
+                    )}
+
+                    <div className="flex items-center justify-between border-t-2 border-[#163300] pt-3 font-coolvetica text-[1.45rem] font-bold text-[#163300]">
+                      <span>Total Payable</span>
+                      <span className="text-[#E81B6D]">{formatInr(totalPayable)}</span>
+                    </div>
+                  </div>
+
+                  {discountCode && (
+                    <div className="mt-4 rounded-xl border border-[#163300] bg-white p-2.5 text-center font-schoolbell text-[0.95rem] text-[#163300]">
+                      🎉 Code <span className="font-bold text-[#E81B6D]">{discountCode}</span>{' '}
+                      applied!
+                    </div>
+                  )}
+                </>
+              )}
+            </aside>
+          </div>
+        </section>
+      )}
+
+      <HomepageFooter />
     </main>
   );
 }

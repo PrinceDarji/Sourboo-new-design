@@ -33,9 +33,10 @@ export default function Navbar() {
           <Link href="/" className="sb-nav-logo-link" aria-label="Sourboo Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.svg"
+              src="/logo-green.svg"
               alt="Sourboo"
               className="sb-nav-real-logo"
+              style={{ height: '36px', width: 'auto', display: 'block' }}
             />
           </Link>
 
@@ -47,16 +48,16 @@ export default function Navbar() {
               Home
             </Link>
             <Link
+              href="/about"
+              className={`sb-nav-link ${isActive('/about') ? 'active' : ''}`}
+            >
+              Our Story
+            </Link>
+            <Link
               href="/product"
               className={`sb-nav-link ${isActive('/product') ? 'active' : ''}`}
             >
               Shop
-            </Link>
-            <Link
-              href="/about"
-              className={`sb-nav-link ${isActive('/about') ? 'active' : ''}`}
-            >
-              About
             </Link>
             <Link
               href="/join"

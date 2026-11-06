@@ -1638,9 +1638,12 @@ input, button, select, textarea {
   transition: opacity 0.3s ease;
 }
 
-.sb-cart-drawer-overlay.open {
+.sb-cart-drawer-overlay.open,
+.sb-cart-drawer-overlay.is-open,
+.sb-cart-drawer-overlay.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .sb-cart-drawer {
@@ -1661,8 +1664,11 @@ input, button, select, textarea {
   box-shadow: -10px 0 30px rgba(0,0,0,0.25);
 }
 
-.sb-cart-drawer.open {
+.sb-cart-drawer.open,
+.sb-cart-drawer.is-open,
+.sb-cart-drawer.active {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .sb-cart-header {

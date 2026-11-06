@@ -299,16 +299,32 @@
     openDrawer() {
       const drawer = document.getElementById('CartDrawer');
       const overlay = document.getElementById('CartDrawerOverlay');
-      if (drawer) drawer.classList.add('open');
-      if (overlay) overlay.classList.add('open');
+      if (drawer) {
+        drawer.classList.add('open');
+        drawer.classList.add('is-open');
+        drawer.classList.add('active');
+      }
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.classList.add('is-open');
+        overlay.classList.add('active');
+      }
       document.body.style.overflow = 'hidden';
     },
 
     closeDrawer() {
       const drawer = document.getElementById('CartDrawer');
       const overlay = document.getElementById('CartDrawerOverlay');
-      if (drawer) drawer.classList.remove('open');
-      if (overlay) overlay.classList.remove('open');
+      if (drawer) {
+        drawer.classList.remove('open');
+        drawer.classList.remove('is-open');
+        drawer.classList.remove('active');
+      }
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.classList.remove('is-open');
+        overlay.classList.remove('active');
+      }
       document.body.style.overflow = '';
     },
 
@@ -412,6 +428,17 @@
           const quantity = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
 
           this.addItem({ slug, name, price, image, quantity });
+
+          // If on Shopify platform, post to Shopify Cart Ajax API
+          if (window.Shopify) {
+            fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({ items: [{ id: slug, quantity: quantity }] }),
+            }).catch(() => {});
+          }
+
+          this.openDrawer();
         });
       });
 

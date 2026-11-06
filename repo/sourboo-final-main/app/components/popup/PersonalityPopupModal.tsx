@@ -90,16 +90,25 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
     return () => clearTimeout(timer);
   }, [pathname, initialOpen]);
 
-  // Prevent background scroll when open
+  // Prevent background scroll when open & handle Escape key
   useEffect(() => {
     if (isOpen) {
       const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
       return () => {
         document.body.style.overflow = prevOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [isOpen]);
+  }, [isOpen, closeModal]);
 
   const handleSelectOption = (personality: string) => {
     setChosenPersonality(personality);
@@ -195,8 +204,23 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   onClick={() => handleSelectOption(opt.personality)}
                   className={`sb-popup-option-btn sb-choice-${opt.key}`}
                   data-personality={opt.personality}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    borderColor: '#1E3514',
+                    color: '#1E3514',
+                    boxShadow: '3.5px 3.5px 0px #1E3514',
+                  }}
                 >
-                  <span className="sb-popup-option-text" style={{ color: '#171717', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '0.01em' }}>
+                  <span
+                    className="sb-popup-option-text"
+                    style={{
+                      color: '#1E3514',
+                      fontWeight: 800,
+                      fontSize: '1.25rem',
+                      letterSpacing: '0.01em',
+                      fontFamily: 'Coolvetica, sans-serif',
+                    }}
+                  >
                     {opt.label}
                   </span>
                 </button>
