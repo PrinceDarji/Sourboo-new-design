@@ -86,19 +86,35 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
       className={`sbx-game ${selected ? `has-p${selected}` : ''}`}
       aria-labelledby={`${id}-title`}
     >
-      <div className="sbx-game__hud" aria-hidden="true">
-        <span className={`sbx-game__tag sbx-game__tag--p1 ${selected === 1 ? 'is-on' : ''}`}>PLAYER 1</span>
-        <span className="sbx-game__coin">
+      <div className="sbx-game__hud" role="group" aria-label="Choose a flavour player">
+        <button
+          type="button"
+          className={`sbx-game__tag sbx-game__tag--p1 ${selected === 1 ? 'is-on' : ''}`}
+          aria-pressed={selected === 1}
+          onClick={() => setSelected(1)}
+        >
+          <span className="sbx-game__tag-cue" aria-hidden="true">▶</span>
+          PLAYER 1
+        </button>
+        <span className="sbx-game__coin" aria-hidden="true">
           <span />
         </span>
-        <span className={`sbx-game__tag sbx-game__tag--p2 ${selected === 2 ? 'is-on' : ''}`}>PLAYER 2</span>
+        <button
+          type="button"
+          className={`sbx-game__tag sbx-game__tag--p2 ${selected === 2 ? 'is-on' : ''}`}
+          aria-pressed={selected === 2}
+          onClick={() => setSelected(2)}
+        >
+          <span className="sbx-game__tag-cue" aria-hidden="true">▶</span>
+          PLAYER 2
+        </button>
       </div>
 
       <div className="sbx-game__head">
         <h2 id={`${id}-title`} className="sbx-game__title">
           can&apos;t decide?
         </h2>
-        <p className="sbx-game__sub font-schoolbell">let&apos;s match you with your flavour ;)</p>
+        <p className="sbx-game__sub">let&apos;s match you with your flavour ;)</p>
       </div>
 
       <div className="sbx-game__arena">
@@ -115,7 +131,7 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
                 aria-controls={`${id}-result-${player.id}`}
               >
                 <span className="sbx-game__player">PLAYER {player.id}</span>
-                <span className="sbx-game__prompt font-schoolbell">
+                <span className="sbx-game__prompt">
                   {player.prompt.map((line) => (
                     <span key={line}>{line}</span>
                   ))}
@@ -144,11 +160,11 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
                         <Image src={player.jar} alt={product?.name ?? ''} fill sizes="140px" quality={78} />
                       </span>
                       <div>
-                        <p className="sbx-game__locked-title font-schoolbell">selection locked:</p>
-                        <Link href={`/product/${player.slug}`} className="sbx-game__cta font-rascal">
+                        <p className="sbx-game__locked-title">selection locked:</p>
+                        <Link href={`/product/${player.slug}`} className="sbx-game__cta">
                           {player.ctaText}
                         </Link>
-                        {player.closing ? <p className="sbx-game__closing font-schoolbell">{player.closing}</p> : null}
+                        {player.closing ? <p className="sbx-game__closing">{player.closing}</p> : null}
                       </div>
                     </div>
                   </>

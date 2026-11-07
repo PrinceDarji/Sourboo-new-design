@@ -4,8 +4,8 @@
 
 .sbx-shop {
   overflow-x: clip;
-  background: var(--sbx-cream);
-  color: var(--sbx-ink);
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
   font-family: var(--sbx-display);
 }
 
@@ -24,7 +24,10 @@
 
 .sbx-shop__kicker {
   margin: 0 0 10px;
-  color: var(--sbx-purple-ink);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--sbx-purple);
   font-size: clamp(1.2rem, 2vw, 1.7rem);
   transform: rotate(-2deg);
   transform-origin: left;

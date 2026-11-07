@@ -47,16 +47,16 @@ export default function HomeHero() {
 
       <div className="sbx-hero__content">
         <h1 id="sbx-hero-title" className="sbx-hero__title">
-          <span className="sbx-hero__kicker font-rascal">*the sourboo way, cravings comes first*</span>{' '}
+          <span className="sbx-hero__kicker">*the sourboo way, cravings comes first*</span>{' '}
           <span className="sbx-hero__headline">
             <Word>Mouths</Word> <Word>That</Word> <LayeredWord tone="lime">Misbehave</LayeredWord>{' '}
-            <span className="sbx-hero__and font-rascal">and</span> <Word>India’s</Word> <Word>First</Word>{' '}
-            <LayeredWord tone="lilac">Cult</LayeredWord> <LayeredWord tone="lemon">Sour</LayeredWord>{' '}
+            <span className="sbx-hero__and">and</span> <Word>India’s</Word> <Word>First</Word>{' '}
+            <LayeredWord tone="amber">Cult</LayeredWord> <LayeredWord tone="lemon">Sour</LayeredWord>{' '}
             <Word>Snack.</Word>
           </span>{' '}
           <span className="sbx-hero__lede">
-            Snackable pickled gherkins made to be <span className="sbx-hero__scribble">bold,</span> made to be{' '}
-            <span className="sbx-hero__scribble">yours.</span>
+            Snackable pickled gherkins made to be <LayeredWord tone="lime">bold,</LayeredWord> made to be{' '}
+            <LayeredWord tone="amber">yours.</LayeredWord>
           </span>
         </h1>
       </div>

@@ -5,21 +5,21 @@
 
 /* ── COLOR TOKENS ── */
 :root {
-  --sb-bg: #EBDDF8;
+  --sb-bg: #8B5CF6;
   --sb-bg-card: #FFFFFF;
-  --sb-cream: #EBDDF8;
+  --sb-cream: #FFFFFF;
   --sb-yellow: #D7F557;
   --sb-lime-btn: #D7F557;
   --sb-lime-btn-hover: #8B5CF6;
   --sb-pink: #E81B6D;
   --sb-pink-hot: #E81B6D;
-  --sb-pink-light: #EBDDF8;
+  --sb-pink-light: #FFFFFF;
   --sb-pink-card: #E81B6D;
   --sb-green-dark: #8B5CF6;
   --sb-green-moss: #8B5CF6;
   --sb-green-ribbon: #8B5CF6;
   --sb-green-light: #D7F557;
-  --sb-orange-light: #EBDDF8;
+  --sb-orange-light: #FFFFFF;
   --sb-charcoal: #8B5CF6;
   --sb-text-muted: #8B5CF6;
   --sb-border-dark: #8B5CF6;

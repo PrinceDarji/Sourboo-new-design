@@ -2,7 +2,9 @@ import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
 import SiteFooter from '../components/SiteFooter';
 import Highlight from '../components/site/Highlight';
+import AboutTongue from '../components/about/AboutTongue';
 import '../sourboo-about.css';
+import '../sourboo-home.css';
 import type { Metadata } from 'next';
 
 export const revalidate = 300;
@@ -41,38 +43,22 @@ export default function AboutPage() {
         <div className="sb-ab-container sb-ab-hero-grid">
           {/* Left Column: Heading & Subtitle */}
           <div className="sb-ab-hero-text">
-            <div className="sb-ab-pill-tag-row sb-entry-stamp sb-delay-1">
-              <span className="sb-ab-pill-tag">About Sourboo</span>
-              <svg className="sb-ab-pink-squiggle" viewBox="0 0 60 12" fill="none" aria-hidden="true">
-                <path
-                  d="M2 7C9 2 17 11 25 6C33 1 41 11 49 6C53 3.5 56 5 58 7"
-                  stroke="#E81B6D"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
+            <p className="sb-ab-hero-kicker">hi i am sakshi, and i am really glad you are here</p>
 
-            <h1 className="sb-ab-hero-heading sb-entry-pop sb-delay-2">
+            <h1 className="sb-ab-hero-heading">
               The pickle project
               <br />
-              that got{' '}
-              <span className="sb-ab-pink-box">
-                <Highlight>out of hand.</Highlight>
-                <svg className="sb-ab-brush-sparks" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                  <path d="M4 28L12 20M2 14L14 14M10 2L14 12" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>
+              that got <Highlight>out of hand.</Highlight>
             </h1>
 
-            <p className="sb-ab-hero-sub sb-entry-pop sb-delay-3">
+            <p className="sb-ab-hero-sub">
               Born from a serious love for tangy, punchy and slightly unhinged flavours.
             </p>
           </div>
 
           {/* Right Column: Cutout photo with pink burst & speech arrow */}
           <div className="sb-ab-hero-media">
-            <div className="sb-ab-founder-frame sb-entry-jar-drop sb-delay-3">
+            <div className="sb-ab-founder-frame">
               {/* Pink Doodle Rays radiating upward */}
               <div className="sb-ab-pink-rays" aria-hidden="true">
                 <svg viewBox="0 0 90 50" fill="none" stroke="#E81B6D" strokeWidth="3" strokeLinecap="round">
@@ -85,25 +71,14 @@ export default function AboutPage() {
 
               {/* Hand-drawn arrow & yellow pill sticker */}
               <div className="sb-ab-founder-sticker-wrap">
-                <svg className="sb-ab-sticker-arrow" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <path
-                    d="M10 8C20 4 32 12 28 26C26 31 22 34 16 36M16 36L22 32M16 36L20 40"
-                    stroke="#8B5CF6"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="sb-ab-founder-sticker">
-                  The Founder (Also Chief Pickle Addict) 🥒
-                </div>
+                <p className="sb-ab-founder-sticker">The Founder (Also Chief Pickle Addict)</p>
               </div>
 
               {/* Founder Image */}
               <div className="sb-ab-founder-img-holder">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/about-cover.JPG"
+                  src="/about/about-cover.JPG"
                   alt="Sourboo Founder Sakshi eating pickled gherkins"
                   className="sb-ab-founder-img"
                 />
@@ -120,16 +95,7 @@ export default function AboutPage() {
         <div className="sb-ab-container sb-ab-values-outer">
           {/* Floating Pickle Slice Left */}
           <div className="sb-ab-pickle-slice left" aria-hidden="true">
-            <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
-              <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
-              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#8B5CF6" transform="rotate(5 49 45)" />
-              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
-              <circle cx="61" cy="40" r="1.5" fill="#8B5CF6" />
-            </svg>
+            <img src="/about/section-three-eyes.webp" alt="" width="110" height="70" />
           </div>
 
           {/* Main Rounded Green Bar */}
@@ -137,13 +103,7 @@ export default function AboutPage() {
             {/* Value 1: Big on Flavour */}
             <div className="sb-ab-value-col">
               <div className="sb-ab-val-icon">
-                <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
-                  <rect x="12" y="7" width="24" height="6" rx="3" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" />
-                  <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="2.5" />
-                  <ellipse cx="24" cy="28" rx="6" ry="9" fill="#D7F557" stroke="#8B5CF6" strokeWidth="1.5" />
-                  <ellipse cx="24" cy="28" rx="4" ry="6" fill="#FFFFFF" />
-                  <circle cx="23" cy="27" r="1" fill="#8B5CF6" />
-                </svg>
+                <img src="/product/side-eye-jar.png" alt="" width="42" height="68" />
               </div>
               <div className="sb-ab-val-text-wrap">
                 <span className="sb-ab-val-title">
@@ -157,13 +117,7 @@ export default function AboutPage() {
             {/* Value 2: Real Ingredients */}
             <div className="sb-ab-value-col">
               <div className="sb-ab-val-icon">
-                <svg viewBox="0 0 54 48" width="46" height="40" fill="none">
-                  <ellipse cx="20" cy="26" rx="15" ry="11" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(-20 20 26)" />
-                  <ellipse cx="20" cy="26" rx="10" ry="7" fill="#FFFFFF" transform="rotate(-20 20 26)" />
-                  <ellipse cx="34" cy="24" rx="15" ry="11" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(22 34 24)" />
-                  <ellipse cx="34" cy="24" rx="10" ry="7" fill="#FFFFFF" transform="rotate(22 34 24)" />
-                  <circle cx="34" cy="24" r="1.5" fill="#8B5CF6" />
-                </svg>
+                <img src="/home/ingredients/lemon-wedge.png" alt="" width="46" height="46" />
               </div>
               <div className="sb-ab-val-text-wrap">
                 <span className="sb-ab-val-title">Real Ingredients</span>
@@ -175,15 +129,7 @@ export default function AboutPage() {
             {/* Value 3: For Real Life Cravings */}
             <div className="sb-ab-value-col">
               <div className="sb-ab-val-icon">
-                <svg viewBox="0 0 44 48" width="36" height="40" fill="none">
-                  <polygon
-                    points="26,4 12,25 22,25 18,44 34,21 24,21"
-                    fill="#D7F557"
-                    stroke="#8B5CF6"
-                    strokeWidth="2.5"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img src="/home/ingredients/red-chilli.png" alt="" width="52" height="22" />
               </div>
               <div className="sb-ab-val-text-wrap">
                 <span className="sb-ab-val-title">For Real Life Cravings</span>
@@ -193,15 +139,7 @@ export default function AboutPage() {
 
           {/* Floating Pickle Slice Right */}
           <div className="sb-ab-pickle-slice right" aria-hidden="true">
-            <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
-              <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
-              <ellipse cx="49" cy="45" rx="3.5" ry="1.8" fill="#8B5CF6" transform="rotate(5 49 45)" />
-              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
-            </svg>
+            <img src="/about/eyes2.webp" alt="" width="90" height="70" />
           </div>
         </div>
       </section>
@@ -221,40 +159,24 @@ export default function AboutPage() {
               <div className="sb-ab-polaroid-img-box">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/home/recipe-2.webp"
-                  alt="Sourboo pickle jars on rustic cutting board with pickled snack bowl"
+                  src="/about/section-two-1.webp"
+                  alt="Sakshi mixing drinks with friends behind a bar"
                   className="sb-ab-polaroid-img"
                 />
               </div>
 
               {/* Doodle Cartoon Eyes looking up */}
               <div className="sb-ab-polaroid-eyes" aria-hidden="true">
-                <svg viewBox="0 0 64 42" width="60" height="40" fill="none">
-                  {/* Left eye */}
-                  <ellipse cx="20" cy="22" rx="16" ry="18" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="3" />
-                  <ellipse cx="24" cy="18" rx="8" ry="9" fill="#8B5CF6" />
-                  <circle cx="27" cy="15" r="3" fill="#FFFFFF" />
-                  <path d="M6 10C12 4 24 5 30 11" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
-
-                  {/* Right eye */}
-                  <ellipse cx="46" cy="22" rx="14" ry="16" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="3" />
-                  <ellipse cx="50" cy="18" rx="7" ry="8" fill="#8B5CF6" />
-                  <circle cx="53" cy="15" r="2.5" fill="#FFFFFF" />
-                  <path d="M36 11C42 5 54 6 58 12" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
+                <img src="/about/section-three-eyes.webp" alt="" width="88" height="56" />
               </div>
             </div>
           </div>
 
           {/* Right Column: Story Copy & Yellow Pill */}
           <div className="sb-ab-story-text-col">
-            <div className="sb-ab-story-tag-wrap">
-              <span className="sb-ab-story-pill">Our Story</span>
-              {/* Pink Doodles near the tag */}
-              <svg className="sb-ab-story-spark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                <path d="M4 18L14 10L10 24L26 12M24 28L32 20" stroke="#E81B6D" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
-            </div>
+            <p className="sb-ab-story-kicker">
+              <Highlight>Our Story</Highlight>
+            </p>
 
             <p className="sb-ab-story-para">
               It started with late-night cravings, fridge experiments and a very serious question —
@@ -271,6 +193,23 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <section className="sb-ab-life" aria-label="Mixing, tasting, living loud">
+        <figure className="sb-ab-life__shot sb-ab-life__shot--a">
+          <img src="/about/section-two-2.webp" alt="Sakshi with the bar team tasting and working hospitality shifts" />
+        </figure>
+        <figure className="sb-ab-life__shot sb-ab-life__shot--b">
+          <img src="/about/section-two-3.webp" alt="Sakshi tasting and celebrating with friends" />
+        </figure>
+        <figure className="sb-ab-life__shot sb-ab-life__shot--c">
+          <img src="/about/section-six-top-2.webp" alt="Sourboo tasting moment at an event" />
+        </figure>
+        <p className="sb-ab-life__note">
+          Mixing things. Tasting everything. Different lives, same cravings.
+        </p>
+      </section>
+
+      <AboutTongue />
 
       {/* =========================================================================
           4. THE SOURBOO WAY: Left Heading + Soft Yellow Container with 3 pillars
@@ -306,12 +245,7 @@ export default function AboutPage() {
               {/* Pillar 1: Simple, real ingredients */}
               <div className="sb-ab-pillar-item">
                 <div className="sb-ab-pillar-icon">
-                  <svg viewBox="0 0 54 48" width="48" height="42" fill="none">
-                    <ellipse cx="20" cy="26" rx="14" ry="10" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(-20 20 26)" />
-                    <ellipse cx="20" cy="26" rx="9" ry="6" fill="#FFFFFF" transform="rotate(-20 20 26)" />
-                    <ellipse cx="34" cy="24" rx="14" ry="10" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" transform="rotate(22 34 24)" />
-                    <ellipse cx="34" cy="24" rx="9" ry="6" fill="#FFFFFF" transform="rotate(22 34 24)" />
-                  </svg>
+                  <img src="/home/ingredients/chaat-masala.png" alt="" width="54" height="36" />
                 </div>
                 <h3 className="sb-ab-pillar-label">Simple, real ingredients</h3>
               </div>
@@ -321,21 +255,7 @@ export default function AboutPage() {
               {/* Pillar 2: Bold, unapologetic flavours */}
               <div className="sb-ab-pillar-item">
                 <div className="sb-ab-pillar-icon">
-                  <svg viewBox="0 0 48 48" width="46" height="42" fill="none">
-                    {/* Pink lips */}
-                    <path
-                      d="M10 23C13 18 19 19 24 22C29 19 35 18 38 23C38 23 34 32 24 32C14 32 10 23 10 23Z"
-                      fill="#E81B6D"
-                      stroke="#8B5CF6"
-                      strokeWidth="2.5"
-                      strokeLinejoin="round"
-                    />
-                    {/* Green tongue */}
-                    <path d="M19 26C19 34 21.5 39 24 39C26.5 39 29 34 29 26H19Z" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="2" />
-                    <line x1="24" y1="26" x2="24" y2="35" stroke="#8B5CF6" strokeWidth="1.5" />
-                    {/* Spark */}
-                    <path d="M8 12L12 16M14 8L16 14" stroke="#E81B6D" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
+                  <img src="/about/section-three-tongue.webp" alt="" width="54" height="54" />
                 </div>
                 <h3 className="sb-ab-pillar-label">Bold, unapologetic flavours</h3>
               </div>
@@ -345,11 +265,7 @@ export default function AboutPage() {
               {/* Pillar 3: Made in small batches */}
               <div className="sb-ab-pillar-item">
                 <div className="sb-ab-pillar-icon">
-                  <svg viewBox="0 0 48 48" width="42" height="42" fill="none">
-                    <rect x="12" y="7" width="24" height="6" rx="3" fill="#E81B6D" stroke="#8B5CF6" strokeWidth="2.5" />
-                    <path d="M14 13H34V37C34 40.5 31.5 43 28 43H20C16.5 43 14 40.5 14 37V13Z" fill="#D7F557" stroke="#8B5CF6" strokeWidth="2.5" />
-                    <line x1="16" y1="20" x2="32" y2="20" stroke="#8B5CF6" strokeWidth="2" />
-                  </svg>
+                  <img src="/product/tamarin-jar.png" alt="" width="36" height="58" />
                 </div>
                 <h3 className="sb-ab-pillar-label">Made in small batches</h3>
               </div>
@@ -364,7 +280,7 @@ export default function AboutPage() {
       <section className="sb-ab-pink-torn-banner" aria-label="Behind The Brand">
         {/* Top Torn Jagged Edge SVG */}
         <div className="sb-ab-torn-edge top" aria-hidden="true">
-          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#EBDDF8">
+          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" fill="#FFFFFF">
             <path d="M0 0L40 18L80 4L120 22L160 8L200 24L240 6L280 20L320 8L360 26L400 6L440 22L480 4L520 20L560 8L600 24L640 4L680 22L720 6L760 24L800 8L840 22L880 6L920 24L960 4L1000 20L1040 6L1080 22L1120 6L1160 22L1200 6L1240 24L1280 8L1320 24L1360 6L1400 20L1440 0V32H0V0Z" />
           </svg>
         </div>
@@ -372,17 +288,7 @@ export default function AboutPage() {
         <div className="sb-ab-container sb-ab-torn-content">
           {/* Floating Pickle Slice on Left */}
           <div className="sb-ab-torn-pickle-left" aria-hidden="true">
-            <svg viewBox="0 0 100 80" width="90" height="72">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
-              <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
-              <circle cx="38" cy="42" r="1.5" fill="#8B5CF6" />
-            </svg>
-            <svg className="sb-ab-torn-arrow" viewBox="0 0 40 40" fill="none">
-              <path d="M8 8C16 12 24 24 20 34M20 34L14 30M20 34L26 30" stroke="#D7F557" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
+            <img src="/about/section-six-top-2.webp" alt="" width="140" height="110" />
           </div>
 
           {/* Yellow Angled Sticker: Behind The Brand */}
@@ -416,22 +322,7 @@ export default function AboutPage() {
 
           {/* Floating Pickle Slice & Star on Right */}
           <div className="sb-ab-torn-pickle-right" aria-hidden="true">
-            {/* Yellow Doodle Star */}
-            <svg className="sb-ab-torn-star" viewBox="0 0 36 36" fill="none">
-              <polygon
-                points="18,2 22,12 34,14 25,22 28,34 18,27 8,34 11,22 2,14 14,12"
-                stroke="#D7F557"
-                strokeWidth="2.5"
-                fill="none"
-              />
-            </svg>
-            <svg viewBox="0 0 100 80" width="85" height="68">
-              <ellipse cx="50" cy="40" rx="44" ry="34" fill="#8B5CF6" stroke="#8B5CF6" strokeWidth="3" />
-              <ellipse cx="50" cy="40" rx="38" ry="28" fill="#D7F557" />
-              <ellipse cx="50" cy="40" rx="30" ry="21" fill="#FFFFFF" />
-              <ellipse cx="44" cy="38" rx="4" ry="2" fill="#8B5CF6" transform="rotate(-15 44 38)" />
-              <ellipse cx="54" cy="36" rx="4" ry="2" fill="#8B5CF6" transform="rotate(20 54 36)" />
-            </svg>
+            <img src="/about/section-six-top-3.webp" alt="" width="130" height="110" />
           </div>
         </div>
 
@@ -464,8 +355,8 @@ export default function AboutPage() {
               <div className="sb-ab-bowl-img-wrap">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/recipe-1.jpg"
-                  alt="Delicious bowl of freshly seasoned sliced pickled gherkins"
+                  src="/about/section-six-top-1.webp"
+                  alt="Sakshi tasting Sourboo pickled gherkins at a brand event"
                   className="sb-ab-bowl-img"
                 />
               </div>
