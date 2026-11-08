@@ -1,12 +1,19 @@
+import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Wave } from '../site/Organic';
 
-function Butter({ children, tone = 'lime' }: { children: string; tone?: 'lime' | 'berry' }) {
+function Mark({
+  children,
+  variant = 'stroke',
+}: {
+  children: ReactNode;
+  variant?: 'stroke' | 'first';
+}) {
   return (
-    <span className="sbx-hero__butter" data-tone={tone}>
-      <span className="sbx-hero__butter-back" data-text={children} aria-hidden="true" />
-      <span className="sbx-hero__butter-front">{children}</span>
+    <span className={`sbx-hero__mark sbx-hero__mark--${variant}`}>
+      <span className="sbx-hero__mark-ink" aria-hidden="true" />
+      {children}
     </span>
   );
 }
@@ -19,8 +26,7 @@ export default function HomeHero() {
           <Image
             src="/home/hero-placeholder.webp"
             alt="Two hands holding crinkle-cut Sourboo pickled gherkin slices"
-            width={1600}
-            height={2134}
+            fill
             priority
             sizes="100vw"
             quality={85}
@@ -35,52 +41,62 @@ export default function HomeHero() {
       </div>
 
       <div className="sbx-hero__copy">
-      <div className="sbx-hero__content">
-        <h1 id="sbx-hero-title" className="sbx-hero__title">
-          <span className="sbx-hero__kicker">The sourboo way, cravings comes first</span>
-          <span className="sbx-hero__headline">
-            Mouths That <Butter>Misbehave</Butter> <span className="sbx-hero__and">and</span> India’s First{' '}
-            <Butter tone="berry">Cult</Butter> Sour Snack.
-          </span>
-          <span className="sbx-hero__lede">
-            Snackable pickled gherkins made to be <Butter>bold,</Butter> made to be <Butter tone="berry">yours.</Butter>
-          </span>
-        </h1>
-      </div>
-
-      <div className="sbx-hero__cta-row">
-        <Link href="/product" className="sbx-hero__shop" aria-label="Shop now">
-          <svg className="sbx-hero__shop-ring" viewBox="0 0 200 200" aria-hidden="true">
-            <defs>
-              <path id="sbx-shop-ring-path" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0" />
-            </defs>
-            <text>
-              <textPath href="#sbx-shop-ring-path" startOffset="0">
-                SHOP NOW ✹ SHOP NOW ✹ SHOP NOW ✹
-              </textPath>
-            </text>
-          </svg>
-          <span className="sbx-hero__shop-jar">
-            <Image src="/product/side-eye-jar.webp" alt="" fill sizes="90px" quality={78} />
-          </span>
-        </Link>
-        <div className="sbx-hero__picks">
-          <Link href="/product/sideeyesour" className="sbx-hero__pick sbx-hero__pick--side">
-            <span className="sbx-hero__pick-jar">
-              <Image src="/product/side-eye-jar.webp" alt="" fill sizes="48px" quality={78} />
+        <div className="sbx-hero__content">
+          <h1 id="sbx-hero-title" className="sbx-hero__title">
+            <span className="sbx-hero__kicker">
+              The sourboo way, cravings comes <Mark variant="first">first</Mark>
             </span>
-            <span>SIDE EYE SOUR</span>
-            <span aria-hidden="true">→</span>
-          </Link>
-          <Link href="/product/tamarintease" className="sbx-hero__pick sbx-hero__pick--tamarin">
-            <span className="sbx-hero__pick-jar">
-              <Image src="/product/tamarin-jar.webp" alt="" fill sizes="48px" quality={78} />
+            <span className="sbx-hero__headline">
+              Mouths That
+              <br />
+              Misbehave{' '}
+              <Mark>
+                <span className="sbx-hero__and">and</span> India’s
+              </Mark>
+              <br />
+              First <Mark>Cult</Mark> Sour Snack.
             </span>
-            <span>TAMARIN’ TEASE</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+            <span className="sbx-hero__lede">
+              Snackable pickled gherkins made
+              <br />
+              to be bold, made to be yours.
+            </span>
+          </h1>
         </div>
-      </div>
+
+        <div className="sbx-hero__cta-row">
+          <Link href="/product" className="sbx-hero__shop" aria-label="Shop now">
+            <svg className="sbx-hero__shop-ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <path id="sbx-shop-ring-path" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0" />
+              </defs>
+              <text>
+                <textPath href="#sbx-shop-ring-path" startOffset="0">
+                  SHOP NOW ✹ SHOP NOW ✹ SHOP NOW ✹
+                </textPath>
+              </text>
+            </svg>
+            <span className="sbx-hero__shop-jar">
+              <Image src="/product/side-eye-jar.webp" alt="" fill sizes="90px" quality={78} />
+            </span>
+          </Link>
+          <div className="sbx-hero__picks">
+            <Link href="/product/sideeyesour" className="sbx-hero__pick sbx-hero__pick--side">
+              <span className="sbx-hero__pick-jar">
+                <Image src="/product/side-eye-jar.webp" alt="" fill sizes="48px" quality={78} />
+              </span>
+              <span>SIDE EYE SOUR</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+            <Link href="/product/tamarintease" className="sbx-hero__pick sbx-hero__pick--tamarin">
+              <span className="sbx-hero__pick-jar">
+                <Image src="/product/tamarin-jar.webp" alt="" fill sizes="48px" quality={78} />
+              </span>
+              <span>TAMARIN’ TEASE</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
       </div>
 
       <Wave fill="var(--sbx-lime)" position="bottom" variant={1} />

@@ -120,7 +120,15 @@
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   color: var(--sbx-purple);
-  box-shadow: 0 1px 0 rgba(139, 92, 246, 0.18);
+  box-shadow: none;
+}
+
+.sbx-home .sbx-nav::after {
+  top: auto;
+  bottom: -10px;
+  height: 10px;
+  opacity: 1;
+  background: var(--sbx-purple);
 }
 
 .sbx-nav__bar {
