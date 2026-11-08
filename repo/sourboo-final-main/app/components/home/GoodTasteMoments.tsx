@@ -12,7 +12,7 @@ const MOMENTS = [
 export default function GoodTasteMoments() {
   return (
     <section className="sbx-moments" aria-labelledby="sbx-moments-title">
-      <Wave fill="var(--sbx-lilac)" position="bottom" variant={1} />
+      <Wave fill="var(--sbx-lime)" position="bottom" variant={1} />
       <h2 id="sbx-moments-title" className="sbx-moments__title">
         Good taste <span className="sbx-moments__title-hand"><span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">looks like this.</span><span className="sbx-layer__top">looks like this.</span></span></span>
       </h2>

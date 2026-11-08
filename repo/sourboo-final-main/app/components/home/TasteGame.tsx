@@ -30,7 +30,7 @@ const PLAYERS: Player[] = [
       { label: 'crunch', fill: 68 },
       { label: 'attitude', fill: 100 },
     ],
-    ctaText: 'get side eye sour ¬‿¬',
+    ctaText: 'get side eye sour',
   },
   {
     id: 2,
@@ -123,52 +123,58 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
           const isSelected = selected === player.id;
           return (
             <div key={player.id} className={`sbx-game__side sbx-game__side--p${player.id} ${isSelected ? 'is-selected' : ''}`}>
-              <button
-                type="button"
-                className="sbx-game__pick"
-                onClick={() => setSelected(player.id)}
-                aria-pressed={isSelected}
-                aria-controls={`${id}-result-${player.id}`}
-              >
-                <span className="sbx-game__player">PLAYER {player.id}</span>
-                <span className="sbx-game__prompt">
-                  {player.prompt.map((line) => (
-                    <span key={line}>{line}</span>
-                  ))}
-                </span>
-                <span className="sbx-game__key" aria-hidden="true">
-                  press <kbd>{player.id}</kbd>
-                </span>
-              </button>
+              <div className={`sbx-game__card ${isSelected ? 'is-selected' : ''}`}>
+                <button
+                  type="button"
+                  className="sbx-game__pick"
+                  onClick={() => setSelected(player.id)}
+                  aria-pressed={isSelected}
+                  aria-controls={`${id}-result-${player.id}`}
+                >
+                  <span className="sbx-game__player">PLAYER {player.id}</span>
+                  <span className="sbx-game__prompt">
+                    {player.prompt.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </span>
+                  {isSelected ? (
+                    <span className="sbx-game__locked-flag">locked in</span>
+                  ) : (
+                    <span className="sbx-game__key" aria-hidden="true">
+                      press <kbd>{player.id}</kbd>
+                    </span>
+                  )}
+                </button>
 
-              <div id={`${id}-result-${player.id}`} className="sbx-game__result" aria-live="polite" hidden={!isSelected}>
-                {isSelected ? (
-                  <>
-                    <ul className="sbx-game__meters">
-                      {player.meters.map((meter, index) => (
-                        <li key={meter.label} style={{ '--fill': `${meter.fill}%`, '--i': index } as CSSProperties}>
-                          <span className="sbx-game__meter-label">{meter.label}</span>
-                          <span className="sbx-game__meter-track">
-                            <span className="sbx-game__meter-fill" />
-                          </span>
-                          <span className="sbx-game__meter-value">{meter.fill}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="sbx-game__locked">
-                      <span className="sbx-game__locked-jar">
-                        <Image src={player.jar} alt={product?.name ?? ''} fill sizes="140px" quality={78} />
-                      </span>
-                      <div>
-                        <p className="sbx-game__locked-title">selection locked:</p>
-                        <Link href={`/product/${player.slug}`} className="sbx-game__cta">
-                          {player.ctaText}
-                        </Link>
-                        {player.closing ? <p className="sbx-game__closing">{player.closing}</p> : null}
+                <div id={`${id}-result-${player.id}`} className="sbx-game__result" aria-live="polite" hidden={!isSelected}>
+                  {isSelected ? (
+                    <>
+                      <ul className="sbx-game__meters">
+                        {player.meters.map((meter, index) => (
+                          <li key={meter.label} style={{ '--fill': `${meter.fill}%`, '--i': index } as CSSProperties}>
+                            <span className="sbx-game__meter-label">{meter.label}</span>
+                            <span className="sbx-game__meter-track">
+                              <span className="sbx-game__meter-fill" />
+                            </span>
+                            <span className="sbx-game__meter-value">{meter.fill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="sbx-game__locked">
+                        <span className="sbx-game__locked-jar">
+                          <Image src={player.jar} alt={product?.name ?? ''} fill sizes="140px" quality={78} />
+                        </span>
+                        <div>
+                          <p className="sbx-game__locked-title">selection locked:</p>
+                          <Link href={`/product/${player.slug}`} className="sbx-game__cta">
+                            {player.ctaText}
+                          </Link>
+                          {player.closing ? <p className="sbx-game__closing">{player.closing}</p> : null}
+                        </div>
                       </div>
-                    </div>
-                  </>
-                ) : null}
+                    </>
+                  ) : null}
+                </div>
               </div>
             </div>
           );

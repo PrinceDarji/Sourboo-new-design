@@ -1024,7 +1024,7 @@
    -------------------------------------------------------------------------- */
 .sbx-game {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: clamp(80px, 10vw, 140px) clamp(18px, 4vw, 56px) clamp(110px, 12vw, 170px);
   background: var(--sbx-lime);
   color: var(--sbx-purple);
@@ -1048,8 +1048,8 @@
   padding: 12px 22px;
   border: 0;
   border-radius: var(--sbx-hand-radius);
-  background: var(--sbx-white);
-  color: var(--sbx-purple);
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
   font-family: var(--sbx-display);
   font-size: inherit;
   letter-spacing: 0.12em;
@@ -1077,7 +1077,7 @@
 
 .sbx-game__tag--p1.is-on {
   background: var(--sbx-purple);
-  color: var(--sbx-white);
+  color: #d7f557;
 }
 
 .sbx-game__tag--p2.is-on {
@@ -1123,12 +1123,12 @@
   font-size: clamp(3rem, 9vw, 7.5rem);
   font-weight: 400;
   line-height: 0.9;
-  color: var(--sbx-tamarind);
+  color: var(--sbx-pink);
 }
 
 .sbx-game__sub {
   margin: 10px 0 0;
-  color: var(--sbx-purple-ink);
+  color: var(--sbx-purple);
   font-size: clamp(1.3rem, 2.4vw, 1.9rem);
 }
 
@@ -1168,6 +1168,34 @@
   transform: scale(0.96);
 }
 
+.sbx-game__card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 22px 24px;
+  border: 3px solid var(--sbx-purple);
+  border-radius: 28px;
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
+  box-shadow: 8px 8px 0 var(--sbx-pink);
+  transition: transform 0.25s var(--sbx-spring), box-shadow 0.2s, background-color 0.2s;
+}
+
+.sbx-game__side--p2 .sbx-game__card {
+  background: var(--sbx-pink);
+  border-color: var(--sbx-pink);
+  box-shadow: 8px 8px 0 var(--sbx-purple);
+}
+
+.sbx-game__card.is-selected {
+  background: var(--sbx-purple);
+  box-shadow: 8px 8px 0 #d7f557;
+}
+
+.sbx-game__side--p2 .sbx-game__card.is-selected {
+  background: var(--sbx-pink);
+  box-shadow: 8px 8px 0 #d7f557;
+}
+
 .sbx-game__pick {
   position: relative;
   display: flex;
@@ -1175,61 +1203,29 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  max-width: 420px;
-  padding: 30px 22px 24px;
+  padding: 0;
   border: 0;
-  border-radius: 28px;
-  background: var(--sbx-white);
-  color: var(--sbx-purple);
+  background: transparent;
+  color: inherit;
   font: inherit;
   cursor: pointer;
-  box-shadow: 0 10px 0 var(--sbx-purple);
-  transition: transform 0.25s var(--sbx-spring), background-color 0.2s, box-shadow 0.2s;
-}
-
-.sbx-game__pick::after {
-  content: 'click to play';
-  display: block;
-  margin-top: 4px;
-  color: var(--sbx-pink);
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .sbx-game__pick:hover {
-  transform: translateY(-6px) rotate(-1.5deg);
-  background: var(--sbx-lime);
+  transform: none;
 }
 
-.sbx-game__pick:active {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 var(--sbx-purple);
+.sbx-game__card:hover {
+  transform: translateY(-6px) rotate(-1.5deg);
+}
+
+.sbx-game__side--p2 .sbx-game__card:hover {
+  transform: translateY(-6px) rotate(1.5deg);
 }
 
 .sbx-game__pick:focus-visible {
-  outline: 3px solid var(--sbx-pink);
+  outline: 3px solid #d7f557;
   outline-offset: 4px;
-}
-
-.sbx-game__side--p2 .sbx-game__pick {
-  box-shadow: 0 10px 0 var(--sbx-pink);
-}
-
-.sbx-game__side--p2 .sbx-game__pick:hover {
-  transform: translateY(-6px) rotate(1.5deg);
-  background: var(--sbx-pink);
-  color: var(--sbx-white);
-}
-
-.sbx-game__side--p2.is-selected .sbx-game__pick {
-  background: var(--sbx-pink);
-  color: var(--sbx-white);
-}
-
-.sbx-game__side.is-selected .sbx-game__pick {
-  background: var(--sbx-lime);
-  box-shadow: 0 10px 0 var(--sbx-pink);
 }
 
 .sbx-game__player {
@@ -1237,19 +1233,15 @@
   letter-spacing: 0.12em;
   text-decoration: underline;
   text-underline-offset: 0.16em;
+  color: #d7f557;
 }
 
 .sbx-game__side--p1 .sbx-game__player {
-  color: var(--sbx-pink);
+  color: #d7f557;
 }
 
 .sbx-game__side--p2 .sbx-game__player {
-  color: var(--sbx-purple);
-}
-
-.sbx-game__side.is-selected .sbx-game__pick::after {
-  content: 'selected';
-  color: inherit;
+  color: #ffffff;
 }
 
 .sbx-game__prompt {
@@ -1258,12 +1250,13 @@
   gap: 2px;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   line-height: 1.25;
+  color: #ffffff;
 }
 
 .sbx-game__key {
   font-size: 0.9rem;
   letter-spacing: 0.08em;
-  opacity: 0.7;
+  color: #d7f557;
 }
 
 .sbx-game__key kbd {
@@ -1273,10 +1266,22 @@
   height: 26px;
   margin-left: 4px;
   border-radius: 8px 10px 7px 9px;
-  background: var(--sbx-lilac-2);
-  color: var(--sbx-purple-ink);
+  background: #d7f557;
+  color: var(--sbx-purple);
   font-family: var(--sbx-display);
-  box-shadow: 0 3px 0 var(--sbx-purple);
+  box-shadow: 0 3px 0 #e81b6d;
+}
+
+.sbx-game__locked-flag {
+  display: inline-flex;
+  margin-top: 4px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #d7f557;
+  color: var(--sbx-purple);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .sbx-game__result {
@@ -1311,7 +1316,7 @@
   position: relative;
   height: 12px;
   border-radius: 10px 6px 12px 8px;
-  background: rgba(255, 253, 249, 0.7);
+  background: rgba(255, 255, 255, 0.28);
   overflow: hidden;
 }
 
@@ -1320,13 +1325,13 @@
   inset: 0 auto 0 0;
   width: var(--fill);
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--sbx-lime), var(--sbx-pickle));
+  background: #d7f557;
   transform-origin: left;
   animation: sbx-meter 0.9s calc(var(--i) * 0.12s) var(--sbx-ease) both;
 }
 
 .sbx-game__side--p2 .sbx-game__meter-fill {
-  background: linear-gradient(90deg, var(--sbx-amber-soft), var(--sbx-amber), var(--sbx-tamarind-2));
+  background: #ffffff;
 }
 
 @keyframes sbx-meter {
@@ -1359,17 +1364,18 @@
 
 .sbx-game__locked-title {
   margin: 0;
-  color: var(--sbx-purple-ink);
+  color: #d7f557;
   font-size: 1.2rem;
 }
 
 .sbx-game__cta {
   display: inline-block;
   margin-top: 2px;
-  color: var(--sbx-label);
+  color: #ffffff;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   line-height: 1.05;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
   transition: transform 0.35s var(--sbx-spring);
 }
 
@@ -1395,7 +1401,7 @@
 }
 
 .sbx-game__coop-tag {
-  color: var(--sbx-purple-ink);
+  color: var(--sbx-pink);
   font-size: 0.95rem;
   letter-spacing: 0.2em;
 }

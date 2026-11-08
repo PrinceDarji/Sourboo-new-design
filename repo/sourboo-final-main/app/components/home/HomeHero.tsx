@@ -1,21 +1,5 @@
-import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-function Mark({
-  children,
-  variant = 'stroke',
-}: {
-  children: ReactNode;
-  variant?: 'stroke' | 'first' | 'india' | 'cult';
-}) {
-  return (
-    <span className={`sbx-hero__mark sbx-hero__mark--${variant}`}>
-      <span className="sbx-hero__mark-ink" aria-hidden="true" />
-      {children}
-    </span>
-  );
-}
 
 export default function HomeHero() {
   return (
@@ -43,22 +27,23 @@ export default function HomeHero() {
         <div className="sbx-hero__content">
           <h1 id="sbx-hero-title" className="sbx-hero__title">
             <span className="sbx-hero__kicker">
-              The sourboo way, cravings comes <Mark variant="first">first</Mark>
+              <span className="sbx-hero__chip">*the sourboo way, cravings comes first*</span>
             </span>
             <span className="sbx-hero__headline">
-              Mouths That
-              <br />
-              Misbehave{' '}
-              <Mark variant="india">
-                <span className="sbx-hero__and">and</span> India’s
-              </Mark>
-              <br />
-              First <Mark variant="cult">Cult</Mark> Sour Snack.
+              <span className="sbx-hero__chip sbx-hero__chip--headline">
+                Mouths That
+                <br />
+                Misbehave <span className="sbx-hero__and">and</span> India’s
+                <br />
+                First Cult Sour Snack.
+              </span>
             </span>
             <span className="sbx-hero__lede">
-              Snackable pickled gherkins made
-              <br />
-              to be bold, made to be yours.
+              <span className="sbx-hero__chip">
+                Snackable pickled gherkins made
+                <br />
+                to be bold, made to be yours.
+              </span>
             </span>
           </h1>
         </div>
