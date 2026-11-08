@@ -22,7 +22,7 @@ const PLAYERS: Player[] = [
   {
     id: 1,
     slug: 'sideeyesour',
-    jar: '/product/side-eye-jar.png',
+    jar: '/product/side-eye-jar.webp',
     prompt: ['if you dislike sweet snacks', 'and you add extra chilli', 'without tasting'],
     meters: [
       { label: 'spice', fill: 82 },
@@ -35,7 +35,7 @@ const PLAYERS: Player[] = [
   {
     id: 2,
     slug: 'tamarintease',
-    jar: '/product/tamarin-jar.png',
+    jar: '/product/tamarin-jar.webp',
     prompt: ['you want tang?', 'you handle spice!'],
     meters: [
       { label: 'spice', fill: 84 },

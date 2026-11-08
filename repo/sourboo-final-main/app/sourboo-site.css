@@ -28,6 +28,7 @@
 
   --sbx-ink: var(--sbx-purple);
   --sbx-display: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  --sbx-text: var(--font-satoshi), 'Satoshi', sans-serif;
   --sbx-hand: var(--font-rascal), cursive;
   --sbx-sketch: var(--font-coolvetica), 'Arial Narrow', sans-serif;
   --sbx-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -118,7 +119,7 @@
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  color: var(--sbx-white);
+  color: var(--sbx-purple);
 }
 
 .sbx-nav__bar {
@@ -158,7 +159,9 @@
   position: relative;
   padding: 8px 4px;
   color: inherit;
-  font-size: 1.05rem;
+  font-family: var(--sbx-text);
+  font-weight: 500;
+  font-size: 1.02rem;
   letter-spacing: 0.01em;
   text-decoration: none;
 }
@@ -585,10 +588,11 @@
   top: 50%;
   color: var(--tone);
   font-family: var(--sbx-hand);
-  font-size: 0.86em;
+  font-size: 0.72em;
   line-height: 1;
   white-space: nowrap;
-  transform: translate(-44%, -38%) rotate(-4deg);
+  opacity: 0.55;
+  transform: translate(-46%, -18%) rotate(-7deg);
   transition: transform 0.55s var(--sbx-spring), color 0.3s;
   pointer-events: none;
 }
@@ -733,9 +737,9 @@
   position: relative;
   display: block;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 42% 32% 38%;
+  padding: 14% 12% 12%;
   overflow: visible;
   border: 0;
   background: none;
@@ -795,10 +799,14 @@
   position: relative;
   z-index: 1;
   display: block;
-  width: 78%;
+  width: 100%;
   margin: 0 auto;
-  aspect-ratio: 726 / 1167;
+  aspect-ratio: 494 / 771;
   overflow: visible;
+}
+
+.sbx-jar--tamarin .sbx-jar__stage {
+  aspect-ratio: 538 / 838;
 }
 
 .sbx-jar__glass {
@@ -842,15 +850,15 @@
 }
 
 .sbx-jar__body {
-  clip-path: inset(7.1% 0 0 0 round 46% 46% 12% 12%);
+  clip-path: inset(8.4% 0 0 0);
   filter: drop-shadow(0 18px 18px rgba(139, 92, 246, 0.22));
   background: transparent;
 }
 
 .sbx-jar__lid {
   z-index: 3;
-  clip-path: inset(0 0 92.6% 0);
-  transform-origin: 96% 7%;
+  clip-path: inset(0 0 91.2% 0);
+  transform-origin: 82% 6%;
   transition: transform 0.65s var(--sbx-spring), filter 0.4s;
 }
 
@@ -862,9 +870,9 @@
 .sbx-jar__mouth {
   position: absolute;
   z-index: 2;
-  left: 8.5%;
-  top: 5.4%;
-  width: 83%;
+  left: 18%;
+  top: 8.6%;
+  width: 64%;
   height: 3.8%;
   border-radius: 50%;
   background: radial-gradient(ellipse at 50% 60%, var(--sbx-purple) 0%, var(--sbx-purple) 45%, var(--sbx-white) 86%);

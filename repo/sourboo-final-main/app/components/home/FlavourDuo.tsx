@@ -124,7 +124,7 @@ export default function FlavourDuo({ children }: { children?: ReactNode }) {
                     slug={flavour.slug}
                     name={flavour.name}
                     priceLabel={price}
-                    image={product?.jarImage ?? '/product/side-eye-jar.png'}
+                    image={product?.jarImage ?? '/product/side-eye-jar.webp'}
                     className="sbx-duo__add"
                   >
                     add to bag · {price}

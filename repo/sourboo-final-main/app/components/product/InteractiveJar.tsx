@@ -18,8 +18,8 @@ type Ingredient = {
 };
 
 const JAR_IMAGES: Record<JarFlavour, string> = {
-  'side-eye': '/product/side-eye-jar.png',
-  tamarin: '/product/tamarin-jar.png',
+  'side-eye': '/product/side-eye-jar.webp',
+  tamarin: '/product/tamarin-jar.webp',
 };
 
 const LEMON = '/home/ingredients/lemon-wedge.png';
