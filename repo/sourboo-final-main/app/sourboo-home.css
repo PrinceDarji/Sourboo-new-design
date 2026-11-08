@@ -26,7 +26,7 @@
 }
 
 .sbx-home__marquee {
-  margin-top: -34px;
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
@@ -41,9 +41,9 @@
   align-items: flex-start;
   margin-top: 0;
   min-height: calc(100svh - var(--sbx-nav-h) - 10px);
-  padding: clamp(28px, 4.2vh, 48px) clamp(28px, 4.5vw, 64px) clamp(88px, 10vw, 130px);
+  padding: clamp(22px, 3.4vh, 40px) clamp(28px, 4.5vw, 64px) clamp(28px, 4vh, 48px);
   overflow: hidden;
-  background: #f3e6d4;
+  background: #f4ead8;
   color: var(--sbx-purple);
 }
 
@@ -61,7 +61,9 @@
 
 .sbx-hero__img {
   object-fit: cover;
-  object-position: 68% 48%;
+  object-position: 50% 62%;
+  transform: translate(15%, 13%) scale(1.36);
+  transform-origin: center center;
   filter: none;
   animation: none;
 }
@@ -156,8 +158,8 @@
 .sbx-hero__headline {
   margin: 0;
   color: var(--sbx-purple);
-  font-size: clamp(36px, 4.35vw, 62px);
-  line-height: 0.98;
+  font-size: clamp(38px, 4.7vw, 70px);
+  line-height: 0.96;
   animation: none;
 }
 
@@ -176,20 +178,48 @@
   position: absolute;
   z-index: -1;
   left: -0.08em;
-  right: -0.22em;
-  top: 0.42em;
-  height: 0.46em;
+  right: -0.18em;
+  top: 0.38em;
+  height: 0.5em;
   pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 28' preserveAspectRatio='none'%3E%3Cpath d='M6 18C28 8 54 10 82 12c32 2 52 8 70 4' fill='none' stroke='%23d7f557' stroke-width='11' stroke-linecap='round'/%3E%3Cpath d='M18 22C46 16 90 20 148 14' fill='none' stroke='%23d7f557' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E")
-    center / 100% 100% no-repeat;
-  opacity: 0.95;
+  background: #d7f557;
+  border-radius: 70% 40% 80% 50% / 90% 70% 90% 80%;
+  transform: rotate(-2.8deg) skewX(-6deg);
+  opacity: 1;
 }
 
 .sbx-hero__mark--first .sbx-hero__mark-ink {
-  top: 0.58em;
-  right: -1.35em;
-  height: 0.38em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 24' preserveAspectRatio='none'%3E%3Cpath d='M4 14C36 8 70 16 112 12c28-3 46 2 62-4' fill='none' stroke='%23d7f557' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M120 8c18-10 32-4 48 2' fill='none' stroke='%23d7f557' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+  top: 0.42em;
+  right: -1.55em;
+  height: 0.42em;
+  border-radius: 80% 20% 90% 40% / 90% 70% 90% 70%;
+}
+
+.sbx-hero__mark--india .sbx-hero__mark-ink {
+  top: 0.4em;
+  right: -1.15em;
+  height: 0.5em;
+}
+
+.sbx-hero__mark--cult .sbx-hero__mark-ink {
+  top: 0.4em;
+  left: -0.06em;
+  right: -0.1em;
+  height: 0.48em;
+}
+
+.sbx-hero__mark--first::after,
+.sbx-hero__mark--india::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -1.2em;
+  top: 0.02em;
+  width: 1.25em;
+  height: 0.95em;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 36' fill='none'%3E%3Cpath d='M12 20L38 6' stroke='%23d7f557' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M16 22L42 18' stroke='%23d7f557' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M14 24L34 30' stroke='%23d7f557' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
 }
 
 .sbx-hero__lede {
@@ -374,7 +404,8 @@
   }
 
   .sbx-hero__img {
-    object-position: 78% 42%;
+    object-position: 52% 68%;
+    transform: translate(6%, 10%) scale(1.38);
   }
 
   .sbx-hero__copy {

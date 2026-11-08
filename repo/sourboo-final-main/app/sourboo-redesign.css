@@ -1638,7 +1638,7 @@ button {
   box-shadow: 8px 8px 0px var(--sb-pink);
   max-width: 520px;
   width: 100%;
-  padding: 40px 32px;
+  padding: 48px 32px 40px;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
@@ -1646,16 +1646,22 @@ button {
 
 .sb-modal-close-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 1.6rem;
-  width: 36px;
-  height: 36px;
+  top: 10px;
+  right: 10px;
+  z-index: 80;
+  font-size: 2.4rem;
+  line-height: 0.75;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: var(--sb-green-dark);
+  color: #e81b6d;
+  background: #d7f557;
+  border: 2px solid #e81b6d;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #e81b6d;
 }
 
 .sb-popup-h1 {
@@ -1671,7 +1677,7 @@ button {
   text-align: center;
   font-family: 'Schoolbell', cursive;
   font-size: 1.3rem;
-  color: var(--sb-green-dark);
+  color: #d7f557;
   margin-bottom: 24px;
 }
 

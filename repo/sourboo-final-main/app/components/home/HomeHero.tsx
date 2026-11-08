@@ -1,14 +1,13 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Wave } from '../site/Organic';
 
 function Mark({
   children,
   variant = 'stroke',
 }: {
   children: ReactNode;
-  variant?: 'stroke' | 'first';
+  variant?: 'stroke' | 'first' | 'india' | 'cult';
 }) {
   return (
     <span className={`sbx-hero__mark sbx-hero__mark--${variant}`}>
@@ -50,11 +49,11 @@ export default function HomeHero() {
               Mouths That
               <br />
               Misbehave{' '}
-              <Mark>
+              <Mark variant="india">
                 <span className="sbx-hero__and">and</span> India’s
               </Mark>
               <br />
-              First <Mark>Cult</Mark> Sour Snack.
+              First <Mark variant="cult">Cult</Mark> Sour Snack.
             </span>
             <span className="sbx-hero__lede">
               Snackable pickled gherkins made
@@ -98,8 +97,6 @@ export default function HomeHero() {
           </div>
         </div>
       </div>
-
-      <Wave fill="var(--sbx-lime)" position="bottom" variant={1} />
     </section>
   );
 }
