@@ -93,12 +93,12 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
         {/* Info Column */}
         <div className="sb-pdp-info-col">
           <h1 className="sb-pdp-title">
-            <span className="font-coolvetica text-pickle">{firstWord} </span>
-            <span className="font-rascal text-pink">{restWords}</span>
+            <span className="font-coolvetica" style={{ color: '#FFFFFF' }}>{firstWord} </span>
+            <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">{restWords}</span><span className="sbx-layer__top" style={{ color: '#FFFFFF' }}>{restWords}</span></span>
           </h1>
           <p className="sb-pdp-price font-coolvetica">{selectedVariant.priceLabel}</p>
           <p
-            className="font-schoolbell"
+            className="font-coolvetica"
             style={{
               fontSize: '1.45rem',
               lineHeight: 1.25,
@@ -225,7 +225,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabInTheJar"
                 onClick={() => setActiveTab('jar')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'jar' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'jar' ? 'active' : ''}`}
               >
                 {product.detailInJarTitle}
               </button>
@@ -233,7 +233,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabOnTheTongue"
                 onClick={() => setActiveTab('tongue')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'tongue' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'tongue' ? 'active' : ''}`}
               >
                 {product.detailOnTongueTitle}
               </button>
@@ -241,7 +241,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabAfterOpening"
                 onClick={() => setActiveTab('storage')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'storage' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'storage' ? 'active' : ''}`}
               >
                 {product.detailAfterOpeningTitle}
               </button>
@@ -269,7 +269,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
             {activeTab === 'tongue' && (
               <div id="TabOnTongue" className="sb-tab-panel active">
                 <p
-                  className="font-schoolbell"
+                  className="font-coolvetica"
                   style={{
                     margin: 0,
                     fontSize: '1.35rem',
@@ -286,7 +286,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
             {activeTab === 'storage' && (
               <div id="TabAfterOpening" className="sb-tab-panel active">
                 <p
-                  className="font-schoolbell"
+                  className="font-coolvetica"
                   style={{
                     margin: 0,
                     fontSize: '1.35rem',

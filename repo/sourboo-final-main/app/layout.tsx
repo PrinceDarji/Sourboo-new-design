@@ -1,4 +1,4 @@
-import { rascal, coolvetica, schoolbell } from "./fonts";
+import { rascal, coolvetica, satoshi, schoolbell } from "./fonts";
 import "./globals.css";
 import "./sourboo.css";
 import "./sourboo-redesign.css";
@@ -50,13 +50,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${rascal.variable} ${coolvetica.variable} ${schoolbell.variable}`}
+      className={`${rascal.variable} ${coolvetica.variable} ${satoshi.variable} ${schoolbell.variable}`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: FRIDGE_DECISION_SCRIPT }} />
       </head>
-      <body className="sb-concept-a-body font-coolvetica">
+      <body className="sb-concept-a-body font-satoshi">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script

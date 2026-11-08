@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ebddf8;
-  --foreground: #8b5cf6;
+  --background: #8b5cf6;
+  --foreground: #ffffff;
   color-scheme: light;
 }
 
@@ -15,8 +15,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ebddf8;
-    --foreground: #8b5cf6;
+    --background: #8b5cf6;
+    --foreground: #ffffff;
     color-scheme: light;
   }
 }
@@ -24,7 +24,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  font-family: var(--font-satoshi), 'Satoshi', sans-serif;
 }
 
 html,
@@ -70,6 +70,10 @@ body {
 
 .font-rascal {
   font-family: var(--font-rascal), cursive;
+}
+
+.font-satoshi {
+  font-family: var(--font-satoshi), 'Satoshi', sans-serif;
 }
 
 .font-coolvetica {

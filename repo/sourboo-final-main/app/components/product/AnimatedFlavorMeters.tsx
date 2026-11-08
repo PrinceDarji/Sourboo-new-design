@@ -26,10 +26,10 @@ function AnimatedPixelMeter({
 
   return (
     <div>
-      <p className="mb-1 text-center text-[clamp(1.65rem,2.4vw,2.6rem)] leading-none text-[#E61E6E] font-rascal">
+      <p className="mb-1 text-center text-[clamp(1.65rem,2.4vw,2.6rem)] leading-none text-[#E81B6D] font-coolvetica">
         {label}
       </p>
-      <div className="relative h-4 overflow-hidden border border-[#E81B6D]/40 bg-[#EBDDF8] shadow-[inset_0_0_0_1px_#EBDDF8] md:h-5">
+      <div className="relative h-4 overflow-hidden border border-[#E81B6D]/40 bg-[#FFFFFF] shadow-[inset_0_0_0_1px_#FFFFFF] md:h-5">
         <div
           className="absolute inset-y-0 left-0 bg-[#E81B6D] transition-[width] ease-out"
           style={{

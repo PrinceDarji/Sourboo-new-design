@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '/about', label: 'Our Story' },
   { href: '/product', label: 'Shop' },
   { href: '/join', label: 'Join Us' },
+  { href: '/contact', label: 'Contact' },
 ] as const;
 
 function BagIcon() {
@@ -104,7 +105,7 @@ export default function Navbar() {
       <div className="sbx-nav__bar">
         <Link href="/" className="sbx-nav__logo" aria-label="Sourboo home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-green.svg" alt="" width="132" height="36" />
+          <img src="/logo.svg" alt="" width="148" height="40" />
         </Link>
 
         <nav className="sbx-nav__links" aria-label="Primary">
