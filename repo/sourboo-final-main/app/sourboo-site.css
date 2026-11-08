@@ -116,10 +116,11 @@
 }
 
 .sbx-home .sbx-nav:not(.is-scrolled):not(.is-menu-open) {
-  background: transparent;
+  background: var(--sbx-lime);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   color: var(--sbx-purple);
+  box-shadow: 0 1px 0 rgba(139, 92, 246, 0.18);
 }
 
 .sbx-nav__bar {
@@ -185,7 +186,7 @@
 }
 
 .sbx-home .sbx-nav:not(.is-scrolled) .sbx-nav__link:hover span {
-  color: var(--sbx-lime);
+  color: var(--sbx-pink);
 }
 
 .sbx-nav__scribble {

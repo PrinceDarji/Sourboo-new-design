@@ -5,9 +5,7 @@ import { Wave } from '../site/Organic';
 function Butter({ children, tone = 'lime' }: { children: string; tone?: 'lime' | 'berry' }) {
   return (
     <span className="sbx-hero__butter" data-tone={tone}>
-      <span className="sbx-hero__butter-back" aria-hidden="true">
-        {children}
-      </span>
+      <span className="sbx-hero__butter-back" data-text={children} aria-hidden="true" />
       <span className="sbx-hero__butter-front">{children}</span>
     </span>
   );
@@ -21,10 +19,11 @@ export default function HomeHero() {
           <Image
             src="/home/hero-placeholder.webp"
             alt="Two hands holding crinkle-cut Sourboo pickled gherkin slices"
-            fill
+            width={1600}
+            height={2134}
             priority
             sizes="100vw"
-            quality={80}
+            quality={85}
             className="sbx-hero__img"
           />
         </div>
@@ -38,7 +37,9 @@ export default function HomeHero() {
       <div className="sbx-hero__copy">
       <div className="sbx-hero__content">
         <h1 id="sbx-hero-title" className="sbx-hero__title">
-          <span className="sbx-hero__kicker">*the sourboo way, cravings comes first*</span>
+          <span className="sbx-hero__kicker">
+            <Butter tone="berry">*the sourboo way, cravings comes first*</Butter>
+          </span>
           <span className="sbx-hero__headline">
             Mouths That <Butter>Misbehave</Butter> <span className="sbx-hero__and">and</span> India’s First{' '}
             <Butter tone="berry">Cult</Butter> Sour Snack.
