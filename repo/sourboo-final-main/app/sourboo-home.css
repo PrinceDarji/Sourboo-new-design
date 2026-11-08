@@ -125,9 +125,27 @@
 .sbx-hero__content {
   position: relative;
   z-index: 2;
-  max-width: none;
+  max-width: min(720px, 52vw);
   color: var(--sbx-purple);
   text-shadow: none;
+}
+
+.sbx-hero__content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -18%;
+  right: -28%;
+  bottom: -22%;
+  left: -14%;
+  background: radial-gradient(
+    ellipse 88% 92% at 22% 48%,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.42) 38%,
+    rgba(255, 255, 255, 0.12) 58%,
+    rgba(255, 255, 255, 0) 76%
+  );
+  pointer-events: none;
 }
 
 .sbx-hero__title {

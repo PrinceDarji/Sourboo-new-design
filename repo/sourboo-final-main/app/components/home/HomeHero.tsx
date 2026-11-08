@@ -38,7 +38,7 @@ export default function HomeHero() {
       <div className="sbx-hero__content">
         <h1 id="sbx-hero-title" className="sbx-hero__title">
           <span className="sbx-hero__kicker">
-            <Butter tone="berry">*the sourboo way, cravings comes first*</Butter>
+            <Butter tone="berry">The sourboo way, cravings comes first</Butter>
           </span>
           <span className="sbx-hero__headline">
             Mouths That <Butter>Misbehave</Butter> <span className="sbx-hero__and">and</span> India’s First{' '}
