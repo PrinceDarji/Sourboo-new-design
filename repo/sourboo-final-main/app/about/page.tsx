@@ -167,29 +167,35 @@ export default function AboutPage() {
       </section>
 
       <section className="sb-story-manifesto" aria-labelledby="sb-story-manifesto-title">
-        <div className="sb-story-split">
-          <div className="sb-story-manifesto__copy">
-            <p className="sb-story-kicker">Introducing</p>
-            <div className="sb-story-manifesto__logo">
-              <img src="/logo.svg" alt="Sourboo" />
-            </div>
-            <h2 id="sb-story-manifesto-title">
-              Sour first snack, made for people who don&apos;t eat quietly.
-            </h2>
+        <div className="sb-story-wrap sb-story-manifesto__top">
+          <p className="sb-story-kicker">Introducing</p>
+          <div className="sb-story-manifesto__logo">
+            <img src="/logo.svg" alt="Sourboo" />
+          </div>
+          <h2 id="sb-story-manifesto-title">
+            Sour first snack, made for people who don&apos;t eat quietly.
+          </h2>
+        </div>
+
+        <div className="sb-story-wrap sb-story-manifesto__photos">
+          <AboutTopStrip />
+        </div>
+
+        <div className="sb-story-manifesto__band">
+          <div className="sb-story-wrap">
             <p className="sb-story-manifesto__for">
               For women who love loud flavours, strong opinions, and fully indulging.
             </p>
-            <p className="sb-story-manifesto__kind">The kind who make faces when they eat.</p>
-            <p className="sb-story-manifesto__kind">The kind who ask for extra nimbu.</p>
-            <p className="sb-story-manifesto__way">
-              A new way of <ShadowWord>snacking</ShadowWord>.
-            </p>
-            <p className="sb-story-manifesto__mouths">
-              Mouths that <ShadowWord>misbehave</ShadowWord>
-            </p>
+            <div className="sb-story-manifesto__kinds">
+              <p>The kind who make faces when they eat.</p>
+              <p>The kind who ask for extra nimbu.</p>
+            </div>
           </div>
-          <div className="sb-story-manifesto__photos" aria-hidden="true">
-            <AboutTopStrip />
+        </div>
+
+        <div className="sb-story-manifesto__closer">
+          <div className="sb-story-wrap">
+            <p className="sb-story-manifesto__way">A new way of snacking.</p>
           </div>
         </div>
       </section>

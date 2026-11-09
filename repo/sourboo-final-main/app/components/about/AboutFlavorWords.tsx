@@ -102,12 +102,7 @@ export default function AboutFlavorWords({ words }: AboutFlavorWordsProps) {
                 aria-hidden="true"
               />
               <p className={`relative z-10 flex h-full w-full items-center justify-center ${layout.textClassName}`}>
-                <span className="sb-story-shadow">
-                  <span className="sb-story-shadow__hand" aria-hidden="true">
-                    {label}
-                  </span>
-                  <span className="sb-story-shadow__top">{label}</span>
-                </span>
+                {label}
               </p>
             </div>
           </div>

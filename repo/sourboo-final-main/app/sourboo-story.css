@@ -145,7 +145,6 @@
 }
 
 .sb-story-flavour .sb-story-split,
-.sb-story-manifesto .sb-story-split,
 .sb-story-crave .sb-story-split {
   align-items: start;
 }
@@ -400,21 +399,25 @@
 .sb-story-blob__label {
   font-family: var(--sbx-display);
   line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .sb-story-blob__label--bold {
-  color: var(--sbx-purple);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  color: var(--sbx-white);
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.35);
 }
 
 .sb-story-blob__label--spicy {
-  color: var(--sbx-pink);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--sbx-white);
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.28);
 }
 
 .sb-story-blob__label--sour {
-  color: var(--sbx-lime);
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--sbx-white);
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.28);
 }
 
 .sb-story-taste__after {
@@ -507,23 +510,18 @@
    Manifesto — connected copy + event photographs
    -------------------------------------------------------------------------- */
 .sb-story-manifesto {
-  --sb-story-shadow: var(--sbx-pink);
-  padding: clamp(56px, 8vw, 110px) 0;
   background: var(--sbx-lime);
   color: var(--sbx-purple);
 }
 
-.sb-story-manifesto__copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+.sb-story-manifesto__top {
+  padding: clamp(56px, 8vw, 96px) 0 clamp(28px, 4vw, 40px);
 }
 
 .sb-story-manifesto__logo {
   width: min(220px, 70vw);
   height: 56px;
-  margin: 0 0 28px;
+  margin: 0 0 32px;
 }
 
 .sb-story-manifesto__logo img {
@@ -534,46 +532,63 @@
 }
 
 .sb-story-manifesto h2 {
-  margin: 0 0 20px;
-  max-width: 16ch;
+  margin: 0;
+  max-width: 18ch;
   color: var(--sbx-purple);
-  font-size: clamp(2rem, 4.2vw, 3.3rem);
-  line-height: 1.08;
-}
-
-.sb-story-manifesto__for {
-  margin: 0 0 22px;
-  max-width: 22ch;
-  color: var(--sbx-pink);
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  line-height: 1.22;
-}
-
-.sb-story-manifesto__kind {
-  margin: 0 0 8px;
-  max-width: 20ch;
-  color: var(--sbx-purple);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-  line-height: 1.25;
-}
-
-.sb-story-manifesto__way {
-  margin: 28px 0 0;
-  color: var(--sbx-pink);
-  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-  line-height: 1.1;
-}
-
-.sb-story-manifesto__mouths {
-  margin: 18px 0 0;
-  color: var(--sbx-purple);
-  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  line-height: 1.04;
 }
 
 .sb-story-manifesto__photos {
   position: relative;
-  min-height: 420px;
+  padding: 0 0 clamp(36px, 5vw, 56px);
+}
+
+.sb-story-manifesto__band {
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+  padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.sb-story-manifesto__for {
+  margin: 0 0 36px;
+  max-width: 20ch;
+  color: var(--sbx-lime);
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.12;
+}
+
+.sb-story-manifesto__kinds {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px 48px;
+}
+
+@media (min-width: 720px) {
+  .sb-story-manifesto__kinds {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sb-story-manifesto__kinds p {
+  margin: 0;
+  max-width: 16ch;
+  color: var(--sbx-white);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.22;
+}
+
+.sb-story-manifesto__closer {
+  background: var(--sbx-purple);
+  padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.sb-story-manifesto__way {
+  margin: 0;
+  max-width: 12ch;
+  color: var(--sbx-lime);
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  line-height: 1.02;
 }
 
 .sb-story .about-top-strip,
@@ -728,12 +743,38 @@
   width: 100%;
 }
 
+.sb-story-ig .sb-ab-reel {
+  color: var(--sbx-purple);
+}
+
+.sb-story-ig .sb-ab-reel__frame {
+  aspect-ratio: 3 / 4;
+}
+
+.sb-story-ig .sb-ab-reel__kicker {
+  color: var(--sbx-lime);
+}
+
+.sb-story-ig .sb-ab-reel__title {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 0.12em 0.28em 0.16em;
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  line-height: 1.15;
+}
+
 .sb-story-ig .sb-ab-btn-shop {
   margin-top: 12px;
   background: var(--sbx-lime);
   color: var(--sbx-purple);
   border-color: var(--sbx-white);
   box-shadow: 4px 4px 0 var(--sbx-purple);
+}
+
+.sb-story .sbx-footer__wave {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
