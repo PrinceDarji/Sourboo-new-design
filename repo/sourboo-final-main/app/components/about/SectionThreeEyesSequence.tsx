@@ -111,7 +111,7 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
   return (
     <div
       ref={containerRef}
-      className="absolute left-1/2 -top-20 h-[240px] w-[158%] -translate-x-1/2 md:-top-56 md:h-[820px] md:w-[320%]"
+      className="sb-story-eyes"
     >
       <Image
         src={eyesSequence[currentEyeIndex] || eyesSequence[0]}

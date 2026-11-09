@@ -3,83 +3,33 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-const REVEAL_RATIO = 0.34;
+const REVEAL_RATIO = 0.2;
 
 type FlavorWordOverride = {
   label?: string;
   bgSrc?: string;
 };
 
-type FlavorWordLayout = {
-  wrapperClassName: string;
-  itemClassName: string;
-  textClassName: string;
-  defaultLabel: string;
-  defaultBgSrc: string;
-};
-
-function FlavorWord({
-  wrapperClassName,
-  itemClassName,
-  textClassName,
-  label,
-  bgSrc,
-}: {
-  wrapperClassName: string;
-  itemClassName: string;
-  textClassName: string;
-  label: string;
-  bgSrc: string;
-}) {
-  return (
-    <div className={wrapperClassName}>
-      <div className={`about-flavor-word ${itemClassName} relative h-full w-full`}>
-        <Image
-          src={bgSrc}
-          alt=""
-          fill
-          className="about-flavor-word-blob object-contain"
-          aria-hidden="true"
-        />
-        <p className={`relative z-10 flex h-full w-full items-center justify-center ${textClassName}`}>
-          <span className="sb-story-shadow">
-            <span className="sb-story-shadow__hand" aria-hidden="true">
-              {label}
-            </span>
-            <span className="sb-story-shadow__top">{label}</span>
-          </span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-const FLAVOR_WORD_LAYOUTS: FlavorWordLayout[] = [
+const WORDS = [
   {
-    wrapperClassName:
-      'absolute left-3 top-4 w-[150px] aspect-[213/217] sm:w-[178px] md:left-8 md:top-6 lg:top-10 md:w-[228px]',
     itemClassName: 'about-flavor-word-1',
-    textClassName: 'text-[52px] leading-none text-[#8B5CF6] font-coolvetica md:text-[86px]',
+    textClassName: 'sb-story-blob__label sb-story-blob__label--bold',
     defaultLabel: 'BOLD',
     defaultBgSrc: '/about/boldbg.svg',
   },
   {
-    wrapperClassName:
-      'absolute left-1/2 top-[42%] w-[220px] aspect-[303/153] -translate-x-1/2 sm:w-[252px] md:w-[336px]',
     itemClassName: 'about-flavor-word-2',
-    textClassName: 'text-[58px] leading-none text-[#E81B6D] font-coolvetica md:text-[82px]',
+    textClassName: 'sb-story-blob__label sb-story-blob__label--spicy',
     defaultLabel: 'spicy',
     defaultBgSrc: '/about/spicybg.svg',
   },
   {
-    wrapperClassName:
-      'absolute right-3 top-[55%] w-[188px] aspect-[264/186] sm:w-[210px] md:right-8 md:w-[240px]',
     itemClassName: 'about-flavor-word-3',
-    textClassName: 'text-[54px] leading-none text-[#D7F557] font-coolvetica md:text-[74px]',
+    textClassName: 'sb-story-blob__label sb-story-blob__label--sour',
     defaultLabel: 'sour',
     defaultBgSrc: '/about/sourbg.svg',
   },
-];
+] as const;
 
 function asNonEmptyString(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
@@ -124,7 +74,7 @@ export default function AboutFlavorWords({ words }: AboutFlavorWordsProps) {
       },
       {
         threshold: [0, REVEAL_RATIO],
-        rootMargin: '0px 0px -10% 0px',
+        rootMargin: '0px 0px -8% 0px',
       },
     );
 
@@ -136,21 +86,31 @@ export default function AboutFlavorWords({ words }: AboutFlavorWordsProps) {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="about-flavor-words relative left-1/2 mt-2 h-[440px] w-screen -translate-x-1/2 overflow-visible md:mt-4 md:h-[560px]"
-    >
-      {FLAVOR_WORD_LAYOUTS.map((layout, index) => {
+    <div ref={containerRef} className="about-flavor-words sb-story-blobs">
+      {WORDS.map((layout, index) => {
         const override = words?.[index];
+        const label = asNonEmptyString(override?.label) || layout.defaultLabel;
+        const bgSrc = asNonEmptyString(override?.bgSrc) || layout.defaultBgSrc;
         return (
-          <FlavorWord
-            key={layout.itemClassName}
-            wrapperClassName={layout.wrapperClassName}
-            itemClassName={layout.itemClassName}
-            textClassName={layout.textClassName}
-            label={asNonEmptyString(override?.label) || layout.defaultLabel}
-            bgSrc={asNonEmptyString(override?.bgSrc) || layout.defaultBgSrc}
-          />
+          <div key={layout.itemClassName} className={`sb-story-blob sb-story-blob--${index + 1}`}>
+            <div className={`about-flavor-word ${layout.itemClassName} relative h-full w-full`}>
+              <Image
+                src={bgSrc}
+                alt=""
+                fill
+                className="about-flavor-word-blob object-contain"
+                aria-hidden="true"
+              />
+              <p className={`relative z-10 flex h-full w-full items-center justify-center ${layout.textClassName}`}>
+                <span className="sb-story-shadow">
+                  <span className="sb-story-shadow__hand" aria-hidden="true">
+                    {label}
+                  </span>
+                  <span className="sb-story-shadow__top">{label}</span>
+                </span>
+              </p>
+            </div>
+          </div>
         );
       })}
     </div>
