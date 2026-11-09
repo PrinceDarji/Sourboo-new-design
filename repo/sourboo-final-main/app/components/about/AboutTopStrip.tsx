@@ -84,7 +84,7 @@ export default function AboutTopStrip({ items }: AboutTopStripProps) {
       {images.map((image, index) => (
         <div
           key={`${image.src}-${index}`}
-          className={`about-top-strip-item about-top-strip-item-${index + 1} relative w-full overflow-hidden`}
+          className={`about-top-strip-item about-top-strip-item-${index + 1} relative w-full overflow-visible`}
         >
           <Image
             src={image.src}
