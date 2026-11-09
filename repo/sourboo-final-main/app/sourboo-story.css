@@ -8,7 +8,7 @@
   background: var(--sbx-purple);
   color: var(--sbx-white);
   font-family: var(--sbx-display);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .sb-story .sbx-nav::after {
@@ -136,7 +136,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Flavour collage — new overlapping spread
+   Flavour photos — separated, not overlapping
    -------------------------------------------------------------------------- */
 .sb-story-flavour {
   --sb-story-shadow: var(--sbx-lime);
@@ -144,9 +144,12 @@
   background: var(--sbx-purple);
 }
 
-.sb-story-flavour .sb-story-split,
 .sb-story-crave .sb-story-split {
   align-items: start;
+}
+
+.sb-story-flavour__copy {
+  margin-bottom: clamp(36px, 5vw, 56px);
 }
 
 .sb-story-flavour__copy h2 {
@@ -166,13 +169,26 @@
 }
 
 .sb-story-flavour__photos {
-  position: relative;
-  height: 620px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  height: auto;
+}
+
+@media (min-width: 760px) {
+  .sb-story-flavour__photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 52px 64px;
+    align-items: start;
+  }
 }
 
 .sb-story-shot {
-  position: absolute;
+  position: relative;
   margin: 0;
+  width: 100%;
 }
 
 .sb-story-shot img {
@@ -182,66 +198,16 @@
 }
 
 .sb-story-shot figcaption {
-  position: absolute;
-  margin: 0;
+  margin: 12px 0 0;
   color: var(--sbx-lime);
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  white-space: nowrap;
-}
-
-.sb-story-shot--mix {
-  top: 0;
-  left: 0;
-  width: 68%;
-  transform: rotate(-6deg);
-  z-index: 2;
-}
-
-.sb-story-shot--mix figcaption {
-  left: 10%;
-  bottom: 10%;
-  color: var(--sbx-white);
-}
-
-.sb-story-shot--taste {
-  top: 32%;
-  right: 0;
-  width: 66%;
-  transform: rotate(5deg);
-  z-index: 3;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
 }
 
 .sb-story-shot--taste figcaption {
-  right: 8%;
-  bottom: 8%;
   color: var(--sbx-pink);
-}
-
-.sb-story-shot--third {
-  left: 6%;
-  bottom: 0;
-  width: 46%;
-  transform: rotate(-3deg);
-  z-index: 4;
-}
-
-@media (max-width: 899px) {
-  .sb-story-flavour__photos {
-    height: 560px;
-  }
-
-  .sb-story-shot--mix {
-    width: 78%;
-  }
-
-  .sb-story-shot--taste {
-    width: 74%;
-    top: 36%;
-  }
-
-  .sb-story-shot--third {
-    width: 54%;
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -271,44 +237,104 @@
 
 .sb-story-crave__visual {
   position: relative;
-  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+.sb-story-crave__face {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(460px, 100%);
+}
+
+.sb-story-crave__eyes {
+  width: 100%;
 }
 
 .sb-story-eyes {
   position: relative;
-  width: min(640px, 100%);
-  height: 160px;
-  margin: 0 auto 12px;
+  z-index: 3;
+  width: 78%;
+  height: 96px;
+  overflow: hidden;
+  margin: 0 auto -40px;
 }
 
 @media (min-width: 768px) {
   .sb-story-eyes {
-    height: 240px;
+    width: 76%;
+    height: 120px;
+    margin-bottom: -40px;
   }
 }
 
+.sb-story-eyes img {
+  object-fit: cover;
+  object-position: center 54%;
+}
+
 .sb-story .about-tongue-position {
-  top: 0;
+  top: 0 !important;
 }
 
 .sb-story-crave__tongue {
   position: relative;
-  width: min(420px, 100%);
-  height: 360px;
+  z-index: 1;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
+  overflow: visible;
 }
 
-@media (min-width: 768px) {
-  .sb-story-crave__tongue {
-    height: 460px;
-  }
+.sb-story .india-tongue-core {
+  left: 18%;
+  top: 22%;
+  width: 62%;
+  height: 62%;
+}
+
+.sb-story .india-callout-1 {
+  left: 18%;
+  top: 14%;
+}
+
+.sb-story .india-callout-2 {
+  left: 8%;
+  top: 40%;
+}
+
+.sb-story .india-callout-2 .india-marker {
+  order: 1;
+}
+
+.sb-story .india-callout-2 .india-callout-line {
+  order: 2;
+}
+
+.sb-story .india-callout-2 .india-callout-text {
+  position: static;
+  right: auto;
+  top: auto;
+  transform: none;
+  text-align: left;
+  order: 3;
+}
+
+.sb-story .india-callout-3 {
+  left: 12%;
+  top: 64%;
 }
 
 .sb-story-crave__art {
   position: relative;
   z-index: 1;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   animation: sb-ab-tongue-breathe 3.4s ease-in-out infinite;
 }
@@ -317,10 +343,15 @@
   color: var(--sbx-purple);
   text-shadow: none;
   font-family: var(--sbx-display);
+  font-size: clamp(14px, 1.4vw, 22px);
+  white-space: nowrap;
 }
 
 .sb-story .india-callout-3 .india-callout-text {
   color: var(--sbx-pink);
+  white-space: normal;
+  max-width: 14ch;
+  line-height: 1.05;
 }
 
 .sb-story .india-marker {
@@ -550,9 +581,23 @@
   padding: clamp(48px, 7vw, 88px) 0;
 }
 
+.sb-story-manifesto__who {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .sb-story-manifesto__who {
+    grid-template-columns: minmax(240px, 0.85fr) minmax(320px, 1.2fr);
+    gap: 48px 40px;
+    align-items: center;
+  }
+}
+
 .sb-story-manifesto__for {
-  margin: 0 0 36px;
-  max-width: 20ch;
+  margin: 0;
+  max-width: 16ch;
   color: var(--sbx-lime);
   font-size: clamp(1.8rem, 3.6vw, 2.8rem);
   line-height: 1.12;
@@ -561,21 +606,70 @@
 .sb-story-manifesto__kinds {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px 48px;
+  gap: 36px;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 640px) {
   .sb-story-manifesto__kinds {
     grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
   }
 }
 
-.sb-story-manifesto__kinds p {
+.sb-story-kind {
   margin: 0;
-  max-width: 16ch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.sb-story-kind img {
+  display: block;
+  width: min(220px, 100%);
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.sb-story-kind--faces img {
+  animation: sb-story-face-wiggle 1.6s ease-in-out infinite;
+}
+
+.sb-story-kind--nimbu img {
+  animation: sb-story-lemon-squeeze 1.35s ease-in-out infinite;
+}
+
+.sb-story-kind figcaption {
+  margin: 0;
+  max-width: 13ch;
   color: var(--sbx-white);
   font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  line-height: 1.22;
+  line-height: 1.18;
+}
+
+@keyframes sb-story-face-wiggle {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes sb-story-lemon-squeeze {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  35% {
+    transform: scale(1.08, 0.78);
+  }
+  55% {
+    transform: scale(0.94, 1.08);
+  }
 }
 
 .sb-story-manifesto__closer {
@@ -780,7 +874,9 @@
 @media (prefers-reduced-motion: reduce) {
   .sb-story-crave__art,
   .sb-story .india-marker,
-  .sb-story .india-callout-line {
+  .sb-story .india-callout-line,
+  .sb-story-kind--faces img,
+  .sb-story-kind--nimbu img {
     animation: none !important;
   }
 }

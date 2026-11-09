@@ -105,29 +105,27 @@ export default function AboutPage() {
       </section>
 
       <section className="sb-story-flavour" aria-labelledby="sb-story-flavour-title">
-        <div className="sb-story-split">
-          <div className="sb-story-flavour__copy">
-            <p className="sb-story-kicker sb-story-kicker--lime">Flavour obsession</p>
-            <h2 id="sb-story-flavour-title">
-              I&apos;ve always been (annoyingly) obsessed with <ShadowWord>flavours</ShadowWord>.
-            </h2>
-            <p className="sb-story-flavour__years">
-              spent 5 years around food and drinks from london bar shifts to a 9-5 desk job in India
-            </p>
-          </div>
-          <div className="sb-story-flavour__photos">
-            <figure className="sb-story-shot sb-story-shot--mix">
-              <img src="/about/section-two-1.svg" alt="Mixing drinks" />
-              <figcaption>Mixing things</figcaption>
-            </figure>
-            <figure className="sb-story-shot sb-story-shot--taste">
-              <img src="/about/section-two-2.svg" alt="Tasting everything" />
-              <figcaption>Tasting everything</figcaption>
-            </figure>
-            <figure className="sb-story-shot sb-story-shot--third">
-              <img src="/about/section-two-3.svg" alt="Friends at a bar" />
-            </figure>
-          </div>
+        <div className="sb-story-wrap sb-story-flavour__copy">
+          <p className="sb-story-kicker sb-story-kicker--lime">Flavour obsession</p>
+          <h2 id="sb-story-flavour-title">
+            I&apos;ve always been (annoyingly) obsessed with <ShadowWord>flavours</ShadowWord>.
+          </h2>
+          <p className="sb-story-flavour__years">
+            spent 5 years around food and drinks from london bar shifts to a 9-5 desk job in India
+          </p>
+        </div>
+        <div className="sb-story-flavour__photos">
+          <figure className="sb-story-shot sb-story-shot--mix">
+            <img src="/about/section-two-1.svg" alt="Mixing drinks" />
+            <figcaption>Mixing things</figcaption>
+          </figure>
+          <figure className="sb-story-shot sb-story-shot--taste">
+            <img src="/about/section-two-2.svg" alt="Tasting everything" />
+            <figcaption>Tasting everything</figcaption>
+          </figure>
+          <figure className="sb-story-shot sb-story-shot--third">
+            <img src="/about/section-two-3.svg" alt="Friends at a bar" />
+          </figure>
         </div>
       </section>
 
@@ -182,13 +180,19 @@ export default function AboutPage() {
         </div>
 
         <div className="sb-story-manifesto__band">
-          <div className="sb-story-wrap">
+          <div className="sb-story-wrap sb-story-manifesto__who">
             <p className="sb-story-manifesto__for">
               For women who love loud flavours, strong opinions, and fully indulging.
             </p>
             <div className="sb-story-manifesto__kinds">
-              <p>The kind who make faces when they eat.</p>
-              <p>The kind who ask for extra nimbu.</p>
+              <figure className="sb-story-kind sb-story-kind--faces">
+                <img src="/about/spoonofpickle.gif" alt="" />
+                <figcaption>The kind who make faces when they eat.</figcaption>
+              </figure>
+              <figure className="sb-story-kind sb-story-kind--nimbu">
+                <img src="/about/lemonsqueze.gif" alt="" />
+                <figcaption>The kind who ask for extra nimbu.</figcaption>
+              </figure>
             </div>
           </div>
         </div>

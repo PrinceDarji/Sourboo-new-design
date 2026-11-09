@@ -117,10 +117,11 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
         src={eyesSequence[currentEyeIndex] || eyesSequence[0]}
         alt="Eyes illustration"
         fill
-        sizes="(max-width: 768px) 158vw, 320vw"
+        sizes="(max-width: 768px) 70vw, 360px"
         quality={78}
-        className={`object-contain transition-transform duration-300 ${
-          shouldRenderSmallerEyes ? 'scale-64' : 'scale-94'
+        loading="eager"
+        className={`object-cover object-[center_54%] transition-transform duration-300 ${
+          shouldRenderSmallerEyes ? 'scale-90' : 'scale-100'
         }`}
       />
     </div>
