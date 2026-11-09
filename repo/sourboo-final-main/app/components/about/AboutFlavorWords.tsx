@@ -42,7 +42,12 @@ function FlavorWord({
           aria-hidden="true"
         />
         <p className={`relative z-10 flex h-full w-full items-center justify-center ${textClassName}`}>
-          {label}
+          <span className="sb-story-shadow">
+            <span className="sb-story-shadow__hand" aria-hidden="true">
+              {label}
+            </span>
+            <span className="sb-story-shadow__top">{label}</span>
+          </span>
         </p>
       </div>
     </div>
@@ -54,7 +59,7 @@ const FLAVOR_WORD_LAYOUTS: FlavorWordLayout[] = [
     wrapperClassName:
       'absolute left-3 top-4 w-[150px] aspect-[213/217] sm:w-[178px] md:left-8 md:top-6 lg:top-10 md:w-[228px]',
     itemClassName: 'about-flavor-word-1',
-    textClassName: 'text-[52px] leading-none text-[#4e7805] font-coolvetica md:text-[86px]',
+    textClassName: 'text-[52px] leading-none text-[#8B5CF6] font-coolvetica md:text-[86px]',
     defaultLabel: 'BOLD',
     defaultBgSrc: '/about/boldbg.svg',
   },
@@ -62,7 +67,7 @@ const FLAVOR_WORD_LAYOUTS: FlavorWordLayout[] = [
     wrapperClassName:
       'absolute left-1/2 top-[42%] w-[220px] aspect-[303/153] -translate-x-1/2 sm:w-[252px] md:w-[336px]',
     itemClassName: 'about-flavor-word-2',
-    textClassName: 'text-[58px] leading-none text-[#E61E6E] font-rascal md:text-[82px]',
+    textClassName: 'text-[58px] leading-none text-[#E81B6D] font-coolvetica md:text-[82px]',
     defaultLabel: 'spicy',
     defaultBgSrc: '/about/spicybg.svg',
   },
@@ -70,7 +75,7 @@ const FLAVOR_WORD_LAYOUTS: FlavorWordLayout[] = [
     wrapperClassName:
       'absolute right-3 top-[55%] w-[188px] aspect-[264/186] sm:w-[210px] md:right-8 md:w-[240px]',
     itemClassName: 'about-flavor-word-3',
-    textClassName: 'text-[54px] leading-none text-[#4e7805] font-rascal md:text-[74px]',
+    textClassName: 'text-[54px] leading-none text-[#D7F557] font-coolvetica md:text-[74px]',
     defaultLabel: 'sour',
     defaultBgSrc: '/about/sourbg.svg',
   },
@@ -133,7 +138,7 @@ export default function AboutFlavorWords({ words }: AboutFlavorWordsProps) {
   return (
     <div
       ref={containerRef}
-      className="about-flavor-words relative left-1/2 mt-5 h-[300px] w-screen -translate-x-1/2 overflow-hidden md:mt-8 md:h-[390px]"
+      className="about-flavor-words relative left-1/2 mt-2 h-[440px] w-screen -translate-x-1/2 overflow-visible md:mt-4 md:h-[560px]"
     >
       {FLAVOR_WORD_LAYOUTS.map((layout, index) => {
         const override = words?.[index];
