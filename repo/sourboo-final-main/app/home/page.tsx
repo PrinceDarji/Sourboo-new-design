@@ -1,10 +1,13 @@
 import Navbar from '../components/about/AboutNavbar';
-import HeroLemonJuiceExperience from '../components/home/HeroLemonJuiceExperience';
+import SmegFridgeLoader from '../components/home/SmegFridgeLoader';
+import NewHeroSensory from '../components/home/NewHeroSensory';
 import BrandVoiceMarquee from '../components/home/BrandVoiceMarquee';
-import SnackCrunchIntro from '../components/home/SnackCrunchIntro';
-import FlavourFaceOffArena from '../components/home/FlavourFaceOffArena';
+import FoodSensoryStory from '../components/home/FoodSensoryStory';
+import FlavourFaceOffDual from '../components/home/FlavourFaceOffDual';
+import MobileProductSwipe from '../components/home/MobileProductSwipe';
+import PlayerGameExperience from '../components/home/PlayerGameExperience';
 import BooInTheWildGallery from '../components/home/BooInTheWildGallery';
-import FavBaddiesReviews from '../components/home/FavBaddiesReviews';
+import InternetFavBaddies from '../components/home/InternetFavBaddies';
 import HomepageFooter from '../components/home/HomepageFooter';
 import type { Metadata } from 'next';
 
@@ -35,30 +38,39 @@ export default function HomePage() {
   return (
     <main
       className="sb-home-container"
-      style={{ minHeight: '100vh', background: '#F8F6F0', overflowX: 'hidden' }}
+      style={{ minHeight: '100vh', background: '#FFFFFF', overflowX: 'hidden' }}
     >
-      {/* Navigation: HOME | OUR STORY | SHOP | JOIN US */}
+      {/* 1. Smeg Fridge Realistic Loading Animation (Door opens -> reveals chilled pickles -> dissolves) */}
+      <SmegFridgeLoader />
+
+      {/* 2. Playful Creative Navigation */}
       <Navbar />
 
-      {/* Hero Banner / First Fold: the sourboo way, cravings comes first */}
-      <HeroLemonJuiceExperience />
+      {/* 3. Hero Section (Food & human photography, wavy, no leaves, edgy buttons, exact copy) */}
+      <NewHeroSensory />
 
-      {/* Brand Voice Recurring Lines Ticker */}
+      {/* 4. Brand Voice Recurring Lines Ticker */}
       <BrandVoiceMarquee />
 
-      {/* Intro: YOUR OTHER SNACKS COULD NEVER */}
-      <SnackCrunchIntro />
+      {/* 5. Food-First Sensory Storytelling (Lemon squeeze animation, moving eyes, tongue map, real food photos) */}
+      <FoodSensoryStory />
 
-      {/* Flavour Face Off: SIDE EYE SOUR vs TAMARIN' TEASE */}
-      <FlavourFaceOffArena />
+      {/* 6. Flavour Face Off Dual Synergy (Exact copy, hover jar open & bursting ingredients) */}
+      <FlavourFaceOffDual />
 
-      {/* The Boo in the Wild: Your jar called. It wants to be on everything */}
+      {/* 7. Mobile-Only Product Experience (Swipe left/right cycling through one jar at a time) */}
+      <MobileProductSwipe />
+
+      {/* 8. Player 1 vs Player 2 Interactive Arcade Game (Interactive sliders, crunch test, no girls) */}
+      <PlayerGameExperience />
+
+      {/* 9. The Boo in the Wild (Natively straightened cards, zero clipping, organic borders) */}
       <BooInTheWildGallery />
 
-      {/* Your Internet Fav Baddies and Their Moms Love It ;) */}
-      <FavBaddiesReviews />
+      {/* 10. Realistic iPhone Mockup & Community Proof (Instagram reference post, customer DMs) */}
+      <InternetFavBaddies />
 
-      {/* Social Section and Footer */}
+      {/* 11. Consistent Site-Wide Footer */}
       <HomepageFooter />
     </main>
   );

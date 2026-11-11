@@ -676,30 +676,33 @@
    -------------------------------------------------------------------------- */
 
 .sb-wild-section {
-  padding: 90px 24px;
+  padding: 80px 24px;
   background: #F4EEDB;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 110px;
 }
 
 .sb-wild-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 42px;
 }
 
 .sb-wild-title {
   font-family: var(--font-coolvetica), sans-serif;
-  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
   line-height: 1;
-  color: #141414;
+  color: #26140A !important;
   text-transform: uppercase;
   margin: 0 0 12px;
+  font-weight: 800;
 }
 
 .sb-wild-callout {
   font-family: var(--font-schoolbell), cursive;
-  font-size: clamp(1.3rem, 2.2vw, 2rem);
-  color: #2F4918;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  color: #1E3514 !important;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -717,10 +720,10 @@
   flex: 0 0 clamp(270px, 28vw, 320px);
   scroll-snap-align: center;
   background: #FFF;
-  border-radius: 24px;
-  padding: 16px 16px 20px;
-  border: 3.5px solid #141414;
-  box-shadow: 6px 6px 0 #141414;
+  border-radius: 32px;
+  padding: 18px 18px 22px;
+  border: 3px solid #632D10;
+  box-shadow: 0 14px 32px rgba(99, 45, 16, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   display: flex;
@@ -728,34 +731,38 @@
 }
 
 .sb-wild-card:hover {
-  transform: translateY(-6px) rotate(-1deg);
-  box-shadow: 8px 8px 0 #141414;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 44px rgba(99, 45, 16, 0.2);
 }
 
 .sb-wild-img-wrap {
   width: 100%;
   height: 320px;
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
   margin-bottom: 14px;
   background: #FAF7EE;
-  border: 2.5px solid #141414;
+  border: 2px solid #EBDDF8;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 8px;
 }
 
 .sb-wild-img {
-  width: 100%;
-  height: 100%;
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
   object-fit: contain !important;
   display: block;
   transform: none !important;
-  transition: transform 0.25s ease;
+  margin: 0 auto;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Natively straightened paper cutout cards - perfectly vertical and upright without clipping */
 .sb-wild-img.straight-late-night,
 .sb-wild-img.straight-girl-dinner,
 .sb-wild-img.straight-post-cry,
@@ -764,20 +771,21 @@
   transform: none !important;
 }
 
-.sb-wild-card:hover .sb-wild-img,
-.sb-wild-card:hover .sb-wild-img.straight-late-night,
-.sb-wild-card:hover .sb-wild-img.straight-girl-dinner,
-.sb-wild-card:hover .sb-wild-img.straight-post-cry,
-.sb-wild-card:hover .sb-wild-img.straight-desk,
-.sb-wild-card:hover .sb-wild-img.straight-hangover {
+.sb-wild-card:hover .sb-wild-img {
   transform: scale(1.03) !important;
 }
 
 .sb-wild-caption {
   font-family: var(--font-schoolbell), cursive;
-  font-size: 1.25rem;
-  color: #141414;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #141414 !important;
+  font-weight: 700;
   margin: 0;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --------------------------------------------------------------------------
@@ -986,4 +994,1791 @@
     height: 46px;
     font-size: 1.35rem;
   }
+}
+
+/* ==========================================================================
+   SOURBOO REDESIGN 2026: SENSORY, PLAYFUL & FOOD-FIRST EXPERIENCES
+   Palette: White, Light Purple / Lilac (#F4EFFB), Warm Tamarind (#C96A00 / #632D10),
+            Sour Lime (#D7F557), Brand Berry Pink (#E81B6D). NO BLACK.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SMEG FRIDGE REALISTIC LOADING ANIMATION
+   -------------------------------------------------------------------------- */
+.sb-fridge-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background: radial-gradient(circle at 50% 50%, #FAF6EE 0%, #EBDDF8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.75s ease;
+  overflow: hidden;
+}
+
+.sb-fridge-overlay.sb-fridge-fade-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.sb-fridge-stage {
+  perspective: 1400px;
+  width: min(88vw, 360px);
+  height: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-fridge-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+  box-shadow: 0 32px 80px rgba(99, 45, 16, 0.22), 0 12px 24px rgba(124, 58, 237, 0.12);
+  transform-style: preserve-3d;
+  background: #FDFBF7;
+}
+
+/* Interior of Smeg Fridge */
+.sb-fridge-interior {
+  position: absolute;
+  inset: 6px;
+  border-radius: 38px;
+  background: radial-gradient(circle at 50% 30%, #FFFBE8 0%, #E8E2D2 90%);
+  overflow: hidden;
+  box-shadow: inset 0 8px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px 20px;
+  z-index: 1;
+}
+
+.sb-fridge-light-glow {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(255, 248, 200, 0.9) 0%, transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.sb-fridge-frost-mist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.55) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.sb-fridge-shelf {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding-bottom: 12px;
+}
+
+.sb-shelf-jar {
+  width: 84px;
+  filter: drop-shadow(0 6px 12px rgba(99, 45, 16, 0.25));
+  transition: transform 0.4s ease;
+}
+
+.sb-shelf-jar:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.sb-shelf-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Exterior 3D Swing Door */
+.sb-fridge-door {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  overflow: hidden;
+  transform-origin: left center;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.35, 1), box-shadow 1.5s ease;
+  z-index: 2;
+  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+}
+
+.sb-fridge-door.door-open {
+  transform: rotateY(-118deg);
+  box-shadow: -35px 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.sb-fridge-face-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-fridge-handle {
+  position: absolute;
+  right: 22px;
+  top: 38%;
+  width: 14px;
+  height: 72px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #D4D4D8 45%, #71717A 100%);
+  border-radius: 9999px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.sb-fridge-specular {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. LAYERED TYPOGRAPHY (Bold Font + Handwritten Shadow / Highlight)
+   -------------------------------------------------------------------------- */
+.sb-layered-text-wrap {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sb-layered-shadow {
+  position: absolute;
+  top: 6px;
+  left: -4px;
+  font-size: 1.08em;
+  font-weight: 700;
+  opacity: 0.85;
+  transform: rotate(-2deg);
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(232, 27, 109, 0.2));
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.sb-layered-text-wrap:hover .sb-layered-shadow {
+  transform: rotate(-4deg) scale(1.05) translate(-2px, -3px);
+  opacity: 1;
+}
+
+.sb-layered-main {
+  position: relative;
+  z-index: 2;
+  color: #26140A;
+}
+
+.sb-layered-reveal-pill {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(30, 53, 20, 0.15);
+  border: 2px solid #1E3514;
+  z-index: 10;
+  pointer-events: none;
+  animation: sbPopUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sbPopUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px) scale(0.9); }
+  to { opacity: 1; transform: translateX(-50%) translateY(-6px) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO SENSORY SECTION (Wavy, Food-First, Edgy Buttons)
+   -------------------------------------------------------------------------- */
+.sb-hero-sensory {
+  position: relative;
+  padding: clamp(100px, 12vw, 150px) 20px 80px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.sb-hero-bg-waves {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sb-hero-wave-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sb-hero-content-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sb-hero-cravings-pill {
+  display: inline-block;
+  background: #F4EFFB;
+  border: 2px solid #8B5CF6;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  font-size: 1.35rem;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  margin-bottom: 24px;
+}
+
+.sb-hero-headline {
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  line-height: 0.95;
+  margin: 0 auto 16px;
+  color: #26140A;
+}
+
+.sb-hero-sub-text {
+  font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+  color: #632D10;
+  max-width: 760px;
+  margin: 0 auto 36px;
+  line-height: 1.25;
+}
+
+/* Food Photography Feature */
+.sb-hero-real-food-feature {
+  max-width: 620px;
+  margin: 0 auto 50px;
+}
+
+.sb-hero-food-frame {
+  position: relative;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #FAF6EE;
+  box-shadow: 0 20px 48px rgba(99, 45, 16, 0.14);
+  border: 3px solid #632D10;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sb-hero-food-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 24px 60px rgba(99, 45, 16, 0.2);
+}
+
+.sb-hero-food-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 2.8;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-hero-food-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 2px solid #1E3514;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Duo Product Showcase */
+.sb-hero-featured-tag {
+  font-size: 1.6rem;
+  color: #632D10;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.sb-hero-duo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.sb-hero-duo-item {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 36px;
+  padding: 30px 24px 26px;
+  border: 2.5px solid #F4EFFB;
+  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  position: relative;
+}
+
+.sb-hero-duo-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(99, 45, 16, 0.15);
+  border-color: #EBDDF8;
+}
+
+.sb-hero-jar-link {
+  text-decoration: none;
+  display: block;
+}
+
+.sb-hero-hover-jar-wrap {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.sb-hero-jar-art {
+  max-height: 210px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 12px 20px rgba(99, 45, 16, 0.2));
+}
+
+.sb-hero-duo-item:hover .sb-hero-jar-art {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* Floating Ingredient Bursts */
+.sb-burst-ingredients {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sb-hero-duo-item:hover .sb-burst-ingredients {
+  opacity: 1;
+}
+
+.sb-burst-item {
+  position: absolute;
+  background: #FFF;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid #E81B6D;
+  color: #1E3514;
+  white-space: nowrap;
+  animation: sbFloatBubble 2.5s ease-in-out infinite alternate;
+}
+
+.burst-lemon { top: 10%; left: 8%; animation-delay: 0s; }
+.burst-spice { top: 40%; right: 4%; animation-delay: 0.4s; }
+.burst-herb { bottom: 12%; left: 14%; animation-delay: 0.8s; }
+
+.burst-tamarind { top: 12%; left: 6%; border-color: #C96A00; animation-delay: 0.1s; }
+.burst-chilli { top: 38%; right: 6%; border-color: #E81B6D; animation-delay: 0.5s; }
+.burst-splash { bottom: 14%; right: 18%; border-color: #F59E0B; animation-delay: 0.9s; }
+
+@keyframes sbFloatBubble {
+  from { transform: translateY(0px) rotate(-1deg); }
+  to { transform: translateY(-8px) rotate(2deg); }
+}
+
+.sb-hero-item-title {
+  font-size: 2.2rem;
+  color: #26140A;
+  margin: 0 0 4px;
+}
+
+.sb-hero-item-flavor {
+  font-size: 1.25rem;
+  color: #632D10;
+  margin: 0 0 20px;
+}
+
+/* Edgy Unusual Buttons */
+.sb-hero-btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sb-edgy-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 44% 56% 51% 49% / 49% 45% 55% 51%;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #E81B6D;
+  box-shadow: 0 8px 18px rgba(232, 27, 109, 0.35);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.sb-edgy-btn.btn-tamarin {
+  background: #C96A00;
+  box-shadow: 0 8px 18px rgba(201, 106, 0, 0.35);
+}
+
+.sb-edgy-btn:hover {
+  transform: scale(1.06) rotate(-1.5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sb-edgy-quick-add {
+  background: #F4EFFB;
+  border: 2px solid #8B5CF6;
+  color: #632D10;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sb-edgy-quick-add:hover {
+  background: #8B5CF6;
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+/* Primary SHOP NOW Wavy CTA */
+.sb-hero-primary-cta-row {
+  margin-top: 36px;
+}
+
+.sb-hero-shop-now-brush {
+  display: inline-block;
+  padding: 18px 48px;
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-decoration: none;
+  border-radius: 54% 46% 52% 48% / 46% 52% 48% 54%;
+  box-shadow: 0 12px 30px rgba(46, 90, 39, 0.25);
+  border: 3px solid #1E3514;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.sb-hero-shop-now-brush:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 16px 36px rgba(46, 90, 39, 0.35);
+  background: #E5FA7B;
+}
+
+/* --------------------------------------------------------------------------
+   4. FOOD-FIRST SENSORY STORYTELLING
+   -------------------------------------------------------------------------- */
+.sb-sensory-story-section {
+  position: relative;
+  padding: 80px 20px;
+  background: #FFFFFF;
+}
+
+.sb-wavy-top-divider {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sb-divider-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sb-sensory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sb-sensory-header {
+  margin-bottom: 40px;
+}
+
+.sb-sensory-headline {
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  line-height: 1;
+  color: #26140A;
+  margin: 0 0 14px;
+}
+
+.sb-sensory-lead {
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  color: #632D10;
+  max-width: 760px;
+  margin: 0 auto 20px;
+}
+
+.sb-sensory-tag {
+  display: inline-block;
+  background: #EBDDF8;
+  color: #632D10;
+  font-size: 1.15rem;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  border: 1.5px solid #8B5CF6;
+}
+
+/* Sensory Tabs */
+.sb-sensory-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.sb-sensory-tab-btn {
+  background: #F4EFFB;
+  border: 2px solid transparent;
+  color: #632D10;
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sb-sensory-tab-btn.active,
+.sb-sensory-tab-btn:hover {
+  background: #E81B6D;
+  color: #FFFFFF;
+  border-color: #E81B6D;
+  box-shadow: 0 8px 18px rgba(232, 27, 109, 0.25);
+  transform: translateY(-2px);
+}
+
+.sb-sensory-panel {
+  background: #FAF8F4;
+  border-radius: 40px;
+  padding: clamp(24px, 4vw, 48px);
+  box-shadow: 0 16px 40px rgba(99, 45, 16, 0.08);
+}
+
+/* Squeeze & Eyes Grid */
+.sb-sensory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 36px;
+  align-items: center;
+}
+
+.sb-lemon-squeeze-card {
+  text-align: center;
+  background: #FFF;
+  border-radius: 32px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.sb-lemon-visual-box {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #FFF8E1;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-lemon-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sb-lemon-btn {
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.35rem;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: 2px solid #1E3514;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease;
+}
+
+.sb-lemon-btn:hover {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+.sb-lemon-note {
+  font-size: 1.15rem;
+  color: #632D10;
+  margin-top: 12px;
+  min-height: 48px;
+}
+
+/* Eyes Reaction Card */
+.sb-eyes-reaction-card {
+  background: #FFF;
+  border-radius: 32px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.sb-eyes-stage {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border-radius: 24px;
+  background: #F4EFFB;
+}
+
+/* Real Food Mosaic */
+.sb-food-photos-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.sb-mosaic-card {
+  background: #FFF;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease;
+}
+
+.sb-mosaic-card:hover {
+  transform: translateY(-6px);
+}
+
+.sb-mosaic-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-mosaic-caption {
+  padding: 16px 20px;
+  font-size: 1.25rem;
+  color: #26140A;
+  line-height: 1.2;
+}
+
+/* Tongue Flavour Experience */
+.sb-tongue-experience {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sb-tongue-graphic-box {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+.sb-tongue-map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sb-tongue-hotspot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hotspot-chaat { top: 16%; left: 8%; }
+.hotspot-flavour { top: 44%; right: 4%; }
+.hotspot-hit { bottom: 18%; left: 10%; }
+
+.hotspot-pulse {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #E81B6D;
+  box-shadow: 0 0 0 rgba(232, 27, 109, 0.7);
+  animation: sbPulseRing 1.8s infinite;
+}
+
+@keyframes sbPulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(232, 27, 109, 0.7); }
+  70% { box-shadow: 0 0 0 14px rgba(232, 27, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 27, 109, 0); }
+}
+
+.hotspot-label {
+  background: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1E3514;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid #E81B6D;
+}
+
+/* --------------------------------------------------------------------------
+   5. MOBILE PRODUCT SWIPER (One jar at a time with touch swipe)
+   -------------------------------------------------------------------------- */
+.sb-mobile-swipe-section {
+  padding: 48px 16px;
+  background: #FDFBF7;
+}
+
+.sb-swipe-pill-tag {
+  background: #F4EFFB;
+  border: 1.5px solid #8B5CF6;
+  color: #632D10;
+  font-size: 1.1rem;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.sb-swipe-card-stage {
+  position: relative;
+  border-radius: 36px;
+  padding: 36px 16px 28px;
+  margin: 24px 0 18px;
+  box-shadow: 0 16px 36px rgba(99, 45, 16, 0.1);
+  border: 2px solid #F4EFFB;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+.sb-swipe-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #8B5CF6;
+  color: #632D10;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  line-height: 1;
+}
+
+.sb-swipe-nav-btn.prev { left: 8px; }
+.sb-swipe-nav-btn.next { right: 8px; }
+
+.sb-swipe-single-card {
+  text-align: center;
+  max-width: 290px;
+}
+
+.sb-swipe-jar-link {
+  text-decoration: none;
+  display: block;
+}
+
+.sb-swipe-jar-holder {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sb-swipe-jar-img {
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(99, 45, 16, 0.22));
+}
+
+.sb-swipe-prod-name {
+  font-size: 2.1rem;
+  color: #26140A;
+  margin: 0 0 4px;
+}
+
+.sb-swipe-prod-flavor {
+  font-size: 1.3rem;
+  color: #632D10;
+  margin: 0 0 8px;
+}
+
+.sb-swipe-prod-tagline {
+  font-size: 1.15rem;
+  color: #632D10;
+  margin: 0 0 20px;
+}
+
+.sb-swipe-action-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.sb-swipe-explore-btn {
+  background: #F4EFFB;
+  color: #632D10;
+  border: 2px solid #8B5CF6;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.sb-swipe-add-btn {
+  background: #E81B6D;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(232, 27, 109, 0.3);
+}
+
+.sb-swipe-dots-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sb-swipe-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #DDD4EC;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sb-swipe-dot.active {
+  width: 24px;
+  border-radius: 9999px;
+  background: #E81B6D;
+}
+
+/* --------------------------------------------------------------------------
+   6. FLAVOUR FACE OFF DUAL SECTION & OPENING JAR ANIMATION
+   -------------------------------------------------------------------------- */
+.sb-faceoff-dual-section {
+  position: relative;
+  padding: 80px 20px;
+  background: #FFFFFF;
+}
+
+.sb-faceoff-bg-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  pointer-events: none;
+}
+
+.sb-faceoff-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sb-faceoff-pill {
+  background: #F4EFFB;
+  border: 2px solid #8B5CF6;
+  color: #632D10;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.sb-faceoff-dual-title {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: #26140A;
+  margin: 0 0 10px;
+}
+
+.sb-dual-amp {
+  color: #E81B6D;
+}
+
+.sb-faceoff-sub {
+  font-size: 1.45rem;
+  color: #632D10;
+  margin: 0 0 44px;
+}
+
+.sb-faceoff-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .sb-faceoff-dual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sb-flavour-card {
+  background: #FAF8F4;
+  border-radius: 40px;
+  padding: clamp(28px, 4vw, 44px) 24px;
+  box-shadow: 0 16px 40px rgba(99, 45, 16, 0.08);
+  border: 2.5px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.sb-flavour-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(99, 45, 16, 0.16);
+  border-color: #E81B6D;
+}
+
+.sb-flavour-card.tamarin-card:hover {
+  border-color: #C96A00;
+}
+
+/* Jar Reveal Zone & Opening Animation */
+.sb-jar-reveal-zone {
+  position: relative;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sb-interactive-jar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.sb-hover-jar-img {
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 14px 24px rgba(99, 45, 16, 0.2));
+}
+
+/* Lifting Lid Effect */
+.sb-jar-lid-anim {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.sb-flavour-card:hover .sb-jar-lid-anim {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-22px) rotate(-8deg);
+}
+
+.sb-flavour-card:hover .sb-hover-jar-img {
+  transform: scale(1.06);
+}
+
+.sb-ingredient-cloud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.sb-flavour-card:hover .sb-ingredient-cloud {
+  opacity: 1;
+}
+
+.sb-ing-item {
+  position: absolute;
+  background: #FFFFFF;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+.ing-lemon-1 { top: 12%; left: 4%; border: 1.5px solid #F59E0B; }
+.ing-chaat { top: 35%; right: 2%; border: 1.5px solid #E81B6D; }
+.ing-dill { bottom: 16%; left: 8%; border: 1.5px solid #2E5A27; }
+.ing-khatta { bottom: 24%; right: 6%; border: 1.5px solid #D7F557; background: #D7F557; color: #1E3514; }
+
+.ing-tamarind-1 { top: 10%; left: 2%; border: 1.5px solid #C96A00; }
+.ing-chilli-1 { top: 38%; right: 4%; border: 1.5px solid #E81B6D; }
+.ing-amber { bottom: 18%; left: 6%; border: 1.5px solid #F59E0B; }
+.ing-snap { bottom: 22%; right: 6%; border: 1.5px solid #C96A00; background: #FFF3CD; }
+
+.sb-jar-hover-hint {
+  font-size: 1.05rem;
+  color: #632D10;
+  margin-top: 8px;
+}
+
+/* Dual Bridge Circle */
+.sb-dual-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-bridge-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #D7F557;
+  border: 3px solid #1E3514;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1E3514;
+  box-shadow: 0 8px 20px rgba(30, 53, 20, 0.15);
+  line-height: 1.1;
+}
+
+.sb-flavour-name {
+  font-size: 2.3rem;
+  color: #26140A;
+  margin: 0 0 4px;
+}
+
+.sb-flavour-persona {
+  font-size: 1.45rem;
+  color: #E81B6D;
+  margin: 0 0 10px;
+}
+
+.tamarin-card .sb-flavour-persona {
+  color: #C96A00;
+}
+
+.sb-flavour-desc {
+  font-size: 1.3rem;
+  color: #632D10;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.sb-flavour-formula {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #1E3514;
+  background: #EBDDF8;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.sb-flavour-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sb-flavour-btn {
+  background: #E81B6D;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 18px rgba(232, 27, 109, 0.3);
+}
+
+.sb-flavour-btn.btn-tamarin {
+  background: #C96A00;
+  box-shadow: 0 8px 18px rgba(201, 106, 0, 0.3);
+}
+
+.sb-flavour-btn:hover {
+  transform: scale(1.05);
+}
+
+.sb-flavour-bag-btn {
+  background: transparent;
+  border: 2px solid #8B5CF6;
+  color: #632D10;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sb-flavour-bag-btn:hover {
+  background: #8B5CF6;
+  color: #FFFFFF;
+}
+
+.sb-faceoff-duo-banner {
+  margin-top: 48px;
+}
+
+.sb-duo-bundle-pill {
+  display: inline-block;
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.45rem;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  border: 2.5px solid #1E3514;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(30, 53, 20, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.sb-duo-bundle-pill:hover {
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   7. PLAYER 1 VS PLAYER 2 ARCADE GAME EXPERIENCE
+   -------------------------------------------------------------------------- */
+.sb-arcade-game-section {
+  position: relative;
+  padding: 80px 20px;
+  background: #FBF8F3;
+}
+
+.sb-arcade-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.sb-arcade-badge {
+  background: #EBDDF8;
+  border: 2px solid #8B5CF6;
+  color: #632D10;
+  font-size: 1.25rem;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.sb-arcade-title {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  color: #26140A;
+  margin: 0 0 6px;
+}
+
+.sb-arcade-subtitle {
+  font-size: 1.55rem;
+  color: #632D10;
+  margin: 0 0 36px;
+}
+
+.sb-arcade-console {
+  background: #FFFFFF;
+  border-radius: 40px;
+  padding: clamp(24px, 4vw, 44px);
+  box-shadow: 0 20px 48px rgba(99, 45, 16, 0.12);
+  border: 3px solid #EBDDF8;
+}
+
+.sb-arcade-switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.sb-arcade-fighter-btn {
+  background: #F4EFFB;
+  border: 2px solid transparent;
+  color: #632D10;
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.sb-arcade-fighter-btn.is-active {
+  background: #E81B6D;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(232, 27, 109, 0.35);
+  transform: scale(1.05);
+}
+
+.sb-arcade-fighter-btn.fighter-2.is-active {
+  background: #C96A00;
+  box-shadow: 0 8px 20px rgba(201, 106, 0, 0.35);
+}
+
+.sb-arcade-vs {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #8B5CF6;
+}
+
+.sb-arcade-board-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .sb-arcade-board-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sb-fighter-stat-card {
+  background: #FAF8F4;
+  border-radius: 32px;
+  padding: 30px 24px;
+  border: 2px solid #F4EFFB;
+}
+
+.sb-fighter-pill {
+  font-size: 1.1rem;
+  color: #8B5CF6;
+  font-weight: 700;
+}
+
+.sb-fighter-headline {
+  font-size: 2.1rem;
+  color: #26140A;
+  margin: 6px 0 8px;
+}
+
+.sb-fighter-tagline {
+  font-size: 1.25rem;
+  color: #632D10;
+  margin: 0 0 24px;
+}
+
+.sb-arcade-sliders-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.sb-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sb-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: #26140A;
+}
+
+.sb-game-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: #E5E0F0;
+  outline: none;
+}
+
+.sb-game-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #E81B6D;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 2px solid #FFF;
+}
+
+.sb-bite-test-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sb-bite-test-btn {
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  border: 2.5px solid #1E3514;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(30, 53, 20, 0.15);
+  transition: transform 0.15s ease;
+}
+
+.sb-bite-test-btn.crunching {
+  transform: scale(0.95);
+  background: #FFF;
+}
+
+.sb-score-pop {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #E81B6D;
+  animation: sbPopUp 0.25s ease forwards;
+}
+
+/* Reward Card */
+.sb-reward-card {
+  text-align: center;
+  background: #FAF8F4;
+  border-radius: 32px;
+  padding: 32px 24px;
+  border: 2px solid #F4EFFB;
+}
+
+.sb-selection-status {
+  font-size: 1.2rem;
+  color: #8B5CF6;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.sb-reward-jar-box {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.sb-reward-jar-img {
+  max-height: 180px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(99, 45, 16, 0.2));
+}
+
+.sb-reward-title {
+  font-size: 2.2rem;
+  color: #26140A;
+  margin: 0 0 4px;
+}
+
+.sb-reward-spec {
+  font-size: 1.25rem;
+  color: #632D10;
+  margin: 0 0 20px;
+}
+
+.sb-reward-btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sb-reward-lock-btn {
+  background: #E81B6D;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(232, 27, 109, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.sb-reward-lock-btn:hover {
+  transform: scale(1.04);
+}
+
+.sb-reward-explore-link {
+  font-size: 1.15rem;
+  color: #632D10;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   8. REALISTIC IPHONE MOCKUP & COMMUNITY SOCIAL PROOF
+   -------------------------------------------------------------------------- */
+.sb-baddies-real-section {
+  padding: 90px 20px;
+  background: radial-gradient(circle at 50% 50%, #2F4918 0%, #1A2E0E 100%);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.sb-baddies-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sb-baddies-tag {
+  background: rgba(215, 245, 87, 0.2);
+  color: #D7F557;
+  border: 1.5px solid #D7F557;
+  font-size: 1.1rem;
+  padding: 5px 18px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.sb-baddies-title {
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  color: #FFF;
+  margin: 0 0 10px;
+}
+
+.sb-baddies-subtitle {
+  font-size: 1.45rem;
+  color: #D7F557;
+  margin: 0 0 44px;
+}
+
+.sb-iphone-stage-container {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .sb-iphone-stage-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* Realistic iPhone Hardware Mockup */
+.sb-real-iphone {
+  width: 320px;
+  height: 640px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.sb-iphone-chassis {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: #1C1C1E;
+  border: 4px solid #3A3A3C;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px #48484A;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-iphone-island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 26px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.sb-island-camera {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111424;
+  border: 1px solid #222;
+}
+
+.sb-island-sensor {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0a0a0f;
+}
+
+.sb-iphone-glass-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.sb-iphone-screen {
+  flex: 1;
+  background: #000000;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sb-iphone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 4px 8px 8px;
+  color: #FFF;
+}
+
+.sb-iphone-app-header {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 12px;
+}
+
+.sb-app-user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sb-app-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #D7F557;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.sb-app-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-app-handle {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.sb-app-badge {
+  font-size: 0.75rem;
+  color: #A1A1AA;
+}
+
+.sb-iphone-feed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+
+.sb-iphone-photo-post {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 240px;
+}
+
+.sb-iphone-post-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-post-overlay-tag {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #D7F557;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.sb-iphone-dm-bubble {
+  background: #27272A;
+  border-radius: 18px;
+  padding: 14px 16px;
+  border: 1px solid #3F3F46;
+}
+
+.sb-dm-text {
+  font-size: 1.1rem;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.sb-dm-meta {
+  font-size: 0.85rem;
+  color: #D7F557;
+}
+
+.sb-iphone-home-bar {
+  width: 120px;
+  height: 4px;
+  background: #FFF;
+  border-radius: 9999px;
+  margin: 12px auto 0;
+  opacity: 0.6;
+}
+
+/* Fanned Out Polaroid Cards */
+.sb-fanned-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.sb-review-polaroid-card {
+  background: #FFF;
+  color: #1E3514;
+  border-radius: 24px;
+  padding: 22px 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.sb-review-polaroid-card:hover,
+.sb-review-polaroid-card.is-selected {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #D7F557;
+}
+
+.sb-card-stars {
+  color: #F59E0B;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.sb-card-text {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.sb-card-author-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(30, 53, 20, 0.1);
+  padding-top: 10px;
+}
+
+.sb-author-name {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.sb-author-handle {
+  font-size: 0.95rem;
+  color: #632D10;
+}
+
+.sb-baddies-ig-link-row {
+  margin-top: 40px;
+}
+
+.sb-baddies-ig-button {
+  display: inline-block;
+  background: #D7F557;
+  color: #1E3514;
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.sb-baddies-ig-button:hover {
+  transform: scale(1.04);
 }

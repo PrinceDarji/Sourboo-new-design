@@ -1,5 +1,7 @@
+'use client';
+
 import { clsx } from "clsx";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 type Run = {
   text: string;
@@ -30,6 +32,64 @@ export function MixedFontHeading({
         </span>
       ))}
     </h1>
+  );
+}
+
+/**
+ * LayeredHighlightText:
+ * Renders a bold main font (Coolvetica) with an unusual handwritten or sketch-style
+ * font (Schoolbell / Rascal) sitting directly behind or overlapping selected words
+ * like a hand-drawn shadow or highlight.
+ * When hovered, reveals playful popup words or sour effects.
+ */
+export function LayeredHighlightText({
+  mainWord,
+  highlightWord,
+  revealNote,
+  className,
+  highlightColor = "#E81B6D",
+  shadowFont = "schoolbell",
+}: {
+  mainWord: string;
+  highlightWord?: string;
+  revealNote?: string;
+  className?: string;
+  highlightColor?: string;
+  shadowFont?: "schoolbell" | "rascal";
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  const shadowText = highlightWord || mainWord;
+
+  return (
+    <span
+      className={clsx("sb-layered-text-wrap", className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Underlying handwritten shadow / highlight */}
+      <span
+        className={clsx(
+          "sb-layered-shadow",
+          shadowFont === "schoolbell" ? "font-schoolbell" : "font-rascal"
+        )}
+        style={{ color: highlightColor }}
+        aria-hidden="true"
+      >
+        {shadowText}
+      </span>
+
+      {/* Foreground Bold Text */}
+      <span className="sb-layered-main font-coolvetica">
+        {mainWord}
+      </span>
+
+      {/* Interactive Hover Reveal Tooltip */}
+      {revealNote && isHovered && (
+        <span className="sb-layered-reveal-pill font-schoolbell" role="status">
+          {revealNote}
+        </span>
+      )}
+    </span>
   );
 }
 

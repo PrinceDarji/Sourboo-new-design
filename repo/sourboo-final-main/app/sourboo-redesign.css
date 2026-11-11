@@ -125,10 +125,10 @@ button {
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(250, 245, 232, 0.96);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(30, 53, 20, 0.12);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1.5px solid #F4EFFB;
   transition: all 0.25s ease;
 }
 
@@ -212,19 +212,19 @@ button {
   font-size: 1.05rem;
   line-height: 1;
   padding: 10px 22px;
-  background: var(--sb-pink, #E61E6E);
+  background: #E81B6D;
   color: #FFFFFF !important;
-  border: 2px solid var(--sb-green-dark, #1E3514);
+  border: none;
   border-radius: var(--sb-radius-pill, 9999px);
-  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #1E3514);
+  box-shadow: 0 4px 14px rgba(232, 27, 109, 0.35);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
 }
 
 .sb-nav-quiz-pill:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #1E3514);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 27, 109, 0.45);
   background: #f01e74;
 }
 
@@ -233,12 +233,12 @@ button {
   align-items: center;
   gap: 8px;
   padding: 8px 18px;
-  background: #FFFFFF;
-  border: 2px solid var(--sb-green-dark, #1E3514);
+  background: #F4EFFB;
+  border: 1.5px solid #8B5CF6;
   border-radius: var(--sb-radius-pill, 9999px);
-  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #1E3514);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
   cursor: pointer;
-  color: var(--sb-green-dark, #1E3514);
+  color: #26140A;
   font-family: var(--font-coolvetica), 'Coolvetica', sans-serif;
   font-size: 1.1rem;
   line-height: 1;
@@ -247,9 +247,9 @@ button {
 }
 
 .sb-nav-cart-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #1E3514);
-  background: #FFF9E6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.25);
+  background: #EBDDF8;
 }
 
 .sb-nav-cart-icon {

@@ -1,72 +1,136 @@
 import Navbar from '../components/about/AboutNavbar';
 import SiteFooter from '../components/SiteFooter';
-import { getSocialLinksConfig } from '@/src/lib/sanity/siteSettings';
 import type { Metadata } from 'next';
 
 export const revalidate = 300;
 
 export const metadata: Metadata = {
   alternates: { canonical: '/join' },
-  title: { absolute: 'Join The Sourboo Club | Sourboo' },
-  description: 'Join the Sourboo inner circle. Get first dibs on limited batch drops, secret 5% discount codes, and stockist wholesale enquiries.',
+  title: { absolute: 'Join Us | The Sourboo Community & Collaborations' },
+  description:
+    'Join the Sourboo inner circle. Connect with Sakshi, explore stockist wholesale partnerships, cafe collaborations, and tasting event invitations.',
 };
 
-export default async function JoinPage() {
-  const social = await getSocialLinksConfig(revalidate);
-
+export default function JoinPage() {
   return (
-    <main className="sb-join-container" style={{ minHeight: '100vh', background: '#F8F6F0' }}>
+    <main className="sb-join-container" style={{ minHeight: '100vh', background: '#FDFBF7' }}>
       <Navbar />
 
-      <section className="sb-shop-hero" aria-label="Join Header">
-        <div className="sb-shop-hero-inner">
-          <div className="sb-tag font-schoolbell sb-entry-stamp sb-delay-1">community // the inner circle</div>
-          <h1 className="sb-shop-heading font-coolvetica sb-entry-pop sb-delay-2">
-            join the <span className="text-[#FF6392]">sourboo club.</span>
-          </h1>
-          <p className="sb-shop-subheading font-rascal sb-entry-pop sb-delay-3">
-            be the first to taste experiment drops, grab unreleased merch, and hang with fellow sour fiends.
-          </p>
+      <section className="sb-shop-hero-banner" aria-label="Join Header">
+        <div className="sb-shop-hero-pill font-schoolbell">
+          community // the inner circle
         </div>
+        <h1 className="sb-shop-hero-title font-coolvetica">
+          join the <span style={{ color: '#E81B6D' }}>sourboo club.</span>
+        </h1>
+        <p className="sb-shop-hero-sub font-schoolbell">
+          be the first to taste experiment drops, grab unreleased merch, and hang with fellow sour fiends.
+        </p>
       </section>
 
-      <section className="sb-catalog-section sb-entry-jar-drop sb-delay-4" aria-label="Join Cards">
-        <div className="sb-catalog-grid" style={{ maxWidth: '960px', margin: '0 auto' }}>
-          {/* Card 1: WhatsApp Community */}
-          <div className="sb-dossier-card card-green" style={{ padding: '36px' }}>
-            <div className="sb-card-badge font-schoolbell">vip access</div>
-            <h3 className="sb-card-title font-coolvetica" style={{ fontSize: '2.4rem', marginTop: '16px' }}>
-              whatsapp snack chat
-            </h3>
-            <p className="sb-card-desc font-rascal" style={{ fontSize: '1.2rem', margin: '16px 0 24px' }}>
-              Direct access to Sakshi, secret discount codes, voting on flavour drops, and midnight snack memes. No spam, just pure sour love.
+      <section className="sb-collection-section" aria-label="Join Cards">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', maxWidth: '1080px', margin: '0 auto' }}>
+          {/* Card 1: Community Snack Chat */}
+          <div
+            style={{
+              background: '#FFFFFF',
+              borderRadius: '36px',
+              padding: '36px 30px',
+              border: '2px solid #EBDDF8',
+              boxShadow: '0 16px 36px rgba(99, 45, 16, 0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <span
+              className="font-schoolbell"
+              style={{
+                display: 'inline-block',
+                background: '#F4EFFB',
+                color: '#632D10',
+                padding: '4px 14px',
+                borderRadius: '9999px',
+                width: 'fit-content',
+                fontSize: '1.05rem',
+                border: '1px solid #8B5CF6',
+              }}
+            >
+              community &amp; feedback
+            </span>
+            <h2 className="font-coolvetica" style={{ fontSize: '2.4rem', color: '#26140A', margin: '16px 0 8px' }}>
+              snack chat &amp; drops
+            </h2>
+            <p className="font-schoolbell" style={{ fontSize: '1.25rem', color: '#632D10', lineHeight: 1.35, margin: '0 0 24px', flex: 1 }}>
+              Direct access to taste tests, voting on unreleased flavours, and secret pop-up invitations. Have something to say? We want to hear it.
             </p>
             <a
-              href={social.whatsappUrl || 'https://wa.me/919999999999'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sb-cta-btn font-coolvetica"
-              style={{ display: 'inline-block', textAlign: 'center' }}
+              href="mailto:cravings@sourboo.com"
+              className="font-coolvetica"
+              style={{
+                display: 'inline-block',
+                textAlign: 'center',
+                background: '#E81B6D',
+                color: '#FFFFFF',
+                padding: '14px 24px',
+                borderRadius: '9999px',
+                textDecoration: 'none',
+                fontSize: '1.15rem',
+                boxShadow: '0 6px 16px rgba(232, 27, 109, 0.3)',
+              }}
             >
-              join whatsapp community →
+              email the sour club (cravings@sourboo.com) →
             </a>
           </div>
 
           {/* Card 2: Stockists & Collabs */}
-          <div className="sb-dossier-card card-orange" style={{ padding: '36px' }}>
-            <div className="sb-card-badge font-schoolbell">partnerships</div>
-            <h3 className="sb-card-title font-coolvetica" style={{ fontSize: '2.4rem', marginTop: '16px' }}>
-              stockist & cafe collabs
-            </h3>
-            <p className="sb-card-desc font-rascal" style={{ fontSize: '1.2rem', margin: '16px 0 24px' }}>
+          <div
+            style={{
+              background: '#FFFFFF',
+              borderRadius: '36px',
+              padding: '36px 30px',
+              border: '2px solid #EBDDF8',
+              boxShadow: '0 16px 36px rgba(99, 45, 16, 0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <span
+              className="font-schoolbell"
+              style={{
+                display: 'inline-block',
+                background: '#FFF3CD',
+                color: '#632D10',
+                padding: '4px 14px',
+                borderRadius: '9999px',
+                width: 'fit-content',
+                fontSize: '1.05rem',
+                border: '1px solid #C96A00',
+              }}
+            >
+              partnerships &amp; stockists
+            </span>
+            <h2 className="font-coolvetica" style={{ fontSize: '2.4rem', color: '#26140A', margin: '16px 0 8px' }}>
+              wholesale &amp; cafe collabs
+            </h2>
+            <p className="font-schoolbell" style={{ fontSize: '1.25rem', color: '#632D10', lineHeight: 1.35, margin: '0 0 24px', flex: 1 }}>
               Run a cocktail bar, gourmet deli, or smash burger joint? Stock Sourboo jars or collaborate on custom branded brine.
             </p>
             <a
-              href="mailto:cravings@sourboo.com"
-              className="sb-cta-btn font-coolvetica"
-              style={{ display: 'inline-block', textAlign: 'center', background: '#2F4918' }}
+              href="mailto:collab@sourboo.com"
+              className="font-coolvetica"
+              style={{
+                display: 'inline-block',
+                textAlign: 'center',
+                background: '#C96A00',
+                color: '#FFFFFF',
+                padding: '14px 24px',
+                borderRadius: '9999px',
+                textDecoration: 'none',
+                fontSize: '1.15rem',
+                boxShadow: '0 6px 16px rgba(201, 106, 0, 0.3)',
+              }}
             >
-              email wholesale team →
+              email wholesale team (collab@sourboo.com) →
             </a>
           </div>
         </div>

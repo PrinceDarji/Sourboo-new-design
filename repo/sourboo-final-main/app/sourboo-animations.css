@@ -434,17 +434,36 @@
   max-width: 92vw;
   height: 100vh;
   height: 100dvh;
-  background: #FBF8F1;
-  color: #1A3320;
+  background: #FDFBF7;
+  color: #26140A;
   z-index: 999999;
   display: flex;
   flex-direction: column;
   transform: translateX(105%);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-  border-left: 3.5px solid #1A3320;
-  box-shadow: -14px 0 44px rgba(0, 0, 0, 0.25);
+  border-left: none;
+  box-shadow: -14px 0 44px rgba(99, 45, 16, 0.18);
   font-family: var(--font-rascal), system-ui, sans-serif;
+  overflow: visible;
+}
+
+/* Child-drawn wavy line along the left edge of opening bag */
+.sb-cart-child-drawn-edge {
+  position: absolute;
+  left: -8px;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  pointer-events: none;
+  z-index: 10;
   overflow: hidden;
+}
+
+.sb-cart-wavy-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(-2px 0 3px rgba(232, 27, 109, 0.35));
 }
 
 .sb-cart-drawer.is-open,
@@ -631,39 +650,42 @@
   color: #E81B6D;
 }
 
-/* Stepper */
+/* Stepper - Borderless quantity controls per client brief */
 .sb-cart-qty-control {
   display: inline-flex;
   align-items: center;
-  background: #F4EEDC;
-  border: 2px solid #1A3320;
+  background: #F4EFFB;
+  border: none !important;
   border-radius: 9999px;
-  padding: 2px 6px;
-  gap: 8px;
+  padding: 4px 12px;
+  gap: 12px;
   width: fit-content;
   margin-top: 4px;
 }
 
-.sb-cart-qty-btn {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1.5px solid #1A3320;
-  background: #FFFFFF;
-  font-size: 1.1rem;
+.sb-cart-qty-btn,
+.sb-cart-qty-btn-borderless {
+  background: transparent !important;
+  border: none !important;
+  width: auto;
+  height: auto;
+  font-size: 1.35rem;
   font-weight: 800;
-  color: #1A3320;
+  color: #632D10;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   line-height: 1;
-  transition: transform 0.1s ease, background 0.1s ease;
+  padding: 0 2px;
+  transition: transform 0.15s ease, color 0.15s ease;
 }
 
-.sb-cart-qty-btn:hover {
-  background: #FFE664;
-  transform: scale(1.1);
+.sb-cart-qty-btn:hover,
+.sb-cart-qty-btn-borderless:hover {
+  background: transparent !important;
+  color: #E81B6D;
+  transform: scale(1.25);
 }
 
 .sb-cart-qty-num {

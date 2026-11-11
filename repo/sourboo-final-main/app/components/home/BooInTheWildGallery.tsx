@@ -35,15 +35,20 @@ export default function BooInTheWildGallery() {
   ];
 
   return (
-    <section className="sb-wild-section" aria-label="The Boo in the Wild">
+    <section
+      className="sb-wild-section"
+      aria-label="The Boo in the Wild"
+      data-scroll-reveal="off"
+      style={{ opacity: 1, transform: 'none' }}
+    >
       <div className="sb-wild-header">
         <h2 className="sb-wild-title">The Boo in the Wild</h2>
         <p className="sb-wild-callout">
           Your jar called. It wants to be on everything
         </p>
         <p
-          className="font-rascal"
-          style={{ fontSize: '1.25rem', color: '#2F4918', margin: '8px 0 0', opacity: 0.85 }}
+          className="font-schoolbell"
+          style={{ fontSize: '1.35rem', color: '#26140A', margin: '8px 0 0', fontWeight: 600 }}
         >
           Good taste looks like this. Snacks with personality. Made to be bold. Made to be yours.
         </p>
