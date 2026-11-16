@@ -80,7 +80,7 @@ export default function AboutTopStrip({ items }: AboutTopStripProps) {
   }, []);
 
   return (
-    <div ref={containerRef} className="about-top-strip relative -mt-10 left-1/2 w-screen -translate-x-1/2 md:mt-0">
+    <div ref={containerRef} className="about-top-strip sb-story-events-mosaic">
       {images.map((image, index) => (
         <div
           key={`${image.src}-${index}`}
