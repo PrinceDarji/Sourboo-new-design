@@ -18,14 +18,14 @@ type Ingredient = {
 };
 
 const JAR_IMAGES: Record<JarFlavour, string> = {
-  'side-eye': '/product/side-eye-jar.png',
-  tamarin: '/product/tamarin-jar.png',
+  'side-eye': '/product/side-eye-jar.webp',
+  tamarin: '/product/tamarin-jar.webp',
 };
 
 const LEMON = '/home/ingredients/lemon-wedge.png';
-const MASALA = '/home/ingredients/chaat-masala.svg';
-const TAMARIND = '/home/ingredients/tamarind-pod.svg';
-const CHILLI = '/home/ingredients/red-chilli.svg';
+const MASALA = '/home/ingredients/chaat-masala.png';
+const TAMARIND = '/home/ingredients/tamarind-pod.png';
+const CHILLI = '/home/ingredients/red-chilli.png';
 
 const INGREDIENTS: Record<JarFlavour, Ingredient[]> = {
   'side-eye': [
@@ -102,7 +102,7 @@ export default function InteractiveJar({
         </svg>
       </span>
 
-      <span className="sbx-jar__label font-rascal" aria-hidden="true">
+      <span className="sbx-jar__label" aria-hidden="true">
         {label}
       </span>
 

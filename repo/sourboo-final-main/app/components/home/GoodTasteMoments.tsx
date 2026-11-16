@@ -5,16 +5,16 @@ const MOMENTS = [
   { src: '/about/section-six-top-3.webp', alt: 'A Sourboo fan biting into a gherkin at a tasting' },
   { src: '/footer.JPEG', alt: 'Friends posing at the Sourboo tasting stand' },
   { src: '/about/section-six-top-1.webp', alt: 'A guest tasting Sourboo at a pop-up' },
-  { src: '/about-cover.JPG', alt: 'Two friends laughing while snacking on Sourboo' },
+  { src: '/about/about-cover.JPG', alt: 'Two friends laughing while snacking on Sourboo' },
   { src: '/about/section-six-top-2.webp', alt: 'The Sourboo pop-up stand with jars on display' },
 ];
 
 export default function GoodTasteMoments() {
   return (
     <section className="sbx-moments" aria-labelledby="sbx-moments-title">
-      <Wave fill="var(--sbx-lilac)" position="bottom" variant={1} />
+      <Wave fill="var(--sbx-lime)" position="bottom" variant={1} />
       <h2 id="sbx-moments-title" className="sbx-moments__title">
-        Good taste <span className="sbx-moments__title-hand font-rascal">looks like this.</span>
+        Good taste <span className="sbx-moments__title-hand"><span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">looks like this.</span><span className="sbx-layer__top">looks like this.</span></span></span>
       </h2>
 
       <ul className="sbx-moments__strip" aria-label="Photos of people enjoying Sourboo">
@@ -25,7 +25,7 @@ export default function GoodTasteMoments() {
         ))}
       </ul>
 
-      <p className="sbx-moments__line font-schoolbell">
+      <p className="sbx-moments__line">
         Deeply Fermented • Slightly Unhinged.
         <HandArrow className="sbx-moments__arrow" />
       </p>

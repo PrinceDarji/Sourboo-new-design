@@ -145,7 +145,7 @@ export default function CartDrawer() {
 
         <div className="sbx-cart__head">
           <h2 id="sbx-cart-title" className="sbx-cart__title">
-            your bag <span className="font-rascal">({totalItems})</span>
+            your bag <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">({totalItems})</span><span className="sbx-layer__top">({totalItems})</span></span>
           </h2>
           <button ref={closeRef} type="button" onClick={closeCart} className="sbx-cart__close" aria-label="Close bag">
             <svg viewBox="0 0 24 24" aria-hidden="true">

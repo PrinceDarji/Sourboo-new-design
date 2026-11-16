@@ -6,7 +6,6 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import InteractiveJar, { type JarFlavour } from '../product/InteractiveJar';
 import QuickBuyButton from '../cart/QuickBuyButton';
 import { findCatalogProduct } from '@/src/lib/catalog/products';
-import { Wave } from '../site/Organic';
 
 type Flavour = {
   slug: string;
@@ -76,11 +75,10 @@ export default function FlavourDuo({ children }: { children?: ReactNode }) {
 
   return (
     <section className="sbx-duo" id="flavours" aria-labelledby="sbx-duo-title">
-      <Wave fill="var(--sbx-lime)" position="bottom" variant={2} />
       <div className="sbx-duo__head">
-        <p className="sbx-duo__kicker font-schoolbell">Snackable pickled gherkins.</p>
+        <p className="sbx-duo__kicker">Snackable pickled gherkins.</p>
         <h2 id="sbx-duo-title" className="sbx-duo__title">
-          Snacks with <span className="sbx-layer" data-tone="amber"><span className="sbx-layer__hand" aria-hidden="true">personality.</span><span className="sbx-layer__top">personality.</span></span>
+          Snacks with <span className="sbx-duo__mark">personality.</span>
         </h2>
       </div>
 
@@ -111,7 +109,7 @@ export default function FlavourDuo({ children }: { children?: ReactNode }) {
               </div>
               <div className="sbx-duo__info">
                 <h3 className="sbx-duo__name">{flavour.name}</h3>
-                <p className="sbx-duo__persona font-rascal">
+                <p className="sbx-duo__persona">
                   <em>{flavour.persona}</em>
                 </p>
                 <p className="sbx-duo__desc">{flavour.description}</p>
@@ -124,7 +122,7 @@ export default function FlavourDuo({ children }: { children?: ReactNode }) {
                     slug={flavour.slug}
                     name={flavour.name}
                     priceLabel={price}
-                    image={product?.jarImage ?? '/product/side-eye-jar.png'}
+                    image={product?.jarImage ?? '/product/side-eye-jar.webp'}
                     className="sbx-duo__add"
                   >
                     add to bag · {price}

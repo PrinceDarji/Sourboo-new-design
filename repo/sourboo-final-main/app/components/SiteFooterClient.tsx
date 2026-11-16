@@ -80,7 +80,7 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
       <div className="sbx-footer__inner">
         <div className="sbx-footer__hero">
           <a href={instagram.profileUrl} target="_blank" rel="noopener noreferrer" className="sbx-footer__handle">
-            <span className="sbx-footer__handle-small font-rascal">*{instagram.headingPrefix}</span>
+            <span className="sbx-footer__handle-small">*{instagram.headingPrefix}</span>
             <span className="sbx-footer__handle-big">{handle}*</span>
           </a>
           <p className="sbx-footer__motto">
@@ -138,9 +138,9 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
 
         <div className="sbx-footer__base">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-green.svg" alt="Sourboo" className="sbx-footer__logo" width="520" height="140" loading="lazy" />
+          <img src="/logo.svg" alt="Sourboo" className="sbx-footer__logo" width="520" height="140" loading="lazy" />
           <p className="sbx-footer__legal">
-            © {new Date().getFullYear()} Sourboo Snacks LLP · <span className="font-rascal">{footer.tagline}</span>
+            © {new Date().getFullYear()} Sourboo Snacks LLP · <span>{footer.tagline}</span>
           </p>
         </div>
       </div>

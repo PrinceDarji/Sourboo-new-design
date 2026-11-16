@@ -156,7 +156,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#EBDDF8]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#8B5CF6]">
       <Navbar />
 
       {/* =========================================================================
@@ -194,7 +194,7 @@ export default function CheckoutPage() {
             {/* Order Details Grid */}
             <div className="mt-8 grid gap-8 md:grid-cols-2">
               {/* Customer & Delivery */}
-              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#EBDDF8] p-5">
+              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#FFFFFF] p-5">
                 <h3 className="font-coolvetica text-[1.3rem] text-[#8B5CF6] border-b-2 border-[#8B5CF6] pb-2">
                   Delivery Details
                 </h3>
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Order Summary */}
-              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#EBDDF8] p-5">
+              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#FFFFFF] p-5">
                 <h3 className="font-coolvetica text-[1.3rem] text-[#8B5CF6] border-b-2 border-[#8B5CF6] pb-2">
                   Items Purchased
                 </h3>
@@ -323,7 +323,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, fullName: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -337,7 +337,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, email: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -351,7 +351,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, phone: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -364,7 +364,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, line1: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -376,7 +376,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, line2: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -389,7 +389,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, city: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -402,7 +402,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, state: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
 
@@ -415,7 +415,7 @@ export default function CheckoutPage() {
                     onChange={(e) =>
                       setFormState((prev) => ({ ...prev, postalCode: e.target.value }))
                     }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#EBDDF8] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
+                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
                   />
                 </label>
               </div>
