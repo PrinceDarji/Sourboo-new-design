@@ -145,7 +145,7 @@ export default function CartDrawer() {
 
         <div className="sbx-cart__head">
           <h2 id="sbx-cart-title" className="sbx-cart__title">
-            your bag <span className="font-rascal">({totalItems})</span>
+            your bag <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">({totalItems})</span><span className="sbx-layer__top">({totalItems})</span></span>
           </h2>
           <button ref={closeRef} type="button" onClick={closeCart} className="sbx-cart__close" aria-label="Close bag">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -153,7 +153,7 @@ export default function CartDrawer() {
             </svg>
           </button>
         </div>
-        <p className="sbx-cart__note font-schoolbell">small-batch handcrafted • ships in 2-4 business days</p>
+        <p className="sbx-cart__note">small-batch handcrafted • ships in 2-4 business days</p>
 
         <div className="sbx-cart__body">
           {items.length === 0 ? (
@@ -229,7 +229,7 @@ export default function CartDrawer() {
               PROCEED TO CHECKOUT →
             </Link>
 
-            <p className="sbx-cart__secure font-schoolbell">🔒 100% secure checkout via PhonePe &amp; Shopify</p>
+            <p className="sbx-cart__secure">🔒 100% secure checkout via PhonePe &amp; Shopify</p>
           </div>
         )}
       </aside>

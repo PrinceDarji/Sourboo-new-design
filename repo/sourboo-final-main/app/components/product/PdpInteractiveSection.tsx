@@ -93,12 +93,12 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
         {/* Info Column */}
         <div className="sb-pdp-info-col">
           <h1 className="sb-pdp-title">
-            <span className="font-coolvetica text-pickle">{firstWord} </span>
-            <span className="font-rascal text-pink">{restWords}</span>
+            <span className="font-coolvetica" style={{ color: '#FFFFFF' }}>{firstWord} </span>
+            <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">{restWords}</span><span className="sbx-layer__top" style={{ color: '#FFFFFF' }}>{restWords}</span></span>
           </h1>
           <p className="sb-pdp-price font-coolvetica">{selectedVariant.priceLabel}</p>
           <p
-            className="font-schoolbell"
+            className="font-coolvetica"
             style={{
               fontSize: '1.45rem',
               lineHeight: 1.25,
@@ -112,8 +112,8 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
           <div
             style={{
-              background: 'rgba(255, 255, 136, 0.55)',
-              borderLeft: '4px solid var(--sb-green-moss, #4A6318)',
+              background: '#D7F557',
+              borderLeft: '4px solid #8B5CF6',
               padding: '12px 16px',
               borderRadius: '8px',
               marginBottom: '20px',
@@ -136,7 +136,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                   display: 'block',
                   fontSize: '1.05rem',
                   fontWeight: 700,
-                  color: 'var(--sb-green-dark, #163300)',
+                  color: 'var(--sb-green-dark, #8B5CF6)',
                   marginBottom: '8px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
@@ -155,16 +155,16 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                       borderRadius: '14px',
                       border: selectedVariant.id === v.id
                         ? '2.5px solid #E81B6D'
-                        : '2px solid #163300',
-                      background: selectedVariant.id === v.id ? '#FFEBF3' : '#FFFFFF',
-                      color: selectedVariant.id === v.id ? '#E81B6D' : '#163300',
+                        : '2px solid #8B5CF6',
+                      background: selectedVariant.id === v.id ? '#D7F557' : '#FFFFFF',
+                      color: selectedVariant.id === v.id ? '#8B5CF6' : '#8B5CF6',
                       cursor: 'pointer',
                       fontFamily: 'Coolvetica, sans-serif',
                       fontSize: '1.05rem',
                       fontWeight: 700,
                       boxShadow: selectedVariant.id === v.id
                         ? '3px 3px 0px #E81B6D'
-                        : '2px 2px 0px #163300',
+                        : '2px 2px 0px #8B5CF6',
                       transition: 'all 0.15s ease',
                       textAlign: 'center',
                     }}
@@ -225,7 +225,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabInTheJar"
                 onClick={() => setActiveTab('jar')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'jar' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'jar' ? 'active' : ''}`}
               >
                 {product.detailInJarTitle}
               </button>
@@ -233,7 +233,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabOnTheTongue"
                 onClick={() => setActiveTab('tongue')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'tongue' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'tongue' ? 'active' : ''}`}
               >
                 {product.detailOnTongueTitle}
               </button>
@@ -241,7 +241,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabAfterOpening"
                 onClick={() => setActiveTab('storage')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'storage' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'storage' ? 'active' : ''}`}
               >
                 {product.detailAfterOpeningTitle}
               </button>
@@ -269,7 +269,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
             {activeTab === 'tongue' && (
               <div id="TabOnTongue" className="sb-tab-panel active">
                 <p
-                  className="font-schoolbell"
+                  className="font-coolvetica"
                   style={{
                     margin: 0,
                     fontSize: '1.35rem',
@@ -286,7 +286,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
             {activeTab === 'storage' && (
               <div id="TabAfterOpening" className="sb-tab-panel active">
                 <p
-                  className="font-schoolbell"
+                  className="font-coolvetica"
                   style={{
                     margin: 0,
                     fontSize: '1.35rem',

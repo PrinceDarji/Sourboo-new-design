@@ -30,34 +30,34 @@
 
 /* 2. ROOT TOKENS & SYSTEM VARIABLES */
 :root {
-  --sb-bg-sage: #E9ECD9;
-  --sb-bg-yellow: #FFFF88;
-  --sb-bg-popup: #EEDDEB;
-  --sb-bg-input: #F8F0F8;
-  --sb-bg-pill: #FFF7D6;
-  --sb-bg-dark: #171717;
+  --sb-bg-sage: #8B5CF6;
+  --sb-bg-yellow: #D7F557;
+  --sb-bg-popup: #8B5CF6;
+  --sb-bg-input: #FFFFFF;
+  --sb-bg-pill: #FFFFFF;
+  --sb-bg-dark: #8B5CF6;
 
-  --sb-pink: #E61E6E;
-  --sb-pink-hover: #CC0F5F;
-  --sb-pink-soft: #F18BB7;
-  --sb-pink-punch: #EA1970;
+  --sb-pink: #E81B6D;
+  --sb-pink-hover: #8B5CF6;
+  --sb-pink-soft: #FFFFFF;
+  --sb-pink-punch: #E81B6D;
 
-  --sb-lime: #BFEA5A;
-  --sb-pickle-green: #4C8B1D;
-  --sb-pickle-olive: #3E6A18;
-  --sb-pickle-dark: #2F4918;
-  --sb-pickle-forest: #1C2B08;
+  --sb-lime: #D7F557;
+  --sb-pickle-green: #8B5CF6;
+  --sb-pickle-olive: #8B5CF6;
+  --sb-pickle-dark: #8B5CF6;
+  --sb-pickle-forest: #8B5CF6;
 
-  --sb-amber: #C96A00;
-  --sb-cinnamon: #A35A0A;
-  --sb-rust: #5E3C10;
-  --sb-tamarind-dark: #26140A;
+  --sb-amber: #E81B6D;
+  --sb-cinnamon: #E81B6D;
+  --sb-rust: #8B5CF6;
+  --sb-tamarind-dark: #8B5CF6;
 
-  --sb-text-charcoal: #171717;
-  --sb-text-dark: #1D1D1D;
-  --sb-text-muted: #6F5F6B;
-  --sb-text-cream: #E9E6B8;
-  --sb-text-light: #FFFBD8;
+  --sb-text-charcoal: #8B5CF6;
+  --sb-text-dark: #8B5CF6;
+  --sb-text-muted: #8B5CF6;
+  --sb-text-cream: #FFFFFF;
+  --sb-text-light: #FFFFFF;
 
   --sb-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --sb-ease-poster: cubic-bezier(0.2, 1, 0.22, 1);
@@ -76,7 +76,7 @@ html, body {
   overflow-x: hidden !important;
   background-color: var(--sb-bg-sage);
   color: var(--sb-text-charcoal);
-  font-family: 'Schoolbell', cursive, sans-serif;
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
@@ -106,9 +106,9 @@ input, button, select, textarea {
 }
 
 /* Typography Utility Classes */
-.font-coolvetica { font-family: 'coolvetica', sans-serif !important; }
-.font-rascal { font-family: 'rascal', cursive !important; }
-.font-schoolbell { font-family: 'Schoolbell', cursive !important; }
+.font-coolvetica { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
+.font-rascal, .font-butter { font-family: var(--font-rascal), cursive !important; }
+.font-schoolbell { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
 
 .text-pink { color: var(--sb-pink) !important; }
 .text-pink-punch { color: var(--sb-pink-punch) !important; }
@@ -961,13 +961,23 @@ input, button, select, textarea {
 
 .sb-modal-close-btn {
   position: absolute;
-  right: 20px;
-  top: 16px;
-  font-size: 56px;
-  line-height: 1;
-  color: var(--sb-pink);
-  font-family: 'coolvetica', sans-serif;
-  z-index: 50;
+  right: 10px;
+  top: 10px;
+  font-size: 2.4rem;
+  line-height: 0.75;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e81b6d;
+  background: #d7f557;
+  border: 2px solid #e81b6d;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #e81b6d;
+  font-family: var(--font-coolvetica), 'coolvetica', sans-serif;
+  z-index: 80;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -1529,6 +1539,7 @@ input, button, select, textarea {
   max-width: 1480px;
   margin: 0 auto;
   padding: 100px 24px 80px;
+  color: #ffffff;
 }
 
 .sb-pdp-grid {
@@ -1548,14 +1559,25 @@ input, button, select, textarea {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #FFF;
-  border-radius: 32px;
-  overflow: hidden;
-  border: 3px solid rgba(76, 139, 29, 0.18);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+}
+
+.sb-pdp-gallery-main::before {
+  content: '';
+  position: absolute;
+  inset: 10%;
+  z-index: 0;
+  background: var(--sbx-lime, #d7f557);
+  border-radius: 58% 42% 52% 48% / 46% 56% 44% 54%;
 }
 
 .sb-pdp-gallery-main img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1594,6 +1616,7 @@ input, button, select, textarea {
   font-size: clamp(2.4rem, 5.5vw, 4.8rem);
   line-height: 0.94;
   margin: 0 0 10px;
+  color: #ffffff;
 }
 
 .sb-pdp-price {
@@ -1695,7 +1718,7 @@ input, button, select, textarea {
   border-radius: 24px;
   padding: 28px;
   margin-top: 18px;
-  border: 2px dashed rgba(76, 139, 29, 0.25);
+  border: 2px dashed rgba(139, 92, 246, 0.35);
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.25rem, 1.8vw, 1.75rem);
   line-height: 1.25;

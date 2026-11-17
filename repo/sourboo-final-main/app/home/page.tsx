@@ -41,7 +41,7 @@ export default function HomePage() {
       <FridgeLoader />
       <Navbar />
       <HomeHero />
-      <Marquee label="Sourboo brand lines" tone="lilac" duration={46} tilt={-1.2} className="sbx-home__marquee" />
+      <Marquee label="Sourboo brand lines" tone="berry" duration={46} tilt={-1.2} className="sbx-home__marquee" />
       <CravingsIntro />
       <InTheJar />
       <GoodTasteMoments />

@@ -46,7 +46,7 @@ export default function FavBaddiesReviews() {
 
   return (
     <section className="sbx-baddies" aria-labelledby="sbx-baddies-title">
-      <Wave fill="var(--sbx-lilac)" position="top" variant={2} />
+      <Wave fill="var(--sbx-lime)" position="top" variant={2} />
       <div className="sbx-baddies__inner">
         <div className="sbx-baddies__copy">
           <h2 id="sbx-baddies-title" className="sbx-baddies__title">

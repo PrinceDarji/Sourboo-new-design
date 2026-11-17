@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { CATALOG_PRODUCTS } from '@/src/lib/catalog/products';
+import { Wave } from '../site/Organic';
 
 type Tag = { text: string; x: number; y: number; tilt: number };
 
@@ -34,6 +35,7 @@ export default function InTheJar() {
 
   return (
     <section className="sbx-jarstory" aria-labelledby="sbx-jarstory-title">
+      <Wave fill="var(--sbx-purple)" position="bottom" variant={3} />
       <h2 id="sbx-jarstory-title" className="sbx-jarstory__title">
         <span className="sbx-layer" data-tone="lime">
           <span className="sbx-layer__hand" aria-hidden="true">

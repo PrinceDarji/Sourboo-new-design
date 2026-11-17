@@ -66,7 +66,7 @@ export default function ProductCatalogPage() {
       <Navbar />
 
       <section className="sbx-shop__hero" aria-labelledby="sbx-shop-title">
-        <p className="sbx-shop__kicker font-schoolbell">*all sour, zero chill • cravings come first*</p>
+        <p className="sbx-shop__kicker">*all sour, zero chill • cravings come first*</p>
         <h1 id="sbx-shop-title" className="sbx-shop__title">
           Shop Sourboo pickled snackable gherkins and bundles
         </h1>
@@ -75,7 +75,7 @@ export default function ProductCatalogPage() {
         </p>
       </section>
 
-      <Marquee label="Sourboo brand lines" tone="lilac" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
+      <Marquee label="Sourboo brand lines" tone="berry" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
 
       <FlavourDuo />
 
@@ -84,7 +84,7 @@ export default function ProductCatalogPage() {
           <h2 id="sbx-bundles-title" className="sbx-shop__bundles-title">
             Bundles
           </h2>
-          <p className="sbx-shop__bundles-note font-schoolbell">+ ₹100 shipping per order</p>
+          <p className="sbx-shop__bundles-note">+ ₹100 shipping per order</p>
         </div>
 
         <div className="sbx-shop__bundle-track" role="list">

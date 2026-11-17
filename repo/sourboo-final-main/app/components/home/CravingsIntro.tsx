@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CoolRascalText } from '../MixedFont';
-import { HandUnderline } from '../site/Organic';
+import Highlight from '../site/Highlight';
+import { HandUnderline, Wave } from '../site/Organic';
 
 const PHOTOS = [
   {
@@ -27,16 +27,17 @@ const PHOTOS = [
 export default function CravingsIntro() {
   return (
     <section className="sbx-crave" aria-labelledby="sbx-crave-title">
+      <Wave fill="var(--sbx-pink)" position="bottom" variant={2} />
       <div className="sbx-crave__grid">
         <div className="sbx-crave__copy">
           <h2 id="sbx-crave-title" className="sbx-crave__title" aria-label="sourboo made for people who eat with intent">
-            <CoolRascalText as="span" text="sourboo made for people who eat" className="sbx-crave__title-line" pattern="alternate" startWith="base" />
+            <span className="sbx-crave__title-line">sourboo made for people who eat</span>
             <span className="sbx-crave__intent">
-              <CoolRascalText as="span" text="with intent" pattern="alternate" startWith="accent" />
+              <Highlight>with intent</Highlight>
               <HandUnderline className="sbx-crave__underline" />
             </span>
           </h2>
-          <p className="sbx-crave__hand font-schoolbell">
+          <p className="sbx-crave__hand">
             <span>who like flavour loud and immediate</span>
             <span>food that fits into real moments</span>
           </p>
