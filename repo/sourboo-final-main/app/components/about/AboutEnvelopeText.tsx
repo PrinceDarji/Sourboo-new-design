@@ -86,7 +86,7 @@ export default function AboutEnvelopeText({ heading, body, signoff }: AboutEnvel
     <div
       ref={containerRef}
       data-word-reveal-skip
-      className="absolute left-[30%] top-[6%] h-[60%] w-[36%] overflow-hidden text-[#1f1a1a]"
+      className="absolute left-[30%] top-[6%] h-[60%] w-[36%] overflow-hidden text-[#0a4625]"
     >
       <div ref={contentRef} className="about-envelope-text-content">
         <p className="about-envelope-text-heading">{heading}</p>

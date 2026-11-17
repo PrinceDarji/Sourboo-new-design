@@ -16,8 +16,8 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
   const variants = isSingleJar
     ? [
         { id: 'single', name: 'Single Jar (370ml)', price: 399, priceLabel: '₹399' },
-        { id: 'duo', name: '2-Pack Duo', price: 729, priceLabel: '₹729', save: 'Save ₹69' },
-        { id: 'stash', name: '4-Pack Stash', price: 1299, priceLabel: '₹1,299', save: 'Save ₹297' },
+        { id: 'duo', name: '2-Pack Duo', price: 729, priceLabel: '₹729' },
+        { id: 'stash', name: '4-Pack Stash', price: 1299, priceLabel: '₹1,299' },
       ]
     : [
         { id: 'standard', name: 'Standard Pack', price: basePriceNum, priceLabel: product.price },
@@ -93,8 +93,8 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
         {/* Info Column */}
         <div className="sb-pdp-info-col">
           <h1 className="sb-pdp-title">
-            <span className="font-coolvetica" style={{ color: '#FFFFFF' }}>{firstWord} </span>
-            <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">{restWords}</span><span className="sbx-layer__top" style={{ color: '#FFFFFF' }}>{restWords}</span></span>
+            <span className="font-coolvetica" style={{ color: '#FFFF88' }}>{firstWord} </span>
+            <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">{restWords}</span><span className="sbx-layer__top" style={{ color: '#FFFF88' }}>{restWords}</span></span>
           </h1>
           <p className="sb-pdp-price font-coolvetica">{selectedVariant.priceLabel}</p>
           <p
@@ -112,8 +112,8 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
           <div
             style={{
-              background: '#D7F557',
-              borderLeft: '4px solid #8B5CF6',
+              background: '#BFEE5A',
+              borderLeft: '4px solid #E61E6E',
               padding: '12px 16px',
               borderRadius: '8px',
               marginBottom: '20px',
@@ -136,7 +136,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                   display: 'block',
                   fontSize: '1.05rem',
                   fontWeight: 700,
-                  color: 'var(--sb-green-dark, #8B5CF6)',
+                  color: 'var(--sb-green-dark, #0A4625)',
                   marginBottom: '8px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
@@ -154,24 +154,24 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                       padding: '10px 16px',
                       borderRadius: '14px',
                       border: selectedVariant.id === v.id
-                        ? '2.5px solid #E81B6D'
-                        : '2px solid #8B5CF6',
-                      background: selectedVariant.id === v.id ? '#D7F557' : '#FFFFFF',
-                      color: selectedVariant.id === v.id ? '#8B5CF6' : '#8B5CF6',
+                        ? '2.5px solid #E61E6E'
+                        : '2px solid #0A4625',
+                      background: selectedVariant.id === v.id ? '#BFEE5A' : '#FFFF88',
+                      color: '#0A4625',
                       cursor: 'pointer',
                       fontFamily: 'Coolvetica, sans-serif',
                       fontSize: '1.05rem',
                       fontWeight: 700,
                       boxShadow: selectedVariant.id === v.id
-                        ? '3px 3px 0px #E81B6D'
-                        : '2px 2px 0px #8B5CF6',
+                        ? '3px 3px 0px #E61E6E'
+                        : '2px 2px 0px #0A4625',
                       transition: 'all 0.15s ease',
                       textAlign: 'center',
                     }}
                   >
                     <div>{v.name}</div>
                     <div style={{ fontSize: '0.9rem', opacity: 0.9 }}>
-                      {v.priceLabel} {v.save ? `• ${v.save}` : ''}
+                      {v.priceLabel}
                     </div>
                   </button>
                 ))}

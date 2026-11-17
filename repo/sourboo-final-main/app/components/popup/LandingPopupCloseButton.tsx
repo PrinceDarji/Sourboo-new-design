@@ -30,7 +30,7 @@ export default function LandingPopupCloseButton({
           className="h-full w-full object-contain"
         />
       ) : (
-        <span className="text-[52px] leading-none text-[#EC1B79] font-coolvetica md:text-[72px]">
+        <span className="text-[52px] leading-none text-[#E61E6E] font-coolvetica md:text-[72px]">
           ×
         </span>
       )}

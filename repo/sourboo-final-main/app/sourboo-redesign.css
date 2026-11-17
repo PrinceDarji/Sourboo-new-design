@@ -5,24 +5,24 @@
 
 /* ── COLOR TOKENS ── */
 :root {
-  --sb-bg: #8B5CF6;
-  --sb-bg-card: #FFFFFF;
-  --sb-cream: #FFFFFF;
-  --sb-yellow: #D7F557;
-  --sb-lime-btn: #D7F557;
-  --sb-lime-btn-hover: #8B5CF6;
-  --sb-pink: #E81B6D;
-  --sb-pink-hot: #E81B6D;
-  --sb-pink-light: #FFFFFF;
-  --sb-pink-card: #E81B6D;
-  --sb-green-dark: #8B5CF6;
-  --sb-green-moss: #8B5CF6;
-  --sb-green-ribbon: #8B5CF6;
-  --sb-green-light: #D7F557;
-  --sb-orange-light: #FFFFFF;
-  --sb-charcoal: #8B5CF6;
-  --sb-text-muted: #8B5CF6;
-  --sb-border-dark: #8B5CF6;
+  --sb-bg: #0A4625;
+  --sb-bg-card: #FFFF88;
+  --sb-cream: #FFFF88;
+  --sb-yellow: #FFFF88;
+  --sb-lime-btn: #BFEE5A;
+  --sb-lime-btn-hover: #0A4625;
+  --sb-pink: #E61E6E;
+  --sb-pink-hot: #E61E6E;
+  --sb-pink-light: #FFFF88;
+  --sb-pink-card: #E61E6E;
+  --sb-green-dark: #0A4625;
+  --sb-green-moss: #0A4625;
+  --sb-green-ribbon: #0A4625;
+  --sb-green-light: #BFEE5A;
+  --sb-orange-light: #C86202;
+  --sb-charcoal: #0A4625;
+  --sb-text-muted: #0A4625;
+  --sb-border-dark: #0A4625;
   --sb-radius-sm: 10px;
   --sb-radius-md: 18px;
   --sb-radius-lg: 28px;
@@ -60,7 +60,7 @@
 
 .font-coolvetica { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif; }
 .font-rascal, .font-butter { font-family: var(--font-rascal), cursive; }
-.font-schoolbell { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif; }
+.font-schoolbell { font-family: var(--font-schoolbell), cursive; }
 
 .text-charcoal { color: var(--sb-green-dark); }
 .text-pink { color: var(--sb-pink); }
@@ -77,13 +77,13 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--sb-bg);
+  background-color: #ffff88;
 }
 
 body.sb-concept-a-body {
-  background: var(--sb-bg);
-  color: var(--sb-green-dark);
-  font-family: 'Coolvetica', 'Helvetica Neue', sans-serif;
+  background: #ffff88;
+  color: #0a4625;
+  font-family: var(--font-schoolbell), cursive;
   line-height: 1.4;
   overflow-x: hidden;
 }
@@ -188,15 +188,15 @@ button {
   letter-spacing: 0.02em;
   padding: 7px 18px;
   border-radius: var(--sb-radius-pill, 9999px);
-  color: var(--sb-green-dark, #1E3514);
+  color: var(--sb-green-dark, #0A4625);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .sb-nav-link:hover,
 .sb-nav-link.active {
-  background: #FFF36A;
-  color: var(--sb-green-dark, #1E3514);
+  background: #FFFF88;
+  color: var(--sb-green-dark, #0A4625);
 }
 
 .sb-nav-right,
@@ -213,10 +213,10 @@ button {
   line-height: 1;
   padding: 10px 22px;
   background: var(--sb-pink, #E61E6E);
-  color: #FFFFFF !important;
-  border: 2px solid var(--sb-green-dark, #1E3514);
+  color: #FFFF88 !important;
+  border: 2px solid var(--sb-green-dark, #0A4625);
   border-radius: var(--sb-radius-pill, 9999px);
-  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #1E3514);
+  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #0A4625);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
@@ -224,8 +224,8 @@ button {
 
 .sb-nav-quiz-pill:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #1E3514);
-  background: #f01e74;
+  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #0A4625);
+  background: #e61e6e;
 }
 
 .sb-nav-cart-btn {
@@ -233,12 +233,12 @@ button {
   align-items: center;
   gap: 8px;
   padding: 8px 18px;
-  background: #FFFFFF;
-  border: 2px solid var(--sb-green-dark, #1E3514);
+  background: #FFFF88;
+  border: 2px solid var(--sb-green-dark, #0A4625);
   border-radius: var(--sb-radius-pill, 9999px);
-  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #1E3514);
+  box-shadow: 2.5px 2.5px 0px var(--sb-green-dark, #0A4625);
   cursor: pointer;
-  color: var(--sb-green-dark, #1E3514);
+  color: var(--sb-green-dark, #0A4625);
   font-family: var(--font-coolvetica), 'Coolvetica', sans-serif;
   font-size: 1.1rem;
   line-height: 1;
@@ -248,8 +248,8 @@ button {
 
 .sb-nav-cart-btn:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #1E3514);
-  background: #FFF9E6;
+  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #0A4625);
+  background: #FFFF88;
 }
 
 .sb-nav-cart-icon {
@@ -272,11 +272,11 @@ button {
   padding: 0 6px;
   border-radius: 9999px;
   background: var(--sb-pink, #E61E6E);
-  color: #FFFFFF !important;
+  color: #FFFF88 !important;
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(10, 70, 37, 0.2);
 }
 
 .sb-nav-mobile-toggle {
@@ -288,7 +288,7 @@ button {
   width: 42px;
   height: 42px;
   background: transparent;
-  border: 2px solid var(--sb-green-dark, #1E3514);
+  border: 2px solid var(--sb-green-dark, #0A4625);
   border-radius: 10px;
   cursor: pointer;
   padding: 8px;
@@ -298,7 +298,7 @@ button {
   display: block;
   width: 22px;
   height: 2.5px;
-  background: var(--sb-green-dark, #1E3514);
+  background: var(--sb-green-dark, #0A4625);
   border-radius: 2px;
   transition: all 0.2s ease;
 }
@@ -308,22 +308,22 @@ button {
   flex-direction: column;
   gap: 10px;
   padding: 16px 24px;
-  background: #FAF5E8;
-  border-bottom: 2px solid var(--sb-green-dark, #1E3514);
+  background: #FFFF88;
+  border-bottom: 2px solid var(--sb-green-dark, #0A4625);
 }
 
 .sb-nav-mobile-link {
   font-family: var(--font-coolvetica), 'Coolvetica', sans-serif;
   font-size: 1.2rem;
   padding: 10px 14px;
-  color: var(--sb-green-dark, #1E3514);
+  color: var(--sb-green-dark, #0A4625);
   text-decoration: none;
   border-radius: 10px;
 }
 
 .sb-nav-mobile-link:hover,
 .sb-nav-mobile-link.active {
-  background: #FFF36A;
+  background: #FFFF88;
 }
 
 @media (max-width: 860px) {
@@ -414,7 +414,7 @@ button {
 .sb-hero-headline-accent {
   display: inline-block;
   background: var(--sb-pink);
-  color: #FFFFFF !important;
+  color: #FFFF88 !important;
   font-family: 'Coolvetica', sans-serif;
   font-size: clamp(1.8rem, 3.2vw, 2.9rem);
   line-height: 1;
@@ -517,7 +517,7 @@ button {
 }
 
 .sb-sticker-starburst span {
-  color: #171717;
+  color: #0A4625;
   font-weight: 900;
 }
 
@@ -532,10 +532,10 @@ button {
 .sb-trust-ribbon-wrap {
   position: relative;
   background: var(--sb-green-ribbon);
-  color: #FFFFFF;
+  color: #FFFF88;
   margin: 32px 0 0;
   padding: 24px 0;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: inset 0 2px 4px rgba(10, 70, 37, 0.1);
 }
 
 .sb-trust-ribbon-inner {
@@ -555,7 +555,7 @@ button {
   gap: 12px;
   font-family: 'Coolvetica', sans-serif;
   font-size: 1.15rem;
-  color: #FFFFFF;
+  color: #FFFF88;
   letter-spacing: 0.02em;
 }
 
@@ -568,7 +568,7 @@ button {
 .sb-trust-divider {
   width: 1.5px;
   height: 28px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 136, 0.3);
 }
 
 /* ==========================================================================
@@ -682,7 +682,7 @@ button {
   width: 100%;
   max-width: 280px;
   margin: 0 auto;
-  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.18));
+  filter: drop-shadow(0 12px 20px rgba(10, 70, 37, 0.18));
 }
 
 .sb-lineup-hero-slices {
@@ -708,7 +708,7 @@ button {
 
 .sb-dossier-card,
 .sb-product-card-v3 {
-  background: #FFFFFF;
+  background: #FFFF88;
   border-radius: var(--sb-radius-md);
   border: 2.5px solid var(--sb-green-dark);
   box-shadow: 4px 4px 0px var(--sb-green-dark);
@@ -743,7 +743,7 @@ button {
   width: auto;
   object-fit: contain;
   transition: transform 0.25s ease;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 6px 12px rgba(10, 70, 37, 0.1));
 }
 
 .sb-dossier-card:hover .sb-card-jar-img {
@@ -755,7 +755,7 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: #FFFFFF;
+  background: #FFFF88;
 }
 
 .sb-dossier-tape {
@@ -867,10 +867,10 @@ button {
 
 .sb-zine-poster-card,
 .sb-poster-card-v3 {
-  background: #FFFDF9;
+  background: #FFFF88;
   border-radius: 12px;
   border: 2px solid rgba(30, 53, 20, 0.15);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 8px 24px rgba(10, 70, 37, 0.06), 0 2px 6px rgba(10, 70, 37, 0.04);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -885,7 +885,7 @@ button {
 
 .sb-zine-poster-card:hover {
   transform: rotate(0deg) translateY(-8px) scale(1.02);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 36px rgba(10, 70, 37, 0.12);
   z-index: 5;
 }
 
@@ -1018,10 +1018,10 @@ button {
 }
 
 .sb-reviews-phone-mockup {
-  background: #111111;
+  background: #0A4625;
   border-radius: 40px;
-  border: 6px solid #282828;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.1);
+  border: 6px solid #0A4625;
+  box-shadow: 0 24px 60px rgba(10, 70, 37, 0.2), 0 4px 12px rgba(10, 70, 37, 0.1);
   padding: 24px 18px;
   max-width: 360px;
   position: relative;
@@ -1031,7 +1031,7 @@ button {
 .sb-phone-pill-notch {
   width: 70px;
   height: 14px;
-  background: #282828;
+  background: #0A4625;
   border-radius: var(--sb-radius-pill);
   margin: 0 auto 16px;
 }
@@ -1043,10 +1043,10 @@ button {
 }
 
 .sb-phone-review-bubble {
-  background: #FFFFFF;
+  background: #FFFF88;
   border-radius: 18px;
   padding: 14px 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(10, 70, 37, 0.06);
 }
 
 .sb-phone-review-quote {
@@ -1058,7 +1058,7 @@ button {
 }
 
 .sb-phone-review-stars {
-  color: #FFA500;
+  color: #C86202;
   font-size: 0.95rem;
   letter-spacing: 2px;
 }
@@ -1117,7 +1117,7 @@ button {
 .sb-about-highlight-pink {
   display: inline-block;
   background: var(--sb-pink);
-  color: #FFFFFF !important;
+  color: #FFFF88 !important;
   padding: 6px 16px 8px;
   border-radius: 8px;
   transform: rotate(-1.5deg);
@@ -1167,7 +1167,7 @@ button {
 
 /* Part 2: Value Props Soft Green Ribbon */
 .sb-about-props-bar {
-  background: #CBE69E;
+  background: #BFEE5A;
   margin: 24px 0 40px;
   padding: 20px 0;
   border-top: 2px solid rgba(30, 53, 20, 0.15);
@@ -1207,7 +1207,7 @@ button {
 
 .sb-story-photo-wrap {
   position: relative;
-  background: #FFFFFF;
+  background: #FFFF88;
   padding: 14px 14px 40px;
   border-radius: 12px;
   border: 2.5px solid var(--sb-green-dark);
@@ -1222,7 +1222,7 @@ button {
   width: 80px;
   height: 24px;
   background: rgba(255, 241, 181, 0.9);
-  border: 1px dashed rgba(0,0,0,0.2);
+  border: 1px dashed rgba(10, 70, 37, 0.2);
   transform: rotate(2deg);
 }
 
@@ -1268,7 +1268,7 @@ button {
 }
 
 .sb-pillar-card {
-  background: #FFFFFF;
+  background: #FFFF88;
   border-radius: var(--sb-radius-md);
   border: 2px solid var(--sb-green-dark);
   box-shadow: 4px 4px 0px var(--sb-green-dark);
@@ -1304,7 +1304,7 @@ button {
 /* Part 5: Behind The Brand — Pink Torn Paper */
 .sb-behind-banner-section {
   background: var(--sb-pink);
-  color: #FFFFFF;
+  color: #FFFF88;
   margin: 50px 0;
   padding: 48px 0;
   position: relative;
@@ -1325,7 +1325,7 @@ button {
   font-family: 'Rascal', cursive;
   font-size: clamp(2.6rem, 4.5vw, 4rem);
   line-height: 0.95;
-  color: #FFFFFF;
+  color: #FFFF88;
   flex: 0 0 auto;
 }
 
@@ -1342,7 +1342,7 @@ button {
   gap: 12px;
   font-family: 'Schoolbell', cursive;
   font-size: 1.25rem;
-  color: #FFFFFF;
+  color: #FFFF88;
 }
 
 .sb-check-icon {
@@ -1425,7 +1425,7 @@ button {
   font-family: 'Coolvetica', sans-serif;
   font-size: 1.2rem;
   padding: 12px 30px;
-  background: #FFFFFF;
+  background: #FFFF88;
   color: var(--sb-green-dark);
   border-radius: var(--sb-radius-pill);
   border: 2px solid var(--sb-green-dark);
@@ -1472,7 +1472,7 @@ button {
 }
 
 .sb-join-card {
-  background: #FFFFFF;
+  background: #FFFF88;
   border-radius: var(--sb-radius-lg);
   border: 2.5px solid var(--sb-green-dark);
   box-shadow: 5px 5px 0px var(--sb-green-dark);
@@ -1537,7 +1537,7 @@ button {
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   border-left: 2.5px solid var(--sb-green-dark);
-  box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+  box-shadow: -8px 0 32px rgba(10, 70, 37, 0.15);
 }
 
 .sb-cart-drawer.is-open {
@@ -1578,7 +1578,7 @@ button {
 .sb-cart-footer {
   padding: 20px 24px 28px;
   border-top: 2px solid var(--sb-green-dark);
-  background: #FFFDF9;
+  background: #FFFF88;
 }
 
 .sb-cart-total-line {
@@ -1657,11 +1657,11 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: #e81b6d;
-  background: #d7f557;
-  border: 2px solid #e81b6d;
+  color: #e61e6e;
+  background: #bfee5a;
+  border: 2px solid #e61e6e;
   cursor: pointer;
-  box-shadow: 0 2px 0 #e81b6d;
+  box-shadow: 0 2px 0 #e61e6e;
 }
 
 .sb-popup-h1 {
@@ -1677,7 +1677,7 @@ button {
   text-align: center;
   font-family: 'Schoolbell', cursive;
   font-size: 1.3rem;
-  color: #d7f557;
+  color: #bfee5a;
   margin-bottom: 24px;
 }
 
@@ -1694,21 +1694,21 @@ button {
   justify-content: center !important;
   padding: 16px 20px !important;
   border-radius: 20px !important;
-  border: 2.5px solid var(--sb-green-dark, #1E3514) !important;
+  border: 2.5px solid var(--sb-green-dark, #0A4625) !important;
   font-family: var(--font-coolvetica), 'Coolvetica', sans-serif !important;
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   text-align: center !important;
-  background: #FFFFFF !important;
-  color: #171717 !important;
-  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #1E3514) !important;
+  background: #FFFF88 !important;
+  color: #0A4625 !important;
+  box-shadow: 3.5px 3.5px 0px var(--sb-green-dark, #0A4625) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: pointer !important;
 }
 
 .sb-popup-option-btn span,
 .sb-popup-option-text {
-  color: #171717 !important;
+  color: #0A4625 !important;
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.01em !important;
@@ -1717,7 +1717,7 @@ button {
 
 .sb-popup-option-btn:hover {
   transform: translate(-2px, -2px) !important;
-  background: #FFF36A !important;
+  background: #FFFF88 !important;
   border-color: var(--sb-pink, #E61E6E) !important;
   box-shadow: 4px 4px 0px var(--sb-pink, #E61E6E) !important;
 }
@@ -1732,7 +1732,7 @@ button {
    ========================================================================== */
 .sb-footer {
   background: var(--sb-green-dark);
-  color: #FAF5E8;
+  color: #FFFF88;
   padding: 60px 0 28px;
   margin-top: 60px;
 }

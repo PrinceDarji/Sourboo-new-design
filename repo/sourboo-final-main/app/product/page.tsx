@@ -2,8 +2,6 @@ import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
 import SiteFooter from '../components/SiteFooter';
 import QuickBuyButton from '../components/cart/QuickBuyButton';
-import FlavourDuo from '../components/home/FlavourDuo';
-import TasteGame from '../components/home/TasteGame';
 import Marquee from '../components/site/Marquee';
 import { CATALOG_PRODUCTS } from '@/src/lib/catalog/products';
 import '../sourboo-home.css';
@@ -57,8 +55,13 @@ const FAQ_ITEMS = [
 ];
 
 const SINGLE_SLUGS = new Set(['sideeyesour', 'tamarintease']);
+const FLAVOUR_COPY: Record<string, string> = {
+  sideeyesour: 'Extra tangy. Chaat masala obsessed. Has something to say about everything.',
+  tamarintease: 'Sweet, sour and a little fiery. Flirts first. Bites back.',
+};
 
 export default function ProductCatalogPage() {
+  const singles = CATALOG_PRODUCTS.filter((product) => SINGLE_SLUGS.has(product.slug));
   const bundles = CATALOG_PRODUCTS.filter((product) => !SINGLE_SLUGS.has(product.slug));
 
   return (
@@ -66,18 +69,44 @@ export default function ProductCatalogPage() {
       <Navbar />
 
       <section className="sbx-shop__hero" aria-labelledby="sbx-shop-title">
-        <p className="sbx-shop__kicker">*all sour, zero chill • cravings come first*</p>
         <h1 id="sbx-shop-title" className="sbx-shop__title">
-          Shop Sourboo pickled snackable gherkins and bundles
+          Shop
         </h1>
-        <p className="sbx-shop__lede">
-          India’s First Cult Sour Snack. Snackable pickled gherkins made to be bold, made to be yours.
-        </p>
+        <p className="sbx-shop__lede">Pick a flavour or grab a bundle. Prices shown. Shipping ₹100 per order.</p>
       </section>
 
-      <Marquee label="Sourboo brand lines" tone="berry" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
+      <Marquee label="Sourboo brand lines" tone="pickle" duration={44} tilt={-0.8} className="sbx-shop__marquee" />
 
-      <FlavourDuo />
+      <section className="sbx-shop__grid" aria-labelledby="sbx-shop-flavours">
+        <h2 id="sbx-shop-flavours" className="sr-only">
+          Flavours
+        </h2>
+        <div className="sbx-shop__cards">
+          {singles.map((product) => (
+            <article key={product.slug} className="sbx-shop__card">
+              <Link href={`/product/${product.slug}`} className="sbx-shop__card-img" aria-label={`View ${product.name}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={product.jarImage} alt="" />
+              </Link>
+              <h3 className="sbx-shop__card-name">
+                <Link href={`/product/${product.slug}`}>{product.name}</Link>
+              </h3>
+              <p className="sbx-shop__card-flavour">{product.hoverLabel}</p>
+              <p className="sbx-shop__card-desc">{FLAVOUR_COPY[product.slug]}</p>
+              <p className="sbx-shop__card-price">{product.price}</p>
+              <QuickBuyButton
+                slug={product.slug}
+                name={product.name}
+                priceLabel={product.price}
+                image={product.jarImage}
+                className="sbx-shop__card-add"
+              >
+                Add to cart
+              </QuickBuyButton>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="sbx-shop__bundles" aria-labelledby="sbx-bundles-title">
         <div className="sbx-shop__bundles-head">
@@ -100,17 +129,14 @@ export default function ProductCatalogPage() {
               <p className="sbx-shop__bundle-desc">{bundle.hoverLabel.split('\n').join(' + ')}</p>
               <p className="sbx-shop__bundle-price">{bundle.price}</p>
               <div className="sbx-shop__bundle-actions">
-                <Link href={`/product/${bundle.slug}`} className="sbx-text-link">
-                  DETAILS →
-                </Link>
                 <QuickBuyButton
                   slug={bundle.slug}
                   name={bundle.name}
                   priceLabel={bundle.price}
                   image={bundle.jarImage}
-                  className="sbx-duo__add sbx-duo__add--both"
+                  className="sbx-shop__card-add"
                 >
-                  {bundle.slug === 'sourboo-stash' ? 'CLAIM STASH +' : 'QUICK ADD +'}
+                  Add to cart
                 </QuickBuyButton>
               </div>
             </article>
@@ -118,11 +144,9 @@ export default function ProductCatalogPage() {
         </div>
       </section>
 
-      <TasteGame id="shop-taste-game" />
-
       <section className="sbx-shop__faq" aria-labelledby="sbx-faq-title">
         <h2 id="sbx-faq-title" className="sbx-shop__faq-title">
-          get your <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">FAQs</span><span className="sbx-layer__top">FAQs</span></span> of what you put in ur mouth
+          FAQs
         </h2>
         <div className="sbx-shop__faq-list">
           {FAQ_ITEMS.map((item) => (

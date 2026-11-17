@@ -21,11 +21,15 @@
 
 .sb-story h1,
 .sb-story h2,
-.sb-story h3,
+.sb-story h3 {
+  font-family: var(--sbx-display);
+  font-weight: 400;
+}
+
 .sb-story p,
 .sb-story li,
 .sb-story figcaption {
-  font-family: var(--sbx-display);
+  font-family: var(--sbx-text);
   font-weight: 400;
 }
 
@@ -90,8 +94,8 @@
    Hero — original artwork, no overlay type
    -------------------------------------------------------------------------- */
 .sb-story-hero {
-  padding-top: calc(var(--sbx-nav-h) + 10px);
-  background: var(--sbx-lime);
+  padding-top: var(--sbx-nav-h);
+  background: var(--sbx-lemon);
 }
 
 .sb-story-hero__img {
@@ -361,7 +365,7 @@
 }
 
 .sb-story .india-callout-line {
-  background: repeating-linear-gradient(90deg, #8b5cf6 0 6px, transparent 6px 9px);
+  background: repeating-linear-gradient(90deg, #0a4625 0 6px, transparent 6px 9px);
   filter: none;
 }
 
@@ -436,19 +440,19 @@
 .sb-story-blob__label--bold {
   color: var(--sbx-white);
   font-size: clamp(2.6rem, 5.2vw, 4.4rem);
-  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.35);
+  text-shadow: 0 2px 0 rgba(10, 70, 37, 0.35);
 }
 
 .sb-story-blob__label--spicy {
   color: var(--sbx-white);
   font-size: clamp(2.6rem, 5.2vw, 4.2rem);
-  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.28);
+  text-shadow: 0 2px 0 rgba(10, 70, 37, 0.28);
 }
 
 .sb-story-blob__label--sour {
   color: var(--sbx-white);
   font-size: clamp(2.6rem, 5.2vw, 4.2rem);
-  text-shadow: 0 2px 0 rgba(30, 16, 52, 0.28);
+  text-shadow: 0 2px 0 rgba(10, 70, 37, 0.28);
 }
 
 .sb-story-taste__after {

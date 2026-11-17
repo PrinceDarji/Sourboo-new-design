@@ -4,22 +4,23 @@
 
 .sbx-shop {
   overflow-x: clip;
-  background: var(--sbx-purple);
-  color: var(--sbx-white);
-  font-family: var(--sbx-display);
+  background: var(--sbx-cream);
+  color: var(--sbx-green);
+  font-family: var(--sbx-text);
 }
 
 .sbx-shop h1,
 .sbx-shop h2,
 .sbx-shop h3 {
+  font-family: var(--sbx-display-cram);
   font-weight: 400;
 }
 
 .sbx-shop__hero {
-  padding: calc(var(--sbx-nav-h) + 48px) clamp(20px, 5vw, 80px) 36px;
+  padding: calc(var(--sbx-nav-h) + 48px) clamp(20px, 5vw, 80px) 24px;
   max-width: none;
-  background: var(--sbx-lime);
-  color: var(--sbx-purple);
+  background: var(--sbx-cream);
+  color: var(--sbx-green);
 }
 
 .sbx-shop__kicker {
@@ -27,7 +28,8 @@
   padding: 0;
   border: 0;
   background: none;
-  color: var(--sbx-purple);
+  color: var(--sbx-orange);
+  font-family: var(--sbx-hand);
   font-size: clamp(1.2rem, 2vw, 1.7rem);
   transform: rotate(-2deg);
   transform-origin: left;
@@ -41,8 +43,8 @@
 
 .sbx-shop__lede {
   max-width: 42ch;
-  margin: 16px 0 0;
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  margin: 12px 0 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   line-height: 1.3;
 }
 
@@ -50,14 +52,110 @@
   margin: 10px 0 20px;
 }
 
-.sbx-shop .sbx-duo {
-  padding-top: 20px;
+.sbx-shop__grid {
+  padding: 12px 0 40px;
+  background: var(--sbx-cream);
+}
+
+.sbx-shop__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 4vw, 48px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+.sbx-shop__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 8px 18px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--sbx-green);
+}
+
+.sbx-shop__card-img {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 14px;
+  border-radius: 42% 58% 46% 54% / 48% 42% 58% 52%;
+  background: var(--sbx-lemon);
+  overflow: hidden;
+}
+
+.sbx-shop__card:nth-child(2) .sbx-shop__card-img {
+  background: var(--sbx-lime);
+}
+
+.sbx-shop__card-img img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.sbx-shop__card-name {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  line-height: 1;
+}
+
+.sbx-shop__card-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sbx-shop__card-flavour {
+  margin: 8px 0 4px;
+  color: var(--sbx-pink);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+.sbx-shop__card-desc {
+  margin: 0 0 10px;
+  font-family: var(--sbx-text);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.sbx-shop__card-price {
+  margin: 0 0 14px;
+  color: var(--sbx-green);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+.sbx-shop__card-add {
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+  font-family: var(--sbx-display);
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--sbx-green);
+}
+
+.sbx-shop__card-add:hover,
+.sbx-shop__card-add:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--sbx-green);
+}
+
+@media (max-width: 720px) {
+  .sbx-shop__cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sbx-shop__bundles {
-  padding: 20px 0 clamp(50px, 7vw, 90px);
-  background: var(--sbx-pink);
-  color: var(--sbx-white);
+  padding: 28px 0 clamp(50px, 7vw, 90px);
+  background: var(--sbx-green);
+  color: var(--sbx-lemon);
 }
 
 .sbx-shop__bundles-head {
@@ -105,7 +203,7 @@
   aspect-ratio: 1;
   margin-bottom: 10px;
   border-radius: 48% 52% 46% 54% / 42% 38% 62% 58%;
-  background: var(--sbx-lilac);
+  background: var(--sbx-lime);
   overflow: hidden;
   transition: transform 0.45s var(--sbx-spring);
 }
@@ -116,7 +214,7 @@
 }
 
 .sbx-shop__bundle:nth-child(3) .sbx-shop__bundle-img {
-  background: var(--sbx-amber-soft);
+  background: var(--sbx-orange);
 }
 
 .sbx-shop__bundle:nth-child(4) .sbx-shop__bundle-img {
@@ -169,8 +267,8 @@
 
 .sbx-shop__faq {
   padding: clamp(50px, 7vw, 110px) clamp(20px, 5vw, 80px);
-  background: var(--sbx-pink);
-  color: var(--sbx-white);
+  background: var(--sbx-cream);
+  color: var(--sbx-green);
 }
 
 .sbx-shop__faq-title {
@@ -203,7 +301,7 @@
 .sbx-shop__faq-item summary::after {
   content: '+';
   float: right;
-  color: var(--sbx-lime);
+  color: var(--sbx-pink);
 }
 
 .sbx-shop__faq-item[open] summary::after {

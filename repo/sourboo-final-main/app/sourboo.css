@@ -30,34 +30,34 @@
 
 /* 2. ROOT TOKENS & SYSTEM VARIABLES */
 :root {
-  --sb-bg-sage: #8B5CF6;
-  --sb-bg-yellow: #D7F557;
-  --sb-bg-popup: #8B5CF6;
-  --sb-bg-input: #FFFFFF;
-  --sb-bg-pill: #FFFFFF;
-  --sb-bg-dark: #8B5CF6;
+  --sb-bg-sage: #FFFF88;
+  --sb-bg-yellow: #FFFF88;
+  --sb-bg-popup: #0A4625;
+  --sb-bg-input: #FFFF88;
+  --sb-bg-pill: #BFEE5A;
+  --sb-bg-dark: #0A4625;
 
-  --sb-pink: #E81B6D;
-  --sb-pink-hover: #8B5CF6;
-  --sb-pink-soft: #FFFFFF;
-  --sb-pink-punch: #E81B6D;
+  --sb-pink: #E61E6E;
+  --sb-pink-hover: #0A4625;
+  --sb-pink-soft: #BFEE5A;
+  --sb-pink-punch: #E61E6E;
 
-  --sb-lime: #D7F557;
-  --sb-pickle-green: #8B5CF6;
-  --sb-pickle-olive: #8B5CF6;
-  --sb-pickle-dark: #8B5CF6;
-  --sb-pickle-forest: #8B5CF6;
+  --sb-lime: #BFEE5A;
+  --sb-pickle-green: #0A4625;
+  --sb-pickle-olive: #0A4625;
+  --sb-pickle-dark: #0A4625;
+  --sb-pickle-forest: #0A4625;
 
-  --sb-amber: #E81B6D;
-  --sb-cinnamon: #E81B6D;
-  --sb-rust: #8B5CF6;
-  --sb-tamarind-dark: #8B5CF6;
+  --sb-amber: #E61E6E;
+  --sb-cinnamon: #E61E6E;
+  --sb-rust: #0A4625;
+  --sb-tamarind-dark: #0A4625;
 
-  --sb-text-charcoal: #8B5CF6;
-  --sb-text-dark: #8B5CF6;
-  --sb-text-muted: #8B5CF6;
-  --sb-text-cream: #FFFFFF;
-  --sb-text-light: #FFFFFF;
+  --sb-text-charcoal: #0A4625;
+  --sb-text-dark: #0A4625;
+  --sb-text-muted: #0A4625;
+  --sb-text-cream: #FFFF88;
+  --sb-text-light: #FFFF88;
 
   --sb-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --sb-ease-poster: cubic-bezier(0.2, 1, 0.22, 1);
@@ -76,7 +76,7 @@ html, body {
   overflow-x: hidden !important;
   background-color: var(--sb-bg-sage);
   color: var(--sb-text-charcoal);
-  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  font-family: var(--font-schoolbell), cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
@@ -108,7 +108,7 @@ input, button, select, textarea {
 /* Typography Utility Classes */
 .font-coolvetica { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
 .font-rascal, .font-butter { font-family: var(--font-rascal), cursive !important; }
-.font-schoolbell { font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif !important; }
+.font-schoolbell { font-family: var(--font-schoolbell), cursive !important; }
 
 .text-pink { color: var(--sb-pink) !important; }
 .text-pink-punch { color: var(--sb-pink-punch) !important; }
@@ -201,7 +201,7 @@ input, button, select, textarea {
 }
 
 .sb-nav-pill:hover, .sb-nav-pill.active {
-  background: rgba(233, 230, 184, 0.2);
+  background: rgba(255, 255, 136, 0.2);
   color: var(--sb-text-light);
   transform: scale(1.04);
 }
@@ -211,7 +211,7 @@ input, button, select, textarea {
   align-items: center;
   justify-content: center;
   background: var(--sb-pink);
-  color: #fff;
+  color: #ffff88;
   border-radius: 9999px;
   font-size: 13px;
   font-family: 'coolvetica', sans-serif;
@@ -315,7 +315,7 @@ input, button, select, textarea {
 .sb-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.38) 100%);
+  background: linear-gradient(180deg, rgba(10, 70, 37, 0.02) 0%, rgba(10, 70, 37, 0.12) 50%, rgba(10, 70, 37, 0.38) 100%);
   pointer-events: none;
 }
 
@@ -339,7 +339,7 @@ input, button, select, textarea {
 .sb-hero-h1 {
   margin: 0;
   line-height: 0.92;
-  text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 16px rgba(10, 70, 37, 0.3);
 }
 
 .sb-hero-line1 {
@@ -369,7 +369,7 @@ input, button, select, textarea {
   padding: 8px 18px;
   font-size: clamp(14px, 1.2vw, 18px);
   font-family: 'Schoolbell', cursive;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(10, 70, 37, 0.2);
   transition: transform 0.2s ease;
 }
 
@@ -452,7 +452,7 @@ input, button, select, textarea {
   width: 138vw;
   max-width: none;
   transition: transform 0.4s ease;
-  filter: drop-shadow(0 16px 28px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 16px 28px rgba(10, 70, 37, 0.3));
 }
 
 @media (min-width: 768px) {
@@ -483,9 +483,9 @@ input, button, select, textarea {
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.6rem, 3.2vw, 2.8rem);
   line-height: 1;
-  color: #2F4918;
+  color: #0A4625;
   transition: transform 0.2s ease, filter 0.2s ease;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
+  filter: drop-shadow(0 6px 12px rgba(10, 70, 37, 0.18));
 }
 
 @media (min-width: 768px) {
@@ -497,7 +497,7 @@ input, button, select, textarea {
 
 .sb-brush-cta:hover {
   transform: translateY(-2px) scale(1.03);
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.24)) brightness(1.06);
+  filter: drop-shadow(0 8px 16px rgba(10, 70, 37, 0.24)) brightness(1.06);
 }
 
 .sb-brush-cta-price {
@@ -585,7 +585,7 @@ input, button, select, textarea {
   width: min(92vw, 480px);
   aspect-ratio: 256 / 67;
   background: url('/readmyrantcta.svg') no-repeat center center / contain;
-  color: #FFF8F8;
+  color: #FFFF88;
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.7rem, 2.8vw, 3rem);
   line-height: 1;
@@ -632,7 +632,7 @@ input, button, select, textarea {
   width: clamp(14px, 1.8vw, 20px);
   aspect-ratio: 1 / 1;
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 28%, #fff7f9 0 22%, #f33f5f 26% 70%, #ba0d2c 100%);
+  background: radial-gradient(circle at 30% 28%, #ffff88 0 22%, #e61e6e 26% 70%, #e61e6e 100%);
   box-shadow: 0 0 0 1px rgba(122, 17, 38, 0.34), 0 6px 9px rgba(41, 10, 16, 0.24);
   opacity: 0;
   transform: translate3d(-50%, -130%, 0) scale(0.3);
@@ -649,7 +649,7 @@ input, button, select, textarea {
   height: clamp(12px, 1.8vw, 16px);
   border-radius: 9999px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #f6eee8 0%, #d6c7bd 100%);
+  background: linear-gradient(180deg, #ffff88 0%, #c86202 100%);
 }
 
 .home-poster-pin-visible {
@@ -783,7 +783,7 @@ input, button, select, textarea {
 }
 
 .sb-gallery-scroll-container::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  background: rgba(10, 70, 37, 0.05);
   border-radius: 9999px;
 }
 
@@ -796,7 +796,7 @@ input, button, select, textarea {
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.14);
+  box-shadow: 0 12px 24px rgba(10, 70, 37, 0.14);
   transition: transform 0.3s ease;
 }
 
@@ -869,7 +869,7 @@ input, button, select, textarea {
   padding: 14px 24px;
   opacity: 0;
   transform: translate3d(0, 34px, 0) scale(0.88) rotate(var(--review-rotation, 0deg));
-  background: var(--review-bg, #ece5f0);
+  background: var(--review-bg, #ffff88);
   box-shadow: 0 12px 24px rgba(44, 22, 10, 0.15);
   z-index: 25;
 }
@@ -919,7 +919,7 @@ input, button, select, textarea {
   --review-rotation: 3deg;
   --review-delay: 480ms;
 }
-.sb-bubble-2 p { color: #fff; }
+.sb-bubble-2 p { color: #ffff88; }
 
 .sb-bubble-3 {
   left: 6%;
@@ -928,7 +928,7 @@ input, button, select, textarea {
   --review-rotation: -3deg;
   --review-delay: 840ms;
 }
-.sb-bubble-3 p { color: #fff; }
+.sb-bubble-3 p { color: #ffff88; }
 
 .sb-bubble-4 {
   right: 4%;
@@ -970,12 +970,12 @@ input, button, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e81b6d;
-  background: #d7f557;
-  border: 2px solid #e81b6d;
+  color: #e61e6e;
+  background: #bfee5a;
+  border: 2px solid #e61e6e;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 0 #e81b6d;
+  box-shadow: 0 2px 0 #e61e6e;
   font-family: var(--font-coolvetica), 'coolvetica', sans-serif;
   z-index: 80;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -1064,14 +1064,14 @@ input, button, select, textarea {
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1;
-  color: #171717;
+  color: #0A4625;
   transition: transform 0.2s ease, filter 0.2s ease;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 4px 10px rgba(10, 70, 37, 0.15));
 }
 
 .sb-popup-option-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.22)) brightness(1.08);
+  filter: drop-shadow(0 6px 14px rgba(10, 70, 37, 0.22)) brightness(1.08);
 }
 
 .sb-popup-text-exit {
@@ -1125,7 +1125,7 @@ input, button, select, textarea {
 
 .sb-pill-input:focus {
   border-color: var(--sb-pink-hover);
-  background: #fff;
+  background: #ffff88;
 }
 
 .sb-unlock-cta {
@@ -1138,7 +1138,7 @@ input, button, select, textarea {
   justify-content: center;
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  color: #FFF9D5;
+  color: #FFFF88;
   transition: transform 0.2s ease;
   filter: drop-shadow(0 6px 12px rgba(230, 30, 110, 0.35));
 }
@@ -1206,7 +1206,7 @@ input, button, select, textarea {
 
 .sb-product-card {
   position: relative;
-  background: #FFF;
+  background: #FFFF88;
   border-radius: 28px;
   padding: 24px;
   display: flex;
@@ -1279,7 +1279,7 @@ input, button, select, textarea {
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px dashed rgba(0,0,0,0.12);
+  border-top: 1px dashed rgba(10, 70, 37, 0.12);
 }
 
 .sb-card-price {
@@ -1296,7 +1296,7 @@ input, button, select, textarea {
   padding: 8px 22px;
   border-radius: 9999px;
   background: var(--sb-pink);
-  color: #FFF;
+  color: #FFFF88;
   font-family: 'Schoolbell', cursive;
   font-size: 1.35rem;
   line-height: 1;
@@ -1316,7 +1316,7 @@ input, button, select, textarea {
   background: var(--sb-bg-yellow);
   border-radius: 36px;
   border: 3px solid var(--sb-pickle-green);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 36px rgba(10, 70, 37, 0.12);
 }
 
 .sb-matcher-grid {
@@ -1342,7 +1342,7 @@ input, button, select, textarea {
   justify-content: space-between;
   font-family: 'coolvetica', sans-serif;
   font-size: 1.25rem;
-  color: #1A3320 !important;
+  color: #0A4625 !important;
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -1351,7 +1351,7 @@ input, button, select, textarea {
   width: 100%;
   height: 14px;
   border-radius: 9999px;
-  background: rgba(0,0,0,0.08);
+  background: rgba(10, 70, 37, 0.08);
   overflow: hidden;
   position: relative;
 }
@@ -1379,24 +1379,24 @@ input, button, select, textarea {
 }
 
 .sb-matcher-switch-btn.active {
-  background: var(--sb-pink, #E81B6D) !important;
-  color: #FFFFFF !important;
+  background: var(--sb-pink, #E61E6E) !important;
+  color: #FFFF88 !important;
   font-weight: 700 !important;
-  border: 2.5px solid #141414 !important;
-  box-shadow: 3px 3px 0 #141414 !important;
+  border: 2.5px solid #0A4625 !important;
+  box-shadow: 3px 3px 0 #0A4625 !important;
 }
 
 .sb-matcher-switch-btn:not(.active) {
-  background: #FFFFFF !important;
-  color: #1E3514 !important;
+  background: #FFFF88 !important;
+  color: #0A4625 !important;
   font-weight: 700 !important;
   border: 2px solid rgba(20, 20, 20, 0.25) !important;
   box-shadow: none !important;
 }
 
 .sb-matcher-switch-btn:hover:not(.active) {
-  background: #F4FBF0 !important;
-  border-color: #1E3514 !important;
+  background: #FFFF88 !important;
+  border-color: #0A4625 !important;
   transform: translateY(-1px);
 }
 
@@ -1416,7 +1416,7 @@ input, button, select, textarea {
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 12px 24px rgba(10, 70, 37, 0.16));
   transition: transform 0.25s ease;
 }
 
@@ -1438,8 +1438,8 @@ input, button, select, textarea {
   font-weight: 700;
   line-height: 1;
   border-radius: 9999px;
-  border: 3px solid #141414;
-  box-shadow: 4px 4px 0 #141414;
+  border: 3px solid #0A4625;
+  box-shadow: 4px 4px 0 #0A4625;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   cursor: pointer;
@@ -1448,25 +1448,25 @@ input, button, select, textarea {
 
 .sb-matcher-cta-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #141414;
+  box-shadow: 6px 6px 0 #0A4625;
   filter: brightness(1.06);
 }
 
 .sb-matcher-cta-btn:active {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 #141414;
+  box-shadow: 2px 2px 0 #0A4625;
 }
 
 .sb-matcher-cta-p1 {
-  background: var(--sb-pink, #E81B6D) !important;
-  color: #FFFFFF !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: var(--sb-pink, #E61E6E) !important;
+  color: #FFFF88 !important;
+  text-shadow: 0 1px 2px rgba(10, 70, 37, 0.25);
 }
 
 .sb-matcher-cta-p2 {
-  background: var(--sb-green-dark, #1E3514) !important;
-  color: #FFFFFF !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: var(--sb-green-dark, #0A4625) !important;
+  color: #FFFF88 !important;
+  text-shadow: 0 1px 2px rgba(10, 70, 37, 0.25);
 }
 
 @media (max-width: 640px) {
@@ -1538,8 +1538,8 @@ input, button, select, textarea {
 .sb-pdp-section {
   max-width: 1480px;
   margin: 0 auto;
-  padding: 100px 24px 80px;
-  color: #ffffff;
+  padding: 140px 24px 80px;
+  color: #ffff88;
 }
 
 .sb-pdp-grid {
@@ -1571,7 +1571,7 @@ input, button, select, textarea {
   position: absolute;
   inset: 10%;
   z-index: 0;
-  background: var(--sbx-lime, #d7f557);
+  background: var(--sbx-lime, #bfee5a);
   border-radius: 58% 42% 52% 48% / 46% 56% 44% 54%;
 }
 
@@ -1595,7 +1595,7 @@ input, button, select, textarea {
   width: 78px;
   height: 78px;
   border-radius: 14px;
-  background: #fff;
+  background: #ffff88;
   border: 2px solid transparent;
   cursor: pointer;
   overflow: hidden;
@@ -1616,7 +1616,7 @@ input, button, select, textarea {
   font-size: clamp(2.4rem, 5.5vw, 4.8rem);
   line-height: 0.94;
   margin: 0 0 10px;
-  color: #ffffff;
+  color: #ffff88;
 }
 
 .sb-pdp-price {
@@ -1636,7 +1636,7 @@ input, button, select, textarea {
 .sb-qty-picker {
   display: inline-flex;
   align-items: center;
-  background: #fff;
+  background: #ffff88;
   border: 2px solid var(--sb-pickle-green);
   border-radius: 9999px;
   padding: 4px 8px;
@@ -1665,7 +1665,7 @@ input, button, select, textarea {
   min-height: 60px;
   border-radius: 9999px;
   background: var(--sb-pink);
-  color: #fff;
+  color: #ffff88;
   font-family: 'Schoolbell', cursive;
   font-size: 1.8rem;
   display: flex;
@@ -1680,7 +1680,7 @@ input, button, select, textarea {
   transform: scale(1.02);
 }
 
-/* Handwritten PDP Information Tabs */
+/* Playful organic PDP information tabs */
 .sb-pdp-tabs-wrap {
   margin-top: 48px;
   width: 100%;
@@ -1688,40 +1688,68 @@ input, button, select, textarea {
 
 .sb-tab-buttons-row {
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
 }
 
 .sb-tab-btn {
   position: relative;
-  flex: 1;
-  height: clamp(52px, 7vw, 76px);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Schoolbell', cursive;
-  font-size: clamp(1.1rem, 2.4vw, 2.2rem);
-  color: var(--sb-text-charcoal);
-  transition: transform 0.2s ease;
+  flex: 1 1 140px;
+  min-height: clamp(56px, 7vw, 78px);
+  padding: 12px 18px;
+  border: 0;
+  background: var(--sbx-lime, #BFEE5A);
+  color: var(--sbx-green, #0A4625);
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.05;
+  cursor: pointer;
+  border-radius: 70% 40% 60% 50% / 50% 60% 40% 70%;
+  transform: rotate(-2deg);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-.sb-tab-btn:hover, .sb-tab-btn.active {
-  transform: scale(1.04);
+.sb-tab-btn:nth-child(2) {
+  background: var(--sbx-lemon, #FFFF88);
+  border-radius: 40% 70% 50% 60% / 60% 40% 70% 50%;
+  transform: rotate(2.4deg);
+}
+
+.sb-tab-btn:nth-child(3) {
+  background: var(--sbx-orange, #C86202);
+  color: #ffff88;
+  border-radius: 58% 42% 62% 38% / 42% 58% 38% 62%;
+  transform: rotate(-1.2deg);
+}
+
+.sb-tab-btn:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+.sb-tab-btn:focus-visible {
+  outline: 3px solid var(--sbx-pink, #E61E6E);
+  outline-offset: 3px;
+}
+
+.sb-tab-btn.active {
+  background: var(--sbx-pink, #E61E6E);
+  color: #ffff88;
+  transform: scale(1.06) rotate(0deg);
+  box-shadow: 4px 4px 0 var(--sbx-green, #0A4625);
 }
 
 .sb-tab-panel {
   display: none;
-  background: #FFF;
-  border-radius: 24px;
+  background: var(--sbx-lemon, #FFFF88);
+  border-radius: 32px 48px 28px 52px / 48px 28px 52px 32px;
   padding: 28px;
   margin-top: 18px;
-  border: 2px dashed rgba(139, 92, 246, 0.35);
-  font-family: 'Schoolbell', cursive;
-  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
-  line-height: 1.25;
+  border: 0;
+  color: var(--sbx-green, #0A4625);
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  line-height: 1.3;
 }
 
 .sb-tab-panel.active {
@@ -1752,7 +1780,7 @@ input, button, select, textarea {
 .sb-about-cover-wrap {
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.14);
+  box-shadow: 0 16px 36px rgba(10, 70, 37, 0.14);
 }
 
 .sb-about-cover-wrap img {
@@ -1772,7 +1800,7 @@ input, button, select, textarea {
   font-family: 'coolvetica', sans-serif;
   font-size: clamp(16px, 2vw, 32px);
   line-height: 1;
-  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 0 rgba(10, 70, 37, 0.3);
 }
 
 /* 15. CART DRAWER (SLIDE-OVER) */
@@ -1780,7 +1808,7 @@ input, button, select, textarea {
   position: fixed;
   inset: 0;
   z-index: 99990;
-  background: rgba(0,0,0,0.4);
+  background: rgba(10, 70, 37, 0.4);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -1806,7 +1834,7 @@ input, button, select, textarea {
   display: flex;
   flex-direction: column;
   padding: 24px 28px;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+  box-shadow: -10px 0 30px rgba(10, 70, 37, 0.25);
 }
 
 .sb-cart-drawer.open {
@@ -1817,7 +1845,7 @@ input, button, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(233, 230, 184, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 136, 0.4);
   padding-bottom: 16px;
 }
 
@@ -1839,7 +1867,7 @@ input, button, select, textarea {
   grid-template-columns: 64px 1fr auto;
   gap: 16px;
   align-items: center;
-  border-bottom: 1px dashed rgba(233, 230, 184, 0.3);
+  border-bottom: 1px dashed rgba(255, 255, 136, 0.3);
   padding: 14px 0;
 }
 
@@ -1865,7 +1893,7 @@ input, button, select, textarea {
 }
 
 .sb-cart-footer {
-  border-top: 1px solid rgba(233, 230, 184, 0.4);
+  border-top: 1px solid rgba(255, 255, 136, 0.4);
   padding-top: 16px;
 }
 
@@ -1886,7 +1914,7 @@ input, button, select, textarea {
   background: url('/cartcta.svg') no-repeat center center / contain;
   font-family: 'coolvetica', sans-serif;
   font-size: 1.8rem;
-  color: #4A4743;
+  color: #0A4625;
   margin-top: 14px;
   transition: transform 0.2s ease;
 }
@@ -1960,13 +1988,13 @@ input, button, select, textarea {
   max-width: 1400px;
   margin: 40px auto 0;
   padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 136, 0.15);
   display: flex;
   flex-direction: column;
   gap: 12px;
   font-size: 1rem;
   font-family: 'Schoolbell', cursive;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 136, 0.6);
 }
 
 @media (min-width: 768px) {

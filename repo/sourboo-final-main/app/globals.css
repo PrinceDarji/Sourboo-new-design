@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #8b5cf6;
-  --foreground: #ffffff;
+  --background: #ffff88;
+  --foreground: #0a4625;
   color-scheme: light;
 }
 
@@ -15,8 +15,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #8b5cf6;
-    --foreground: #ffffff;
+    --background: #ffff88;
+    --foreground: #0a4625;
     color-scheme: light;
   }
 }
@@ -24,7 +24,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-satoshi), 'Satoshi', sans-serif;
+  font-family: var(--font-schoolbell), cursive;
 }
 
 html,
@@ -73,15 +73,15 @@ body {
 }
 
 .font-satoshi {
-  font-family: var(--font-satoshi), 'Satoshi', sans-serif;
+  font-family: var(--font-schoolbell), cursive;
 }
 
 .font-coolvetica {
-  font-family: var(--font-coolvetica), sans-serif;
+  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
 }
 
 .font-schoolbell {
-  font-family: var(--font-coolvetica), 'Arial Narrow', sans-serif;
+  font-family: var(--font-schoolbell), cursive;
 }
 
 .font-butter {
@@ -107,11 +107,11 @@ body {
 .home-review-bubble {
   opacity: 0;
   transform: translate3d(0, 34px, 0) scale(0.88) rotate(var(--review-rotation, 0deg));
-  background: var(--review-bg, #ece5f0);
+  background: var(--review-bg, #ffff88);
 }
 
 .home-review-bubble-tail {
-  background: var(--review-bg, #ece5f0);
+  background: var(--review-bg, #ffff88);
 }
 
 .home-review-visible .home-review-bubble {
@@ -357,8 +357,8 @@ body {
   display: block;
   width: clamp(10px, 1vw, 14px);
   aspect-ratio: 1 / 1;
-  background: #f4ff69;
-  border: 2px solid #7e830d;
+  background: #bfee5a;
+  border: 2px solid #0a4625;
   box-shadow:
     0 0 0 1px rgba(255, 245, 120, 0.42),
     1px 1px 0 rgba(111, 113, 8, 0.24);
@@ -388,7 +388,7 @@ body {
   flex: 0 0 auto;
   width: var(--line-size);
   height: 2px;
-  background: repeating-linear-gradient(90deg, #2f67ff 0 6px, transparent 6px 9px);
+  background: repeating-linear-gradient(90deg, #e61e6e 0 6px, transparent 6px 9px);
   filter: drop-shadow(0 0 0.8px rgba(38, 78, 224, 0.48));
   animation: india-line-shift 1.8s steps(2, end) infinite;
 }
@@ -399,7 +399,7 @@ body {
   max-width: none;
   white-space: nowrap;
   text-wrap: nowrap;
-  color: #f9ed78;
+  color: #ffff88;
   font-family: var(--font-coolvetica), sans-serif;
   font-size: clamp(15px, 1.6vw, 34px);
   line-height: 0.94;
@@ -517,7 +517,7 @@ body {
   width: clamp(12px, 1.8vw, 18px);
   aspect-ratio: 1 / 1;
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 28%, #fff7f9 0 22%, #f33f5f 26% 70%, #ba0d2c 100%);
+  background: radial-gradient(circle at 30% 28%, #ffff88 0 22%, #e61e6e 26% 70%, #e61e6e 100%);
   box-shadow:
     0 0 0 1px rgba(122, 17, 38, 0.34),
     0 6px 9px rgba(41, 10, 16, 0.24);
@@ -538,7 +538,7 @@ body {
   height: clamp(12px, 1.8vw, 16px);
   border-radius: 9999px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #f6eee8 0%, #d6c7bd 100%);
+  background: linear-gradient(180deg, #ffff88 0%, #c86202 100%);
 }
 
 .home-poster-pin-visible {

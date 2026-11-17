@@ -19,7 +19,7 @@ export default function LandingPopupTextExitButton({
     <button
       type="button"
       onClick={handleExit}
-      className={`px-4 text-center font-schoolbell text-[clamp(1rem,1.5vw,1.35rem)] leading-none text-[#2A2A2A] transition hover:opacity-70 ${className ?? ''}`}
+      className={`px-4 text-center font-schoolbell text-[clamp(1rem,1.5vw,1.35rem)] leading-none text-[#0A4625] transition hover:opacity-70 ${className ?? ''}`}
     >
       {label}
     </button>
