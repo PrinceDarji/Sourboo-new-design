@@ -84,7 +84,7 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
             <span className="sbx-footer__handle-big">{handle}*</span>
           </a>
           <p className="sbx-footer__motto">
-            *Made for <span className="sbx-highlight">mouths that misbehave</span>*
+            *Made for mouths that misbehave*
           </p>
         </div>
 

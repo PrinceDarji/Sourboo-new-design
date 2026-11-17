@@ -204,7 +204,7 @@ export default function LandingPopupLeadCaptureForm({
                 ? 'coupon code copied'
                 : `copy coupon code ${copy.successCode}`
             }
-            className="inline-flex min-h-[72px] items-center gap-4 rounded-full border-2 border-[#E61E6E] bg-[#FFF7D6] px-6 py-3 text-[#E61E6E] transition hover:opacity-90"
+            className="inline-flex min-h-[72px] items-center gap-4 rounded-full border-2 border-[#E61E6E] bg-[#FFFF88] px-6 py-3 text-[#E61E6E] transition hover:opacity-90"
           >
             <span
               className="block leading-none font-coolvetica"
@@ -215,7 +215,7 @@ export default function LandingPopupLeadCaptureForm({
             >
               {copy.successCode}
             </span>
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#E61E6E]/30 bg-[#FFEFC0] text-[#E61E6E]">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#E61E6E]/30 bg-[#FFFF88] text-[#E61E6E]">
               <CopyCodeIcon copied={hasCopiedCode} />
             </span>
           </button>
@@ -265,7 +265,7 @@ export default function LandingPopupLeadCaptureForm({
         style={{
           fontSize: 'clamp(16px, 2vw, 28px)',
           lineHeight: 1,
-          color: '#202020',
+          color: '#0A4625',
         }}
       >
         {copy.prompt}
@@ -279,7 +279,7 @@ export default function LandingPopupLeadCaptureForm({
             onChange={(event) => setEmail(event.target.value)}
             placeholder={copy.emailPlaceholder}
             autoComplete="email"
-            className="h-[74px] w-full rounded-full border-2 border-[#E61E6E] bg-[#F8F0F8] px-6 text-[clamp(1.05rem,2vw,1.42rem)] leading-none text-[#1E1E1E] font-schoolbell outline-none transition placeholder:text-[#6F5F6B] focus:border-[#CC0F5F] sm:h-[82px]"
+            className="h-[74px] w-full rounded-full border-2 border-[#E61E6E] bg-[#FFFF88] px-6 text-[clamp(1.05rem,2vw,1.42rem)] leading-none text-[#0A4625] font-schoolbell outline-none transition placeholder:text-[#0A4625] focus:border-[#E61E6E] sm:h-[82px]"
             required
           />
           <input
@@ -288,13 +288,13 @@ export default function LandingPopupLeadCaptureForm({
             onChange={(event) => setPhone(event.target.value)}
             placeholder={copy.phonePlaceholder}
             autoComplete="tel"
-            className="h-[74px] w-full rounded-full border-2 border-[#E61E6E] bg-[#F8F0F8] px-6 text-[clamp(1.05rem,2vw,1.42rem)] leading-none text-[#1E1E1E] font-schoolbell outline-none transition placeholder:text-[#6F5F6B] focus:border-[#CC0F5F] sm:h-[82px]"
+            className="h-[74px] w-full rounded-full border-2 border-[#E61E6E] bg-[#FFFF88] px-6 text-[clamp(1.05rem,2vw,1.42rem)] leading-none text-[#0A4625] font-schoolbell outline-none transition placeholder:text-[#0A4625] focus:border-[#E61E6E] sm:h-[82px]"
             required
           />
         </div>
 
         {submitState.status === 'error' ? (
-          <p className="mt-3 text-center text-[clamp(1rem,1.7vw,1.3rem)] leading-none text-[#B4232B] font-schoolbell">
+          <p className="mt-3 text-center text-[clamp(1rem,1.7vw,1.3rem)] leading-none text-[#E61E6E] font-schoolbell">
             {submitState.message}
           </p>
         ) : null}
@@ -317,7 +317,7 @@ export default function LandingPopupLeadCaptureForm({
             className="relative z-10 -translate-x-2 -translate-y-1 px-6 text-center leading-none font-schoolbell md:translate-x-0 md:translate-y-0"
             style={{
               fontSize: 'clamp(1.5rem, 3vw, 2.3rem)',
-              color: '#FFF9D5',
+              color: '#FFFF88',
             }}
           >
             {submitState.status === 'submitting' ? 'unlocking...' : copy.ctaLabel}
@@ -329,7 +329,7 @@ export default function LandingPopupLeadCaptureForm({
         className="mt-3 text-center font-schoolbell"
         style={{
           fontSize: 'clamp(1rem, 1.6vw, 1.35rem)',
-          color: '#2A2A2A',
+          color: '#0A4625',
           lineHeight: 1.05,
         }}
       >

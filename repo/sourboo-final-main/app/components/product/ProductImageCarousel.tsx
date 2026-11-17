@@ -38,7 +38,7 @@ export default function ProductImageCarousel({ images, productName }: ProductIma
           priority={safeActiveIndex === 0}
           sizes="(max-width: 768px) 335px, 620px"
           quality={82}
-          className="object-contain drop-shadow-[0_0_0.5px_#F18BB7] md:drop-shadow-[0_0_1px_#F18BB7]"
+          className="object-contain drop-shadow-[0_0_0.5px_#E61E6E] md:drop-shadow-[0_0_1px_#E61E6E]"
         />
       </div>
 
@@ -48,7 +48,7 @@ export default function ProductImageCarousel({ images, productName }: ProductIma
             type="button"
             onClick={previous}
             aria-label="Previous image"
-            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full border-2 border-[#E61E6E] bg-[#F8E2EE]/90 px-3 py-2 text-[1.35rem] leading-none text-[#E61E6E] font-coolvetica transition-transform hover:scale-105"
+            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full border-2 border-[#E61E6E] bg-[#FFFF88]/90 px-3 py-2 text-[1.35rem] leading-none text-[#E61E6E] font-coolvetica transition-transform hover:scale-105"
           >
             ←
           </button>
@@ -56,7 +56,7 @@ export default function ProductImageCarousel({ images, productName }: ProductIma
             type="button"
             onClick={next}
             aria-label="Next image"
-            className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full border-2 border-[#E61E6E] bg-[#F8E2EE]/90 px-3 py-2 text-[1.35rem] leading-none text-[#E61E6E] font-coolvetica transition-transform hover:scale-105"
+            className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full border-2 border-[#E61E6E] bg-[#FFFF88]/90 px-3 py-2 text-[1.35rem] leading-none text-[#E61E6E] font-coolvetica transition-transform hover:scale-105"
           >
             →
           </button>
@@ -69,7 +69,7 @@ export default function ProductImageCarousel({ images, productName }: ProductIma
                 onClick={() => setActiveIndex(index)}
                 aria-label={`Go to image ${index + 1}`}
                 className={`h-2.5 w-2.5 rounded-full border border-[#E61E6E] transition-all ${
-                  index === safeActiveIndex ? 'bg-[#E61E6E]' : 'bg-[#F8E2EE]'
+                  index === safeActiveIndex ? 'bg-[#E61E6E]' : 'bg-[#FFFF88]'
                 }`}
               />
             ))}

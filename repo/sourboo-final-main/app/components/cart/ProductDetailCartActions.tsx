@@ -35,7 +35,7 @@ export default function ProductDetailCartActions({
       <button
         type="button"
         onClick={handleAddToCart}
-        className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#A8D64A] bg-[#F4FFD9] px-5 py-2 text-[clamp(1.4rem,2vw,2rem)] leading-none text-[#2D5A0D] font-schoolbell transition hover:scale-[1.01]"
+        className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#BFEE5A] bg-[#BFEE5A] px-5 py-2 text-[clamp(1.4rem,2vw,2rem)] leading-none text-[#0A4625] font-schoolbell transition hover:scale-[1.01]"
       >
         add to cart
       </button>

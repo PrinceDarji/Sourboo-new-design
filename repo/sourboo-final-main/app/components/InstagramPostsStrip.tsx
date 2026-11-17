@@ -47,7 +47,7 @@ export default function InstagramPostsStrip({
                   href={item.permalink}
                   target="_blank"
                   rel="noreferrer"
-                  className="group block min-w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[20px] border-[3px] border-[#171717] bg-[#E6D8CA] transition-transform hover:scale-[1.01] md:min-w-0 md:max-w-none"
+                  className="group block min-w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[20px] border-[3px] border-[#0A4625] bg-[#FFFF88] transition-transform hover:scale-[1.01] md:min-w-0 md:max-w-none"
                   aria-label={`Open Instagram post ${index + 1}`}
                 >
                   <div className="relative aspect-[4/5] w-full">
@@ -60,11 +60,11 @@ export default function InstagramPostsStrip({
                         className="h-full w-full object-cover"
                       />
                     ) : (
-                      <div className="h-full w-full bg-gradient-to-b from-[#F4E8DE] to-[#E5D5C6]" />
+                      <div className="h-full w-full bg-gradient-to-b from-[#FFFF88] to-[#FFFF88]" />
                     )}
 
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#111111]/72 via-[#111111]/24 to-transparent p-5 md:p-6">
-                      <p className="text-[clamp(1.15rem,1.5vw,1.55rem)] leading-[1.08] text-white font-schoolbell">
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A4625]/72 via-[#0A4625]/24 to-transparent p-5 md:p-6">
+                      <p className="text-[clamp(1.15rem,1.5vw,1.55rem)] leading-[1.08] text-[#FFFF88] font-schoolbell">
                         {captionPreview(item.caption || 'watch on instagram')}
                       </p>
                     </div>
@@ -77,10 +77,10 @@ export default function InstagramPostsStrip({
                   href={profileUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="block min-w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[20px] border-[3px] border-[#171717] bg-[#E6D8CA] md:min-w-0 md:max-w-none"
+                  className="block min-w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[20px] border-[3px] border-[#0A4625] bg-[#FFFF88] md:min-w-0 md:max-w-none"
                   aria-label="Open Instagram profile"
                 >
-                  <div className="flex aspect-[4/5] w-full items-center justify-center px-8 text-center text-[clamp(1.5rem,2.4vw,2.8rem)] leading-[1.04] text-[#201A17] font-schoolbell">
+                  <div className="flex aspect-[4/5] w-full items-center justify-center px-8 text-center text-[clamp(1.5rem,2.4vw,2.8rem)] leading-[1.04] text-[#0A4625] font-schoolbell">
                     {fallbackCardLabel}
                   </div>
                 </a>

@@ -193,7 +193,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
           <div id="PopupScreen1">
             <h2 className="sb-popup-h1">
               <span className="font-coolvetica text-pink">What </span>
-              <span className="font-schoolbell text-pink">kind of sour are you?</span>
+              <span className="font-coolvetica text-pink">kind of sour are you?</span>
             </h2>
             <p className="sb-popup-subheading">Be honest</p>
             <div className="sb-popup-options-grid">
@@ -205,16 +205,16 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   className={`sb-popup-option-btn sb-choice-${opt.key}`}
                   data-personality={opt.personality}
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    borderColor: '#8B5CF6',
-                    color: '#8B5CF6',
-                    boxShadow: '3.5px 3.5px 0px #8B5CF6',
+                    backgroundColor: '#FFFF88',
+                    borderColor: '#0A4625',
+                    color: '#0A4625',
+                    boxShadow: '3.5px 3.5px 0px #0A4625',
                   }}
                 >
                   <span
                     className="sb-popup-option-text"
                     style={{
-                      color: '#8B5CF6',
+                      color: '#0A4625',
                       fontWeight: 800,
                       fontSize: '1.25rem',
                       letterSpacing: '0.01em',
@@ -229,7 +229,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
             <button
               type="button"
               onClick={closeModal}
-              className="sb-popup-text-exit sb-close-popup-trigger font-schoolbell"
+              className="sb-popup-text-exit sb-close-popup-trigger font-coolvetica"
               style={{
                 display: 'block',
                 margin: '0 auto',
@@ -253,7 +253,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
               You&apos;re {chosenPersonality}
             </h2>
             <p
-              className="font-schoolbell text-pink"
+              className="font-coolvetica text-pink"
               style={{
                 fontSize: 'clamp(20px, 3.5vw, 32px)',
                 textAlign: 'center',
@@ -263,7 +263,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
               Take 5% off. You&apos;ve earned it
             </p>
             <p
-              className="font-schoolbell"
+              className="font-coolvetica"
               style={{
                 fontSize: '1.15rem',
                 color: 'var(--sb-text-charcoal)',
@@ -323,7 +323,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 <p
                   id="PopupFormError"
                   style={{
-                    color: '#B4232B',
+                    color: '#E61E6E',
                     fontFamily: 'Schoolbell, cursive',
                     margin: '4px 0 8px',
                     textAlign: 'center',
@@ -336,13 +336,13 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="sb-unlock-cta font-schoolbell"
+                className="sb-unlock-cta font-coolvetica"
                 style={{
                   display: 'block',
                   width: '100%',
                   padding: '14px',
                   background: 'var(--sb-pink)',
-                  color: '#FFFFFF',
+                  color: '#FFFF88',
                   border: '2px solid var(--sb-green-dark)',
                   borderRadius: '9999px',
                   fontSize: '1.3rem',
@@ -353,7 +353,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 <span>{isSubmitting ? 'Unlocking...' : 'Unlock my 5%'}</span>
               </button>
               <p
-                className="font-schoolbell"
+                className="font-coolvetica"
                 style={{
                   fontSize: '0.95rem',
                   color: 'var(--sb-text-muted)',
@@ -367,7 +367,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
             <button
               type="button"
               onClick={closeModal}
-              className="sb-popup-text-exit sb-close-popup-trigger font-schoolbell"
+              className="sb-popup-text-exit sb-close-popup-trigger font-coolvetica"
               style={{
                 display: 'block',
                 margin: '12px auto 0',
@@ -389,7 +389,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
           <div id="PopupScreen3">
             <h2 className="sb-popup-h1 font-coolvetica text-pink">You are in!</h2>
             <p
-              className="font-schoolbell text-pink"
+              className="font-coolvetica text-pink"
               style={{
                 fontSize: 'clamp(18px, 3vw, 24px)',
                 textAlign: 'center',
@@ -426,10 +426,10 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 </span>
                 <span
                   id="PopupCopyText"
-                  className="sb-btn-coupon-badge font-schoolbell"
+                  className="sb-btn-coupon-badge font-coolvetica"
                   style={{
-                    background: copied ? '#8B5CF6' : 'var(--sb-pink)',
-                    color: '#FFFFFF',
+                    background: copied ? '#0A4625' : 'var(--sb-pink)',
+                    color: '#FFFF88',
                     padding: '4px 12px',
                     borderRadius: '9999px',
                     fontSize: '0.95rem',
@@ -442,7 +442,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
             <button
               type="button"
               onClick={closeModal}
-              className="sb-unlock-cta sb-close-popup-trigger font-schoolbell"
+              className="sb-unlock-cta sb-close-popup-trigger font-coolvetica"
               style={{
                 display: 'block',
                 width: '100%',

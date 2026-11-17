@@ -70,16 +70,16 @@ function statusDescription(status: OrderStatus | null): string {
 
 function CheckoutReturnFallback() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#E9ECD9]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FFFF88]">
       <Navbar />
 
       <section className="mx-auto w-full max-w-[900px] px-6 pb-28 pt-36 md:px-10 md:pt-44">
-        <div className="rounded-3xl border-2 border-[#DF78B6] bg-[#F8FBEF] p-6 md:p-9">
+        <div className="rounded-3xl border-2 border-[#E61E6E] bg-[#FFFF88] p-6 md:p-9">
           <h1 className="text-center text-[clamp(2.6rem,5vw,4.8rem)] leading-[0.92] text-[#E61E6E] font-coolvetica">
             Checking payment status
           </h1>
 
-          <p className="mx-auto mt-4 max-w-[680px] text-center text-[clamp(1.25rem,2.4vw,1.95rem)] leading-[1.1] text-[#2E2A2A] font-coolvetica">
+          <p className="mx-auto mt-4 max-w-[680px] text-center text-[clamp(1.25rem,2.4vw,1.95rem)] leading-[1.1] text-[#0A4625] font-coolvetica">
             Loading payment details...
           </p>
         </div>
@@ -187,46 +187,46 @@ function CheckoutReturnPageContent() {
   }, [status, clearCart]);
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#E9ECD9]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FFFF88]">
       <Navbar />
 
       <section className="mx-auto w-full max-w-[900px] px-6 pb-28 pt-36 md:px-10 md:pt-44">
-        <div className="rounded-3xl border-2 border-[#DF78B6] bg-[#F8FBEF] p-6 md:p-9">
+        <div className="rounded-3xl border-2 border-[#E61E6E] bg-[#FFFF88] p-6 md:p-9">
           <h1 className="text-center text-[clamp(2.6rem,5vw,4.8rem)] leading-[0.92] text-[#E61E6E] font-coolvetica">
             {statusTitle(status)}
           </h1>
 
-          <p className="mx-auto mt-4 max-w-[680px] text-center text-[clamp(1.25rem,2.4vw,1.95rem)] leading-[1.1] text-[#2E2A2A] font-coolvetica">
+          <p className="mx-auto mt-4 max-w-[680px] text-center text-[clamp(1.25rem,2.4vw,1.95rem)] leading-[1.1] text-[#0A4625] font-coolvetica">
             {statusDescription(status)}
           </p>
 
-          <div className="mx-auto mt-7 grid max-w-[600px] gap-3 rounded-2xl border border-[#D8D9CC] bg-white p-4 md:p-5">
-            <p className="text-[1rem] leading-none text-[#656565]">Merchant Order ID</p>
-            <p className="break-all text-[1.1rem] leading-[1.2] text-[#1D1D1D] font-coolvetica">
+          <div className="mx-auto mt-7 grid max-w-[600px] gap-3 rounded-2xl border border-[#0A4625] bg-[#FFFF88] p-4 md:p-5">
+            <p className="text-[1rem] leading-none text-[#0A4625]">Merchant Order ID</p>
+            <p className="break-all text-[1.1rem] leading-[1.2] text-[#0A4625] font-coolvetica">
               {merchantOrderId || 'Not available'}
             </p>
 
             {phonePeState ? (
-              <p className="text-[1rem] leading-[1.2] text-[#3E3E3E]">
+              <p className="text-[1rem] leading-[1.2] text-[#0A4625]">
                 PhonePe state: <span className="font-coolvetica">{phonePeState}</span>
               </p>
             ) : null}
 
             {amountLabel ? (
-              <p className="text-[1rem] leading-[1.2] text-[#3E3E3E]">
+              <p className="text-[1rem] leading-[1.2] text-[#0A4625]">
                 Amount: <span className="font-coolvetica">{amountLabel}</span>
               </p>
             ) : null}
           </div>
 
           {loading ? (
-            <p className="mt-5 text-center text-[1.05rem] text-[#646464] font-coolvetica">
+            <p className="mt-5 text-center text-[1.05rem] text-[#0A4625] font-coolvetica">
               Updating payment status...
             </p>
           ) : null}
 
           {errorMessage ? (
-            <p className="mt-5 text-center text-[1.05rem] text-[#9F1C74] font-coolvetica">{errorMessage}</p>
+            <p className="mt-5 text-center text-[1.05rem] text-[#E61E6E] font-coolvetica">{errorMessage}</p>
           ) : null}
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -237,7 +237,7 @@ function CheckoutReturnPageContent() {
                   pollCountRef.current = 0;
                   void fetchStatus(true);
                 }}
-                className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#A8D64A] bg-[#F4FFD9] px-5 py-2 text-[1.1rem] leading-none text-[#2D5A0D] font-coolvetica"
+                className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#BFEE5A] bg-[#BFEE5A] px-5 py-2 text-[1.1rem] leading-none text-[#0A4625] font-coolvetica"
               >
                 Check again
               </button>
@@ -245,7 +245,7 @@ function CheckoutReturnPageContent() {
 
             <Link
               href={status === 'SUCCESS' ? '/' : '/checkout'}
-              className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#DF78B6] bg-[#FDF2F8] px-5 py-2 text-[1.1rem] leading-none text-[#9F1C74] font-coolvetica"
+              className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#E61E6E] bg-[#FFFF88] px-5 py-2 text-[1.1rem] leading-none text-[#E61E6E] font-coolvetica"
             >
               {status === 'SUCCESS' ? 'Go to home' : 'Back to checkout'}
             </Link>

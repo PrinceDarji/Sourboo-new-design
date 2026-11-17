@@ -66,7 +66,7 @@ export default async function ProductDetailPage({
   const jsonLd = productStructuredData(product, siteUrl);
 
   return (
-    <main className="sb-pdp-container" style={{ minHeight: '100vh', background: '#8B5CF6' }}>
+    <main className="sb-pdp-container" style={{ minHeight: '100vh', background: '#0A4625', color: '#BFEE5A', paddingTop: 'var(--sbx-nav-h)' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}

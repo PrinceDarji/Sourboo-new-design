@@ -4,7 +4,6 @@ import FridgeLoader from '../components/site/FridgeLoader';
 import Marquee from '../components/site/Marquee';
 import HomeHero from '../components/home/HomeHero';
 import CravingsIntro from '../components/home/CravingsIntro';
-import InTheJar from '../components/home/InTheJar';
 import GoodTasteMoments from '../components/home/GoodTasteMoments';
 import FlavourDuo, { FlavourSampler } from '../components/home/FlavourDuo';
 import TasteGame from '../components/home/TasteGame';
@@ -41,9 +40,8 @@ export default function HomePage() {
       <FridgeLoader />
       <Navbar />
       <HomeHero />
-      <Marquee label="Sourboo brand lines" tone="berry" duration={46} tilt={-1.2} className="sbx-home__marquee" />
+      <Marquee label="Sourboo brand lines" tone="pickle" duration={46} tilt={-1.2} className="sbx-home__marquee" />
       <CravingsIntro />
-      <InTheJar />
       <GoodTasteMoments />
       <FlavourDuo>
         <FlavourSampler />

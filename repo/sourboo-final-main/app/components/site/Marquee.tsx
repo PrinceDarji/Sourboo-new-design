@@ -15,7 +15,7 @@ export const BRAND_LINES = [
 type MarqueeProps = {
   items?: readonly string[];
   label: string;
-  tone?: 'lilac' | 'amber' | 'lime' | 'cream' | 'berry';
+  tone?: 'lilac' | 'amber' | 'lime' | 'cream' | 'berry' | 'pickle';
   /** Seconds for one full loop. */
   duration?: number;
   reverse?: boolean;

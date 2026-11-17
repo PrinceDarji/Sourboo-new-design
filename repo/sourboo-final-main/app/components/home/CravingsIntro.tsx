@@ -11,8 +11,8 @@ const PHOTOS = [
     sizes: '(max-width: 768px) 62vw, 30vw',
   },
   {
-    src: '/home/packagingbg.JPEG',
-    alt: 'A snack platter with gherkins, cheese and dips laid out on a table',
+    src: '/home/postcrysnack.webp',
+    alt: 'A Sourboo jar next to a late-night snack spread',
     className: 'sbx-crave__photo--platter',
     sizes: '(max-width: 768px) 70vw, 34vw',
   },
@@ -30,16 +30,15 @@ export default function CravingsIntro() {
       <Wave fill="var(--sbx-pink)" position="bottom" variant={2} />
       <div className="sbx-crave__grid">
         <div className="sbx-crave__copy">
-          <h2 id="sbx-crave-title" className="sbx-crave__title" aria-label="sourboo made for people who eat with intent">
-            <span className="sbx-crave__title-line">sourboo made for people who eat</span>
+          <h2 id="sbx-crave-title" className="sbx-crave__title" aria-label="Sourboo, made for mouths that misbehave">
+            <span className="sbx-crave__title-line">sourboo made for mouths</span>
             <span className="sbx-crave__intent">
-              <Highlight>with intent</Highlight>
+              <Highlight>that misbehave</Highlight>
               <HandUnderline className="sbx-crave__underline" />
             </span>
           </h2>
           <p className="sbx-crave__hand">
-            <span>who like flavour loud and immediate</span>
-            <span>food that fits into real moments</span>
+            <span>Snackable pickled gherkins. Bold, sour, and unapologetically ours.</span>
           </p>
           <Link href="/about" className="sbx-brush-btn">
             <span>read my rant →</span>

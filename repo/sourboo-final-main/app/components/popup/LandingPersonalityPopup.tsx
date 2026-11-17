@@ -111,7 +111,7 @@ export default function LandingPersonalityPopup({ config }: LandingPersonalityPo
           type="button"
           aria-label="Close popup"
           onClick={closePopup}
-          className="absolute right-3 top-2 z-30 text-[62px] leading-none text-[#EC1B79] font-coolvetica transition hover:opacity-80 sm:right-4 md:right-7 md:top-3 md:text-[72px]"
+          className="absolute right-3 top-2 z-30 text-[62px] leading-none text-[#E61E6E] font-coolvetica transition hover:opacity-80 sm:right-4 md:right-7 md:top-3 md:text-[72px]"
         >
           ×
         </button>
@@ -159,15 +159,15 @@ export default function LandingPersonalityPopup({ config }: LandingPersonalityPo
 
         <div className="relative z-20 mx-auto flex h-full w-full max-w-[820px] flex-col items-center px-4 pb-12 pt-14 sm:px-8 sm:pt-16 md:px-10 md:pb-16 md:pt-20">
           <h2 className="text-center leading-[0.92]">
-            <span className="text-[clamp(3rem,8vw,6.5rem)] tracking-[0.01em] text-[#EC1B79] font-coolvetica">
+            <span className="text-[clamp(3rem,8vw,6.5rem)] tracking-[0.01em] text-[#E61E6E] font-coolvetica">
               {config.headingStart}{' '}
             </span>
-            <span className="text-[clamp(2.7rem,7.3vw,6.1rem)] text-[#EC1B79] font-schoolbell">
+            <span className="text-[clamp(2.7rem,7.3vw,6.1rem)] text-[#E61E6E] font-schoolbell">
               {config.headingMain}
             </span>
           </h2>
 
-          <p className="mt-1 w-full max-w-[640px] text-right text-[clamp(1.55rem,3.2vw,3.15rem)] leading-none text-[#EC1B79] font-schoolbell">
+          <p className="mt-1 w-full max-w-[640px] text-right text-[clamp(1.55rem,3.2vw,3.15rem)] leading-none text-[#E61E6E] font-schoolbell">
             {config.subheading}
           </p>
 
@@ -181,7 +181,7 @@ export default function LandingPersonalityPopup({ config }: LandingPersonalityPo
         <button
           type="button"
           onClick={closePopup}
-          className="absolute bottom-[calc(3rem+env(safe-area-inset-bottom))] left-1/2 z-30 -translate-x-1/2 px-4 text-center font-schoolbell text-[clamp(1rem,1.5vw,1.35rem)] leading-none text-[#2A2A2A] transition hover:opacity-70 md:bottom-5"
+          className="absolute bottom-[calc(3rem+env(safe-area-inset-bottom))] left-1/2 z-30 -translate-x-1/2 px-4 text-center font-schoolbell text-[clamp(1rem,1.5vw,1.35rem)] leading-none text-[#0A4625] transition hover:opacity-70 md:bottom-5"
         >
           no thanks take me to the website
         </button>

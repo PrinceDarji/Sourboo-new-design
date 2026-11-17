@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { href: '/about', label: 'Our Story' },
   { href: '/product', label: 'Shop' },
   { href: '/join', label: 'Join Us' },
-  { href: '/contact', label: 'Contact' },
 ] as const;
 
 function BagIcon() {
@@ -105,7 +104,7 @@ export default function Navbar() {
       <div className="sbx-nav__bar">
         <Link href="/" className="sbx-nav__logo" aria-label="Sourboo home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="" width="148" height="40" />
+          <img src="/logo.svg" alt="Sourboo" width="210" height="84" />
         </Link>
 
         <nav className="sbx-nav__links" aria-label="Primary">
@@ -117,46 +116,44 @@ export default function Navbar() {
               aria-current={isActive(link.href) ? 'page' : undefined}
             >
               <span>{link.label}</span>
-              <svg className="sbx-nav__scribble" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M3 8C20 4 38 3 56 5C70 7 84 9 97 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
             </Link>
           ))}
         </nav>
 
         <div className="sbx-nav__actions">
-          <button type="button" onClick={openQuiz} className="sbx-nav__quiz" aria-label="Take the flavour quiz and get 5% off">
-            <span className="sbx-nav__quiz-full">take quiz (get 5% off)</span>
-            <span className="sbx-nav__quiz-short" aria-hidden="true">
-              quiz · 5% off
-            </span>
-          </button>
 
-          <button
-            type="button"
-            onClick={openCart}
-            className="sbx-nav__bag"
-            aria-label={`Open bag, ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`}
-          >
-            <BagIcon />
-            <span className="sbx-nav__bag-count" aria-hidden="true">
-              {totalItems}
-            </span>
-          </button>
+            <button type="button" onClick={openQuiz} className="sbx-nav__quiz" aria-label="Take the flavour quiz and get 5% off">
+              <span className="sbx-nav__quiz-full">take quiz (get 5% off)</span>
+              <span className="sbx-nav__quiz-short" aria-hidden="true">
+                quiz · 5% off
+              </span>
+            </button>
 
-          <button
-            ref={menuButtonRef}
-            type="button"
-            onClick={() => setMenuOpen((open) => !open)}
-            className="sbx-nav__burger"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            aria-controls="sbx-mobile-menu"
-          >
-            <span />
-            <span />
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={openCart}
+              className="sbx-nav__bag"
+              aria-label={`Open bag, ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`}
+            >
+              <BagIcon />
+              <span className="sbx-nav__bag-count" aria-hidden="true">
+                {totalItems}
+              </span>
+            </button>
+
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              className="sbx-nav__burger"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="sbx-mobile-menu"
+            >
+              <span />
+              <span />
+            </button>
+          </div>
       </div>
 
       <div

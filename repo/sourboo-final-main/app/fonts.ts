@@ -1,29 +1,43 @@
 import localFont from "next/font/local";
 
-export const rascal = localFont({
-  src: [{ path: "assets/fonts/rascal.ttf", weight: "400", style: "normal" }],
-  variable: "--font-rascal",
-  display: "swap",
-});
+// Brand fonts from the supplied zip: Coolvetica (5 cuts), Rascal, Schoolbell.
+// Satoshi is no longer part of the site type system.
 
 export const coolvetica = localFont({
-  src: [{ path: "assets/fonts/coolvetica.ttf", weight: "400", style: "normal" }],
+  src: [
+    { path: "assets/fonts/brand/Coolvetica-Rg.otf", weight: "400", style: "normal" },
+    { path: "assets/fonts/brand/Coolvetica-Rg-It.otf", weight: "400", style: "italic" },
+  ],
   variable: "--font-coolvetica",
   display: "swap",
 });
 
-export const satoshi = localFont({
-  src: [
-    { path: "assets/fonts/Satoshi-Regular.ttf", weight: "400", style: "normal" },
-    { path: "assets/fonts/Satoshi-Medium.ttf", weight: "500", style: "normal" },
-    { path: "assets/fonts/Satoshi-Bold.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-satoshi",
+export const coolveticaCond = localFont({
+  src: [{ path: "assets/fonts/brand/Coolvetica-Rg-Cond.otf", weight: "400", style: "normal" }],
+  variable: "--font-coolvetica-cond",
+  display: "swap",
+});
+
+export const coolveticaCram = localFont({
+  src: [{ path: "assets/fonts/brand/Coolvetica-Rg-Cram.otf", weight: "400", style: "normal" }],
+  variable: "--font-coolvetica-cram",
+  display: "swap",
+});
+
+export const coolveticaHeavy = localFont({
+  src: [{ path: "assets/fonts/brand/Coolvetica-Hv-Comp.otf", weight: "400", style: "normal" }],
+  variable: "--font-coolvetica-heavy",
+  display: "swap",
+});
+
+export const rascal = localFont({
+  src: [{ path: "assets/fonts/brand/Rascal.ttf", weight: "400", style: "normal" }],
+  variable: "--font-rascal",
   display: "swap",
 });
 
 export const schoolbell = localFont({
-  src: [{ path: "assets/fonts/Schoolbell-Regular.ttf", weight: "400", style: "normal" }],
+  src: [{ path: "assets/fonts/brand/Schoolbell-Regular.ttf", weight: "400", style: "normal" }],
   variable: "--font-schoolbell",
   display: "swap",
 });

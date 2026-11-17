@@ -131,6 +131,9 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
                   aria-pressed={isSelected}
                   aria-controls={`${id}-result-${player.id}`}
                 >
+                  <span className="sbx-game__face">
+                    <Image src={player.jar} alt="" fill sizes="92px" quality={78} />
+                  </span>
                   <span className="sbx-game__player">PLAYER {player.id}</span>
                   <span className="sbx-game__prompt">
                     {player.prompt.map((line) => (
