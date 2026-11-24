@@ -244,10 +244,14 @@ function CheckoutReturnPageContent() {
             ) : null}
 
             <Link
-              href={status === 'SUCCESS' ? '/' : '/checkout'}
-              className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#DF78B6] bg-[#FDF2F8] px-5 py-2 text-[1.1rem] leading-none text-[#9F1C74] font-coolvetica"
+              href={
+                status === 'SUCCESS'
+                  ? `/checkout/thank-you?merchantOrderId=${encodeURIComponent(merchantOrderId)}`
+                  : '/checkout'
+              }
+              className="inline-flex min-h-[44px] items-center rounded-full border-2 border-[#0e3e1f] bg-[#d7f557] px-6 py-2.5 text-[1.1rem] leading-none text-[#0e3e1f] font-coolvetica font-bold hover:bg-[#0e3e1f] hover:text-white transition-colors"
             >
-              {status === 'SUCCESS' ? 'Go to home' : 'Back to checkout'}
+              {status === 'SUCCESS' ? 'View Order Confirmation →' : 'Back to checkout'}
             </Link>
           </div>
         </div>

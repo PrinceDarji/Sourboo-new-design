@@ -83,9 +83,6 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
             <span className="sbx-footer__handle-small">*{instagram.headingPrefix}</span>
             <span className="sbx-footer__handle-big">{handle}*</span>
           </a>
-          <p className="sbx-footer__motto">
-            *Made for <span className="sbx-highlight">mouths that misbehave</span>*
-          </p>
         </div>
 
         <div className="sbx-footer__cols">
@@ -137,10 +134,15 @@ export default function SiteFooterClient({ instagram, whatsappUrl, footer }: Sit
         </div>
 
         <div className="sbx-footer__base">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Sourboo" className="sbx-footer__logo" width="520" height="140" loading="lazy" />
+          <div className="sbx-footer__brand">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Sourboo" className="sbx-footer__logo" width="200" height="74" loading="lazy" />
+            <p className="sbx-footer__tagline">
+              Made for <span className="sbx-footer__tagline-mouths font-rascal">mouths</span> that misbehave
+            </p>
+          </div>
           <p className="sbx-footer__legal">
-            © {new Date().getFullYear()} Sourboo Snacks LLP · <span>{footer.tagline}</span>
+            © {new Date().getFullYear()} Sourboo Snacks LLP
           </p>
         </div>
       </div>

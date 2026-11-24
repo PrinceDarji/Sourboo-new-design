@@ -1,0 +1,164 @@
+<USER_REQUEST>
+# Sourboo Website: Latest UI Fixes and Checkout Redesign
+
+We need to fix several visual and UX issues across the Sourboo website. Inspect the existing code and components before making changes. These are targeted fixes, not a complete redesign of the website.
+
+The client has rejected several current implementations because of poor text visibility, misaligned elements, inconsistent colours and layouts.
+
+## 1. Shop Page: Fix Product Text and CTA Alignment
+
+The current product section has poor alignment. Text is difficult to read, and the CTA buttons do not line up properly.
+
+Fix the product showcase layout.
+
+- Make product names, flavour names, descriptions and prices easy to read.
+- Use the approved Sourboo brand colours.
+- Do not mix purple and pink within the same visual treatment.
+- Ensure text colours have strong contrast against their backgrounds.
+- Align both product columns consistently.
+- Product descriptions should occupy consistent visual space.
+- Align prices and Add to Bag buttons across both products.
+- Buttons should have matching sizes, spacing and alignment.
+- Ensure responsive layouts remain clean on mobile.
+- Do not use unnecessary boxes, cards, borders or rectangular containers.
+
+Do not change product names, prices, descriptions or product functionality.
+
+## 2. Homepage Hero: Fix Typography and Layout
+
+The homepage hero currently looks visually broken. The typography and layout do not match the intended design.
+
+Use the provided reference image titled "India's First Cult Sour Snack" as the visual reference.
+
+Recreate the same hierarchy:
+
+- **INDIA'S FIRST** as the large, bold headline.
+- **CULT SOUR SNACK** as the second large headline, highlighted with the pink background treatment.
+- Keep the existing real food photography as the hero background or supporting visual.
+- The text must remain readable and visually dominant.
+- The hero should feel bold, editorial and playful.
+- The typography should feel intentional, not randomly stacked.
+- Keep the existing brand colours and typography rules.
+- Keep the Shop Now CTA with its lime handwritten-style underline.
+- Remove the tiny, awkward text arrangement currently appearing in the hero.
+
+The hero must closely follow the supplied reference in typography, scale, layout and hierarchy. Do not invent a completely different concept.
+
+### Mobile hero
+
+- Stack the headline cleanly.
+- Keep the headline readable without clipping.
+- Avoid text overlapping the food photograph.
+- Preserve the visual impact of the pink highlighted headline.
+- Keep the CTA easy to tap.
+
+## 3. Homepage: "Snackable Pickled Gherkins" Section
+
+The text in this section currently uses purple, which does not look good in the current combination.
+
+Fix the colour treatment.
+
+- Remove the purple text styling from this section.
+- Use the approved Sourboo palette with better contrast.
+- Choose one dominant colour treatment per text group.
+- Do not mix pink and purple together.
+- Keep the existing section structure, copy, photography and functionality.
+- Do not redesign this section unnecessarily.
+
+## 4. Checkout Page: Simplify and Improve
+
+The client dislikes the current checkout experience.
+
+Since this is a checkout page, it should be clean, simple, trustworthy and easy to use.
+
+Redesign the checkout experience with the following goals:
+
+- Remove unnecessary visual clutter.
+- Make the checkout process feel clean and familiar.
+- Make product details, quantities, prices and totals easy to understand.
+- Make payment and delivery steps clear.
+- Ensure the layout works well on mobile.
+- Do not force the homepage's heavy animations into checkout.
+- Do not introduce distracting effects that could reduce checkout completion.
+- Keep the checkout functional.
+
+Use the Sourboo brand colours subtly. Prioritise usability over visual gimmicks.
+
+Do not break the existing Shopify checkout, payment, cart or order flow.
+
+## 5. Create a Sourboo Personality-Driven Thank You Page
+
+The checkout itself should remain simple. The post-purchase Thank You page is where Sourboo's personality should come alive.
+
+Create a custom, playful Thank You page after successful purchase.
+
+The page should feel like Sourboo, not a generic ecommerce confirmation screen.
+
+Ideas for the visual direction:
+
+- Bold, playful typography.
+- Sourboo brand colours.
+- Quirky, cheeky copy.
+- Playful visual elements using authentic Sourboo assets.
+- A fun confirmation of the order.
+- Make the customer feel excited about their Sourboo order.
+- Add playful messaging about their snack being on its way.
+- Include order details and order status clearly.
+- Keep tracking or relevant next steps easy to find.
+- Include a clear option to continue shopping.
+
+The personality must come from the design, copy and visual treatment, not excessive clutter.
+
+Do not use generic cartoon vectors, emojis or unnecessary boxed layouts.
+
+Ensure the Thank You page only appears after a successful order and does not interfere with Shopify's payment or order-confirmation system.
+
+Check Shopify's available checkout extensibility and post-purchase capabilities before implementing. Do not assume the custom theme can directly replace Shopify's hosted checkout or order confirmation page without the required platform support.
+
+## 6. Global Design Rules
+
+These rules apply to every change in this task.
+
+- Do not mix purple and pink in the same visual treatment.
+- Avoid unnecessary boxed layouts.
+- Do not use generic cartoon vectors.
+- Do not use emojis.
+- Maintain approved fonts and brand colours.
+- Use real photography and original brand assets.
+- Keep text readable.
+- Align headings, body text, prices and CTAs properly.
+- Avoid unnecessary borders, rigid cards and square containers.
+- Keep animations smooth and purposeful.
+- Do not modify unrelated sections or pages.
+- Do not change product data, pricing, copy or functionality unless explicitly required above.
+
+## 7. Technical Instructions
+
+Before editing:
+
+1. Inspect the current code and identify the components responsible for these issues.
+2. Check existing approved versions and previous implementations.
+3. Reuse existing components and assets where possible.
+4. Avoid overwriting newer approved work.
+5. Identify whether the Thank You page can be implemented within the current Shopify setup.
+
+After editing:
+
+1. Test the Shop page on desktop and mobile.
+2. Test the Homepage hero on desktop and mobile.
+3. Test the Snackable Pickled Gherkins section.
+4. Test checkout functionality.
+5. Test the post-purchase Thank You page, preferably using a test order.
+6. Verify text readability and CTA alignment.
+7. Check for layout shifts, overflow and broken responsive layouts.
+8. Do not commit, merge or deploy.
+
+Make only the changes described above. Preserve everything else that is already approved.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-24T17:03:01+05:30.
+
+The user has uploaded 1 image(s):
+- C:/Users/user/.gemini/antigravity/brain/f22c98ee-5201-43c9-a5eb-84160ec3250c/.user_uploaded/media_1795519701499_3f8b9714.jpg
+You can embed this image in an artifact if you need the USER to review it.
+</ADDITIONAL_METADATA>

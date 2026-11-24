@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
 import SiteFooter from '../components/SiteFooter';
 import QuickBuyButton from '../components/cart/QuickBuyButton';
+import FlavourDuo from '../components/home/FlavourDuo';
 import FlavorMatcher from '../components/product/FlavorMatcher';
 import { CATALOG_PRODUCTS } from '@/src/lib/catalog/products';
 import '../sourboo-home.css';
@@ -65,33 +66,18 @@ export default function ProductCatalogPage() {
 
       <section className="sbx-shop__hero" aria-labelledby="sbx-shop-title">
         <div className="sbx-shop__hero-inner">
-          {/* Left Column: Bold Typography & Product Discovery */}
+          {/* Left Column: Bold Editorial Typography & Product Actions */}
           <div className="sbx-shop__hero-copy">
             <p className="sbx-shop__kicker">
-              <span>*all sour, zero chill • cravings come first*</span>
+              <span>all sour, zero chill</span>
+              <span className="sbx-shop__kicker-star" aria-hidden="true">★</span>
+              <span>cravings come first</span>
             </p>
 
             <h1 id="sbx-shop-title" className="sbx-shop__title">
-              <span className="sbx-shop__title-lead">
-                SHOP SOURBOO
-                <svg
-                  className="sbx-shop__title-sparks"
-                  viewBox="0 0 54 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path d="M20 6L9 30" stroke="#f50a59" strokeWidth="5.5" strokeLinecap="round" />
-                  <path d="M48 16L23 38" stroke="#f50a59" strokeWidth="5.5" strokeLinecap="round" />
-                  <path d="M48 52L26 56" stroke="#f50a59" strokeWidth="5" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className="sbx-shop__title-banner-wrap">
-                <span className="sbx-shop__title-banner">
-                  PICKLED SNACKABLE GHERKINS
-                </span>
-              </span>
-              <span className="sbx-shop__title-sub">&amp; BUNDLES</span>
+              <span className="sbx-shop__title-brand">SHOP SOURBOO</span>
+              <span className="sbx-shop__title-product">PICKLED SNACKABLE GHERKINS</span>
+              <span className="sbx-shop__title-accent">&amp; BUNDLES</span>
             </h1>
 
             <p className="sbx-shop__lede">
@@ -100,7 +86,7 @@ export default function ProductCatalogPage() {
 
             {/* Shopping & Product Discovery CTAs */}
             <div className="sbx-shop__discovery-row">
-              <a href="#flavours" className="sbx-shop__disco-btn sbx-shop__disco-btn--duo">
+              <a href="#flavours" className="sbx-shop__disco-btn sbx-shop__disco-btn--flavours">
                 <span className="sbx-shop__disco-label">EXPLORE FLAVOURS ↓</span>
                 <span className="sbx-shop__disco-tag">Single Jars • ₹399</span>
               </a>
@@ -110,75 +96,56 @@ export default function ProductCatalogPage() {
               </a>
             </div>
 
-            {/* Food Trust Badges */}
+            {/* Food Trust Badges - Unboxed Editorial Badges */}
             <div className="sbx-shop__badges-row">
-              <span className="sbx-shop__badge sbx-shop__badge--veg">100% VEGETARIAN</span>
-              <span className="sbx-shop__badge sbx-shop__badge--brine">CRAFT FERMENTED BRINE</span>
-              <span className="sbx-shop__badge sbx-shop__badge--crunch">CRINKLE-CUT CRUNCH</span>
+              <span className="sbx-shop__badge-item">100% VEGETARIAN</span>
+              <span className="sbx-shop__badge-bullet" aria-hidden="true">★</span>
+              <span className="sbx-shop__badge-item">CRAFT FERMENTED BRINE</span>
+              <span className="sbx-shop__badge-bullet" aria-hidden="true">★</span>
+              <span className="sbx-shop__badge-item">CRINKLE-CUT CRUNCH</span>
             </div>
           </div>
 
-          {/* Right Column: Visual Stage with Real Jars & Ingredients */}
-          <div className="sbx-shop__hero-stage" aria-hidden="true">
-            <div className="sbx-shop__stage-glow" />
-            
+          {/* Right Column: Visual Stage with Real Jars */}
+          <div className="sbx-shop__hero-stage" aria-label="Sourboo Product Jars">
             <div className="sbx-shop__stage-jars">
-              <div className="sbx-shop__jar-card sbx-shop__jar-card--side-eye">
+              <div className="sbx-shop__jar-unit sbx-shop__jar-unit--side-eye">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/product/catalog/side-eye.webp"
                   alt="Side Eye Sour Jar"
-                  className="sbx-shop__stage-img"
+                  className="sbx-shop__jar-photo"
                   width={240}
                   height={320}
                 />
-                <span className="sbx-shop__stage-flavour-badge sbx-shop__stage-flavour-badge--side-eye">
+                <span className="sbx-shop__jar-tag sbx-shop__jar-tag--side-eye">
                   SIDE EYE SOUR
                 </span>
               </div>
 
-              <div className="sbx-shop__jar-card sbx-shop__jar-card--tamarin">
+              <div className="sbx-shop__jar-unit sbx-shop__jar-unit--tamarin">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/product/catalog/tamarin-tease.webp"
                   alt="Tamarin' Tease Jar"
-                  className="sbx-shop__stage-img"
+                  className="sbx-shop__jar-photo"
                   width={240}
                   height={320}
                 />
-                <span className="sbx-shop__stage-flavour-badge sbx-shop__stage-flavour-badge--tamarin">
+                <span className="sbx-shop__jar-tag sbx-shop__jar-tag--tamarin">
                   TAMARIN&apos; TEASE
                 </span>
               </div>
             </div>
 
-            {/* Floating Food Elements */}
-            <div className="sbx-shop__stage-floats">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/home/ingredients/sliced-gherkin.png"
-                alt=""
-                className="sbx-shop__float sbx-shop__float--gherkin"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/home/ingredients/lemon-wedge.png"
-                alt=""
-                className="sbx-shop__float sbx-shop__float--lemon"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/home/ingredients/chaat-masala.png"
-                alt=""
-                className="sbx-shop__float sbx-shop__float--masala"
-              />
-              <div className="sbx-shop__stage-sticker font-coolvetica">
-                MOUTHS THAT MISBEHAVE
-              </div>
+            <div className="sbx-shop__tagline-sub">
+              MOUTHS THAT MISBEHAVE
             </div>
           </div>
         </div>
       </section>
+
+      <FlavourDuo />
 
       <FlavorMatcher />
 

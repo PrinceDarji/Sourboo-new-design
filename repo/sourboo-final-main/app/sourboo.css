@@ -970,12 +970,12 @@ input, button, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e81b6d;
+  color: #1e0a3c;
   background: #d7f557;
-  border: 2px solid #e81b6d;
+  border: 2px solid #1e0a3c;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 0 #e81b6d;
+  box-shadow: 0 2px 0 #1e0a3c;
   font-family: var(--font-coolvetica), 'coolvetica', sans-serif;
   z-index: 80;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -1030,7 +1030,7 @@ input, button, select, textarea {
 .sb-popup-h1 {
   font-size: clamp(2.4rem, 6vw, 4.8rem);
   line-height: 0.92;
-  color: var(--sb-pink);
+  color: var(--sbx-lime, #d7f557);
   margin: 0;
 }
 
@@ -1038,7 +1038,7 @@ input, button, select, textarea {
   font-family: 'Schoolbell', cursive;
   font-size: clamp(1.8rem, 3.6vw, 3.2rem);
   line-height: 1;
-  color: var(--sb-pink);
+  color: var(--sbx-lime, #d7f557);
   text-align: right;
   margin: 8px 0 28px;
 }
@@ -1764,16 +1764,45 @@ input, button, select, textarea {
   box-shadow: 2px 2px 0 #083d1a;
 }
 
-/* Title */
+/* Eyebrow Note */
+.sb-pdp-kicker-note {
+  font-family: var(--font-rascal), 'Rascal', cursive;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  color: #f50a59;
+  letter-spacing: 0.02em;
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+/* Title Wrap & Sensory Tag */
+.sb-pdp-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
 .sb-pdp-title {
-  margin: 0 0 12px;
+  margin: 0 0 4px;
   font-family: var(--font-coolvetica), 'coolvetica', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: 0.05em;
+  font-size: clamp(3.2rem, 6.8vw, 6.2rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
   color: #083d1a;
   text-transform: uppercase;
+}
+
+.sb-pdp-title-sensory {
+  font-family: var(--font-rascal), 'Rascal', cursive;
+  font-size: clamp(1.3rem, 1.9vw, 1.7rem);
+  color: #ff7a00;
+  letter-spacing: 0.02em;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+  margin-top: 2px;
+  text-shadow: 2px 2px 0px rgba(8, 61, 26, 0.08);
 }
 
 /* Price Row */
@@ -1985,7 +2014,7 @@ input, button, select, textarea {
 .sb-pdp-add-cta {
   flex: 1;
   min-height: 58px;
-  border-radius: 9999px;
+  border-radius: 48% 52% 44% 56% / 58% 42% 58% 42%;
   background: #f50a59; /* Approved Bright Pink */
   color: #ffffff;
   border: 2.5px solid #083d1a;

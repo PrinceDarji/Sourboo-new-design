@@ -70,12 +70,19 @@ export default function InteractiveJar({
   const [open, setOpen] = useState(false);
   const [isLockedOpen, setIsLockedOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setOpen((prev) => {
-      const next = !prev;
-      setIsLockedOpen(next);
-      return next;
-    });
+  const handleClick = () => {
+    if (!open) {
+      // If closed, clicking opens and locks it
+      setOpen(true);
+      setIsLockedOpen(true);
+    } else if (open && !isLockedOpen) {
+      // If open due to hover, clicking locks it open
+      setIsLockedOpen(true);
+    } else {
+      // If already locked open, clicking toggles it closed
+      setOpen(false);
+      setIsLockedOpen(false);
+    }
   };
 
   const handlePointerEnter = (event: React.PointerEvent) => {
@@ -100,12 +107,8 @@ export default function InteractiveJar({
       aria-label={`${open ? 'Close' : 'Open'} the ${name} jar to see what goes in it: ${label}`}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
-      onClick={toggleOpen}
+      onClick={handleClick}
     >
-      <span className="sbx-jar__tap-prompt" aria-hidden="true">
-        <span className="sbx-jar__tap-pill">{open ? 'TAP TO CLOSE' : 'TAP TO OPEN'}</span>
-      </span>
-
       <span className="sbx-jar__blob" aria-hidden="true">
         <svg viewBox="0 0 200 200" preserveAspectRatio="none">
           <path d="M43.5 23.6C66 4.6 104.8 3.6 131.6 13.4c27.8 10.2 54 33 60.6 62.4 6.8 30-7.6 64.4-32 84.6-24.4 20.4-58.6 27-89 21.4C40.8 176 13.6 158 6.2 130.8-1.4 103 4 71.6 15 51.2c7.2-13.6 16.6-20.4 28.5-27.6Z" />
@@ -152,7 +155,7 @@ export default function InteractiveJar({
         <span className="sbx-jar__shadow" />
       </span>
       <span className="sbx-jar__hint" aria-hidden="true">
-        <span className="sbx-jar__hint-hover">hover to open</span>
+        <span className="sbx-jar__hint-hover">click to open</span>
         <span className="sbx-jar__hint-tap">tap to open</span>
       </span>
     </button>

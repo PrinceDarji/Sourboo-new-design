@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import QuickBuyButton from '../cart/QuickBuyButton';
-import OpenQuizButton from '../popup/OpenQuizButton';
 import { findCatalogProduct } from '@/src/lib/catalog/products';
 
 type FlavourMatchId = 1 | 2;
@@ -181,12 +180,7 @@ export default function TasteGame({ id = 'taste-game' }: { id?: string }) {
         </div>
       ) : null}
 
-      <div className="sbx-game__full-quiz">
-        <p className="sbx-game__full-quiz-text">Want our full personality breakdown?</p>
-        <OpenQuizButton className="sbx-game__full-quiz-btn">
-          TAKE THE 30-SEC QUIZ (GET 5% OFF) →
-        </OpenQuizButton>
-      </div>
+
     </section>
   );
 }

@@ -6,7 +6,6 @@ import '../sourboo-about.css';
 import '../sourboo-home.css';
 import '../sourboo-story.css';
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import { getLatestReels } from '../lib/instagram';
 
 export const revalidate = 300;
@@ -23,17 +22,6 @@ export const metadata: Metadata = {
   twitter: { title: aboutTitle, description: aboutDescription },
 };
 
-function ShadowWord({ children }: { children: ReactNode }) {
-  return (
-    <span className="sb-story-shadow">
-      <span className="sb-story-shadow__hand" aria-hidden="true">
-        {children}
-      </span>
-      <span className="sb-story-shadow__top">{children}</span>
-    </span>
-  );
-}
-
 export default async function AboutPage() {
   const { reels } = await getLatestReels(3);
 
@@ -49,9 +37,9 @@ export default async function AboutPage() {
           <div className="sb-story-hero__copy">
             <span className="sb-story-tagline">Our Story</span>
             <h1 id="sb-story-hero-title" className="sb-story-hero__title">
-              hi i am <ShadowWord>sakshi</ShadowWord>,
+              hi i am <span className="sb-story-hero__name font-rascal">sakshi</span>,
               <br />
-              and i am really glad you are <ShadowWord>here</ShadowWord>
+              and i am really glad you are <span className="sb-story-hero__highlight font-rascal">here</span>
             </h1>
             <p className="sb-story-hero__sub">
               if u are here, i am assuming, you like sour or curious enough to try it.
@@ -98,8 +86,18 @@ export default async function AboutPage() {
             </div>
             <div className="sb-story-hero__founder-badge">
               <span className="sb-story-hero__badge-name">Sakshi</span>
-              <span className="sb-story-hero__badge-tag">Founder &amp; Chief Pickle Addict</span>
+              <span className="sb-story-hero__badge-tag font-rascal">Founder &amp; Chief Pickle Addict</span>
             </div>
+            {/* Natural gherkin illustration from approved brand assets */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/home/ingredients/sliced-gherkin.png"
+              alt=""
+              aria-hidden="true"
+              className="sb-story-hero__gherkin-accent"
+              width="100"
+              height="100"
+            />
           </div>
         </div>
       </section>
@@ -112,7 +110,7 @@ export default async function AboutPage() {
         <div className="sb-story-wrap">
           <div className="sb-story-flavour__head">
             <h2 id="sb-story-flavour-title" className="sb-story-flavour__title">
-              I&apos;ve always been (annoyingly) obsessed with <ShadowWord>flavours</ShadowWord>.
+              I&apos;ve always been (annoyingly) obsessed with <span className="sb-story-flavour__accent font-rascal">flavours</span>.
             </h2>
             <p className="sb-story-flavour__years">
               spent 5 years around food and drinks from london bar shifts to a 9-5 desk job in India
@@ -163,20 +161,40 @@ export default async function AboutPage() {
             </div>
           </div>
 
-          {/* Desi Palate Narrative (Seamless Flow, Zero Cartoon Vectors) */}
+          {/* Desi Palate Narrative with natural lemon & gherkin flavour accents */}
           <div className="sb-story-palate-bridge">
-            <h3 className="sb-story-palate-bridge__heading">
-              Different lives, <ShadowWord>same cravings</ShadowWord>.
-            </h3>
-            <p className="sb-story-palate-bridge__text">
-              Nothing worked for a desi palate that loves bold, spicy, and sour — but doesn&apos;t want to feel weighed down after snacking.
-            </p>
+            <div className="sb-story-palate-bridge__copy">
+              <h3 className="sb-story-palate-bridge__heading">
+                Different lives, <span className="sb-story-palate-bridge__highlight font-rascal">same cravings</span>.
+              </h3>
+              <p className="sb-story-palate-bridge__text">
+                Nothing worked for a desi palate that loves bold, spicy, and sour — but doesn&apos;t want to feel weighed down after snacking.
+              </p>
+            </div>
+            <div className="sb-story-palate-bridge__accents" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/ingredients/lemon-wedge.png"
+                alt=""
+                className="sb-story-palate-bridge__lemon"
+                width="84"
+                height="84"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/ingredients/sliced-gherkin.png"
+                alt=""
+                className="sb-story-palate-bridge__gherkin"
+                width="76"
+                height="76"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          STORY CHAPTER 3: INTRODUCING SOURBOO & EDITORIAL UNCROPPED PHOTOGRAPHY (Lime Canvas)
+          STORY CHAPTER 3: INTRODUCING SOURBOO & PLAYFUL POLAROID PHOTOGRAPHY (Lime Canvas)
           ========================================================================= */}
       <section className="sb-story-manifesto-wrap" aria-labelledby="sb-story-manifesto-title">
         <Wave fill="var(--sbx-lime)" position="top" variant={1} />
@@ -184,69 +202,108 @@ export default async function AboutPage() {
           <div className="sb-story-manifesto__head">
             <div className="sb-story-manifesto__brandmark">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.svg" alt="Sourboo" className="sb-story-manifesto__logo" />
+              <img src="/logo.svg" alt="Sourboo" className="sb-story-manifesto__logo" width="280" height="98" />
             </div>
             <h2 id="sb-story-manifesto-title" className="sb-story-manifesto__title">
               Sour first snack, made for people who don&apos;t eat quietly.
             </h2>
-            <p className="sb-story-manifesto__statement">
-              For women who love loud flavours, strong opinions, and fully indulging. The kind who make faces when they eat. The kind who ask for extra nimbu. A new way of snacking.
-            </p>
+            <div className="sb-story-manifesto__content">
+              <p className="sb-story-manifesto__statement">
+                For women who love loud flavours, strong opinions, and fully indulging.
+              </p>
+
+              {/* Lemon and gherkin illustrations naturally placed with corresponding copy */}
+              <div className="sb-story-manifesto__moments">
+                <div className="sb-story-manifesto__moment">
+                  <div className="sb-story-manifesto__moment-media">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/about/spoonofpickle.gif"
+                      alt="Crunchy pickled gherkin on spoon"
+                      className="sb-story-manifesto__moment-img"
+                      width="88"
+                      height="88"
+                    />
+                  </div>
+                  <p className="sb-story-manifesto__moment-text">
+                    The kind who make faces when they eat.
+                  </p>
+                </div>
+
+                <div className="sb-story-manifesto__moment">
+                  <div className="sb-story-manifesto__moment-media">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/about/lemonsqueze.gif"
+                      alt="Fresh lemon squeeze"
+                      className="sb-story-manifesto__moment-img"
+                      width="88"
+                      height="88"
+                    />
+                  </div>
+                  <p className="sb-story-manifesto__moment-text">
+                    The kind who ask for extra nimbu.
+                  </p>
+                </div>
+              </div>
+
+              <p className="sb-story-manifesto__newway">
+                A new way of snacking.
+              </p>
+            </div>
           </div>
 
-          {/* Editorial Uncropped Photography Gallery */}
-          <div className="sb-story-editorial-gallery" role="region" aria-label="Sourboo Real Moments">
-            <div className="sb-story-editorial-grid">
-              {/* Image 1: Tasting Moment */}
-              <div className="sb-story-editorial-item sb-story-editorial-item--1">
-                <div className="sb-story-editorial-frame">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/about/section-six-top-1.webp"
-                    alt="Sourboo event tasting moment"
-                    className="sb-story-editorial-img"
-                  />
-                </div>
-                <span className="sb-story-editorial-caption">Tasting sour live</span>
+          {/* Playful Polaroid-Style Photo Section (No Rigid Grids) */}
+          <div className="sb-story-polaroids" role="region" aria-label="Sourboo Real Moments">
+            {/* Image 1: Tasting Moment */}
+            <div className="sb-polaroid sb-polaroid--1">
+              <div className="sb-polaroid__inner">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/about/section-six-top-1.webp"
+                  alt="Sourboo event tasting moment"
+                  className="sb-polaroid__img"
+                />
+                <p className="sb-polaroid__caption font-rascal">Tasting sour live</p>
               </div>
+            </div>
 
-              {/* Image 2: Team Moment */}
-              <div className="sb-story-editorial-item sb-story-editorial-item--2">
-                <div className="sb-story-editorial-frame">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/about/section-six-top-2.webp"
-                    alt="Sourboo event team moment"
-                    className="sb-story-editorial-img"
-                  />
-                </div>
-                <span className="sb-story-editorial-caption">The sour squad</span>
+            {/* Image 2: Team Moment */}
+            <div className="sb-polaroid sb-polaroid--2">
+              <div className="sb-polaroid__inner">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/about/section-six-top-2.webp"
+                  alt="Sourboo event team moment"
+                  className="sb-polaroid__img"
+                />
+                <p className="sb-polaroid__caption font-rascal">The sour squad</p>
               </div>
+            </div>
 
-              {/* Image 3: Customer Reaction */}
-              <div className="sb-story-editorial-item sb-story-editorial-item--3">
-                <div className="sb-story-editorial-frame">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/about/section-six-top-3.webp"
-                    alt="Sourboo customer reaction"
-                    className="sb-story-editorial-img"
-                  />
-                </div>
-                <span className="sb-story-editorial-caption">Unapologetic reactions</span>
+            {/* Image 3: Customer Reaction */}
+            <div className="sb-polaroid sb-polaroid--3">
+              <div className="sb-polaroid__inner">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/about/section-six-top-3.webp"
+                  alt="Sourboo customer reaction"
+                  className="sb-polaroid__img"
+                />
+                <p className="sb-polaroid__caption font-rascal">Unapologetic reactions</p>
               </div>
+            </div>
 
-              {/* Image 4: Authentic Food Dish */}
-              <div className="sb-story-editorial-item sb-story-editorial-item--dish">
-                <div className="sb-story-editorial-frame">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/recipe-1.jpg"
-                    alt="Bowl of crunchy seasoned pickled gherkins"
-                    className="sb-story-editorial-img"
-                  />
-                </div>
-                <p className="sb-story-editorial-caption">
+            {/* Image 4: Authentic Food Dish */}
+            <div className="sb-polaroid sb-polaroid--4">
+              <div className="sb-polaroid__inner">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/recipe-1.jpg"
+                  alt="Bowl of crunchy seasoned pickled gherkins"
+                  className="sb-polaroid__img"
+                />
+                <p className="sb-polaroid__caption font-rascal">
                   Snackable pickled gherkins — crisp, juicy &amp; uncompromisingly tangy
                 </p>
               </div>

@@ -16,24 +16,7 @@ type CheckoutFormState = {
   city: string;
   state: string;
   postalCode: string;
-};
-
-type ConfirmedOrder = {
-  reference: string;
-  customer: CheckoutFormState;
-  items: Array<{
-    slug: string;
-    name: string;
-    price: number;
-    quantity: number;
-    image?: string;
-  }>;
-  subtotal: number;
-  shipping: number;
-  discountCode: string | null;
-  discountAmount: number;
-  total: number;
-  date: string;
+  paymentMethod: 'upi' | 'card' | 'cod';
 };
 
 const initialFormState: CheckoutFormState = {
@@ -45,6 +28,7 @@ const initialFormState: CheckoutFormState = {
   city: '',
   state: '',
   postalCode: '',
+  paymentMethod: 'upi',
 };
 
 function toTrimmedCheckoutForm(formState: CheckoutFormState): CheckoutFormState {
@@ -57,6 +41,7 @@ function toTrimmedCheckoutForm(formState: CheckoutFormState): CheckoutFormState 
     city: formState.city.trim(),
     state: formState.state.trim(),
     postalCode: formState.postalCode.trim(),
+    paymentMethod: formState.paymentMethod,
   };
 }
 
@@ -64,53 +49,78 @@ function getCheckoutValidationError(
   formState: CheckoutFormState,
   items: Array<{ slug: string; quantity: number }>,
 ): string | null {
-  if (items.length === 0) return 'Your cart is empty. Add products before checking out.';
-  if (items.some((item) => !item.slug?.trim() || !Number.isInteger(item.quantity) || item.quantity < 1)) {
-    return 'Your cart has an invalid item. Please remove it and add it again.';
-  }
+  if (items.length === 0) return 'Your cart is empty. Please add items before checking out.';
   if (formState.fullName.length < 2) return 'Please enter your full name.';
   if (!formState.email.includes('@') || !formState.email.includes('.')) {
     return 'Please enter a valid email address.';
   }
   const cleanPhone = formState.phone.replace(/\D/g, '');
-  if (cleanPhone.length < 8) return 'Please enter a valid phone number (at least 8 digits).';
-  if (formState.line1.length < 3) return 'Please enter your delivery street address.';
+  if (cleanPhone.length < 10) return 'Please enter a valid 10-digit mobile number.';
+  if (formState.line1.length < 4) return 'Please enter your street address / flat details.';
   if (formState.city.length < 2) return 'Please enter your city.';
   if (formState.state.length < 2) return 'Please enter your state.';
-  if (formState.postalCode.length < 3) return 'Please enter your postal/PIN code.';
+  if (formState.postalCode.length < 4) return 'Please enter your PIN code.';
   return null;
 }
 
 export default function CheckoutPage() {
-  const { items, subtotal, discountCode, discountAmount, discountPercent, clearCart } = useCart();
+  const {
+    items,
+    subtotal,
+    discountCode,
+    discountAmount,
+    discountPercent,
+    clearCart,
+    applyDiscountCode,
+    clearDiscountCode,
+  } = useCart();
+
   const [formState, setFormState] = useState<CheckoutFormState>(initialFormState);
+  const [couponInput, setCouponInput] = useState('');
+  const [couponMessage, setCouponMessage] = useState<{ text: string; isError: boolean } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [confirmedOrder, setConfirmedOrder] = useState<ConfirmedOrder | null>(null);
 
   const itemCount = useMemo(
     () => items.reduce((sum, item) => sum + item.quantity, 0),
     [items],
   );
 
-  // Flat demo shipping rate: ₹100 per order
-  const shippingAmount = useMemo(() => (items.length > 0 ? 100 : 0), [items]);
+  const shippingAmount = useMemo(() => {
+    if (items.length === 0) return 0;
+    return subtotal >= 700 ? 0 : 100;
+  }, [items.length, subtotal]);
 
   const totalPayable = useMemo(
     () => Math.max(0, subtotal + shippingAmount - discountAmount),
     [discountAmount, shippingAmount, subtotal],
   );
 
-  const canSubmit = items.length > 0 && !isSubmitting;
+  const handleApplyCoupon = (e: React.FormEvent) => {
+    e.preventDefault();
+    const code = couponInput.trim().toUpperCase();
+    if (!code) return;
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!canSubmit) return;
+    const res = applyDiscountCode(code);
+    if (res.ok) {
+      setCouponMessage({ text: `Boom! ${code} applied successfully!`, isError: false });
+      setCouponInput('');
+    } else {
+      setCouponMessage({ text: res.error, isError: true });
+    }
+  };
 
+  const handleRemoveCoupon = () => {
+    clearDiscountCode();
+    setCouponMessage(null);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
     setErrorMessage(null);
-    const trimmedForm = toTrimmedCheckoutForm(formState);
-    const validationError = getCheckoutValidationError(trimmedForm, items);
 
+    const trimmed = toTrimmedCheckoutForm(formState);
+    const validationError = getCheckoutValidationError(trimmed, items);
     if (validationError) {
       setErrorMessage(validationError);
       return;
@@ -118,18 +128,17 @@ export default function CheckoutPage() {
 
     setIsSubmitting(true);
 
-    // Simulate realistic client-demo order placement
     setTimeout(() => {
-      const demoReference = `SB-DEMO-${Math.floor(100000 + Math.random() * 900000)}`;
-      const orderSnapshot: ConfirmedOrder = {
-        reference: demoReference,
-        customer: trimmedForm,
-        items: items.map((i) => ({
-          slug: i.slug,
-          name: i.name,
-          price: i.price,
-          quantity: i.quantity,
-          image: i.image,
+      const orderRef = `SB-${Math.floor(100000 + Math.random() * 900000)}`;
+      const orderSnapshot = {
+        reference: orderRef,
+        customer: trimmed,
+        items: items.map((it) => ({
+          slug: it.slug,
+          name: it.name,
+          price: it.price,
+          quantity: it.quantity,
+          image: it.image,
         })),
         subtotal,
         shipping: shippingAmount,
@@ -145,378 +154,495 @@ export default function CheckoutPage() {
         }),
       };
 
-      setConfirmedOrder(orderSnapshot);
-      clearCart();
-      setIsSubmitting(false);
-
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        localStorage.setItem('sourboo_latest_order', JSON.stringify(orderSnapshot));
+      } catch {
+        // ignore
       }
-    }, 700);
+
+      clearCart();
+      window.location.href = `/checkout/thank-you?orderId=${encodeURIComponent(orderRef)}`;
+    }, 600);
   };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#8B5CF6]">
+    <main className="min-h-screen w-full bg-[#FAF8F5] text-[#0e3e1f] overflow-x-hidden selection:bg-[#d7f557] selection:text-[#0e3e1f]">
       <Navbar />
 
-      {/* =========================================================================
-          CONFIRMED DEMO ORDER SCREEN
-          ========================================================================= */}
-      {confirmedOrder ? (
-        <section className="mx-auto w-full max-w-[960px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
-          <div className="rounded-3xl border-3 border-[#8B5CF6] bg-white p-6 shadow-[6px_6px_0px_#8B5CF6] md:p-10">
-            {/* Header Badge */}
-            <div className="text-center">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F557] border-2 border-[#8B5CF6] text-3xl shadow-[3px_3px_0px_#8B5CF6]">
-                
+      {/* Main Container with generous bottom padding to prevent ANY footer wave clipping */}
+      <div
+        className="mx-auto w-full max-w-[1140px] px-5 sm:px-8 pb-48 md:pb-60"
+        style={{ paddingTop: 'calc(var(--sbx-nav-h, 74px) + 36px)' }}
+      >
+        {/* Playful & Clean Header */}
+        <div className="border-b-2 border-[#0e3e1f]/10 pb-6 mb-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#d7f557] px-3.5 py-1 text-xs font-bold tracking-wider text-[#0e3e1f] uppercase border border-[#0e3e1f]/20 shadow-sm font-coolvetica">
+                🔒 100% SECURE CHECKOUT
               </div>
-              <h1 className="mt-4 font-coolvetica text-[clamp(2.4rem,4.5vw,3.6rem)] text-[#E81B6D] leading-tight">
-                Order Received!
+              <h1 className="mt-2 font-coolvetica text-[clamp(2.4rem,4.5vw,3.6rem)] font-bold text-[#0e3e1f] leading-none">
+                Claim Your Stash
               </h1>
-              <p className="mt-1 font-coolvetica text-[1.3rem] text-[#8B5CF6]">
-                Demo Order Reference:{' '}
-                <span className="font-bold underline text-[#E81B6D]">
-                  {confirmedOrder.reference}
-                </span>
-              </p>
             </div>
+            <Link
+              href="/product"
+              className="inline-flex items-center gap-1.5 font-coolvetica text-base font-bold text-[#0e3e1f] underline decoration-[#f50a59] decoration-2 underline-offset-4 hover:text-[#f50a59] transition-colors"
+            >
+              &larr; Return to Shop
+            </Link>
+          </div>
+        </div>
 
-            {/* MANDATORY CLIENT DEMO NOTICE BANNER */}
-            <div className="mt-6 rounded-2xl border-2 border-[#E81B6D] bg-[#FFEBF3] p-4 text-center">
-              <p className="font-coolvetica text-[1.15rem] font-bold text-[#E81B6D] uppercase tracking-wide">
-                Demo Notice
-              </p>
-              <p className="mt-1 font-coolvetica text-[1.1rem] text-[#8B5CF6]">
-                This is a demo order. No payment has been processed and no actual order has been placed.
-              </p>
-            </div>
+        {items.length === 0 ? (
+          <div className="mx-auto my-16 max-w-lg rounded-3xl border-3 border-[#0e3e1f] bg-white p-8 sm:p-12 text-center shadow-[6px_6px_0px_#0e3e1f]">
+            <span className="text-4xl block mb-3">🥒</span>
+            <h2 className="font-coolvetica text-3xl font-bold text-[#0e3e1f]">Your Bag is Empty</h2>
+            <p className="mt-3 font-satoshi text-base text-[#143820] max-w-sm mx-auto">
+              Looks like you haven&apos;t added any pickled crunch to your cart yet. Let&apos;s fix that!
+            </p>
+            <Link
+              href="/product"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0e3e1f] px-8 py-4 font-coolvetica text-lg font-bold uppercase tracking-wider text-white shadow-[4px_4px_0px_#d7f557] transition-transform hover:-translate-y-1 hover:bg-[#8b5cf6]"
+            >
+              Explore Flavours &rarr;
+            </Link>
+          </div>
+        ) : (
+          <div className="grid gap-8 lg:grid-cols-[1.22fr_0.78fr] items-start">
+            {/* Left Column: Checkout Forms */}
+            <form onSubmit={handleSubmit} noValidate className="space-y-6">
+              {/* Step 1: Contact Details */}
+              <div className="rounded-3xl border-2 border-[#0e3e1f]/15 bg-white p-6 shadow-sm sm:p-8">
+                <div className="flex items-center gap-3 border-b-2 border-[#0e3e1f]/10 pb-4">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#d7f557] border-2 border-[#0e3e1f] font-coolvetica text-base font-bold text-[#0e3e1f] shadow-[2px_2px_0px_#0e3e1f]">
+                    1
+                  </span>
+                  <div>
+                    <h2 className="font-coolvetica text-xl sm:text-2xl font-bold text-[#0e3e1f]">
+                      Contact Information
+                    </h2>
+                    <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                      Where should we send tracking updates?
+                    </p>
+                  </div>
+                </div>
 
-            {/* Order Details Grid */}
-            <div className="mt-8 grid gap-8 md:grid-cols-2">
-              {/* Customer & Delivery */}
-              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#FFFFFF] p-5">
-                <h3 className="font-coolvetica text-[1.3rem] text-[#8B5CF6] border-b-2 border-[#8B5CF6] pb-2">
-                  Delivery Details
-                </h3>
-                <div className="mt-3 space-y-1.5 font-coolvetica text-[1.1rem] text-[#8B5CF6]">
-                  <p>
-                    <strong>Name:</strong> {confirmedOrder.customer.fullName}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {confirmedOrder.customer.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {confirmedOrder.customer.phone}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> {confirmedOrder.customer.line1}
-                    {confirmedOrder.customer.line2 ? `, ${confirmedOrder.customer.line2}` : ''}
-                  </p>
-                  <p>
-                    <strong>City / State:</strong> {confirmedOrder.customer.city},{' '}
-                    {confirmedOrder.customer.state} - {confirmedOrder.customer.postalCode}
-                  </p>
-                  <p className="pt-2 text-[0.95rem] text-[#8B5CF6]">
-                    <strong>Placed On:</strong> {confirmedOrder.date}
-                  </p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <label className="flex flex-col gap-1.5 sm:col-span-2">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      Full Name *
+                    </span>
+                    <input
+                      required
+                      type="text"
+                      placeholder="e.g. Priya Sharma"
+                      value={formState.fullName}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, fullName: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      Email Address *
+                    </span>
+                    <input
+                      required
+                      type="email"
+                      placeholder="priya@example.com"
+                      value={formState.email}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, email: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      Mobile Number (for WhatsApp Tracker) *
+                    </span>
+                    <input
+                      required
+                      type="tel"
+                      placeholder="9876543210"
+                      value={formState.phone}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, phone: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
                 </div>
               </div>
 
-              {/* Order Summary */}
-              <div className="rounded-2xl border-2 border-[#8B5CF6] bg-[#FFFFFF] p-5">
-                <h3 className="font-coolvetica text-[1.3rem] text-[#8B5CF6] border-b-2 border-[#8B5CF6] pb-2">
-                  Items Purchased
-                </h3>
-                <div className="mt-3 divide-y divide-[#E0DACB] space-y-2">
-                  {confirmedOrder.items.map((item) => (
-                    <div
-                      key={item.slug}
-                      className="flex items-center justify-between pt-2 text-[1.05rem]"
-                    >
+              {/* Step 2: Delivery Address */}
+              <div className="rounded-3xl border-2 border-[#0e3e1f]/15 bg-white p-6 shadow-sm sm:p-8">
+                <div className="flex items-center gap-3 border-b-2 border-[#0e3e1f]/10 pb-4">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#d7f557] border-2 border-[#0e3e1f] font-coolvetica text-base font-bold text-[#0e3e1f] shadow-[2px_2px_0px_#0e3e1f]">
+                    2
+                  </span>
+                  <div>
+                    <h2 className="font-coolvetica text-xl sm:text-2xl font-bold text-[#0e3e1f]">
+                      Delivery Address
+                    </h2>
+                    <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                      Doorstep delivery in 2-4 business days
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <label className="flex flex-col gap-1.5 sm:col-span-2">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      Street Address / House / Flat No. *
+                    </span>
+                    <input
+                      required
+                      type="text"
+                      placeholder="Flat 402, Sunshine Heights, 12th Main Road"
+                      value={formState.line1}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, line1: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5 sm:col-span-2">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      Landmark / Area (Optional)
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="Near Metro Station / City Park"
+                      value={formState.line2}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, line2: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      City *
+                    </span>
+                    <input
+                      required
+                      type="text"
+                      placeholder="e.g. Bengaluru"
+                      value={formState.city}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, city: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      State *
+                    </span>
+                    <input
+                      required
+                      type="text"
+                      placeholder="e.g. Karnataka"
+                      value={formState.state}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, state: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-1.5 sm:col-span-2">
+                    <span className="font-satoshi text-xs font-bold uppercase tracking-wider text-[#0e3e1f]">
+                      PIN Code *
+                    </span>
+                    <input
+                      required
+                      type="text"
+                      placeholder="e.g. 560001"
+                      value={formState.postalCode}
+                      onChange={(e) =>
+                        setFormState((prev) => ({ ...prev, postalCode: e.target.value }))
+                      }
+                      className="h-12 w-full rounded-2xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-4 font-satoshi text-sm text-[#0e3e1f] placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              {/* Step 3: Payment Method */}
+              <div className="rounded-3xl border-2 border-[#0e3e1f]/15 bg-white p-6 shadow-sm sm:p-8">
+                <div className="flex items-center gap-3 border-b-2 border-[#0e3e1f]/10 pb-4">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#d7f557] border-2 border-[#0e3e1f] font-coolvetica text-base font-bold text-[#0e3e1f] shadow-[2px_2px_0px_#0e3e1f]">
+                    3
+                  </span>
+                  <div>
+                    <h2 className="font-coolvetica text-xl sm:text-2xl font-bold text-[#0e3e1f]">
+                      Payment Method
+                    </h2>
+                    <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                      Encrypted &amp; secure transaction
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-3">
+                  <label
+                    className={`flex cursor-pointer items-center justify-between rounded-2xl border-2 p-4 transition-all ${
+                      formState.paymentMethod === 'upi'
+                        ? 'border-[#0e3e1f] bg-[#FAF8F5] shadow-sm'
+                        : 'border-[#0e3e1f]/15 hover:border-[#0e3e1f]/40'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        checked={formState.paymentMethod === 'upi'}
+                        onChange={() =>
+                          setFormState((prev) => ({ ...prev, paymentMethod: 'upi' }))
+                        }
+                        className="h-5 w-5 accent-[#0e3e1f]"
+                      />
                       <div>
-                        <p className="font-coolvetica font-bold text-[#8B5CF6]">{item.name}</p>
-                        <p className="font-coolvetica text-[0.95rem] text-[#8B5CF6]">
-                          Qty: {item.quantity} × {formatInr(item.price)}
+                        <p className="font-coolvetica text-base font-bold text-[#0e3e1f]">
+                          UPI (Google Pay, PhonePe, Paytm, QR)
+                        </p>
+                        <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                          Instant and zero transaction fees
                         </p>
                       </div>
-                      <p className="font-coolvetica font-bold text-[#8B5CF6]">
+                    </div>
+                    <span className="rounded-full bg-[#d7f557] px-3 py-1 font-coolvetica text-xs font-bold text-[#0e3e1f] border border-[#0e3e1f]/20">
+                      FASTEST
+                    </span>
+                  </label>
+
+                  <label
+                    className={`flex cursor-pointer items-center justify-between rounded-2xl border-2 p-4 transition-all ${
+                      formState.paymentMethod === 'card'
+                        ? 'border-[#0e3e1f] bg-[#FAF8F5] shadow-sm'
+                        : 'border-[#0e3e1f]/15 hover:border-[#0e3e1f]/40'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        checked={formState.paymentMethod === 'card'}
+                        onChange={() =>
+                          setFormState((prev) => ({ ...prev, paymentMethod: 'card' }))
+                        }
+                        className="h-5 w-5 accent-[#0e3e1f]"
+                      />
+                      <div>
+                        <p className="font-coolvetica text-base font-bold text-[#0e3e1f]">
+                          Credit / Debit Cards &amp; NetBanking
+                        </p>
+                        <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                          Visa, Mastercard, RuPay, Amex
+                        </p>
+                      </div>
+                    </div>
+                  </label>
+
+                  <label
+                    className={`flex cursor-pointer items-center justify-between rounded-2xl border-2 p-4 transition-all ${
+                      formState.paymentMethod === 'cod'
+                        ? 'border-[#0e3e1f] bg-[#FAF8F5] shadow-sm'
+                        : 'border-[#0e3e1f]/15 hover:border-[#0e3e1f]/40'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        checked={formState.paymentMethod === 'cod'}
+                        onChange={() =>
+                          setFormState((prev) => ({ ...prev, paymentMethod: 'cod' }))
+                        }
+                        className="h-5 w-5 accent-[#0e3e1f]"
+                      />
+                      <div>
+                        <p className="font-coolvetica text-base font-bold text-[#0e3e1f]">
+                          Cash on Delivery (COD)
+                        </p>
+                        <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                          Pay upon arrival at your doorstep
+                        </p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              {errorMessage && (
+                <div className="rounded-2xl border-2 border-red-300 bg-red-50 p-4 text-center font-satoshi text-sm font-semibold text-red-700">
+                  ⚠️ {errorMessage}
+                </div>
+              )}
+
+              {/* Submit CTA Card */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full rounded-full bg-[#0e3e1f] py-4 sm:py-5 font-coolvetica text-xl sm:text-2xl font-bold tracking-wide text-white border-2 border-[#0e3e1f] shadow-[4px_4px_0px_#d7f557] transition-transform hover:-translate-y-1 hover:bg-[#8b5cf6] disabled:opacity-50"
+                >
+                  {isSubmitting
+                    ? 'Processing Order...'
+                    : `Place Order • ${formatInr(totalPayable)}`}
+                </button>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-center font-satoshi text-xs text-[#0e3e1f]/70">
+                  <span className="inline-flex items-center gap-1 font-semibold">✓ 100% Secure Checkout</span>
+                  <span className="inline-flex items-center gap-1 font-semibold">✓ Sealed Small Batches</span>
+                  <span className="inline-flex items-center gap-1 font-semibold">✓ 2-4 Day Dispatch</span>
+                </div>
+              </div>
+            </form>
+
+            {/* Right Column: Order Summary */}
+            <aside className="space-y-6 lg:sticky lg:top-28">
+              <div className="rounded-3xl border-2 border-[#0e3e1f]/15 bg-white p-6 shadow-sm sm:p-8">
+                <div className="flex items-center justify-between border-b-2 border-[#0e3e1f]/10 pb-4">
+                  <h2 className="font-coolvetica text-xl sm:text-2xl font-bold text-[#0e3e1f]">
+                    Order Summary
+                  </h2>
+                  <span className="rounded-full bg-[#d7f557] px-3 py-1 font-coolvetica text-xs font-bold text-[#0e3e1f] border border-[#0e3e1f]/20">
+                    {itemCount} {itemCount === 1 ? 'jar' : 'jars'}
+                  </span>
+                </div>
+
+                {/* Items List */}
+                <div className="mt-4 divide-y divide-[#0e3e1f]/10">
+                  {items.map((item) => (
+                    <div key={item.slug} className="flex items-center gap-3.5 py-3.5">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-[#FAF8F5] p-1.5 border border-[#0e3e1f]/10">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={item.image || '/product/catalog/side-eye.webp'}
+                          alt={item.name}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="truncate font-coolvetica text-base font-bold text-[#0e3e1f]">
+                          {item.name}
+                        </p>
+                        <p className="font-satoshi text-xs text-[#0e3e1f]/70">
+                          Qty: {item.quantity} &times; {formatInr(item.price)}
+                        </p>
+                      </div>
+                      <p className="font-coolvetica text-base font-bold text-[#0e3e1f]">
                         {formatInr(item.price * item.quantity)}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-4 border-t-2 border-[#8B5CF6] pt-3 font-coolvetica text-[1.1rem] text-[#8B5CF6] space-y-1.5">
-                  <div className="flex justify-between">
+                {/* Promo Code Form */}
+                <div className="mt-6 border-t-2 border-[#0e3e1f]/10 pt-5">
+                  {discountCode ? (
+                    <div className="flex items-center justify-between rounded-2xl bg-[#d7f557]/40 px-4 py-3 border border-[#0e3e1f]/20">
+                      <div className="font-satoshi text-xs font-semibold text-[#0e3e1f]">
+                        🎉 Code <span className="font-bold uppercase tracking-wider">{discountCode}</span> applied!
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleRemoveCoupon}
+                        className="font-coolvetica text-xs font-bold text-[#f50a59] underline hover:text-[#0e3e1f]"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Discount code (e.g. SOUR10)"
+                        value={couponInput}
+                        onChange={(e) => setCouponInput(e.target.value)}
+                        className="h-11 flex-1 rounded-xl border-2 border-[#0e3e1f]/20 bg-[#FAF8F5] px-3.5 font-satoshi text-xs uppercase placeholder:normal-case placeholder:text-[#0e3e1f]/40 transition-colors focus:border-[#0e3e1f] focus:bg-white focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        className="h-11 rounded-xl bg-[#0e3e1f] px-5 font-coolvetica text-sm font-bold text-white transition-all hover:bg-[#8b5cf6]"
+                      >
+                        Apply
+                      </button>
+                    </form>
+                  )}
+                  {couponMessage && (
+                    <p
+                      className={`mt-2 font-satoshi text-xs ${
+                        couponMessage.isError ? 'text-red-600' : 'text-emerald-700 font-semibold'
+                      }`}
+                    >
+                      {couponMessage.text}
+                    </p>
+                  )}
+                </div>
+
+                {/* Calculation Breakdown */}
+                <div className="mt-6 space-y-3 border-t-2 border-[#0e3e1f]/10 pt-5 font-satoshi text-sm">
+                  <div className="flex justify-between text-[#0e3e1f]/80">
                     <span>Subtotal</span>
-                    <span>{formatInr(confirmedOrder.subtotal)}</span>
+                    <span className="font-semibold text-[#0e3e1f]">{formatInr(subtotal)}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Shipping (Demo Flat Rate)</span>
-                    <span>{formatInr(confirmedOrder.shipping)}</span>
+
+                  <div className="flex justify-between text-[#0e3e1f]/80">
+                    <span>Shipping</span>
+                    <span>
+                      {shippingAmount === 0 ? (
+                        <span className="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                          FREE
+                        </span>
+                      ) : (
+                        <span className="font-semibold text-[#0e3e1f]">
+                          {formatInr(shippingAmount)}
+                        </span>
+                      )}
+                    </span>
                   </div>
-                  {confirmedOrder.discountAmount > 0 && (
-                    <div className="flex justify-between text-[#E81B6D]">
-                      <span>Discount ({confirmedOrder.discountCode})</span>
-                      <span>-{formatInr(confirmedOrder.discountAmount)}</span>
+
+                  {discountAmount > 0 && (
+                    <div className="flex justify-between text-[#f50a59]">
+                      <span>Discount ({discountCode || `${discountPercent}% OFF`})</span>
+                      <span className="font-bold">-{formatInr(discountAmount)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between pt-2 border-t border-[#8B5CF6] font-coolvetica text-[1.35rem] font-bold text-[#8B5CF6]">
-                    <span>Total</span>
-                    <span>{formatInr(confirmedOrder.total)}</span>
+
+                  <div className="flex items-baseline justify-between border-t-2 border-[#0e3e1f]/10 pt-4">
+                    <span className="font-coolvetica text-xl font-bold text-[#0e3e1f]">
+                      Total Payable
+                    </span>
+                    <span className="font-coolvetica text-2xl sm:text-3xl font-bold text-[#0e3e1f]">
+                      {formatInr(totalPayable)}
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Back to Shop Button */}
-            <div className="mt-8 text-center">
-              <Link
-                href="/product"
-                className="inline-flex items-center justify-center rounded-full border-2 border-[#8B5CF6] bg-[#D7F557] px-8 py-4 font-coolvetica text-[1.25rem] font-bold text-[#8B5CF6] shadow-[4px_4px_0px_#8B5CF6] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#8B5CF6]"
-              >
-                Continue Shopping →
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : (
-        /* =========================================================================
-            CHECKOUT FORM & ORDER SUMMARY SCREEN
-            ========================================================================= */
-        <section className="mx-auto w-full max-w-[1200px] px-6 pb-28 pt-32 md:px-10 md:pt-40">
-          <div className="text-center">
-            <span className="inline-block rounded-full border-2 border-[#8B5CF6] bg-[#D7F557] px-4 py-1 font-coolvetica text-[1.05rem] text-[#8B5CF6] shadow-[2px_2px_0px_#8B5CF6]">
-              *client presentation demo*
-            </span>
-            <h1 className="mt-3 font-coolvetica text-[clamp(2.8rem,5.5vw,4.8rem)] text-[#E81B6D] leading-[0.95]">
-              Demo Checkout
-            </h1>
-            <p className="mt-2 font-coolvetica text-[clamp(1.2rem,2.2vw,1.6rem)] text-[#8B5CF6]">
-              Simulate the complete Sourboo ordering experience
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
-            {/* Form Column */}
-            <form
-              onSubmit={handleSubmit}
-              className="rounded-3xl border-3 border-[#8B5CF6] bg-white p-6 shadow-[5px_5px_0px_#8B5CF6] md:p-8"
-              noValidate
-            >
-              <div className="flex items-center justify-between border-b-2 border-[#8B5CF6] pb-3">
-                <h2 className="font-coolvetica text-[1.8rem] text-[#8B5CF6]">
-                  1. Delivery Details
-                </h2>
-                <span className="font-coolvetica text-[0.95rem] text-[#8B5CF6]">
-                  *all fields required
-                </span>
-              </div>
-
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Full Name</span>
-                  <input
-                    required
-                    placeholder="e.g. Sakshi Agarwal"
-                    value={formState.fullName}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, fullName: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Email</span>
-                  <input
-                    required
-                    type="email"
-                    placeholder="you@example.com"
-                    value={formState.email}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, email: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Phone</span>
-                  <input
-                    required
-                    type="tel"
-                    placeholder="9876543210"
-                    value={formState.phone}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, phone: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Address Line 1</span>
-                  <input
-                    required
-                    placeholder="Flat / House No., Street, Building"
-                    value={formState.line1}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, line1: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Address Line 2 (optional)</span>
-                  <input
-                    placeholder="Landmark, Area"
-                    value={formState.line2}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, line2: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">City</span>
-                  <input
-                    required
-                    placeholder="e.g. Mumbai"
-                    value={formState.city}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, city: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">State</span>
-                  <input
-                    required
-                    placeholder="e.g. Maharashtra"
-                    value={formState.state}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, state: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-1 md:col-span-2">
-                  <span className="font-coolvetica text-[1.05rem] text-[#8B5CF6]">Postal / PIN Code</span>
-                  <input
-                    required
-                    placeholder="e.g. 400001"
-                    value={formState.postalCode}
-                    onChange={(e) =>
-                      setFormState((prev) => ({ ...prev, postalCode: e.target.value }))
-                    }
-                    className="rounded-xl border-2 border-[#8B5CF6] bg-[#FFFFFF] px-3.5 py-2.5 font-coolvetica text-[#8B5CF6] text-[1rem] focus:outline-none focus:ring-2 focus:ring-[#E81B6D]"
-                  />
-                </label>
-              </div>
-
-              {errorMessage && (
-                <div className="mt-4 rounded-xl border-2 border-[#E81B6D] bg-[#FFEBF3] p-3 text-center">
-                  <p className="font-coolvetica text-[1rem] text-[#E81B6D] font-bold">
-                    {errorMessage}
-                  </p>
-                </div>
-              )}
-
-              <div className="mt-6">
-                <button
-                  type="submit"
-                  disabled={!canSubmit}
-                  className="w-full rounded-2xl border-2 border-[#8B5CF6] bg-[#E81B6D] py-4 text-center font-coolvetica text-[1.35rem] font-bold text-white shadow-[4px_4px_0px_#8B5CF6] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#8B5CF6] active:translate-x-0 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Confirming Demo Order...' : 'Complete Demo Order →'}
-                </button>
-                <p className="mt-2 text-center font-coolvetica text-[0.95rem] text-[#8B5CF6]">
-                  No real payment will be charged. This completes the simulated client demonstration.
+              {/* Delivery Guarantee Info Box */}
+              <div className="rounded-3xl border-2 border-[#0e3e1f] bg-[#d7f557] p-5 text-center shadow-[4px_4px_0px_#0e3e1f]">
+                <p className="font-coolvetica text-base font-bold text-[#0e3e1f]">
+                  ⚡ FRESH BRINE GUARANTEE
+                </p>
+                <p className="mt-1 font-satoshi text-xs text-[#143820] leading-relaxed">
+                  Crafted and cold-packed in artisanal small batches. If you don&apos;t get that audible loud crunch, we replace your jar immediately.
                 </p>
               </div>
-            </form>
-
-            {/* Order Summary Column */}
-            <aside className="h-fit rounded-3xl border-3 border-[#8B5CF6] bg-[#D7F557] p-6 shadow-[5px_5px_0px_#8B5CF6] md:p-8">
-              <h2 className="font-coolvetica text-[1.8rem] text-[#8B5CF6] border-b-2 border-[#8B5CF6] pb-2">
-                Order Summary ({itemCount})
-              </h2>
-
-              {items.length === 0 ? (
-                <div className="mt-6 text-center">
-                  <p className="font-coolvetica text-[1.2rem] text-[#8B5CF6]">
-                    Your bag is empty!
-                  </p>
-                  <Link
-                    href="/product"
-                    className="mt-3 inline-block rounded-full border-2 border-[#8B5CF6] bg-white px-5 py-2 font-coolvetica text-[1rem] text-[#8B5CF6] shadow-[2px_2px_0px_#8B5CF6]"
-                  >
-                    Browse Stash →
-                  </Link>
-                </div>
-              ) : (
-                <>
-                  <div className="mt-4 divide-y divide-[#BEDC3D] space-y-3">
-                    {items.map((item) => (
-                      <div
-                        key={item.slug}
-                        className="flex items-center justify-between pt-2 text-[#8B5CF6]"
-                      >
-                        <div>
-                          <p className="font-coolvetica font-bold text-[1.1rem]">{item.name}</p>
-                          <p className="font-coolvetica text-[0.95rem]">
-                            Qty: {item.quantity} × {formatInr(item.price)}
-                          </p>
-                        </div>
-                        <p className="font-coolvetica font-bold text-[1.15rem]">
-                          {formatInr(item.price * item.quantity)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 border-t-2 border-[#8B5CF6] pt-4 font-coolvetica text-[1.1rem] text-[#8B5CF6] space-y-2">
-                    <div className="flex justify-between">
-                      <span>Subtotal</span>
-                      <span className="font-bold">{formatInr(subtotal)}</span>
-                    </div>
-
-                    <div className="flex justify-between">
-                      <span>Shipping (Demo Standard)</span>
-                      <span className="font-bold">{formatInr(shippingAmount)}</span>
-                    </div>
-
-                    {discountAmount > 0 && (
-                      <div className="flex justify-between text-[#E81B6D] font-bold">
-                        <span>Discount ({discountCode || `${discountPercent}% OFF`})</span>
-                        <span>-{formatInr(discountAmount)}</span>
-                      </div>
-                    )}
-
-                    <div className="flex items-center justify-between border-t-2 border-[#8B5CF6] pt-3 font-coolvetica text-[1.45rem] font-bold text-[#8B5CF6]">
-                      <span>Total Payable</span>
-                      <span className="text-[#E81B6D]">{formatInr(totalPayable)}</span>
-                    </div>
-                  </div>
-
-                  {discountCode && (
-                    <div className="mt-4 rounded-xl border border-[#8B5CF6] bg-white p-2.5 text-center font-coolvetica text-[0.95rem] text-[#8B5CF6]">
-                      Code <span className="font-bold text-[#E81B6D]">{discountCode}</span>{' '}
-                      applied!
-                    </div>
-                  )}
-                </>
-              )}
             </aside>
           </div>
-        </section>
-      )}
+        )}
+      </div>
 
       <SiteFooter />
     </main>

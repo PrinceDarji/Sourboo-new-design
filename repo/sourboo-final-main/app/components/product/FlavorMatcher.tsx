@@ -199,9 +199,9 @@ export default function FlavorMatcher() {
                     <li>
                       <span className="sbx-game__meter-label">SPICE</span>
                       <span className="sbx-game__meter-track">
-                        <span className="sbx-game__meter-fill" style={{ width: '56%' }} />
+                        <span className="sbx-game__meter-fill" style={{ width: '54%' }} />
                       </span>
-                      <span className="sbx-game__meter-value">56</span>
+                      <span className="sbx-game__meter-value">54</span>
                     </li>
                     <li>
                       <span className="sbx-game__meter-label">TANG</span>
@@ -247,7 +247,7 @@ export default function FlavorMatcher() {
                       >
                         tamarin tease
                       </QuickBuyButton>
-                      <p className="sbx-game__closing">makes sense :)</p>
+                      <p className="sbx-game__closing">makes sense ;)</p>
                     </div>
                   </div>
                 </>
@@ -269,11 +269,11 @@ export default function FlavorMatcher() {
         <QuickBuyButton
           slug="sour-sampler"
           name="Sour sampler"
-          priceLabel="₹759"
+          priceLabel="₹729"
           image="/product/catalog/sour-sampler.webp"
           className="sbx-game__coop-btn"
         >
-          add both - ₹759
+          add both - ₹729
         </QuickBuyButton>
       </div>
     </section>

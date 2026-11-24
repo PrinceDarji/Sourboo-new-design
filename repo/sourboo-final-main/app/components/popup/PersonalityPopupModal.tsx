@@ -192,10 +192,10 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
         {screen === 1 && (
           <div id="PopupScreen1">
             <h2 className="sb-popup-h1">
-              <span className="font-coolvetica text-pink">What </span>
-              <span className="font-schoolbell text-pink">kind of sour are you?</span>
+              <span className="font-coolvetica" style={{ color: 'var(--sbx-lime, #d7f557)' }}>What </span>
+              <span className="font-schoolbell" style={{ color: '#ffffff' }}>kind of sour are you?</span>
             </h2>
-            <p className="sb-popup-subheading">Be honest</p>
+            <p className="sb-popup-subheading" style={{ color: 'var(--sbx-lime, #d7f557)' }}>Be honest</p>
             <div className="sb-popup-options-grid">
               {OPTIONS.map((opt) => (
                 <button
@@ -206,15 +206,15 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   data-personality={opt.personality}
                   style={{
                     backgroundColor: '#FFFFFF',
-                    borderColor: '#8B5CF6',
-                    color: '#8B5CF6',
-                    boxShadow: '3.5px 3.5px 0px #8B5CF6',
+                    borderColor: '#1e0a3c',
+                    color: '#1e0a3c',
+                    boxShadow: '3.5px 3.5px 0px #1e0a3c',
                   }}
                 >
                   <span
                     className="sb-popup-option-text"
                     style={{
-                      color: '#8B5CF6',
+                      color: '#1e0a3c',
                       fontWeight: 800,
                       fontSize: '1.25rem',
                       letterSpacing: '0.01em',
@@ -232,10 +232,10 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
               className="sb-popup-text-exit sb-close-popup-trigger font-schoolbell"
               style={{
                 display: 'block',
-                margin: '0 auto',
+                margin: '16px auto 0',
                 background: 'none',
                 border: 'none',
-                color: 'var(--sb-text-muted)',
+                color: 'rgba(255, 255, 255, 0.85)',
                 fontSize: '1rem',
                 textDecoration: 'underline',
                 cursor: 'pointer',
@@ -249,15 +249,16 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
         {/* SCREEN 2: Lead Form */}
         {screen === 2 && (
           <div id="PopupScreen2">
-            <h2 id="PopupChosenHeading" className="sb-popup-h1 font-coolvetica text-pink">
+            <h2 id="PopupChosenHeading" className="sb-popup-h1 font-coolvetica" style={{ color: 'var(--sbx-lime, #d7f557)' }}>
               You&apos;re {chosenPersonality}
             </h2>
             <p
-              className="font-schoolbell text-pink"
+              className="font-schoolbell"
               style={{
                 fontSize: 'clamp(20px, 3.5vw, 32px)',
                 textAlign: 'center',
                 margin: '6px 0',
+                color: '#ffffff',
               }}
             >
               Take 5% off. You&apos;ve earned it
@@ -266,7 +267,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
               className="font-schoolbell"
               style={{
                 fontSize: '1.15rem',
-                color: 'var(--sb-text-charcoal)',
+                color: 'var(--sbx-lime, #d7f557)',
                 textAlign: 'center',
                 marginBottom: '18px',
               }}
@@ -295,9 +296,11 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                     width: '100%',
                     padding: '12px 18px',
                     borderRadius: '9999px',
-                    border: '2px solid var(--sb-green-dark)',
+                    border: '2px solid #1e0a3c',
                     fontFamily: 'Coolvetica, sans-serif',
                     fontSize: '1rem',
+                    backgroundColor: '#ffffff',
+                    color: '#1e0a3c',
                   }}
                 />
                 <input
@@ -313,9 +316,11 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                     width: '100%',
                     padding: '12px 18px',
                     borderRadius: '9999px',
-                    border: '2px solid var(--sb-green-dark)',
+                    border: '2px solid #1e0a3c',
                     fontFamily: 'Coolvetica, sans-serif',
                     fontSize: '1rem',
+                    backgroundColor: '#ffffff',
+                    color: '#1e0a3c',
                   }}
                 />
               </div>
@@ -323,7 +328,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 <p
                   id="PopupFormError"
                   style={{
-                    color: '#B4232B',
+                    color: '#ffd000',
                     fontFamily: 'Schoolbell, cursive',
                     margin: '4px 0 8px',
                     textAlign: 'center',
@@ -341,13 +346,14 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   display: 'block',
                   width: '100%',
                   padding: '14px',
-                  background: 'var(--sb-pink)',
-                  color: '#FFFFFF',
-                  border: '2px solid var(--sb-green-dark)',
+                  background: 'var(--sbx-lime, #d7f557)',
+                  color: '#1e0a3c',
+                  border: '2px solid #1e0a3c',
                   borderRadius: '9999px',
                   fontSize: '1.3rem',
+                  fontWeight: 'bold',
                   cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                  boxShadow: '3px 3px 0px var(--sb-green-dark)',
+                  boxShadow: '3px 3px 0px #1e0a3c',
                 }}
               >
                 <span>{isSubmitting ? 'Unlocking...' : 'Unlock my 5%'}</span>
@@ -356,7 +362,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 className="font-schoolbell"
                 style={{
                   fontSize: '0.95rem',
-                  color: 'var(--sb-text-muted)',
+                  color: 'rgba(255, 255, 255, 0.85)',
                   textAlign: 'center',
                   marginTop: '10px',
                 }}
@@ -373,7 +379,7 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 margin: '12px auto 0',
                 background: 'none',
                 border: 'none',
-                color: 'var(--sb-text-muted)',
+                color: 'rgba(255, 255, 255, 0.85)',
                 fontSize: '1rem',
                 textDecoration: 'underline',
                 cursor: 'pointer',
@@ -387,13 +393,14 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
         {/* SCREEN 3: Coupon Reveal */}
         {screen === 3 && (
           <div id="PopupScreen3">
-            <h2 className="sb-popup-h1 font-coolvetica text-pink">You are in!</h2>
+            <h2 className="sb-popup-h1 font-coolvetica" style={{ color: 'var(--sbx-lime, #d7f557)' }}>You are in!</h2>
             <p
-              className="font-schoolbell text-pink"
+              className="font-schoolbell"
               style={{
                 fontSize: 'clamp(18px, 3vw, 24px)',
                 textAlign: 'center',
                 margin: '10px 0 20px',
+                color: '#ffffff',
               }}
             >
               Copy the code and use it at checkout to get 5% off your cart total.
@@ -410,17 +417,17 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   alignItems: 'center',
                   gap: '12px',
                   padding: '12px 24px',
-                  background: 'var(--sb-yellow)',
-                  border: '2px solid var(--sb-green-dark)',
+                  background: 'var(--sbx-lime, #d7f557)',
+                  border: '2px solid #1e0a3c',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  boxShadow: '3px 3px 0px var(--sb-green-dark)',
+                  boxShadow: '3px 3px 0px #1e0a3c',
                 }}
               >
                 <span
                   id="PopupCodeDisplay"
                   className="font-coolvetica"
-                  style={{ fontSize: '1.4rem', color: 'var(--sb-green-dark)', fontWeight: 'bold' }}
+                  style={{ fontSize: '1.4rem', color: '#1e0a3c', fontWeight: 'bold' }}
                 >
                   {COUPON_CODE}
                 </span>
@@ -428,11 +435,12 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                   id="PopupCopyText"
                   className="sb-btn-coupon-badge font-schoolbell"
                   style={{
-                    background: copied ? '#8B5CF6' : 'var(--sb-pink)',
-                    color: '#FFFFFF',
+                    background: copied ? '#1e0a3c' : '#2e1065',
+                    color: '#d7f557',
                     padding: '4px 12px',
                     borderRadius: '9999px',
                     fontSize: '0.95rem',
+                    fontWeight: 'bold',
                   }}
                 >
                   {copied ? 'COPIED!' : 'COPY'}
@@ -449,14 +457,15 @@ export default function PersonalityPopupModal({ initialOpen = false }: { initial
                 maxWidth: '360px',
                 margin: '16px auto 0',
                 padding: '12px',
-                background: 'var(--sb-lime-btn)',
-                color: 'var(--sb-green-dark)',
-                border: '2px solid var(--sb-green-dark)',
+                background: 'var(--sbx-lime, #d7f557)',
+                color: '#1e0a3c',
+                border: '2px solid #1e0a3c',
                 borderRadius: '9999px',
                 fontSize: '1.25rem',
+                fontWeight: 'bold',
                 cursor: 'pointer',
                 textAlign: 'center',
-                boxShadow: '3px 3px 0px var(--sb-green-dark)',
+                boxShadow: '3px 3px 0px #1e0a3c',
               }}
             >
               <span>Start shopping with 5% off →</span>

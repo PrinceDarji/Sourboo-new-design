@@ -105,6 +105,7 @@ export default function FridgeLoader() {
           ))}
         </div>
       </div>
+      <p className="sbx-fridge__subtle-text">welcome to sour side</p>
     </div>
   );
 }

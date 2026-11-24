@@ -12,7 +12,7 @@ export default function PopupPage() {
       style={{
         minHeight: '100vh',
         width: '100vw',
-        background: '#1E3514',
+        background: '#8B5CF6',
         position: 'relative',
         display: 'flex',
         alignItems: 'center',

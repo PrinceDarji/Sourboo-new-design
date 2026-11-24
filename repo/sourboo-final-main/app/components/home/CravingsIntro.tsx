@@ -53,9 +53,6 @@ export default function CravingsIntro() {
               <Image src={photo.src} alt={photo.alt} fill sizes={photo.sizes} quality={76} />
             </figure>
           ))}
-          <svg className="sbx-crave__doodle" viewBox="0 0 200 200" aria-hidden="true">
-            <path d="M40 96C38 52 82 24 122 30c40 6 62 44 50 84-10 34-48 56-86 48C52 156 34 128 44 96" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-          </svg>
           <span className="sbx-bubble sbx-bubble--a" aria-hidden="true" />
           <span className="sbx-bubble sbx-bubble--b" aria-hidden="true" />
           <span className="sbx-bubble sbx-bubble--c" aria-hidden="true" />

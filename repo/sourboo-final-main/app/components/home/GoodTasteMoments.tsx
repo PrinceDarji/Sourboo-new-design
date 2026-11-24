@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import { HandArrow, Wave } from '../site/Organic';
+import { Wave } from '../site/Organic';
 
 const MOMENTS = [
   { src: '/about/section-six-top-3.webp', alt: 'A Sourboo fan biting into a gherkin at a tasting' },
   { src: '/footer.JPEG', alt: 'Friends posing at the Sourboo tasting stand' },
   { src: '/about/section-six-top-1.webp', alt: 'A guest tasting Sourboo at a pop-up' },
   { src: '/about/about-cover.JPG', alt: 'Two friends laughing while snacking on Sourboo' },
-  { src: '/about/section-six-top-2.webp', alt: 'The Sourboo pop-up stand with jars on display' },
 ];
 
 export default function GoodTasteMoments() {
@@ -27,7 +26,6 @@ export default function GoodTasteMoments() {
 
       <p className="sbx-moments__line">
         Deeply Fermented • Slightly Unhinged.
-        <HandArrow className="sbx-moments__arrow" />
       </p>
     </section>
   );
