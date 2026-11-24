@@ -22,7 +22,7 @@ const shippingSections = [
   {
     title: 'SHIPPING CHARGES',
     paragraphs: [
-      'Shipping charges, if applicable, will be calculated and displayed at checkout before payment.',
+      'Shipping is a flat ₹100 per order, shown in your bag and at checkout before payment.',
     ],
   },
   {

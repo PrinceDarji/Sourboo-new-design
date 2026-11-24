@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <!-- Placeholder: replace with a real photographed dried red chilli cutout (see docs/homepage-redesign-audit.md) -->
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E5482E"/>
+      <stop offset="0.38" stop-color="#BD2015"/>
+      <stop offset="0.75" stop-color="#8A1009"/>
+      <stop offset="1" stop-color="#5C0805"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C8A33"/>
+      <stop offset="1" stop-color="#414C18"/>
+    </linearGradient>
+    <filter id="wrinkle" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.35" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.15  0 0 0 0 0.02  0 0 0 0 0.01  0 0 0 0.35 0" result="g"/>
+      <feComposite in="g" in2="SourceGraphic" operator="in" result="gi"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="gi"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-10%" y="-40%" width="120%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <ellipse cx="124" cy="62" rx="92" ry="6" fill="#3B1A0A" opacity="0.18" filter="url(#shadow)"/>
+  <g filter="url(#wrinkle)">
+    <path d="M36 36 C 66 20, 124 15, 172 22 C 196 26, 214 33, 228 45 C 211 49, 188 51, 164 51 C 116 52, 70 52, 38 46 C 33 43, 33 39, 36 36 Z" fill="url(#body)" filter="url(#grain)"/>
+    <path d="M52 29 C 90 21, 136 20, 182 28" stroke="#FF9A7A" stroke-opacity="0.5" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <path d="M70 40 C 104 37, 140 37, 176 41" stroke="#5A0704" stroke-opacity="0.45" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M96 31 C 118 30, 138 31, 160 34" stroke="#5A0704" stroke-opacity="0.3" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M38 31 C 27 29, 20 34, 21 41 C 24 47, 33 48, 39 45 C 42 41, 42 35, 38 31 Z" fill="url(#cap)"/>
+  <path d="M27 34 C 31 36, 34 40, 33 45" stroke="#2E3610" stroke-opacity="0.5" stroke-width="1.4" fill="none"/>
+  <path d="M23 38 C 14 37, 8 33, 4 25" stroke="#56631F" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+</svg>

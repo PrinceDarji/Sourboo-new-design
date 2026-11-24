@@ -12,7 +12,6 @@ const DEFAULT_EYES_SEQUENCE = [
 
 const STEP_DELAY_MS = 1000;
 const LOOP_PAUSE_MS = 1000;
-const REVEAL_THRESHOLD = 0.2;
 
 function asNonEmptyString(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
@@ -22,9 +21,13 @@ function asNonEmptyString(value: unknown): string | undefined {
 
 type SectionThreeEyesSequenceProps = {
   imageSrcs?: string[];
+  className?: string;
 };
 
-export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyesSequenceProps) {
+export default function SectionThreeEyesSequence({
+  imageSrcs,
+  className = '',
+}: SectionThreeEyesSequenceProps) {
   const eyesSequence = useMemo(
     () =>
       DEFAULT_EYES_SEQUENCE.map(
@@ -57,7 +60,9 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
       setCurrentEyeIndex(0);
 
       for (let index = 1; index < eyesSequence.length; index += 1) {
-        timersRef.current.push(window.setTimeout(() => setCurrentEyeIndex(index), STEP_DELAY_MS * index));
+        timersRef.current.push(
+          window.setTimeout(() => setCurrentEyeIndex(index), STEP_DELAY_MS * index),
+        );
       }
 
       const cycleDuration = STEP_DELAY_MS * (eyesSequence.length - 1) + LOOP_PAUSE_MS;
@@ -71,6 +76,7 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
     };
 
     if (!('IntersectionObserver' in window)) {
+      isInViewRef.current = true;
       startSequence();
       return () => {
         clearSequenceTimers();
@@ -80,7 +86,7 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const isVisible = entry.isIntersecting && entry.intersectionRatio >= REVEAL_THRESHOLD;
+          const isVisible = entry.isIntersecting && entry.intersectionRatio >= 0.05;
 
           if (isVisible && !isInViewRef.current) {
             isInViewRef.current = true;
@@ -95,8 +101,8 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
         });
       },
       {
-        threshold: [0, REVEAL_THRESHOLD],
-        rootMargin: '0px 0px -10% 0px',
+        threshold: [0, 0.05, 0.2],
+        rootMargin: '100px 0px 100px 0px',
       },
     );
 
@@ -106,22 +112,23 @@ export default function SectionThreeEyesSequence({ imageSrcs }: SectionThreeEyes
       observer.disconnect();
       clearSequenceTimers();
     };
-  }, [eyesSequence.length]);
+  }, [eyesSequence]);
 
   return (
     <div
       ref={containerRef}
-      className="absolute left-1/2 -top-20 h-[240px] w-[158%] -translate-x-1/2 md:-top-56 md:h-[820px] md:w-[320%]"
+      className={`sb-eyes-sequence-container ${className}`}
     >
       <Image
         src={eyesSequence[currentEyeIndex] || eyesSequence[0]}
-        alt="Eyes illustration"
+        alt="Moving eyes illustration"
         fill
-        sizes="(max-width: 768px) 158vw, 320vw"
-        quality={78}
+        sizes="(max-width: 768px) 340px, 600px"
+        quality={85}
         className={`object-contain transition-transform duration-300 ${
-          shouldRenderSmallerEyes ? 'scale-64' : 'scale-94'
+          shouldRenderSmallerEyes ? 'scale-75' : 'scale-95'
         }`}
+        priority
       />
     </div>
   );

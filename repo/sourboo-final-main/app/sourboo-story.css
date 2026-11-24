@@ -1,0 +1,1075 @@
+/* ==========================================================================
+   OUR STORY — Continuous, Organic Visual Narrative
+   Clean Coolvetica typography, Rascal background depth shadow only,
+   Zero squares/boxes, real brand photography & fluid transitions
+   ========================================================================== */
+
+.sb-story {
+  min-height: 100vh;
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+  font-family: var(--sbx-display);
+  overflow-x: clip;
+  padding-top: var(--sbx-nav-h);
+}
+
+.sb-story * {
+  box-sizing: border-box;
+}
+
+.sb-story .sbx-nav::after {
+  display: none;
+}
+
+.sb-story h1,
+.sb-story h2,
+.sb-story h3,
+.sb-story h4 {
+  font-family: var(--sbx-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.sb-story-wrap {
+  width: min(1180px, calc(100% - 44px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Subtle Rascal Background Depth Shadow (Foreground: Coolvetica)
+   -------------------------------------------------------------------------- */
+.sb-story-shadow {
+  position: relative;
+  display: inline-block;
+}
+
+.sb-story-shadow__hand {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  font-family: var(--font-rascal), cursive;
+  color: currentColor;
+  opacity: 0.35;
+  transform: translate(2.5px, 2.5px) rotate(-0.8deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sb-story-shadow__top {
+  position: relative;
+  z-index: 1;
+  font-family: var(--sbx-display);
+}
+
+/* --------------------------------------------------------------------------
+   Organic Stadium / Pebble Pill Badges (Zero Boxes)
+   -------------------------------------------------------------------------- */
+.sb-story-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+  font-family: var(--sbx-display);
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(232, 27, 109, 0.35);
+}
+
+/* Wave divider connections */
+.sb-story .sbx-wave {
+  position: relative;
+  width: 100%;
+  height: clamp(38px, 5vw, 68px);
+  margin-bottom: -2px;
+  display: block;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 1: SAKSHI'S GREETING & HERO
+   -------------------------------------------------------------------------- */
+.sb-story-hero {
+  padding: clamp(36px, 6vw, 72px) 0 clamp(48px, 7vw, 90px);
+  background: var(--sbx-lime);
+}
+
+.sb-story-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 920px) {
+  .sb-story-hero__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+}
+
+.sb-story-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sb-story-hero__title {
+  margin: 0 0 20px;
+  color: var(--sbx-purple);
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  line-height: 0.96;
+}
+
+.sb-story-hero__sub {
+  margin: 0 0 16px;
+  max-width: 34ch;
+  color: var(--sbx-purple);
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.sb-story-hero__lead {
+  margin: 0 0 28px;
+  max-width: 36ch;
+  color: #3b166e;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.sb-story-hero__social {
+  margin-top: 4px;
+}
+
+.sb-story-hero__ig-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: var(--sbx-purple);
+  color: var(--sbx-lime);
+  font-family: var(--sbx-display);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(76, 29, 149, 0.3);
+  transition: transform 0.25s var(--sbx-spring), background-color 0.2s, box-shadow 0.25s;
+}
+
+.sb-story-hero__ig-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #250954;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(76, 29, 149, 0.45);
+}
+
+.sb-story-hero__ig-pill:focus-visible {
+  outline: 3px dashed var(--sbx-purple);
+  outline-offset: 4px;
+}
+
+.sb-story-hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Organic curved blob frame — zero harsh boxes! */
+/* Editorial natural food brand photography — natural proportions, soft angles */
+.sb-story-hero__blob-frame {
+  position: relative;
+  width: min(420px, 100%);
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--sbx-purple);
+  box-shadow:
+    0 24px 60px rgba(76, 29, 149, 0.22),
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1.5deg);
+  transition: transform 0.4s var(--sbx-spring);
+}
+
+.sb-story-hero__blob-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.sb-story-hero__blob-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.sb-story-hero__founder-badge {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
+  box-shadow: 0 6px 18px rgba(76, 29, 149, 0.28);
+}
+
+.sb-story-hero__badge-name {
+  font-family: var(--sbx-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sbx-lime);
+}
+
+.sb-story-hero__badge-tag {
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 2: FLAVOUR OBSESSION (Hot Pink Canvas)
+   -------------------------------------------------------------------------- */
+.sb-story-flavour {
+  position: relative;
+  padding: clamp(56px, 8vw, 100px) 0 clamp(64px, 9vw, 110px);
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+}
+
+.sb-story-flavour .sb-story-pill {
+  background: var(--sbx-purple);
+  color: var(--sbx-lime);
+  box-shadow: 0 4px 14px rgba(76, 29, 149, 0.35);
+}
+
+.sb-story-flavour__head {
+  max-width: 820px;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.sb-story-flavour__title {
+  margin: 0 0 18px;
+  color: var(--sbx-white);
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  line-height: 1;
+}
+
+.sb-story-flavour__years {
+  margin: 0;
+  max-width: 36ch;
+  color: #ffe6f2;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.sb-story-flavour__stream {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+@media (min-width: 860px) {
+  .sb-story-flavour__stream {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(24px, 3.5vw, 48px);
+    align-items: start;
+  }
+}
+
+.sb-story-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Natural editorial food photography presentation — varied proportions, soft angles, zero blob cages */
+.sb-story-step__frame {
+  position: relative;
+  width: min(320px, 88vw);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(32, 4, 18, 0.28);
+  transition: transform 0.35s var(--sbx-spring);
+}
+
+.sb-story-step__frame--1 {
+  aspect-ratio: 4 / 5;
+  transform: rotate(-1.8deg);
+}
+
+.sb-story-step__frame--2 {
+  aspect-ratio: 16 / 11;
+  transform: rotate(1.4deg);
+  margin-top: 14px;
+}
+
+.sb-story-step__frame--3 {
+  aspect-ratio: 4 / 5;
+  transform: rotate(-1.2deg);
+}
+
+.sb-story-step:hover .sb-story-step__frame {
+  transform: scale(1.04) rotate(0deg);
+}
+
+.sb-story-step__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-story-step__text {
+  margin-top: 20px;
+  max-width: 28ch;
+}
+
+.sb-story-step__heading {
+  margin: 0 0 8px;
+  color: var(--sbx-lime);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.1;
+}
+
+.sb-story-step__desc {
+  margin: 0;
+  color: #fff0f7;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 3: THE DESI PALATE & ORIGINAL TONGUE ARTWORK (Deep Purple Canvas)
+   -------------------------------------------------------------------------- */
+.sb-story-tongue-wrap {
+  position: relative;
+  padding: clamp(56px, 8vw, 100px) 0 clamp(64px, 9vw, 110px);
+  background: var(--sbx-purple);
+  color: var(--sbx-white);
+  text-align: center;
+}
+
+.sb-story-tongue-wrap .sb-story-pill {
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+  box-shadow: 0 4px 14px rgba(216, 255, 0, 0.35);
+}
+
+.sb-story-tongue__intro {
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 5vw, 56px);
+}
+
+.sb-story-tongue__heading {
+  margin: 0 0 18px;
+  color: var(--sbx-white);
+  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+  line-height: 1;
+}
+
+.sb-story-tongue__lead {
+  margin: 0;
+  color: #f0e6ff;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.sb-story-tongue__feature {
+  margin: 0 auto;
+}
+
+.sb-story-blobs-wrap {
+  margin-top: clamp(24px, 4vw, 48px);
+}
+
+/* --------------------------------------------------------------------------
+   ACT 4: THE PROBLEM: SOUR AS A SIDE (Warm Cream Canvas)
+   -------------------------------------------------------------------------- */
+.sb-story-problem {
+  position: relative;
+  padding: clamp(56px, 8vw, 100px) 0 clamp(64px, 9vw, 110px);
+  background: #FAF7F2;
+  color: var(--sbx-purple);
+}
+
+.sb-story-problem .sb-story-pill {
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+}
+
+.sb-story-problem__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .sb-story-problem__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+}
+
+.sb-story-problem__heading {
+  margin: 0 0 16px;
+  color: var(--sbx-purple);
+  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+  line-height: 1;
+}
+
+.sb-story-problem__lead {
+  margin: 0 0 16px;
+  color: var(--sbx-pink);
+  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.sb-story-problem__sub {
+  margin: 0;
+  max-width: 40ch;
+  color: #432b68;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.sb-story-problem__droplets {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 40px);
+}
+
+.sb-story-droplet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Natural food visuals with organic breathing room — no rigid circles or blob cages */
+.sb-story-droplet__media {
+  width: clamp(140px, 20vw, 190px);
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+  transition: transform 0.3s var(--sbx-spring);
+}
+
+.sb-story-droplet:hover .sb-story-droplet__media {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.sb-story-droplet__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(76, 29, 149, 0.18));
+}
+
+.sb-story-droplet__label {
+  margin: 14px 0 0;
+  font-family: var(--sbx-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: var(--sbx-purple);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 5: INTRODUCING SOURBOO & TASTING MOMENTS (Vibrant Lime Canvas)
+   -------------------------------------------------------------------------- */
+.sb-story-manifesto-wrap {
+  position: relative;
+  padding: clamp(56px, 8vw, 100px) 0 clamp(64px, 9vw, 110px);
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+}
+
+.sb-story-manifesto__head {
+  max-width: 860px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.sb-story-manifesto__brandmark {
+  margin-bottom: 18px;
+}
+
+.sb-story-manifesto__logo {
+  height: clamp(40px, 6vw, 62px);
+  width: auto;
+  display: block;
+}
+
+.sb-story-manifesto__title {
+  margin: 0 0 20px;
+  color: var(--sbx-purple);
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  line-height: 1;
+}
+
+.sb-story-manifesto__statement {
+  margin: 0;
+  max-width: 42ch;
+  color: #3b166e;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.sb-story-manifesto__showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .sb-story-manifesto__showcase {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(36px, 5vw, 64px);
+  }
+}
+
+.sb-story-manifesto__hero-dish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Natural editorial hero food dish — crisp, clean, premium presentation */
+.sb-story-manifesto__dish-shape {
+  width: min(360px, 92vw);
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(76, 29, 149, 0.22);
+  transform: rotate(-1deg);
+  transition: transform 0.3s var(--sbx-spring);
+}
+
+.sb-story-manifesto__dish-shape:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+.sb-story-manifesto__dish-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-story-manifesto__dish-caption {
+  margin: 14px 0 0;
+  max-width: 28ch;
+  color: var(--sbx-purple);
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 6: CLOSING & SAKSHI'S INSTAGRAM REELS (Electric Pink Canvas)
+   -------------------------------------------------------------------------- */
+.sb-story-social-feed {
+  position: relative;
+  padding: clamp(56px, 8vw, 100px) 0 clamp(64px, 9vw, 110px);
+  background: var(--sbx-pink);
+  color: var(--sbx-white);
+}
+
+.sb-story-social-feed .sb-story-pill {
+  background: var(--sbx-purple);
+  color: var(--sbx-lime);
+}
+
+.sb-story-social__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+@media (min-width: 860px) {
+  .sb-story-social__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.sb-story-social__title {
+  margin: 0 0 10px;
+  color: var(--sbx-white);
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  line-height: 1;
+}
+
+.sb-story-social__hope {
+  margin: 0;
+  color: #ffe6f2;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 500;
+}
+
+.sb-story-social__kicker {
+  margin: 0 0 6px;
+  color: var(--sbx-lime);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sb-story-social__handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--sbx-lime);
+  text-decoration: none;
+  font-family: var(--sbx-display);
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.25s var(--sbx-spring), color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.sb-story-social__handle:hover {
+  transform: translateX(4px);
+  color: #f7ff9e;
+  text-shadow: 0 0 24px rgba(220, 255, 60, 0.45);
+}
+
+.sb-story-social__handle:focus-visible {
+  outline: 3px dashed var(--sbx-lime);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.sb-story-social__ig-icon {
+  flex-shrink: 0;
+}
+
+.sb-story-social__arrow {
+  display: inline-block;
+  font-size: 0.8em;
+  transition: transform 0.25s var(--sbx-spring);
+}
+
+.sb-story-social__handle:hover .sb-story-social__arrow {
+  transform: translate(4px, -4px);
+}
+
+/* Reels Grid & Cards (Pill stadium curvature, zero harsh boxes) */
+.sb-ab-reels__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sb-ab-reels__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sb-ab-reel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--sbx-purple);
+  text-decoration: none;
+  transition: transform 0.25s var(--sbx-spring);
+}
+
+.sb-ab-reel:hover {
+  transform: translateY(-4px);
+}
+
+.sb-ab-reel__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--sbx-purple);
+  box-shadow: 0 16px 40px rgba(40, 5, 22, 0.35);
+}
+
+.sb-ab-reel__frame img,
+.sb-ab-reel__frame video,
+.sb-ab-reel__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sb-ab-reel__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 8, 40, 0.25), rgba(20, 8, 40, 0.15) 40%, rgba(20, 8, 40, 0.5));
+}
+
+.sb-ab-reel__play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--sbx-white);
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+}
+
+.sb-ab-reel__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--sbx-white);
+  box-shadow: 0 10px 24px rgba(20, 8, 40, 0.28);
+  position: relative;
+  transition: transform 0.2s var(--sbx-spring), background-color 0.2s;
+}
+
+.sb-ab-reel__icon::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 18px;
+  border-style: solid;
+  border-width: 11px 0 11px 16px;
+  border-color: transparent transparent transparent var(--sbx-purple);
+}
+
+.sb-ab-reel:hover .sb-ab-reel__icon {
+  transform: scale(1.1);
+  background: var(--sbx-lime);
+}
+
+.sb-ab-reel__kicker {
+  color: var(--sbx-lime);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.sb-ab-reel__title {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.sb-story-social__cta {
+  margin-top: clamp(36px, 5vw, 60px);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sb-story-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  background: var(--sbx-lime);
+  color: var(--sbx-purple);
+  font-family: var(--sbx-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s var(--sbx-spring), background-color 0.2s, box-shadow 0.2s;
+}
+
+.sb-story-shop-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #f4ff85;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.sb-story-shop-btn:focus-visible {
+  outline: 3px dashed var(--sbx-white);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility & Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .sb-story-hero__blob-frame,
+  .sb-story-step__frame,
+  .sb-story-droplet__media,
+  .sb-story-manifesto__dish-shape,
+  .sb-ab-reel {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tongue and TopStrip Integrations (Zero Boxes)
+   -------------------------------------------------------------------------- */
+.sb-story-crave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.sb-story-split {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sb-story-crave__copy {
+  display: none;
+}
+
+.sb-story-crave__visual {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sb-story-crave__face {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(520px, 94vw);
+}
+
+/* --------------------------------------------------------------------------
+   EYES ANIMATION SEQUENCE (Restored Moving Eyes)
+   -------------------------------------------------------------------------- */
+.sb-eyes-sequence-container {
+  position: relative;
+  width: min(340px, 85vw);
+  height: clamp(80px, 14vw, 130px);
+}
+
+.sb-story-problem__eyes-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: clamp(20px, 3.5vw, 40px) auto clamp(24px, 4vw, 40px);
+}
+
+.sb-story-problem__eyes {
+  position: relative;
+  width: min(340px, 82vw);
+  height: clamp(80px, 14vw, 130px);
+}
+
+.sb-story-crave__eyes {
+  position: relative;
+  z-index: 2;
+  width: min(340px, 85vw);
+  height: clamp(80px, 14vw, 130px);
+  margin-bottom: -15px;
+  display: flex;
+  justify-content: center;
+}
+
+.sb-story-crave__eyes-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sb-story-crave__tongue {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sb-story-crave__art {
+  width: min(440px, 90vw);
+  height: auto;
+  display: block;
+  animation: sb-tongue-float 4s ease-in-out infinite;
+  transform-origin: center top;
+}
+
+@keyframes sb-tongue-float {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(10px) scaleY(1.03);
+  }
+}
+
+.sb-story .about-top-strip {
+  gap: clamp(14px, 2.5vw, 28px);
+}
+
+.sb-story .about-top-strip-item {
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(76, 29, 149, 0.2);
+}
+
+
+/* --------------------------------------------------------------------------
+   EDITORIAL NARRATIVE & SOUR MANIFESTO STYLES (No boxes, no cropped images)
+   -------------------------------------------------------------------------- */
+
+.sb-story-tagline {
+  font-family: var(--font-coolvetica), sans-serif;
+  color: var(--sbx-purple);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.sb-story-palate-bridge {
+  margin-top: clamp(48px, 7vw, 90px);
+  padding-top: clamp(32px, 5vw, 60px);
+  border-top: 2px dashed rgba(255, 255, 255, 0.35);
+  max-width: 820px;
+}
+
+.sb-story-palate-bridge__heading {
+  font-family: var(--font-coolvetica), sans-serif;
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  color: #ffffff;
+  margin: 0 0 16px;
+  line-height: 1.05;
+}
+
+.sb-story-palate-bridge__text {
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  line-height: 1.5;
+  color: #ffffff;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.sb-story-editorial-gallery {
+  margin-top: clamp(40px, 6vw, 70px);
+  width: 100%;
+}
+
+.sb-story-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: clamp(28px, 4vw, 44px);
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .sb-story-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sb-story-editorial-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 2.5vw, 36px);
+  }
+}
+
+.sb-story-editorial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sb-story-editorial-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.sb-story-editorial-item--1 {
+  transform: rotate(-1.5deg);
+}
+
+.sb-story-editorial-item--2 {
+  transform: rotate(1.2deg);
+  margin-top: clamp(0px, 3vw, 30px);
+}
+
+.sb-story-editorial-item--3 {
+  transform: rotate(-1.2deg);
+}
+
+.sb-story-editorial-item--dish {
+  transform: rotate(1.5deg);
+  margin-top: clamp(0px, 2.5vw, 24px);
+}
+
+.sb-story-editorial-frame {
+  width: 100%;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.16);
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.sb-story-editorial-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain; /* Complete original image, absolutely no cropping */
+}
+
+.sb-story-editorial-caption {
+  margin-top: 14px;
+  font-family: var(--font-schoolbell), cursive;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  color: var(--sbx-purple, #8b5cf6);
+  line-height: 1.25;
+  max-width: 24ch;
+}

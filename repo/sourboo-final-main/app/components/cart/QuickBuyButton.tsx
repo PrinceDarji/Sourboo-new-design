@@ -63,7 +63,7 @@ export default function QuickBuyButton({
       className={`${className} ${justAdded ? 'added' : ''}`}
       aria-label={`Add ${name} to bag`}
     >
-      {justAdded ? 'ADDED 🥒 ✓' : children || 'QUICK ADD +'}
+      {justAdded ? 'ADDED ✓' : children || 'QUICK ADD +'}
     </button>
   );
 }

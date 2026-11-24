@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Navbar from '../components/about/AboutNavbar';
-import HomepageFooter from '../components/home/HomepageFooter';
+import SiteFooter from '../components/SiteFooter';
 import QuickBuyButton from '../components/cart/QuickBuyButton';
 import FlavorMatcher from '../components/product/FlavorMatcher';
+import { CATALOG_PRODUCTS } from '@/src/lib/catalog/products';
+import '../sourboo-home.css';
 import '../sourboo-shop.css';
 import type { Metadata } from 'next';
 
@@ -29,271 +31,211 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductCatalogPage() {
-  const individualProducts = [
-    {
-      slug: 'sideeyesour',
-      name: 'SIDE EYE SOUR',
-      badge: 'CASE #001',
-      isBestseller: false,
-      descriptor: 'Lemon & Chaat Masala',
-      descriptorClass: '',
-      price: '₹399',
-      priceNumber: 399,
-      shippingNote: '+ ₹100 shipping per order',
-      summary:
-        'Properly khatta with street-style chaat masala obsession and crinkle-cut crunch. Perfect for loud cravings.',
-      primaryImage: '/product/catalog/side-eye.webp',
-      hoverImage: '/product/catalog/side-eye-lifestyle.webp',
-    },
-    {
-      slug: 'tamarintease',
-      name: 'TAMARIN’ TEASE',
-      badge: 'BEST SELLER',
-      isBestseller: true,
-      descriptor: 'Tamarind & Chilli',
-      descriptorClass: 'chilli',
-      price: '₹399',
-      priceNumber: 399,
-      shippingNote: '+ ₹100 shipping per order',
-      summary:
-        'Sweet-sour authentic imli hit with whole gherkin snap and a slow teasing chilli warmth that refuses to be ignored.',
-      primaryImage: '/product/catalog/tamarin-tease.webp',
-      hoverImage: '/product/catalog/tamarin-lifestyle.webp',
-    },
-  ];
+const FAQ_ITEMS = [
+  {
+    question: '1. what is it made of?',
+    answer: 'sourboo is made using sliced gherkins, flavoured for that sharp, mouth-watering hit.',
+  },
+  {
+    question: '2. is sourboo vegetarian?',
+    answer: 'yes!! 100% vegetarian',
+  },
+  {
+    question: '3. is this a pickle?',
+    answer: "nope not in the traditional sense. it's not meant to sit quietly next to your meal.",
+  },
+  {
+    question: '4. how do i eat it?',
+    answer: 'straight from the jar. no cooking needed. add it to chaat or snacks if you want but it holds its own.',
+  },
+  {
+    question: '5. how should i store it?',
+    answer: 'store in a cool, dry place and once opened, refrigerate and keep the lid closed properly.',
+  },
+];
 
-  const bundleProducts = [
-    {
-      slug: 'tamarind-twins',
-      name: 'TAMARIND TWINS',
-      badge: '2-JAR PACK',
-      isBestseller: false,
-      descriptor: '2 × TAMARIN’ TEASE (Tamarind & Chilli)',
-      price: '₹729',
-      priceNumber: 729,
-      shippingNote: '+ ₹100 shipping per order',
-      image: '/product/catalog/tamarind-twins.webp',
-      ctaText: 'QUICK ADD +',
-    },
-    {
-      slug: 'lemon-lovers',
-      name: 'LEMON LOVERS',
-      badge: '2-JAR PACK',
-      isBestseller: false,
-      descriptor: '2 × SIDE EYE SOUR (Lemon & Chaat Masala)',
-      price: '₹729',
-      priceNumber: 729,
-      shippingNote: '+ ₹100 shipping per order',
-      image: '/product/catalog/lemon-lovers.webp',
-      ctaText: 'QUICK ADD +',
-    },
-    {
-      slug: 'sour-sampler',
-      name: 'SOUR SAMPLER',
-      badge: 'BESTSELLER',
-      isBestseller: true,
-      descriptor:
-        '1 × SIDE EYE SOUR (Lemon & Chaat Masala) + 1 × TAMARIN’ TEASE (Tamarind & Chilli)',
-      price: '₹729',
-      priceNumber: 729,
-      shippingNote: '+ ₹100 shipping per order',
-      image: '/product/catalog/sour-sampler.webp',
-      ctaText: 'QUICK ADD +',
-    },
-    {
-      slug: 'sourboo-stash',
-      name: 'SOURBOO STASH',
-      badge: 'ULTIMATE 4-PACK',
-      isBestseller: false,
-      descriptor:
-        '2 × SIDE EYE SOUR (Lemon & Chaat Masala) + 2 × TAMARIN’ TEASE (Tamarind & Chilli)',
-      price: '₹1,299',
-      priceNumber: 1299,
-      shippingNote: '+ ₹100 shipping per order',
-      image: '/product/catalog/sourboo-stash.webp',
-      ctaText: 'CLAIM STASH +',
-    },
-  ];
+const SINGLE_SLUGS = new Set(['sideeyesour', 'tamarintease']);
+
+export default function ProductCatalogPage() {
+  const bundles = CATALOG_PRODUCTS.filter((product) => !SINGLE_SLUGS.has(product.slug));
 
   return (
-    <main className="sb-shop-page" aria-label="Sourboo Product Collection">
-      {/* Navigation */}
+    <main className="sbx-shop">
       <Navbar />
 
-      {/* Collection Hero Banner */}
-      <section className="sb-shop-hero-banner" aria-label="Catalog Title">
-        <div className="sb-shop-hero-pill sb-entry-stamp sb-delay-1">
-          *all sour, zero chill • cravings come first*
-        </div>
-        <h1 className="sb-shop-hero-title sb-entry-pop sb-delay-2">
-          Shop Sourboo pickled snackable gherkins and bundles
-        </h1>
-        <p className="sb-shop-hero-sub sb-entry-pop sb-delay-3">
-          Tangy, spicy, unapologetically crunchy. Handcrafted in small batches with
-          zero dead weight. Meet the gherkin that refuses to be a side dish.
-        </p>
-      </section>
+      <section className="sbx-shop__hero" aria-labelledby="sbx-shop-title">
+        <div className="sbx-shop__hero-inner">
+          {/* Left Column: Bold Typography & Product Discovery */}
+          <div className="sbx-shop__hero-copy">
+            <p className="sbx-shop__kicker">
+              <span>*all sour, zero chill • cravings come first*</span>
+            </p>
 
-      {/* Main Collection Container */}
-      <div className="sb-collection-section sb-entry-jar-drop sb-delay-4">
-        {/* Section 1: Individual Products */}
-        <div className="sb-collection-header">
-          <h2 className="sb-collection-heading">
-            Individual products
-          </h2>
-          <span className="sb-collection-tag">Single Jars // Net Wt: 370 ml</span>
-        </div>
-
-        <div className="sb-singles-grid">
-          {individualProducts.map((prod) => (
-            <div key={prod.slug} className="sb-product-card-large">
-              <span
-                className={`sb-card-badge ${prod.isBestseller ? 'bestseller' : ''}`}
-              >
-                {prod.badge}
+            <h1 id="sbx-shop-title" className="sbx-shop__title">
+              <span className="sbx-shop__title-lead">
+                SHOP SOURBOO
+                <svg
+                  className="sbx-shop__title-sparks"
+                  viewBox="0 0 54 60"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6L9 30" stroke="#f50a59" strokeWidth="5.5" strokeLinecap="round" />
+                  <path d="M48 16L23 38" stroke="#f50a59" strokeWidth="5.5" strokeLinecap="round" />
+                  <path d="M48 52L26 56" stroke="#f50a59" strokeWidth="5" strokeLinecap="round" />
+                </svg>
               </span>
+              <span className="sbx-shop__title-banner-wrap">
+                <span className="sbx-shop__title-banner">
+                  PICKLED SNACKABLE GHERKINS
+                </span>
+              </span>
+              <span className="sbx-shop__title-sub">&amp; BUNDLES</span>
+            </h1>
 
-              <Link
-                href={`/product/${prod.slug}`}
-                className="sb-card-image-box"
-                aria-label={`View ${prod.name}`}
-              >
+            <p className="sbx-shop__lede">
+              <strong>India’s First Cult Sour Snack.</strong> Snackable pickled gherkins made to be bold, made to be yours.
+            </p>
+
+            {/* Shopping & Product Discovery CTAs */}
+            <div className="sbx-shop__discovery-row">
+              <a href="#flavours" className="sbx-shop__disco-btn sbx-shop__disco-btn--duo">
+                <span className="sbx-shop__disco-label">EXPLORE FLAVOURS ↓</span>
+                <span className="sbx-shop__disco-tag">Single Jars • ₹399</span>
+              </a>
+              <a href="#bundles" className="sbx-shop__disco-btn sbx-shop__disco-btn--bundles">
+                <span className="sbx-shop__disco-label">CRUNCH BUNDLES ↓</span>
+                <span className="sbx-shop__disco-tag">Save up to ₹297</span>
+              </a>
+            </div>
+
+            {/* Food Trust Badges */}
+            <div className="sbx-shop__badges-row">
+              <span className="sbx-shop__badge sbx-shop__badge--veg">100% VEGETARIAN</span>
+              <span className="sbx-shop__badge sbx-shop__badge--brine">CRAFT FERMENTED BRINE</span>
+              <span className="sbx-shop__badge sbx-shop__badge--crunch">CRINKLE-CUT CRUNCH</span>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Stage with Real Jars & Ingredients */}
+          <div className="sbx-shop__hero-stage" aria-hidden="true">
+            <div className="sbx-shop__stage-glow" />
+            
+            <div className="sbx-shop__stage-jars">
+              <div className="sbx-shop__jar-card sbx-shop__jar-card--side-eye">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={prod.primaryImage}
-                  alt={prod.name}
-                  className="sb-card-img-primary"
+                  src="/product/catalog/side-eye.webp"
+                  alt="Side Eye Sour Jar"
+                  className="sbx-shop__stage-img"
+                  width={240}
+                  height={320}
                 />
+                <span className="sbx-shop__stage-flavour-badge sbx-shop__stage-flavour-badge--side-eye">
+                  SIDE EYE SOUR
+                </span>
+              </div>
+
+              <div className="sbx-shop__jar-card sbx-shop__jar-card--tamarin">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={prod.hoverImage}
-                  alt={`${prod.name} lifestyle`}
-                  className="sb-card-img-hover"
+                  src="/product/catalog/tamarin-tease.webp"
+                  alt="Tamarin' Tease Jar"
+                  className="sbx-shop__stage-img"
+                  width={240}
+                  height={320}
                 />
-              </Link>
-
-              <div className="sb-card-content">
-                <h3 className="sb-card-title">
-                  <Link href={`/product/${prod.slug}`}>{prod.name}</Link>
-                </h3>
-
-                <p className={`sb-card-descriptor ${prod.descriptorClass}`}>
-                  {prod.descriptor}
-                </p>
-
-                <p className="sb-card-summary">{prod.summary}</p>
-
-                <div className="sb-card-price-row">
-                  <span className="sb-card-price">{prod.price}</span>
-                  <span className="sb-card-shipping-pill">{prod.shippingNote}</span>
-                </div>
-
-                <div className="sb-card-btn-row">
-                  <Link href={`/product/${prod.slug}`} className="sb-btn-view">
-                    VIEW JAR →
-                  </Link>
-                  <QuickBuyButton
-                    slug={prod.slug}
-                    name={prod.name}
-                    priceLabel={prod.price}
-                    image={prod.primaryImage}
-                    className="sb-btn-quick-add"
-                  >
-                    QUICK ADD +
-                  </QuickBuyButton>
-                </div>
+                <span className="sbx-shop__stage-flavour-badge sbx-shop__stage-flavour-badge--tamarin">
+                  TAMARIN&apos; TEASE
+                </span>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Section 2: Bundles */}
-        <div className="sb-collection-header" style={{ marginTop: '30px' }}>
-          <h2 className="sb-collection-heading">
+            {/* Floating Food Elements */}
+            <div className="sbx-shop__stage-floats">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/ingredients/sliced-gherkin.png"
+                alt=""
+                className="sbx-shop__float sbx-shop__float--gherkin"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/ingredients/lemon-wedge.png"
+                alt=""
+                className="sbx-shop__float sbx-shop__float--lemon"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/ingredients/chaat-masala.png"
+                alt=""
+                className="sbx-shop__float sbx-shop__float--masala"
+              />
+              <div className="sbx-shop__stage-sticker font-coolvetica">
+                MOUTHS THAT MISBEHAVE
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FlavorMatcher />
+
+      <section className="sbx-shop__bundles" id="bundles" aria-labelledby="sbx-bundles-title">
+        <div className="sbx-shop__bundles-head">
+          <h2 id="sbx-bundles-title" className="sbx-shop__bundles-title">
             Bundles
           </h2>
-          <span className="sb-collection-tag">Multi-Packs // Save on Craving Fuel</span>
+          <p className="sbx-shop__bundles-note">+ ₹100 shipping per order</p>
         </div>
 
-        <div className="sb-bundles-grid">
-          {bundleProducts.map((bundle) => (
-            <div key={bundle.slug} className="sb-product-card-bundle">
-              <span
-                className={`sb-card-badge ${bundle.isBestseller ? 'bestseller' : ''}`}
-              >
-                {bundle.badge}
-              </span>
-
-              <Link
-                href={`/product/${bundle.slug}`}
-                className="sb-bundle-image-box"
-                aria-label={`View ${bundle.name}`}
-              >
+        <div className="sbx-shop__bundle-track" role="list">
+          {bundles.map((bundle) => (
+            <article key={bundle.slug} className="sbx-shop__bundle" role="listitem">
+              <Link href={`/product/${bundle.slug}`} className="sbx-shop__bundle-img" aria-label={`View ${bundle.name}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={bundle.image}
-                  alt={bundle.name}
-                  className="sb-bundle-img"
-                />
+                <img src={bundle.jarImage} alt="" />
               </Link>
-
-              <h3 className="sb-bundle-title">
+              <h3 className="sbx-shop__bundle-name">
                 <Link href={`/product/${bundle.slug}`}>{bundle.name}</Link>
               </h3>
-
-              <p className="sb-bundle-descriptor">{bundle.descriptor}</p>
-
-              <div className="sb-bundle-price-row">
-                <span className="sb-bundle-price">{bundle.price}</span>
-                <span className="sb-bundle-shipping-pill">{bundle.shippingNote}</span>
-              </div>
-
-              <div className="sb-bundle-btn-row">
-                <Link href={`/product/${bundle.slug}`} className="sb-btn-view">
+              <p className="sbx-shop__bundle-desc">{bundle.hoverLabel.split('\n').join(' + ')}</p>
+              <p className="sbx-shop__bundle-price">{bundle.price}</p>
+              <div className="sbx-shop__bundle-actions">
+                <Link href={`/product/${bundle.slug}`} className="sbx-text-link">
                   DETAILS →
                 </Link>
                 <QuickBuyButton
                   slug={bundle.slug}
                   name={bundle.name}
                   priceLabel={bundle.price}
-                  image={bundle.image}
-                  className="sb-btn-quick-add"
+                  image={bundle.jarImage}
+                  className="sbx-duo__add sbx-duo__add--both"
                 >
-                  {bundle.ctaText}
+                  {bundle.slug === 'sourboo-stash' ? 'CLAIM STASH +' : 'QUICK ADD +'}
                 </QuickBuyButton>
               </div>
-            </div>
+            </article>
           ))}
-        </div>
-      </div>
-
-      {/* Flavour Matcher Interactive Section */}
-      <FlavorMatcher />
-
-      {/* Trust & Reviews Ribbon */}
-      <section className="sb-shop-reviews-ribbon" aria-label="Customer Reviews Ticker">
-        <div className="sb-shop-ribbon-track">
-          <span>&ldquo;SO ADDICTIVE!&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;THE BRINE IS LIQUID GOLD&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;PERFECT COCKTAIL GARNISH&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;ZERO GUILT SNACKING&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;UNAPOLOGETICALLY CRUNCHY&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;BEST PICKLES IN INDIA&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;SO ADDICTIVE!&rdquo;</span>
-          <span>★</span>
-          <span>&ldquo;THE BRINE IS LIQUID GOLD&rdquo;</span>
         </div>
       </section>
 
-      {/* Brand Footer */}
-      <HomepageFooter />
+            <section className="sbx-shop__faq" aria-labelledby="sbx-faq-title">
+        <h2 id="sbx-faq-title" className="sbx-shop__faq-title">
+          get your <span className="sbx-layer" data-tone="lemon"><span className="sbx-layer__hand" aria-hidden="true">FAQs</span><span className="sbx-layer__top">FAQs</span></span> of what you put in ur mouth
+        </h2>
+        <div className="sbx-shop__faq-list">
+          {FAQ_ITEMS.map((item) => (
+            <details key={item.question} className="sbx-shop__faq-item">
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <SiteFooter />
     </main>
   );
 }

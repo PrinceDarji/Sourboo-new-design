@@ -50,10 +50,6 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
     openCart();
   };
 
-  const words = product.name.split(' ');
-  const firstWord = words[0];
-  const restWords = words.slice(1).join(' ');
-
   const gallery = product.galleryImages && product.galleryImages.length > 0
     ? product.galleryImages
     : [product.jarImage];
@@ -61,118 +57,151 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
   return (
     <section className="sb-pdp-section" aria-label="Product Details">
       <div className="sb-pdp-grid">
-        {/* Gallery Column */}
+        {/* Gallery Column: Product Jar as Primary Visual Focus */}
         <div className="sb-pdp-gallery-col sb-entry-jar-drop sb-delay-1">
-          <div className="sb-pdp-gallery-main">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              id="PdpMainImage"
-              src={activeImage}
-              alt={product.name}
-              width={600}
-              height={600}
-              style={{ width: '100%', height: 'auto', maxHeight: '520px', objectFit: 'contain' }}
-            />
+          <div className="sb-pdp-stage">
+            {/* Visual Backplate */}
+            <div className="sb-pdp-stage-bg" />
+
+            {/* Floating Ingredient & Flavor Tags */}
+            <div className="sb-pdp-stage-floats" aria-hidden="true">
+              {product.slug === 'sideeyesour' ? (
+                <>
+                  <div className="sb-pdp-tag sb-pdp-tag--top">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/lemon-wedge.png" alt="" width={32} height={32} />
+                    <span>Real Lemon</span>
+                  </div>
+                  <div className="sb-pdp-tag sb-pdp-tag--left">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/chaat-masala.png" alt="" width={30} height={30} />
+                    <span>Chaat Masala</span>
+                  </div>
+                  <div className="sb-pdp-tag sb-pdp-tag--bottom">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/sliced-gherkin.png" alt="" width={28} height={28} />
+                    <span>Crinkle Crunch</span>
+                  </div>
+                </>
+              ) : product.slug === 'tamarintease' ? (
+                <>
+                  <div className="sb-pdp-tag sb-pdp-tag--top">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/tamarind-pod.png" alt="" width={36} height={36} />
+                    <span>Tamarind Pulp</span>
+                  </div>
+                  <div className="sb-pdp-tag sb-pdp-tag--left">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/red-chilli.png" alt="" width={24} height={24} />
+                    <span>Fiery Chilli</span>
+                  </div>
+                  <div className="sb-pdp-tag sb-pdp-tag--bottom">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/home/ingredients/whole-gherkin.png" alt="" width={28} height={28} />
+                    <span>Whole Gherkin</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="sb-pdp-tag sb-pdp-tag--top">
+                    <span>Bundle Drop</span>
+                  </div>
+                  <div className="sb-pdp-tag sb-pdp-tag--bottom">
+                    <span>Max Value</span>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Main Jar Visual */}
+            <div className="sb-pdp-gallery-main">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                id="PdpMainImage"
+                src={activeImage}
+                alt={product.name}
+                width={600}
+                height={600}
+                className="sb-pdp-main-jar"
+              />
+            </div>
           </div>
-          <div className="sb-pdp-thumbs">
-            {gallery.map((img, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveImage(img)}
-                className={`sb-pdp-thumb ${activeImage === img ? 'active' : ''}`}
-                aria-label={`Thumbnail ${i + 1}`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img} alt={`${product.name} preview ${i + 1}`} />
-              </button>
-            ))}
-          </div>
+
+          {/* Thumbnails Carousel / Selector */}
+          {gallery.length > 1 && (
+            <div className="sb-pdp-thumbs" role="tablist" aria-label="Product thumbnails">
+              {gallery.map((img, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveImage(img)}
+                  className={`sb-pdp-thumb ${activeImage === img ? 'active' : ''}`}
+                  aria-label={`Thumbnail ${i + 1}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img} alt={`${product.name} preview ${i + 1}`} />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Info Column */}
+        {/* Info Column: Clear Product Name, Flavor, Price, CTA */}
         <div className="sb-pdp-info-col">
-          <h1 className="sb-pdp-title">
-            <span className="font-coolvetica text-pickle">{firstWord} </span>
-            <span className="font-rascal text-pink">{restWords}</span>
-          </h1>
-          <p className="sb-pdp-price font-coolvetica">{selectedVariant.priceLabel}</p>
-          <p
-            className="font-schoolbell"
-            style={{
-              fontSize: '1.45rem',
-              lineHeight: 1.25,
-              color: 'var(--sb-text-charcoal)',
-              margin: '0 0 20px',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            {product.hoverLabel}
-          </p>
+          {/* Eyebrow & Badges */}
+          <div className="sb-pdp-kicker">
+            <span className="sb-pdp-kicker-pill font-coolvetica">★ INDIA&apos;S FIRST CULT SOUR SNACK</span>
+            <span className="sb-pdp-kicker-tag font-coolvetica">
+              {product.jarCount > 1 ? `${product.jarCount} JARS PACK` : '350G CRUNCH JAR'}
+            </span>
+          </div>
 
-          <div
-            style={{
-              background: 'rgba(255, 255, 136, 0.55)',
-              borderLeft: '4px solid var(--sb-green-moss, #4A6318)',
-              padding: '12px 16px',
-              borderRadius: '8px',
-              marginBottom: '20px',
-            }}
-          >
-            <p
-              className="font-coolvetica"
-              style={{ fontSize: '1.15rem', color: 'var(--sb-green-dark)', margin: 0 }}
-            >
-              ★ {product.detailDispatchNote}
+          {/* Product Title */}
+          <h1 className="sb-pdp-title font-coolvetica">
+            {product.name}
+          </h1>
+
+          {/* Price & Value Row */}
+          <div className="sb-pdp-price-row">
+            <span className="sb-pdp-price font-coolvetica">{selectedVariant.priceLabel}</span>
+            <span className="sb-pdp-tax-note font-coolvetica">(incl. all taxes)</span>
+            {selectedVariant.save && (
+              <span className="sb-pdp-save-badge font-coolvetica">{selectedVariant.save}</span>
+            )}
+          </div>
+
+          {/* Flavour Description Card */}
+          <div className="sb-pdp-flavour-box">
+            <div className="sb-pdp-flavour-badge font-coolvetica">FLAVOUR PROFILE</div>
+            <p className="sb-pdp-flavour-text font-coolvetica">
+              {product.hoverLabel}
             </p>
+          </div>
+
+          {/* Dispatch Notice */}
+          <div className="sb-pdp-dispatch-card font-coolvetica">
+            <span className="sb-pdp-dispatch-icon">★</span>
+            <span className="sb-pdp-dispatch-text">{product.detailDispatchNote}</span>
           </div>
 
           {/* Variant Selector */}
           {variants.length > 1 && (
-            <div className="sb-pdp-variants-wrap" style={{ marginBottom: '22px' }}>
-              <label
-                className="font-coolvetica"
-                style={{
-                  display: 'block',
-                  fontSize: '1.05rem',
-                  fontWeight: 700,
-                  color: 'var(--sb-green-dark, #163300)',
-                  marginBottom: '8px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.04em',
-                }}
-              >
-                Pack Size / Bundle:
+            <div className="sb-pdp-variants-wrap">
+              <label className="sb-pdp-variants-label font-coolvetica">
+                SELECT PACK SIZE:
               </label>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <div className="sb-pdp-variants-grid">
                 {variants.map((v) => (
                   <button
                     key={v.id}
                     type="button"
                     onClick={() => setSelectedVariant(v)}
-                    style={{
-                      padding: '10px 16px',
-                      borderRadius: '14px',
-                      border: selectedVariant.id === v.id
-                        ? '2.5px solid #E81B6D'
-                        : '2px solid #163300',
-                      background: selectedVariant.id === v.id ? '#FFEBF3' : '#FFFFFF',
-                      color: selectedVariant.id === v.id ? '#E81B6D' : '#163300',
-                      cursor: 'pointer',
-                      fontFamily: 'Coolvetica, sans-serif',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      boxShadow: selectedVariant.id === v.id
-                        ? '3px 3px 0px #E81B6D'
-                        : '2px 2px 0px #163300',
-                      transition: 'all 0.15s ease',
-                      textAlign: 'center',
-                    }}
+                    className={`sb-pdp-variant-btn font-coolvetica ${selectedVariant.id === v.id ? 'is-selected' : ''}`}
                   >
-                    <div>{v.name}</div>
-                    <div style={{ fontSize: '0.9rem', opacity: 0.9 }}>
+                    <span className="sb-pdp-variant-name">{v.name}</span>
+                    <span className="sb-pdp-variant-price">
                       {v.priceLabel} {v.save ? `• ${v.save}` : ''}
-                    </div>
+                    </span>
                   </button>
                 ))}
               </div>
@@ -181,7 +210,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
           {/* Quantity and Add to Cart Row */}
           <div className="sb-pdp-qty-row">
-            <div className="sb-qty-picker">
+            <div className="sb-qty-picker" aria-label="Quantity picker">
               <button
                 type="button"
                 id="PdpQtyDec"
@@ -189,7 +218,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 className="sb-qty-btn"
                 aria-label="Decrease quantity"
               >
-                -
+                −
               </button>
               <input
                 type="text"
@@ -209,23 +238,30 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 +
               </button>
             </div>
+
             <button
               type="button"
               onClick={handleAddToCart}
               className="sb-pdp-add-cta sb-add-to-cart-trigger font-coolvetica"
+              id="PdpAddToCartBtn"
             >
-              Add to Cart →
+              <span>ADD TO CART</span>
+              <span className="sb-pdp-cta-divider">•</span>
+              <span>{selectedVariant.priceLabel}</span>
+              <span className="sb-pdp-cta-arrow">→</span>
             </button>
           </div>
 
-          {/* 3 Handwritten Folder Tabs */}
+          {/* Information Folder Tabs */}
           <div className="sb-pdp-tabs-wrap">
-            <div className="sb-tab-buttons-row">
+            <div className="sb-tab-buttons-row" role="tablist">
               <button
                 type="button"
                 id="TabInTheJar"
                 onClick={() => setActiveTab('jar')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'jar' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'jar' ? 'active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'jar'}
               >
                 {product.detailInJarTitle}
               </button>
@@ -233,7 +269,9 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabOnTheTongue"
                 onClick={() => setActiveTab('tongue')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'tongue' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'tongue' ? 'active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'tongue'}
               >
                 {product.detailOnTongueTitle}
               </button>
@@ -241,7 +279,9 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
                 type="button"
                 id="TabAfterOpening"
                 onClick={() => setActiveTab('storage')}
-                className={`sb-tab-btn font-schoolbell ${activeTab === 'storage' ? 'active' : ''}`}
+                className={`sb-tab-btn font-coolvetica ${activeTab === 'storage' ? 'active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'storage'}
               >
                 {product.detailAfterOpeningTitle}
               </button>
@@ -249,35 +289,22 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
             {activeTab === 'jar' && (
               <div id="TabInJar" className="sb-tab-panel active font-coolvetica">
-                <h3
-                  className="font-coolvetica text-pickle"
-                  style={{ fontSize: '1.4rem', margin: '0 0 10px' }}
-                >
+                <h3 className="sb-tab-title font-coolvetica">
                   {product.name}
                 </h3>
-                <p style={{ margin: '0 0 12px', fontSize: '1.15rem' }}>
-                  <strong>Quantity:</strong> 350 grams (Snackable pickled gherkins)
+                <p className="sb-tab-line">
+                  <strong>Quantity:</strong> {product.jarCount > 1 ? `${product.jarCount} × 350g Jars` : '350 grams (Snackable pickled gherkins)'}
                 </p>
-                <p style={{ margin: '0', fontSize: '1.1rem', lineHeight: '1.4' }}>
+                <div className="sb-tab-ingredients">
                   <strong>Ingredients:</strong>
-                  <br />
-                  {product.detailInJarIngredients}
-                </p>
+                  <p>{product.detailInJarIngredients}</p>
+                </div>
               </div>
             )}
 
             {activeTab === 'tongue' && (
               <div id="TabOnTongue" className="sb-tab-panel active">
-                <p
-                  className="font-schoolbell"
-                  style={{
-                    margin: 0,
-                    fontSize: '1.35rem',
-                    lineHeight: '1.35',
-                    whiteSpace: 'pre-line',
-                    color: 'var(--sb-green-dark)',
-                  }}
-                >
+                <p className="sb-tab-body font-coolvetica">
                   {product.detailOnTongueBody}
                 </p>
               </div>
@@ -285,16 +312,7 @@ export default function PdpInteractiveSection({ product }: { product: CatalogPro
 
             {activeTab === 'storage' && (
               <div id="TabAfterOpening" className="sb-tab-panel active">
-                <p
-                  className="font-schoolbell"
-                  style={{
-                    margin: 0,
-                    fontSize: '1.35rem',
-                    lineHeight: '1.35',
-                    whiteSpace: 'pre-line',
-                    color: 'var(--sb-green-dark)',
-                  }}
-                >
+                <p className="sb-tab-body font-coolvetica">
                   {product.detailAfterOpeningBody}
                 </p>
               </div>

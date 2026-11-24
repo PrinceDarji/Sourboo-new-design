@@ -1,12 +1,13 @@
-import { rascal, coolvetica, schoolbell } from "./fonts";
+import { rascal, coolvetica, satoshi, schoolbell } from "./fonts";
 import "./globals.css";
 import "./sourboo.css";
 import "./sourboo-redesign.css";
 import "./sourboo-homepage.css";
 import "./sourboo-animations.css";
+import "./sourboo-site.css";
 import CartRoot from './components/cart/CartRoot';
 import SectionScrollReveal from './components/SectionScrollReveal';
-import BrandPageTransition from './components/BrandPageTransition';
+import { FRIDGE_DECISION_SCRIPT } from './components/site/fridgeConfig';
 import PersonalityPopupModal from './components/popup/PersonalityPopupModal';
 import { siteUrl } from '@/src/lib/siteUrl';
 import type { Metadata } from "next";
@@ -49,9 +50,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${rascal.variable} ${coolvetica.variable} ${schoolbell.variable}`}
+      className={`${rascal.variable} ${coolvetica.variable} ${satoshi.variable} ${schoolbell.variable}`}
+      suppressHydrationWarning
     >
-      <body className="sb-concept-a-body font-rascal">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: FRIDGE_DECISION_SCRIPT }} />
+      </head>
+      <body className="sb-concept-a-body font-satoshi">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
@@ -84,7 +89,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `}
           </Script>
         )}
-        <BrandPageTransition />
         <SectionScrollReveal />
         <CartRoot>
           <PersonalityPopupModal />
